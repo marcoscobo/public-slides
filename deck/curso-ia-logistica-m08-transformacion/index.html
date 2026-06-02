@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M08 — Liderando la Transformación Logística con IA</title>
+  <meta name="description" content="Módulo 8 del curso de IA para logística. Cómo identificar oportunidades, calcular ROI, seleccionar proveedores, implantar proyectos y gestionar el cambio organizativo." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/css/aurora.css" />
+  <script defer src="../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — COVER -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 08 · CURSO IA LOGÍSTICA · 2026</span>
+        <h1 class="display-xl">
+          Liderando la<br>
+          <span class="text-aurora">Transformación</span><br>
+          Logística con IA.
+        </h1>
+        <p class="lead">De la identificación de oportunidades al despliegue en producción: el manual del responsable que quiere resultados reales, no experimentos eternos.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA para Logística</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 8 de 10 · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — AGENDA -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>AGENDA DEL MÓDULO</span>
+        <h2 class="h1">Ocho bloques para <span class="text-aurora">liderar el cambio</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div><h3 class="h3">Identificar oportunidades</h3><p>Framework de evaluación y matriz impacto/esfuerzo.</p></div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div><h3 class="h3">ROI demostrable</h3><p>Metodología de cálculo con ejemplos reales y números.</p></div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div><h3 class="h3">Selección de proveedores</h3><p>Criterios, RFI/RFP y due diligence técnico.</p></div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div><h3 class="h3">Implantación y gestión del cambio</h3><p>MVP, iteración, comunicación y liderazgo.</p></div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div><h3 class="h3">Marco legal, datos y roadmap</h3><p>GDPR, EU AI Act, gobierno del dato y fases de adopción.</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 03 — SECTION: Identificar oportunidades -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 01</span>
+        <h2 class="display-l text-aurora">Identificar<br>oportunidades</h2>
+        <p class="lead">No todas las ineficiencias son problemas de IA. El primer paso es saber distinguirlas.</p>
+        <div class="shape shape--circle-sm" style="top: 65%; left: 75%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 04 — Framework de evaluación -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>FRAMEWORK DE EVALUACIÓN</span>
+        <h2 class="h1">El filtro de los <span class="text-aurora">cinco criterios</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Antes de lanzar cualquier iniciativa de IA, cada oportunidad debe pasar cinco filtros. Si falla en dos o más, no es momento o no es el problema correcto.</p>
+            <ul class="check-list check-list--plus" style="margin-top: 24px;">
+              <li><strong>Datos disponibles</strong> — volumen, calidad, accesibilidad.</li>
+              <li><strong>Patrón repetitivo</strong> — la tarea ocurre cientos de veces por semana.</li>
+              <li><strong>Coste del error definido</strong> — sabemos cuánto cuesta equivocarse.</li>
+              <li><strong>Proceso documentado</strong> — hay reglas explícitas aunque sean complejas.</li>
+              <li><strong>Impacto medible</strong> — existe un KPI que cambiará si funciona.</li>
+            </ul>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/7B4DFF?text=5+Criterios" alt="Diagrama de los cinco criterios de evaluación de oportunidades IA" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — Matriz impacto/esfuerzo -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>PRIORIZACIÓN</span>
+        <h2 class="h1">Matriz <span class="text-aurora">impacto / esfuerzo</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--accent reveal" data-delay="1">
+            <span class="col-label">ALTO IMPACTO · BAJO ESFUERZO</span>
+            <h3 class="h2">Quick Wins — Empieza aquí</h3>
+            <ul class="check-list check-list--plus">
+              <li>Clasificación automática de incidencias</li>
+              <li>Predicción de demanda a corto plazo</li>
+              <li>OCR en albaranes y facturas</li>
+              <li>Alertas de rotura de stock</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--muted reveal" data-delay="2">
+            <span class="col-label">ALTO IMPACTO · ALTO ESFUERZO</span>
+            <h3 class="h2">Proyectos Estratégicos</h3>
+            <ul class="check-list check-list--plus">
+              <li>Optimización de rutas con restricciones dinámicas</li>
+              <li>Mantenimiento predictivo de flota</li>
+              <li>Gemelo digital del almacén</li>
+              <li>Control de calidad por visión artificial</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — SECTION: ROI -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 02</span>
+        <h2 class="display-l text-aurora">ROI<br>demostrable</h2>
+        <p class="lead">Sin números concretos no hay presupuesto. Sin presupuesto no hay proyecto.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 20%;" data-parallax="0.35"></div>
+      </section>
+
+      <!-- 07 — Metodología ROI -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>METODOLOGÍA ROI</span>
+        <h2 class="h1">El ROI de IA en <span class="text-aurora">cuatro pasos</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div><h3 class="h3">Coste de la situación actual</h3><p>Horas·persona + errores + penalizaciones + coste de oportunidad. Todo en euros anuales.</p></div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div><h3 class="h3">Mejora esperada por la IA</h3><p>Benchmarks del sector: 20-40% de mejora en productividad, 15-30% menos errores. Usar el rango conservador.</p></div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div><h3 class="h3">Coste total del proyecto</h3><p>Licencias + integración + formación + mantenimiento. Incluir coste interno de tiempo dedicado.</p></div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div><h3 class="h3">Payback period</h3><p>Inversión total / ahorro mensual. Objetivo: recuperar la inversión en menos de 18 meses.</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 08 — Stat ROI real -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>CASO REAL · OPERADOR LOGÍSTICO IBÉRICO</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="340" data-suffix="K€">0K€</span>
+          <p class="stat-label">de ahorro anual en clasificación de incidencias con IA conversacional.</p>
+        </div>
+        <p class="stat-context">Inversión total del proyecto: 85.000 €. Payback a los 3 meses. 12 operadores reasignados a tareas de mayor valor. Tasa de error reducida del 18% al 2,3% en 90 días.</p>
+      </section>
+
+      <!-- 09 — Benchmarks del sector -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>BENCHMARKS DEL SECTOR</span>
+        <h2 class="h1">Números reales en <span class="text-aurora">logística española</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--accent reveal" data-delay="1">
+            <span class="col-label">PREDICCIÓN DE DEMANDA</span>
+            <h3 class="h2">−22% stock inmovilizado</h3>
+            <ul class="check-list check-list--plus">
+              <li>ROI medio: 280% a 24 meses</li>
+              <li>Payback típico: 8-14 meses</li>
+              <li>Reducción de roturas: 35%</li>
+              <li>KPI clave: MAPE &lt; 8%</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">OPTIMIZACIÓN DE RUTAS</span>
+            <h3 class="h2">−18% coste por entrega</h3>
+            <ul class="check-list check-list--plus">
+              <li>ROI medio: 420% a 24 meses</li>
+              <li>Payback típico: 6-10 meses</li>
+              <li>Reducción km recorridos: 12-25%</li>
+              <li>KPI clave: OTD rate &gt; 97%</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 — SECTION: Selección de proveedores -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 03</span>
+        <h2 class="display-l text-aurora">Selección de<br>proveedores</h2>
+        <p class="lead">El proveedor equivocado puede hundirte. El proceso de selección es tan importante como la tecnología.</p>
+        <div class="shape shape--arc" style="top: 15%; right: 10%;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 11 — Due diligence -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>DUE DILIGENCE</span>
+        <h2 class="h1">Diez criterios de <span class="text-aurora">evaluación técnica</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div><h3 class="h3">Explainability</h3><p>¿Puede el modelo explicar por qué tomó cada decisión? Obligatorio en logística regulada.</p></div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div><h3 class="h3">Latencia y SLA</h3><p>Tiempo de respuesta en producción. Penalizaciones contractuales por downtime.</p></div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div><h3 class="h3">Portabilidad de datos</h3><p>¿Puedo exportar mis datos y modelos si cambio de proveedor? Cláusula de salida.</p></div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div><h3 class="h3">Integraciones certificadas</h3><p>Conectores con tu TMS, WMS y ERP sin desarrollo custom costoso.</p></div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div><h3 class="h3">Roadmap y estabilidad</h3><p>Financiación, clientes de referencia en tu sector, antigüedad del producto.</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 12 — RFI/RFP en 90 días -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>PROCESO DE COMPRA</span>
+        <h2 class="h1">De RFI a contrato en <span class="text-aurora">90 días</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Un proceso estructurado evita decisiones por entusiasmo o por el proveedor más insistente. Cuatro etapas con criterios objetivos en cada una.</p>
+            <ul class="check-list check-list--plus" style="margin-top: 24px;">
+              <li><strong>Semanas 1-2: RFI</strong> — Longlist de 8-12 proveedores. Cuestionario estándar de capacidades y referencias.</li>
+              <li><strong>Semanas 3-4: Shortlist</strong> — Scoring objetivo. Seleccionar 3-4 finalistas.</li>
+              <li><strong>Semanas 5-8: RFP + PoC</strong> — Propuesta técnica y económica. Prueba de concepto con tus datos reales.</li>
+              <li><strong>Semanas 9-12: Negociación</strong> — SLA, precios, condiciones de salida, protección de datos.</li>
+            </ul>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/00D4FF?text=RFI+%E2%86%92+RFP+%E2%86%92+PoC" alt="Proceso de selección de proveedores de IA en 90 días" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 13 — SECTION: Implantación -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 04</span>
+        <h2 class="display-l text-aurora">Implantar<br>proyectos de IA</h2>
+        <p class="lead">La tecnología es el 30% del problema. El 70% es proceso, personas y datos.</p>
+        <div class="shape shape--circle-sm" style="top: 70%; left: 15%;" data-parallax="0.45"></div>
+      </section>
+
+      <!-- 14 — Metodología MVP -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>METODOLOGÍA MVP</span>
+        <h2 class="h1">De cero a producción en <span class="text-aurora">cuatro sprints</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">S1</span>
+            <h3 class="h3">Discovery</h3>
+            <p>Mapeo del proceso actual, inventario de datos disponibles y definición de criterio de éxito cuantificado.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">S2</span>
+            <h3 class="h3">Baseline</h3>
+            <p>Modelo más simple posible (reglas o ML básico). Mide contra el baseline humano actual.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">S3</span>
+            <h3 class="h3">Piloto</h3>
+            <p>Despliega en producción con un subconjunto real (10-20% del volumen). Monitoriza y corrige.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">S4</span>
+            <h3 class="h3">Escala</h3>
+            <p>Si el piloto supera el umbral de éxito, expande al 100%. Automatiza el reentrenamiento.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 15 — SECTION: Gestión del cambio -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 05</span>
+        <h2 class="display-l text-aurora">Gestión del<br>cambio</h2>
+        <p class="lead">La resistencia al cambio es predecible. También lo es cómo superarla.</p>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 16 — Las tres fases de la resistencia -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>PSICOLOGÍA DEL CAMBIO</span>
+        <h2 class="h1">Las tres fases de la <span class="text-aurora">resistencia</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">La curva de Kübler-Ross aplicada a la adopción tecnológica es predecible. El líder que la conoce puede acelerar el proceso y reducir la deserción.</p>
+            <ul class="check-list check-list--plus" style="margin-top: 24px;">
+              <li><strong>Negación</strong> — "Esto no funcionará aquí". Respuesta: involucra al escéptico en el diseño del piloto. Convierte al crítico en embajador.</li>
+              <li><strong>Miedo</strong> — "Me van a sustituir". Respuesta: comunicar explícitamente qué cambia en cada rol. Nadie es prescindible por adoptar IA.</li>
+              <li><strong>Apropiación</strong> — "Esto lo diseñé yo". La meta: el equipo siente la herramienta como suya.</li>
+            </ul>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/FFB627?text=Curva+de+Cambio" alt="Curva de cambio y resistencia en adopción de IA" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 17 — Plan de capacitación -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>FORMACIÓN Y COMUNICACIÓN</span>
+        <h2 class="h1">El plan de <span class="text-aurora">capacitación</span> que funciona</h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div><h3 class="h3">Segmenta la audiencia</h3><p>Operarios: 4h de uso práctico. Mandos: 8h de interpretación de resultados. Directivos: 2h de toma de decisiones basada en KPIs de IA.</p></div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div><h3 class="h3">Forma primero a los campeones</h3><p>Identifica a 2-3 personas influyentes en cada área. Fórmalos antes del lanzamiento. Serán tu red de soporte interno.</p></div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div><h3 class="h3">Comunicación antes, durante y después</h3><p>Antes: qué va a cambiar y por qué. Durante: primeros resultados y ajustes. Después: victorias visibles y lecciones aprendidas.</p></div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div><h3 class="h3">Celebra las victorias temprano</h3><p>El primer mes, comparte los resultados del piloto con toda la organización. Los números reales son el mejor argumento.</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 18 — Quote -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">En logística, la IA no sustituye al profesional. Elimina el trabajo <span class="text-aurora">que le impide</span> hacer el trabajo importante.</p>
+          <div class="quote-attribution">
+            <strong>Principio de adopción responsable de IA</strong>
+            <span>Curso IA para Logística · Módulo 8</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 19 — SECTION: Marco legal -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 06</span>
+        <h2 class="display-l text-aurora">Marco legal<br>y privacidad</h2>
+        <p class="lead">GDPR, EU AI Act y datos personales en logística. Lo que no puedes ignorar.</p>
+        <div class="shape shape--arc" style="bottom: 20%; right: 15%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 20 — GDPR + EU AI Act -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>REGULACIÓN EUROPEA</span>
+        <h2 class="h1">GDPR y EU AI Act en <span class="text-aurora">logística</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">GDPR — DATOS PERSONALES</span>
+            <h3 class="h2">Qué aplica en logística</h3>
+            <ul class="check-list check-list--plus">
+              <li>Datos de conductores y repartidores (telemetría, jornadas)</li>
+              <li>Scoring o perfilado de empleados por IA</li>
+              <li>Datos de clientes en sistemas de predicción</li>
+              <li>Retención máxima definida por base legal</li>
+              <li>DPA firmado con cada proveedor de IA</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">EU AI ACT — EN VIGOR 2025-2026</span>
+            <h3 class="h2">Clasificación de riesgo</h3>
+            <ul class="check-list check-list--plus">
+              <li><strong>Alto riesgo:</strong> IA que afecte condiciones laborales de trabajadores</li>
+              <li><strong>Alto riesgo:</strong> sistemas de monitorización de comportamiento</li>
+              <li><strong>Riesgo limitado:</strong> chatbots y asistentes de atención al cliente</li>
+              <li>Registro obligatorio en base de datos EU para sistemas alto riesgo</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 21 — SECTION: Gobierno del dato -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 07</span>
+        <h2 class="display-l text-aurora">Gobierno<br>del dato</h2>
+        <p class="lead">Sin datos de calidad no hay IA de calidad. El gobierno del dato no es un proyecto TI, es una decisión estratégica.</p>
+        <div class="shape shape--circle-sm" style="top: 20%; right: 20%;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 22 — Los cinco pilares del gobierno del dato -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>DATA GOVERNANCE FRAMEWORK</span>
+        <h2 class="h1">Los cinco pilares del <span class="text-aurora">gobierno del dato</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div><h3 class="h3">Data Ownership</h3><p>Cada dominio de dato tiene un propietario con nombre y apellidos. No "el equipo de TI": una persona responsable de la calidad.</p></div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div><h3 class="h3">Calidad del dato</h3><p>Métricas de completitud, exactitud, consistencia y frescura. Dashboard en tiempo real con alertas automáticas.</p></div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div><h3 class="h3">Master Data Management</h3><p>Una sola fuente de verdad para SKUs, clientes, vehículos, almacenes. Eliminar silos antes de entrenar modelos.</p></div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div><h3 class="h3">Catálogo de datos</h3><p>Inventario de qué existe, dónde vive, quién puede usarlo y con qué restricciones legales.</p></div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div><h3 class="h3">Data lineage</h3><p>Trazabilidad de cada dato desde su origen hasta el modelo. Imprescindible para auditorías y para depurar errores de predicción.</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 23 — SECTION: Roadmap -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>BLOQUE 08</span>
+        <h2 class="display-l text-aurora">Roadmap<br>de adopción</h2>
+        <p class="lead">Doce a veinticuatro meses para pasar de curiosidad a ventaja competitiva sostenible.</p>
+        <div class="shape shape--circle" data-parallax="0.35"></div>
+        <div class="shape shape--arc" style="bottom: 25%; left: 10%;" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 24 — Roadmap 4 fases -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>ROADMAP 12-24 MESES</span>
+        <h2 class="h1">Cuatro fases de <span class="text-aurora">adopción real</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">M1-3</span>
+            <h3 class="h3">Exploración</h3>
+            <p>Auditoría de datos, identificación de 3-5 casos de uso, formación del equipo core, selección del primer proveedor.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">M4-9</span>
+            <h3 class="h3">Piloto</h3>
+            <p>MVP del caso de uso de mayor ROI. Medición rigurosa, gestión del cambio activa, ajuste del modelo con datos reales.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">M10-18</span>
+            <h3 class="h3">Escala</h3>
+            <p>Expansión del piloto exitoso al 100%. Lanzamiento de segundo caso de uso. Inicio del programa de gobierno del dato.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">M19-24</span>
+            <h3 class="h3">Optimización</h3>
+            <p>Portafolio de 4-6 casos en producción. IA integrada en procesos de negocio. Centro de excelencia interno establecido.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 25 — Stat: ventaja competitiva -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>VENTAJA COMPETITIVA</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="73" data-suffix="%">0%</span>
+          <p class="stat-label">de las empresas logísticas que completan la fase de escala en 18 meses superan a sus competidores en coste por envío.</p>
+        </div>
+        <p class="stat-context">Fuente: McKinsey Operations Practice 2025. Muestra de 340 operadores logísticos europeos con más de 50M€ de facturación. La ventaja se mantiene si el programa de mejora continua no se abandona al año.</p>
+      </section>
+
+      <!-- 26 — Resumen ejecutivo -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>RESUMEN EJECUTIVO</span>
+        <h2 class="h1">Seis decisiones que <span class="text-aurora">marcan la diferencia</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div><h3 class="h3">Empieza por los datos, no por la IA</h3><p>Un modelo mediocre con datos excelentes supera a un modelo excelente con datos mediocres.</p></div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div><h3 class="h3">Define el éxito antes de empezar</h3><p>Si no tienes un KPI claro, no sabrás si el proyecto ha funcionado. Y tampoco lo sabrá nadie más.</p></div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div><h3 class="h3">El cambio es un proyecto paralelo</h3><p>Asigna el mismo presupuesto a gestión del cambio que a tecnología. No es un lujo, es un multiplicador.</p></div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div><h3 class="h3">Cumplimiento legal desde el día uno</h3><p>Retroadaptar GDPR y EU AI Act a un proyecto en producción es diez veces más caro que diseñarlo bien desde el principio.</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 27 — CLOSING -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 08</span>
+        <h2 class="display-l">
+          La ventaja está en<br>
+          <span class="text-aurora">quien actúa primero.</span>
+        </h2>
+        <p class="lead">El Módulo 9 aborda el despliegue técnico en producción: MLOps, monitorización de modelos y arquitectura de datos para logística a escala.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../curso-ia-logistica-m09-mlops/index.html">Módulo 9 &rarr;</a>
+          <a class="btn btn--ghost" href="../../index.html">Volver al índice</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" style="top: 20%; right: 8%;" data-parallax="0.25"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

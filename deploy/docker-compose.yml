@@ -1,0 +1,48 @@
+services:
+  slides-git-sync:
+    image: alpine/git
+    container_name: slides-git-sync
+    restart: always
+    networks:
+      codelab:
+    environment:
+      - TZ=Europe/Madrid
+      - REPO_URL=https://github.com/marcoscobo/public-slides.git
+      - BRANCH=main
+      - POLL_INTERVAL=60
+    volumes:
+      - slides-repo:/repo
+      - ./git-sync.sh:/git-sync.sh:ro
+    entrypoint: ["sh", "/git-sync.sh"]
+    healthcheck:
+      test: ["CMD", "test", "-d", "/repo/.git"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+  slides-apache:
+    image: httpd:2.4
+    container_name: slides-apache
+    restart: always
+    networks:
+      codelab:
+    environment:
+      - TZ=Europe/Madrid
+    ports:
+      - "8080:80"
+    volumes:
+      - slides-repo:/usr/local/apache2/htdocs:ro
+    command: >
+      sh -c "echo 'ServerName slides.marcoscobo.com' >> /usr/local/apache2/conf/httpd.conf
+      && httpd-foreground"
+    depends_on:
+      slides-git-sync:
+        condition: service_healthy
+
+volumes:
+  slides-repo:
+
+networks:
+  codelab:
+    external: true

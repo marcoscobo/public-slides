@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 3 — Automatización sin programar · Curso IA para Logística</title>
+  <meta name="description" content="Cómo automatizar procesos logísticos complejos con n8n, sin escribir código: correos, pedidos, integraciones ERP-WMS-TMS y agentes autónomos." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/css/aurora.css" />
+  <script defer src="../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — COVER -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 03 · CURSO IA LOGÍSTICA · 2026</span>
+        <h1 class="display-xl">
+          Automatización<br>
+          <span class="text-aurora">sin programar</span>.
+        </h1>
+        <p class="lead">Flujos inteligentes con n8n para logística: desde correos automáticos hasta agentes autónomos que gestionan pedidos sin intervención humana.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA para Logística</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 3 · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — SECTION: n8n -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
+        <h2 class="display-l text-aurora">n8n</h2>
+        <p class="lead">La plataforma de automatización que pone el poder del código en manos de cualquiera.</p>
+        <div class="shape shape--circle-sm" style="top: 65%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 03 — CONTENT: Qué es n8n -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>QUÉ ES N8N</span>
+        <h2 class="h1">Automatización visual, <span class="text-aurora">código opcional</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">n8n es una plataforma de automatización de flujos de trabajo <em>open-source</em> y self-hosteable. Permite conectar aplicaciones, APIs y bases de datos mediante un editor visual de nodos, sin necesidad de escribir código.</p>
+            <p>Cada flujo es un conjunto de <strong>nodos</strong> enlazados: un nodo dispara el flujo (trigger), el resto lo procesan. Los datos viajan como JSON entre nodos, y cada uno puede filtrar, transformar o enrutar el flujo según lógica condicional.</p>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/7B4DFF?text=n8n+Canvas" alt="Editor de flujos de n8n con nodos conectados" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — BULLETS: Arquitectura y nodos principales -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>ARQUITECTURA</span>
+        <h2 class="h1">Los nodos que <span class="text-aurora">mueven tu logística</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Trigger nodes</h3>
+              <p>Webhook, Schedule, Email, Form. Arrancan el flujo cuando ocurre un evento externo o en un horario definido.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Action nodes</h3>
+              <p>HTTP Request, Send Email, Google Sheets, Slack, WhatsApp. Ejecutan una acción sobre un sistema externo.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Logic nodes</h3>
+              <p>IF, Switch, Merge, Loop, Wait. Controlan el flujo según condiciones, ramifican y agregan datos.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Transform nodes</h3>
+              <p>Set, Function, Code, JSON Parse. Modifican, enriquecen o filtran los datos en tránsito.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 05 — SPLIT: n8n vs Zapier/Make -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>COMPARATIVA</span>
+        <h2 class="h1">Zapier / Make vs <span class="text-aurora">n8n</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">ZAPIER / MAKE</span>
+            <h3 class="h2">Nube cerrada</h3>
+            <ul class="check-list check-list--minus">
+              <li>Precio por operación, escala caro</li>
+              <li>Datos en servidores de terceros</li>
+              <li>Lógica avanzada limitada o de pago</li>
+              <li>Sin acceso al código subyacente</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">N8N</span>
+            <h3 class="h2">Open-source, tu servidor</h3>
+            <ul class="check-list check-list--plus">
+              <li>Self-hosted: datos bajo tu control</li>
+              <li>Sin límite de ejecuciones en self-host</li>
+              <li>Nodo Code para lógica arbitraria</li>
+              <li>+400 integraciones nativas</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — SECTION: Correos -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
+        <h2 class="display-l text-aurora">Correos automáticos</h2>
+        <p class="lead">Alertas de stock, confirmaciones de pedido y notificaciones de entrega que se envían solos.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 68%;" data-parallax="0.35"></div>
+      </section>
+
+      <!-- 07 — BULLETS: Casos logísticos de correo -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>CASOS DE USO · CORREO</span>
+        <h2 class="h1">Tres alertas que <span class="text-aurora">nunca deben perderse</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Alerta de stock bajo</h3>
+              <p>n8n consulta el WMS cada hora. Si un SKU cae por debajo del mínimo, envía email al comprador y crea una orden de reposición en el ERP automáticamente.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Confirmación de pedido</h3>
+              <p>Al registrar un nuevo pedido en el ERP, el flujo genera un email personalizado con número de pedido, artículos, fecha estimada de entrega y enlace de seguimiento.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Notificación de entrega</h3>
+              <p>Webhook del TMS dispara el flujo al cambiar el estado del envío. El cliente recibe un SMS y un email con el código de seguimiento en tiempo real.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 08 — CODE: Flujo de alerta de stock -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>EJEMPLO · ALERTA DE STOCK</span>
+        <h2 class="h2">Flujo de alerta en <span class="text-aurora">6 nodos</span></h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-comment">// Nodo 1: Schedule Trigger (cada hora)</span>
+<span class="cm-key">cronExpression</span>: <span class="cm-str">"0 * * * *"</span>
+
+<span class="cm-comment">// Nodo 2: HTTP Request → WMS API</span>
+<span class="cm-key">GET</span> <span class="cm-str">/api/stock?threshold=minStock</span>
+
+<span class="cm-comment">// Nodo 3: IF → stock &lt; minimum</span>
+<span class="cm-fn">{{ $json.quantity }}</span> &lt; <span class="cm-fn">{{ $json.minStock }}</span>
+
+<span class="cm-comment">// Nodo 4: Send Email → comprador</span>
+<span class="cm-key">subject</span>: <span class="cm-str">"Stock bajo: {{ $json.sku }}"</span>
+
+<span class="cm-comment">// Nodo 5: HTTP Request → ERP (crear orden)</span>
+<span class="cm-key">POST</span> <span class="cm-str">/api/purchase-orders</span></code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Sin código real.</strong> Cada paso es un nodo visual; el pseudocódigo muestra la lógica del flujo.</p>
+            <p><strong>Condicional.</strong> El nodo IF evita envíos innecesarios cuando el stock está bien.</p>
+            <p><strong>Doble acción.</strong> Un solo flujo notifica Y actúa en el ERP.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 09 — SECTION: Procesamiento de pedidos -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
+        <h2 class="display-l text-aurora">Procesamiento de pedidos</h2>
+        <p class="lead">Del canal de venta al almacén, sin que nadie tenga que copiar y pegar datos a mano.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 71%;" data-parallax="0.38"></div>
+      </section>
+
+      <!-- 10 — TIMELINE: Flujo recepción → confirmación -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>FLUJO DE PEDIDO AUTOMÁTICO</span>
+        <h2 class="h1">De la recepción a la <span class="text-aurora">confirmación</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">01</span>
+            <h3 class="h3">Recepción</h3>
+            <p>Webhook del canal de venta (web, marketplace, EDI) dispara el flujo con los datos del pedido en JSON.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">02</span>
+            <h3 class="h3">Validación</h3>
+            <p>n8n comprueba stock disponible en el WMS, verifica datos del cliente y detecta duplicados antes de proceder.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">03</span>
+            <h3 class="h3">Registro en ERP</h3>
+            <p>El pedido se crea automáticamente en el ERP con todos los campos mapeados. Sin intervención del equipo de back-office.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">04</span>
+            <h3 class="h3">Confirmación</h3>
+            <p>Email personalizado al cliente, notificación interna en Slack al equipo de almacén y actualización del CRM. Todo en segundos.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 11 — STAT: impacto en procesamiento -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>IMPACTO MEDIDO</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="94" data-suffix="%">0%</span>
+          <p class="stat-label">de reducción en el tiempo de procesamiento de pedidos al automatizar el flujo completo.</p>
+        </div>
+        <p class="stat-context">De una media de 4 horas en procesamiento manual a menos de 15 minutos en producción, incluyendo validación, registro en ERP y notificación al cliente.</p>
+      </section>
+
+      <!-- 12 — SECTION: Integraciones ERP-WMS-TMS -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 04</span>
+        <h2 class="display-l text-aurora">ERP · WMS · TMS</h2>
+        <p class="lead">Cómo conectar los tres sistemas que vertebran cualquier operación logística moderna.</p>
+        <div class="shape shape--circle-sm" style="top: 58%; left: 70%;" data-parallax="0.42"></div>
+      </section>
+
+      <!-- 13 — CONTENT: Arquitectura de integración -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ARQUITECTURA DE INTEGRACIÓN</span>
+        <h2 class="h1">n8n como <span class="text-aurora">capa de orquestación</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">En lugar de integraciones punto a punto (n sistemas = n² conexiones), n8n actúa como hub central. Cada sistema habla con n8n, y n8n decide qué datos enviar a quién y cuándo.</p>
+            <p>Los mecanismos de conexión son: <strong>API REST</strong> (la mayoría de ERP/WMS modernos), <strong>Webhooks</strong> (notificaciones push en tiempo real) y <strong>bases de datos directas</strong> (PostgreSQL, MySQL) cuando no hay API disponible.</p>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/00D4FF?text=ERP+%E2%86%94+n8n+%E2%86%94+WMS" alt="Diagrama de n8n como hub entre ERP, WMS y TMS" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 — BULLETS: Integraciones reales y técnicas -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>TÉCNICAS DE INTEGRACIÓN</span>
+        <h2 class="h1">Cuatro formas de <span class="text-aurora">conectar sistemas</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">API REST + autenticación OAuth</h3>
+              <p>SAP, Sage, Odoo, Holded. n8n gestiona los tokens automáticamente y reintenta en caso de error de red.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Webhooks bidireccionales</h3>
+              <p>El TMS avisa a n8n cuando cambia el estado de un envío. n8n avisa al ERP para actualizar el pedido. Latencia menor de 5 segundos.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Consulta directa a base de datos</h3>
+              <p>Para sistemas legacy sin API, el nodo Postgres/MySQL de n8n consulta directamente las tablas del WMS y transforma los datos al vuelo.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Ficheros EDI / CSV automatizados</h3>
+              <p>n8n monitoriza una carpeta SFTP o un bucket S3, procesa los ficheros EDI al llegar y los inyecta en el ERP sin intervención manual.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 15 — SPLIT: Antes vs después de la integración -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>ANTES Y DESPUÉS</span>
+        <h2 class="h1">Silos de datos vs <span class="text-aurora">ecosistema conectado</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">SIN INTEGRACIÓN</span>
+            <h3 class="h2">Operativa manual</h3>
+            <ul class="check-list check-list--minus">
+              <li>Rekeying entre ERP, WMS y TMS</li>
+              <li>Errores de transcripción frecuentes</li>
+              <li>Visibilidad de stock con 24h de retraso</li>
+              <li>Trazabilidad del envío solo en el TMS</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">CON N8N</span>
+            <h3 class="h2">Ecosistema sincronizado</h3>
+            <ul class="check-list check-list--plus">
+              <li>Datos propagados en segundos entre sistemas</li>
+              <li>Cero rekeying manual</li>
+              <li>Stock en tiempo real en todos los canales</li>
+              <li>Trazabilidad end-to-end visible desde el ERP</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 — SECTION: Agentes logísticos -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 05</span>
+        <h2 class="display-l text-aurora">Agentes autónomos</h2>
+        <p class="lead">El siguiente nivel: sistemas que no solo automatizan, sino que razonan y toman decisiones.</p>
+        <div class="shape shape--circle-sm" style="top: 63%; left: 69%;" data-parallax="0.36"></div>
+      </section>
+
+      <!-- 17 — CONTENT: Qué es un agente logístico -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEFINICIÓN · AGENTE LOGÍSTICO</span>
+        <h2 class="h1">Más allá de <span class="text-aurora">si-entonces</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Un agente logístico autónomo es un sistema de IA que percibe el estado de la operación, razona sobre qué acción tomar y la ejecuta, repitiendo el ciclo sin intervención humana.</p>
+            <p>En n8n, se construye combinando el nodo <strong>AI Agent</strong> (con un LLM como cerebro) con herramientas: consultar el WMS, crear órdenes en el ERP, contactar proveedores o escalar incidencias al equipo según la gravedad.</p>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/FFB627?text=Percibir+%E2%86%92+Razonar+%E2%86%92+Actuar" alt="Ciclo percibir, razonar y actuar de un agente autónomo" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 — BULLETS: Casos de uso de agentes -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>CASOS DE USO AVANZADOS</span>
+        <h2 class="h1">Lo que un agente puede <span class="text-aurora">gestionar solo</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Gestión de incidencias de entrega</h3>
+              <p>El agente detecta un paquete retenido, consulta el TMS, evalúa el SLA, contacta al cliente y reasigna el envío a un transportista alternativo si es necesario.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Reposición predictiva de stock</h3>
+              <p>Analiza histórico de ventas, estacionalidad y lead times de proveedores para calcular el punto de reorden óptimo y lanzar la orden de compra de forma autónoma.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Optimización dinámica de rutas</h3>
+              <p>Cada mañana, el agente consulta pedidos del día, agrupa por zona, llama a la API del TMS y genera las rutas optimizadas para el equipo de reparto.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Atención a clientes sobre pedidos</h3>
+              <p>Chatbot con acceso a ERP y TMS que responde en tiempo real: estado del envío, cambio de dirección, cancelaciones y generación de devoluciones.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 19 — QUOTE -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">La automatización no elimina el trabajo humano, lo <span class="text-aurora">eleva</span>. Las personas se ocupan de lo que requiere criterio; las máquinas, de lo que requiere velocidad.</p>
+          <div class="quote-attribution">
+            <strong>Principio de diseño</strong>
+            <span>Curso IA para Logística · 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 20 — STAT: escala de agentes -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>CAPACIDAD DE ESCALA</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="24" data-suffix="/7">0/7</span>
+          <p class="stat-label">Un agente logístico trabaja sin parar, sin fatiga y sin errores de turno.</p>
+        </div>
+        <p class="stat-context">Mientras el equipo humano gestiona excepciones y mejora los procesos, el agente procesa miles de pedidos, alertas e incidencias en paralelo durante las 24 horas del día.</p>
+      </section>
+
+      <!-- 21 — TIMELINE: Hoja de ruta de implementación -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>HOJA DE RUTA</span>
+        <h2 class="h1">Cómo implementarlo <span class="text-aurora">paso a paso</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">S1</span>
+            <h3 class="h3">Instalar n8n</h3>
+            <p>Self-hosted en Docker en menos de 15 minutos. Acceso desde el navegador, sin instalar nada más en tu equipo.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">S2</span>
+            <h3 class="h3">Primer flujo de correos</h3>
+            <p>Elegir un caso sencillo (alerta de stock o confirmación de pedido) y automatizarlo. Validar resultados con el equipo.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">S3</span>
+            <h3 class="h3">Conectar ERP/WMS</h3>
+            <p>Documentar las APIs disponibles, obtener credenciales y construir el flujo de sincronización bidireccional.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">S4</span>
+            <h3 class="h3">Primer agente autónomo</h3>
+            <p>Añadir el nodo AI Agent sobre los flujos ya probados. Definir herramientas disponibles y límites de actuación autónoma.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 22 — CLOSING -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 03</span>
+        <h2 class="display-l"><span class="text-aurora">Automatiza.</span></h2>
+        <p class="lead">n8n, flujos conectados y agentes autónomos son la base de una operación logística que escala sin añadir headcount. El siguiente módulo: IA aplicada a la previsión de demanda.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="mailto:info@cursoia-logistica.es">Contactar</a>
+          <a class="btn btn--ghost" href="../curso-ia-logistica-m04/index.html">Módulo 4 &rarr;</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

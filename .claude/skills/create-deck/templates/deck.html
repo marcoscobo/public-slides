@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!--
+    Ruta del CSS/JS: ajustar según dónde se sirve la deck por Apache.
+    Si el VirtualHost tiene /assets como alias compartido, usar rutas absolutas:
+      <link rel="stylesheet" href="/assets/css/aurora.css" />
+      <script defer src="/assets/js/deck.js"></script>
+    Si la deck vive en /decks/<slug>/index.html y comparte el árbol del proyecto:
+      <link rel="stylesheet" href="../../assets/css/aurora.css" />
+      <script defer src="../../assets/js/deck.js"></script>
+  -->
+  <link rel="stylesheet" href="../../assets/css/aurora.css" />
+  <script defer src="../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      {{SLIDES}}
+
+    </div>
+  </main>
+</body>
+</html>

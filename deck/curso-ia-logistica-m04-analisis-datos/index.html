@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 4 — Análisis de Datos Logísticos con IA</title>
+  <meta name="description" content="KPIs logísticos, OTIF, Fill Rate, Inventory Turnover, Lead Time, Power BI con IA y Excel Copilot." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/css/aurora.css" />
+  <script defer src="../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- SLIDE 1: COVER -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 04 · CURSO IA LOGÍSTICA</span>
+        <h1 class="display-xl">
+          Análisis de datos<br>
+          <span class="text-aurora">logísticos con IA</span>
+        </h1>
+        <p class="lead">KPIs, métricas operacionales y herramientas de inteligencia de negocio para convertir datos en decisiones.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA para Logística</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 4 de 8</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- SLIDE 2: SECTION — El reto del dato logístico -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 01</span>
+        <h2 class="display-l text-aurora">El reto del dato logístico</h2>
+        <p class="lead">Por qué las empresas nadan en datos pero mueren de sed de información.</p>
+        <div class="shape shape--arc" data-parallax="0.4"></div>
+      </section>
+
+      <!-- SLIDE 3: STAT — 87% datos no analizados -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>LA REALIDAD HOY</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="87" data-suffix="%">0%</span>
+          <p class="stat-label">de los datos logísticos generados nunca son analizados.</p>
+        </div>
+        <p class="stat-context">Fuente: Gartner 2024. Las empresas registran millones de eventos diarios en TMS, WMS y ERP, pero menos del 15% se convierten en insights accionables.</p>
+      </section>
+
+      <!-- SLIDE 4: CONTENT — Fuentes de datos logísticos -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ECOSISTEMA DE DATOS</span>
+        <h2 class="h1">Dónde viven los datos <span class="text-aurora">logísticos</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Una empresa logística genera datos en al menos 6 sistemas distintos que rara vez hablan entre sí.</p>
+            <ul class="check-list check-list--plus">
+              <li><strong>TMS</strong> — Rutas, transportistas, costes por envío, ETA</li>
+              <li><strong>WMS</strong> — Ubicaciones, movimientos, tiempos de picking</li>
+              <li><strong>ERP</strong> — Pedidos, facturas, proveedores, stocks</li>
+              <li><strong>IoT / RFID</strong> — Temperatura, localización, peso, alertas</li>
+              <li><strong>Carrier APIs</strong> — Track &amp; trace, incidencias, PODs</li>
+              <li><strong>Excel / CSV</strong> — El "sistema" más usado de todos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: SECTION — KPIs logísticos -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 02</span>
+        <h2 class="display-l text-aurora">KPIs logísticos</h2>
+        <p class="lead">El mapa completo de métricas para medir, comparar y mejorar.</p>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+      </section>
+
+      <!-- SLIDE 6: BULLETS — Mapa de KPIs por área -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>TAXONOMÍA</span>
+        <h2 class="h1">KPIs por área <span class="text-aurora">logística</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1"><span class="bullet-num">01</span><div><h3 class="h3">Servicio al cliente</h3><p>OTIF, Fill Rate, Perfect Order Rate, CSAT, NPS logístico, tiempo de respuesta a reclamaciones.</p></div></li>
+          <li class="reveal" data-delay="2"><span class="bullet-num">02</span><div><h3 class="h3">Transporte y distribución</h3><p>Coste por envío, ocupación de vehículo, puntualidad de entrega, fuel cost/km, CO₂ por tonelada·km.</p></div></li>
+          <li class="reveal" data-delay="3"><span class="bullet-num">03</span><div><h3 class="h3">Almacén y operaciones</h3><p>Productividad de picking (líneas/hora), precisión de inventario, Fill Rate por ubicación, coste por unidad almacenada.</p></div></li>
+          <li class="reveal" data-delay="4"><span class="bullet-num">04</span><div><h3 class="h3">Inventario y aprovisionamiento</h3><p>Inventory Turnover, días de stock, cobertura, roturas de stock, exceso de inventario, Lead Time de proveedores.</p></div></li>
+        </ul>
+      </section>
+
+      <!-- SLIDE 7: SECTION — OTIF -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 03</span>
+        <h2 class="display-l text-aurora">OTIF</h2>
+        <p class="lead">On Time In Full — el rey de los KPIs logísticos.</p>
+        <div class="shape shape--arc" data-parallax="0.4"></div>
+      </section>
+
+      <!-- SLIDE 8: CONTENT — OTIF explicado -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEFINICIÓN Y FÓRMULA</span>
+        <h2 class="h1">OTIF: <span class="text-aurora">¿qué mide exactamente?</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">OTIF = % de pedidos entregados <strong>en el momento acordado</strong> Y <strong>con la cantidad completa</strong> sin defectos.</p>
+            <p><strong>Fórmula:</strong> OTIF = (Pedidos On Time ∩ In Full) / Total Pedidos × 100</p>
+            <p><strong>Benchmarks sectoriales:</strong></p>
+            <ul class="check-list check-list--plus">
+              <li>Retail / Gran distribución: objetivo &gt;95%</li>
+              <li>Automoción (Just-in-Time): objetivo &gt;98%</li>
+              <li>Gran consumo / FMCG: objetivo &gt;96%</li>
+              <li>E-commerce B2C: objetivo &gt;92%</li>
+            </ul>
+            <p><strong>Walmart exige</strong> un mínimo del 98,5% a sus proveedores con penalización del 3% sobre la factura por cada punto por debajo.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: SPLIT — OTIF manual vs IA -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>MEJORA CON IA</span>
+        <h2 class="h1">OTIF: manual vs <span class="text-aurora">con IA</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted">
+            <span class="col-label">SIN IA</span>
+            <h3 class="h2">Análisis reactivo</h3>
+            <ul class="check-list check-list--minus">
+              <li>Se detectan incidencias cuando ya han ocurrido</li>
+              <li>Informes semanales o mensuales en Excel</li>
+              <li>Causas raíz investigadas manualmente</li>
+              <li>Tiempo de respuesta: días o semanas</li>
+              <li>Sin visibilidad predictiva</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent">
+            <span class="col-label">CON IA</span>
+            <h3 class="h2">Análisis predictivo</h3>
+            <ul class="check-list check-list--plus">
+              <li>Alertas en tiempo real cuando el OTIF se deteriora</li>
+              <li>Dashboard actualizado cada hora</li>
+              <li>IA identifica causas raíz automáticamente</li>
+              <li>Tiempo de respuesta: minutos</li>
+              <li>Predicción de OTIF para los próximos 7 días</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 10: SECTION — Fill Rate -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 04</span>
+        <h2 class="display-l text-aurora">Fill Rate</h2>
+        <p class="lead">Medir cuánto de lo que pide el cliente realmente se le entrega.</p>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+      </section>
+
+      <!-- SLIDE 11: BULLETS — Tipos de Fill Rate -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>TIPOLOGÍA</span>
+        <h2 class="h1">Los tres niveles del <span class="text-aurora">Fill Rate</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1"><span class="bullet-num">01</span><div><h3 class="h3">Fill Rate por línea (Line Fill Rate)</h3><p>% de líneas de pedido servidas completamente. Fórmula: Líneas completadas / Total líneas solicitadas × 100. Benchmark: &gt;97% en gran consumo.</p></div></li>
+          <li class="reveal" data-delay="2"><span class="bullet-num">02</span><div><h3 class="h3">Fill Rate por pedido (Order Fill Rate)</h3><p>% de pedidos servidos al 100% sin ninguna línea faltante. Más exigente que el anterior. Benchmark: &gt;93% en retail.</p></div></li>
+          <li class="reveal" data-delay="3"><span class="bullet-num">03</span><div><h3 class="h3">Fill Rate por unidades (Unit Fill Rate)</h3><p>% de unidades entregadas sobre las solicitadas. Fórmula: Unidades entregadas / Unidades solicitadas × 100. Ideal para FMCG con alta variabilidad de volumen.</p></div></li>
+          <li class="reveal" data-delay="4"><span class="bullet-num">04</span><div><h3 class="h3">Impacto en cliente y facturación</h3><p>Un Fill Rate del 95% significa perder el 5% de ventas potenciales. Con 10M€ de ventas = 500.000€ de ingresos no capturados + coste de imagen y posible pérdida del cliente.</p></div></li>
+        </ul>
+      </section>
+
+      <!-- SLIDE 12: SECTION — Inventory Turnover -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 05</span>
+        <h2 class="display-l text-aurora">Inventory Turnover</h2>
+        <p class="lead">Cuántas veces renueva tu stock en un período: la clave de la eficiencia del capital.</p>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- SLIDE 13: CONTENT — Inventory Turnover -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>FÓRMULA Y BENCHMARKS</span>
+        <h2 class="h1">Inventory Turnover: <span class="text-aurora">el pulso del inventario</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead"><strong>Fórmula:</strong> IT = Coste de bienes vendidos (COGS) / Inventario medio</p>
+            <p>También expresado en días: <strong>DIO = 365 / Inventory Turnover</strong></p>
+            <p><strong>Benchmarks por sector:</strong></p>
+            <ul class="check-list check-list--plus">
+              <li>Alimentación / FMCG: 12-25x (15-30 días de stock)</li>
+              <li>Electrónica de consumo: 6-10x (36-60 días)</li>
+              <li>Moda / Retail textil: 4-6x (60-90 días)</li>
+              <li>Automoción (recambios): 3-5x (73-120 días)</li>
+              <li>Maquinaria industrial: 2-4x (90-180 días)</li>
+            </ul>
+            <p><strong>Zara / Inditex</strong> opera con un IT de 6-8x en moda, el doble del sector. Su secreto: reposición cada 2 semanas en lugar de colecciones estacionales.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 14: STAT — Impacto del IT -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>IMPACTO FINANCIERO</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="30" data-suffix="%">0%</span>
+          <p class="stat-label">de reducción en capital inmovilizado al mejorar el IT de 4x a 6x.</p>
+        </div>
+        <p class="stat-context">Para una empresa con 5M€ en inventario medio, mejorar el IT supone liberar ~1,5M€ de capital que puede reinvertirse en crecimiento. Fuente: McKinsey Supply Chain 2024.</p>
+      </section>
+
+      <!-- SLIDE 15: SECTION — Lead Time -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 06</span>
+        <h2 class="display-l text-aurora">Lead Time</h2>
+        <p class="lead">El tiempo es dinero: descomponiendo y reduciendo el Lead Time con IA.</p>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+      </section>
+
+      <!-- SLIDE 16: TIMELINE — Componentes del Lead Time -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>ANATOMÍA DEL LEAD TIME</span>
+        <h2 class="h1">Los <span class="text-aurora">5 componentes</span> del Lead Time</h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">01</span>
+            <h3 class="h3">Lead Time de proveedor</h3>
+            <p>Desde el pedido al proveedor hasta la recepción en almacén. Incluye fabricación + transporte internacional.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">02</span>
+            <h3 class="h3">Lead Time de recepción</h3>
+            <p>Descarga, inspección de calidad, etiquetado y ubicación en almacén. Muy variable según OTIF del proveedor.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">03</span>
+            <h3 class="h3">Lead Time de procesamiento</h3>
+            <p>Recepción de pedido del cliente, validación, picking, packing y preparación para expedición.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">04</span>
+            <h3 class="h3">Lead Time de expedición</h3>
+            <p>Desde que el bulto sale del almacén hasta entrega final al cliente. Depende de transportista y zona.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="5">
+            <span class="timeline-marker">05</span>
+            <h3 class="h3">Lead Time de devolución</h3>
+            <p>El ciclo inverso: recogida, tránsito, recepción en almacén, inspección, reposición o destrucción.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- SLIDE 17: SECTION — Power BI + IA -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 07</span>
+        <h2 class="display-l text-aurora">Power BI + IA</h2>
+        <p class="lead">Dashboards inteligentes que se explican solos y responden preguntas en lenguaje natural.</p>
+        <div class="shape shape--arc" data-parallax="0.4"></div>
+      </section>
+
+      <!-- SLIDE 18: BULLETS — Power BI Copilot para logística -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>FUNCIONALIDADES</span>
+        <h2 class="h1">Power BI Copilot: <span class="text-aurora">lo que cambia</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1"><span class="bullet-num">01</span><div><h3 class="h3">Preguntas en lenguaje natural</h3><p>"¿Cuál es el transportista con peor OTIF en el norte este mes?" → Respuesta inmediata con visualización automática, sin DAX.</p></div></li>
+          <li class="reveal" data-delay="2"><span class="bullet-num">02</span><div><h3 class="h3">Narrativas automáticas</h3><p>Copilot genera automáticamente un resumen narrativo de los KPIs: "El OTIF cayó 3pp esta semana, impulsado principalmente por retrasos en zona 4 (carrier XYZ)."</p></div></li>
+          <li class="reveal" data-delay="3"><span class="bullet-num">03</span><div><h3 class="h3">Detección de anomalías integrada</h3><p>Smart Narratives + AI Insights detectan outliers y tendencias estadísticas sin configuración manual. Ideal para alertas de KPIs.</p></div></li>
+          <li class="reveal" data-delay="4"><span class="bullet-num">04</span><div><h3 class="h3">Conectores nativos ERP/WMS</h3><p>SAP, Oracle NetSuite, Dynamics 365, Odoo, Mecalux, Generix. Conexión directa sin ETL adicional en muchos casos.</p></div></li>
+        </ul>
+      </section>
+
+      <!-- SLIDE 19: CODE — DAX para KPIs logísticos -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>IMPLEMENTACIÓN DAX</span>
+        <h2 class="h2">Métricas clave en <span class="text-aurora">Power BI</span></h2>
+        <div class="code-grid">
+          <pre class="code-block"><code><span class="cm-comment">-- OTIF %</span>
+<span class="cm-key">OTIF % =</span>
+<span class="cm-fn">DIVIDE</span>(
+    <span class="cm-fn">COUNTROWS</span>(
+        <span class="cm-fn">FILTER</span>(Pedidos,
+            Pedidos[On_Time] = <span class="cm-str">TRUE</span> &&
+            Pedidos[In_Full] = <span class="cm-str">TRUE</span>)
+    ),
+    <span class="cm-fn">COUNTROWS</span>(Pedidos),
+    <span class="cm-num">0</span>
+)
+
+<span class="cm-comment">-- Inventory Turnover (12 meses)</span>
+<span class="cm-key">IT_Anual =</span>
+<span class="cm-fn">DIVIDE</span>(
+    <span class="cm-fn">SUMX</span>(Ventas, Ventas[COGS]),
+    <span class="cm-fn">AVERAGE</span>(Inventario[Valor_Medio]),
+    <span class="cm-num">0</span>
+)
+
+<span class="cm-comment">-- Lead Time promedio (días)</span>
+<span class="cm-key">LT_Promedio =</span>
+<span class="cm-fn">AVERAGEX</span>(Pedidos,
+    Pedidos[Fecha_Entrega] - Pedidos[Fecha_Pedido]
+)</code></pre>
+          <aside class="code-notes">
+            <p><strong>OTIF.</strong> Doble filtro AND: solo pedidos que cumplen ambas condiciones a la vez.</p>
+            <p><strong>IT Anual.</strong> SUMX recorre línea a línea para el COGS acumulado, AVERAGE calcula el inventario medio del período.</p>
+            <p><strong>Lead Time.</strong> Resta directa de fechas en DAX. Power BI trata las fechas como enteros.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SLIDE 20: SECTION — Excel + Copilot -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 08</span>
+        <h2 class="display-l text-aurora">Excel + Copilot</h2>
+        <p class="lead">La herramienta que ya tienes, ahora con inteligencia artificial integrada.</p>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+      </section>
+
+      <!-- SLIDE 21: SPLIT — Excel Copilot vs sin Copilot -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>ANTES Y DESPUÉS</span>
+        <h2 class="h1">Excel: con y sin <span class="text-aurora">Copilot</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted">
+            <span class="col-label">SIN COPILOT</span>
+            <h3 class="h2">El Excel "clásico"</h3>
+            <ul class="check-list check-list--minus">
+              <li>Fórmulas complejas escritas a mano</li>
+              <li>Tablas dinámicas configuradas manualmente</li>
+              <li>Gráficos genéricos sin contexto</li>
+              <li>Análisis horas/días para informes semanales</li>
+              <li>Cero interpretación automática</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent">
+            <span class="col-label">CON COPILOT</span>
+            <h3 class="h2">Excel inteligente</h3>
+            <ul class="check-list check-list--plus">
+              <li>"Crea una tabla dinámica de OTIF por carrier y mes"</li>
+              <li>"Identifica los 5 productos con mayor rotación de stock"</li>
+              <li>"Genera un resumen ejecutivo de los KPIs de esta semana"</li>
+              <li>"¿Por qué aumentaron los costes de transporte en julio?"</li>
+              <li>Análisis en minutos, no horas</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 22: CODE — Prompts para Excel Copilot -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>PROMPTS EFECTIVOS</span>
+        <h2 class="h2">Excel Copilot: <span class="text-aurora">prompts para logística</span></h2>
+        <div class="code-grid">
+          <pre class="code-block"><code><span class="cm-comment">// Análisis de OTIF</span>
+<span class="cm-str">"Analiza los datos de la columna OTIF y crea un gráfico
+de líneas que muestre la evolución semanal por región.
+Marca en rojo las semanas por debajo del 95%."</span>
+
+<span class="cm-comment">// Detección de anomalías</span>
+<span class="cm-str">"Identifica todos los pedidos donde el Lead Time es
+superior en más de 2 desviaciones estándar a la media
+histórica y muéstralos destacados."</span>
+
+<span class="cm-comment">// Resumen ejecutivo automático</span>
+<span class="cm-str">"Genera un resumen en 5 puntos de los KPIs logísticos
+de este mes comparado con el mes anterior. Incluye
+variaciones porcentuales y las 3 principales alertas."</span>
+
+<span class="cm-comment">// Optimización de inventario</span>
+<span class="cm-str">"Calcula el punto de reorden para cada SKU usando
+la demanda media diaria y el Lead Time de la columna
+D. Aplica un factor de seguridad del 20%."</span></code></pre>
+          <aside class="code-notes">
+            <p><strong>Contexto.</strong> Referencia siempre columnas concretas ("columna OTIF", "columna D") para resultados más precisos.</p>
+            <p><strong>Formato.</strong> Especifica el tipo de output: gráfico, tabla, resumen, fórmula.</p>
+            <p><strong>Comparativas.</strong> Copilot tiene contexto del historial si los datos están en la misma hoja.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SLIDE 23: QUOTE -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">"</span>
+          <p class="quote-text">Los datos son como el petróleo crudo: valiosos, pero inutilizables sin <span class="text-aurora">refinería</span>. La IA es esa refinería para la logística moderna.</p>
+          <div class="quote-attribution">
+            <strong>Gartner Research</strong>
+            <span>Magic Quadrant for Supply Chain Planning, 2024</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 24: STAT — ROI del análisis con IA -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>RETORNO DE LA INVERSIÓN</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="23" data-suffix="%">0%</span>
+          <p class="stat-label">de reducción media en costes logísticos totales con análisis basado en IA.</p>
+        </div>
+        <p class="stat-context">Estudio McKinsey 2024 sobre 200 empresas logísticas europeas que implementaron dashboards con IA. El mayor impacto: reducción de inventario obsoleto (−35%), mejora de OTIF (+8pp) y optimización de rutas (−18% coste transporte).</p>
+      </section>
+
+      <!-- SLIDE 25: CLOSING -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>FIN DEL MÓDULO 04</span>
+        <h2 class="display-l">
+          De datos a <span class="text-aurora">decisiones.</span>
+        </h2>
+        <p class="lead">Ahora que dominamos los KPIs y las herramientas de análisis, el siguiente paso es predecir: pasar de ver el pasado a anticipar el futuro.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../curso-ia-logistica-m05-prediccion-demanda/index.html">Módulo 5: Predicción de demanda →</a>
+          <a class="btn btn--ghost" href="../curso-ia-logistica-m03-automatizacion/index.html">← Módulo 3: Automatización</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

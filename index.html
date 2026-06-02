@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURORA Slides</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Solo los tokens de AURORA, no el shell de deck -->
+  <style>
+    /* ── Tokens (mismos que aurora.css) ── */
+    :root {
+      --ink:        #0B0F1A;
+      --ink-soft:   #131826;
+      --ink-line:   #1F2638;
+      --cream:      #F5EFE3;
+      --text:       #ECEAE3;
+      --text-muted: #8B8D98;
+      --violet:     #7B4DFF;
+      --cyan:       #00D4FF;
+      --amber:      #FFB627;
+      --rose:       #FF5B7A;
+      --aurora:     linear-gradient(135deg, #7B4DFF 0%, #00D4FF 100%);
+      --aurora-soft: linear-gradient(135deg, rgba(123,77,255,0.14) 0%, rgba(0,212,255,0.14) 100%);
+      --ff-display: 'Space Grotesk', system-ui, sans-serif;
+      --ff-body:    'Inter', system-ui, sans-serif;
+      --ff-mono:    'JetBrains Mono', monospace;
+      --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--text);
+      font-family: var(--ff-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Fullscreen wrapper ── */
+    .ix {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 3vh 3.5vw 2.5vh;
+      overflow: hidden;
+    }
+
+    /* Grain */
+    .ix::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      mix-blend-mode: overlay;
+    }
+    .ix > * { position: relative; z-index: 1; }
+
+    /* Ambient blobs */
+    .ix-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ix-blob-1 {
+      width: 40vw; height: 40vw;
+      background: radial-gradient(circle, rgba(123,77,255,0.09) 0%, transparent 68%);
+      top: -15vw; right: -10vw;
+      animation: ix-drift1 28s ease-in-out infinite;
+    }
+    .ix-blob-2 {
+      width: 28vw; height: 28vw;
+      background: radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 68%);
+      bottom: -10vw; left: 15vw;
+      animation: ix-drift2 22s ease-in-out infinite;
+    }
+    @keyframes ix-drift1 {
+      0%,100% { transform: translate(0,0); }
+      50%      { transform: translate(3vw, -2vw); }
+    }
+    @keyframes ix-drift2 {
+      0%,100% { transform: translate(0,0); }
+      50%      { transform: translate(-2vw, 3vw); }
+    }
+    @keyframes ix-rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Header ── */
+    .ix-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 1.6vh;
+      border-bottom: 1px solid var(--ink-line);
+      flex-shrink: 0;
+      animation: ix-rise 0.5s var(--ease-out) both;
+    }
+    .ix-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7vw;
+    }
+    .ix-brand-mark {
+      width: 2rem; height: 2rem;
+      background: var(--aurora);
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      font-family: var(--ff-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .ix-brand-name {
+      font-family: var(--ff-display);
+      font-size: clamp(13px, 1vw, 17px);
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+    .ix-brand-name strong {
+      background: var(--aurora);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    .ix-header-center {
+      font-family: var(--ff-mono);
+      font-size: clamp(9px, 0.7vw, 12px);
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .ix-header-right {
+      font-family: var(--ff-mono);
+      font-size: clamp(9px, 0.7vw, 12px);
+      color: var(--text-muted);
+    }
+
+    /* ── Body ── */
+    .ix-body {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      gap: 0;
+      margin-top: 1.8vh;
+      animation: ix-rise 0.55s var(--ease-out) 0.08s both;
+    }
+
+    /* ── Sidebar ── */
+    .ix-sidebar {
+      width: clamp(180px, 16vw, 260px);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6vh;
+      padding-right: 1.8vw;
+      border-right: 1px solid var(--ink-line);
+    }
+    .ix-sidebar-label {
+      font-family: var(--ff-mono);
+      font-size: clamp(9px, 0.65vw, 11px);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4vh;
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+    }
+    .ix-sidebar-label::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--violet);
+      box-shadow: 0 0 6px var(--violet);
+      flex-shrink: 0;
+    }
+
+    .ix-course-card {
+      width: 100%;
+      background: none;
+      border: 1px solid var(--ink-line);
+      border-radius: 10px;
+      padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1vw, 18px);
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5vh;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      color: var(--text);
+    }
+    .ix-course-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--aurora);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .ix-course-card:hover  { background: var(--ink-soft); }
+    .ix-course-card.is-active { background: var(--ink-soft); border-color: rgba(123,77,255,0.35); }
+    .ix-course-card.is-active::before { opacity: 1; }
+
+    .ix-course-title {
+      font-family: var(--ff-display);
+      font-size: clamp(12px, 0.9vw, 15px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .ix-course-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ix-course-sub {
+      font-family: var(--ff-mono);
+      font-size: clamp(8px, 0.6vw, 10px);
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .ix-course-badge {
+      font-family: var(--ff-mono);
+      font-size: clamp(8px, 0.6vw, 10px);
+      padding: 2px 6px;
+      border-radius: 20px;
+      background: rgba(123,77,255,0.15);
+      color: var(--violet);
+      border: 1px solid rgba(123,77,255,0.25);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .ix-course-card.is-active .ix-course-badge {
+      background: var(--aurora);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    /* ── Content ── */
+    .ix-content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      padding-left: clamp(20px, 2vw, 36px);
+    }
+
+    .ix-content-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 1.4vh;
+      border-bottom: 1px solid var(--ink-line);
+      flex-shrink: 0;
+    }
+    .ix-content-title {
+      font-family: var(--ff-display);
+      font-size: clamp(18px, 2vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.5vh;
+    }
+    .ix-content-title span {
+      background: var(--aurora);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .ix-content-subtitle {
+      font-family: var(--ff-mono);
+      font-size: clamp(9px, 0.65vw, 11px);
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+    }
+    .ix-content-stats {
+      display: flex;
+      align-items: center;
+      gap: 1.5vw;
+    }
+    .ix-stat {
+      font-family: var(--ff-mono);
+      font-size: clamp(9px, 0.65vw, 11px);
+      color: var(--text-muted);
+      text-align: right;
+    }
+    .ix-stat strong {
+      font-family: var(--ff-display);
+      font-size: clamp(16px, 1.6vw, 24px);
+      font-weight: 700;
+      background: var(--aurora);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      line-height: 1;
+    }
+
+    /* ── Module grid ── */
+    .ix-module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(6px, 0.7vh, 10px);
+      flex: 1;
+      min-height: 0;
+      margin-top: clamp(8px, 1.2vh, 16px);
+      align-content: stretch;
+    }
+
+    /* ── Module card ── */
+    .ix-module-card {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      text-decoration: none;
+      background: var(--ink-soft);
+      border: 1px solid var(--ink-line);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.22s ease, transform 0.22s var(--ease-out), box-shadow 0.22s ease;
+      opacity: 0;
+      animation: ix-rise 0.45s var(--ease-out) calc(var(--i) * 45ms + 0.18s) forwards;
+      min-height: 0;
+    }
+    .ix-module-card:hover {
+      transform: translateX(3px);
+      border-color: rgba(123,77,255,0.4);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .ix-module-card:hover .ix-mod-num-wrap { background: var(--aurora); }
+    .ix-module-card:hover .ix-mod-num      { -webkit-text-fill-color: #fff; background: none; color: #fff; }
+    .ix-module-card:hover .ix-mod-arrow    { opacity: 1; transform: translateX(2px); }
+
+    .ix-mod-num-wrap {
+      width: clamp(44px, 4vw, 64px);
+      align-self: stretch;
+      display: grid;
+      place-items: center;
+      background: rgba(123,77,255,0.08);
+      border-right: 1px solid var(--ink-line);
+      flex-shrink: 0;
+      transition: background 0.22s ease;
+    }
+    .ix-mod-num {
+      font-family: var(--ff-display);
+      font-size: clamp(13px, 1.1vw, 18px);
+      font-weight: 700;
+      background: var(--aurora);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .ix-mod-title {
+      font-family: var(--ff-display);
+      font-size: clamp(12px, 0.95vw, 15px);
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      flex: 1;
+      padding: 0 clamp(10px, 1vw, 18px);
+    }
+
+    .ix-mod-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6vw;
+      padding-right: clamp(10px, 1vw, 16px);
+      flex-shrink: 0;
+    }
+    .ix-mod-count {
+      font-family: var(--ff-mono);
+      font-size: clamp(9px, 0.65vw, 11px);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .ix-mod-count strong { color: var(--cyan); font-weight: 500; }
+
+    .ix-mod-arrow {
+      display: grid;
+      place-items: center;
+      width: clamp(22px, 1.6vw, 28px);
+      height: clamp(22px, 1.6vw, 28px);
+      border-radius: 6px;
+      background: rgba(123,77,255,0.1);
+      border: 1px solid rgba(123,77,255,0.2);
+      opacity: 0.35;
+      flex-shrink: 0;
+      transition: opacity 0.2s ease, transform 0.22s var(--ease-out);
+    }
+    .ix-mod-arrow svg {
+      width: 10px; height: 10px;
+      stroke: var(--violet);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; opacity: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="ix">
+  <div class="ix-blob ix-blob-1" aria-hidden="true"></div>
+  <div class="ix-blob ix-blob-2" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="ix-header">
+    <div class="ix-brand">
+      <div class="ix-brand-mark" aria-hidden="true">A</div>
+      <span class="ix-brand-name"><strong>AURORA</strong> Slides</span>
+    </div>
+    <span class="ix-header-center">Biblioteca de presentaciones</span>
+    <span class="ix-header-right">2026</span>
+  </header>
+
+  <!-- Body -->
+  <div class="ix-body">
+    <aside class="ix-sidebar" aria-label="Cursos">
+      <p class="ix-sidebar-label">Cursos</p>
+      <div id="course-list"></div>
+    </aside>
+
+    <section class="ix-content" id="content" aria-live="polite"></section>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const COURSES = [
+    {
+      id: 'ia-logistica',
+      title: 'IA para Logística',
+      year: '2026',
+      modules: [
+        { num: '01', title: 'Fundamentos de IA para Logística',   slides: 21, href: 'deck/curso-ia-logistica-m01-fundamentos/index.html' },
+        { num: '02', title: 'IA para Productividad Logística',     slides: 25, href: 'deck/curso-ia-logistica-m02-productividad/index.html' },
+        { num: '03', title: 'Automatización sin programar',        slides: 22, href: 'deck/curso-ia-logistica-m03-automatizacion/index.html' },
+        { num: '04', title: 'Análisis de Datos Logísticos con IA', slides: 25, href: 'deck/curso-ia-logistica-m04-analisis-datos/index.html' },
+        { num: '05', title: 'Predicción de Demanda',               slides: 22, href: 'deck/curso-ia-logistica-m05-prediccion-demanda/index.html' },
+        { num: '06', title: 'Optimización de Transporte con IA',   slides: 22, href: 'deck/curso-ia-logistica-m06-transporte/index.html' },
+        { num: '07', title: 'IA Documental',                       slides: 20, href: 'deck/curso-ia-logistica-m07-documental/index.html' },
+        { num: '08', title: 'Liderando la Transformación con IA',  slides: 27, href: 'deck/curso-ia-logistica-m08-transformacion/index.html' },
+      ]
+    }
+  ];
+
+  let active = COURSES[0].id;
+  const arrow = `<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+
+  function renderSidebar() {
+    const el = document.getElementById('course-list');
+    el.innerHTML = COURSES.map(c => {
+      const total = c.modules.reduce((s, m) => s + m.slides, 0);
+      return `<button class="ix-course-card${c.id === active ? ' is-active' : ''}"
+        data-id="${c.id}" aria-pressed="${c.id === active}">
+        <span class="ix-course-title">${c.title}</span>
+        <span class="ix-course-meta">
+          <span class="ix-course-sub">${c.modules.length} módulos · ${total} slides</span>
+          <span class="ix-course-badge">${c.year}</span>
+        </span>
+      </button>`;
+    }).join('');
+    el.querySelectorAll('.ix-course-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.id === active) return;
+        active = btn.dataset.id;
+        renderSidebar();
+        renderContent();
+      });
+    });
+  }
+
+  function renderContent() {
+    const c     = COURSES.find(x => x.id === active);
+    const total = c.modules.reduce((s, m) => s + m.slides, 0);
+    document.getElementById('content').innerHTML = `
+      <div class="ix-content-header">
+        <div>
+          <h2 class="ix-content-title"><span>${c.title}</span></h2>
+          <p class="ix-content-subtitle">${c.year} · Curso completo</p>
+        </div>
+        <div class="ix-content-stats">
+          <div class="ix-stat"><strong>${c.modules.length}</strong>módulos</div>
+          <div class="ix-stat"><strong>${total}</strong>slides</div>
+        </div>
+      </div>
+      <nav class="ix-module-grid" aria-label="Módulos de ${c.title}">
+        ${c.modules.map((m, i) => `
+          <a class="ix-module-card" href="${m.href}" style="--i:${i}"
+            aria-label="Módulo ${m.num}: ${m.title} · ${m.slides} slides">
+            <div class="ix-mod-num-wrap" aria-hidden="true">
+              <span class="ix-mod-num">${m.num}</span>
+            </div>
+            <span class="ix-mod-title">${m.title}</span>
+            <div class="ix-mod-right">
+              <span class="ix-mod-count"><strong>${m.slides}</strong> sl.</span>
+              <span class="ix-mod-arrow" aria-hidden="true">${arrow}</span>
+            </div>
+          </a>`).join('')}
+      </nav>`;
+  }
+
+  renderSidebar();
+  renderContent();
+})();
+</script>
+
+</body>
+</html>

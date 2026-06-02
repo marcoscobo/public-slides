@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 1 — Fundamentos de IA para Logística</title>
+  <meta name="description" content="Qué es la IA, qué no es, casos de éxito en logística, ecosistema de herramientas, IA generativa vs predictiva e introducción a los agentes de IA." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../assets/css/aurora.css" />
+  <script defer src="../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 01 · CURSO IA PARA LOGÍSTICA · 2026</span>
+        <h1 class="display-xl">
+          IA en logística:<br>
+          <span class="text-aurora">fundamentos</span>.
+        </h1>
+        <p class="lead">De la automatización clásica a los agentes inteligentes. Todo lo que necesitas saber para empezar a transformar tu operación con inteligencia artificial.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA para Logística</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 1 de 10</span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — section: Qué es la IA -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
+        <h2 class="display-l text-aurora">Qué es la IA</h2>
+        <p class="lead">Y, sobre todo, qué no es. Desmontando mitos antes de construir sobre ellos.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 03 — content: definición y desmitificación -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEFINICIÓN</span>
+        <h2 class="h1">IA no es <span class="text-aurora">magia</span> ni ciencia ficción</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">La Inteligencia Artificial es la disciplina que desarrolla sistemas capaces de realizar tareas que, hasta ahora, requerían inteligencia humana: percibir, razonar, aprender y actuar.</p>
+            <p>No es un cerebro digital que piensa como un humano. Es una familia de técnicas matemáticas y estadísticas que encuentran patrones en datos y los usan para tomar decisiones o generar contenido.</p>
+            <p>El "miedo" o la "magia" que rodea a la IA suele provenir de no entender qué hay debajo. En este módulo lo abrimos.</p>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/7B4DFF?text=IA+%E2%89%A0+Magia" alt="Diagrama conceptual de IA" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — split: IA vs Automatización clásica -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>COMPARATIVA CLAVE</span>
+        <h2 class="h1">Automatización clásica vs <span class="text-aurora">IA</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">AUTOMATIZACIÓN CLÁSICA</span>
+            <h3 class="h2">Reglas explícitas</h3>
+            <ul class="check-list check-list--minus">
+              <li>Programada por humanos, regla a regla</li>
+              <li>Se rompe ante casos no previstos</li>
+              <li>No mejora con nuevos datos</li>
+              <li>Requiere rediseño manual ante cada cambio</li>
+              <li>Ideal para procesos estables y repetitivos</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">INTELIGENCIA ARTIFICIAL</span>
+            <h3 class="h2">Patrones aprendidos</h3>
+            <ul class="check-list check-list--plus">
+              <li>Aprende las reglas a partir de ejemplos</li>
+              <li>Generaliza a casos nuevos y no vistos</li>
+              <li>Mejora con más datos y feedback</li>
+              <li>Se adapta cuando cambia el entorno</li>
+              <li>Maneja incertidumbre y variabilidad</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — bullets: ML vs DL vs IA simbólica -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>EL ÁRBOL FAMILIAR</span>
+        <h2 class="h1">Tres ramas bajo el <span class="text-aurora">paraguas IA</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">IA Simbólica</h3>
+              <p>Sistemas basados en reglas lógicas y conocimiento explícito. Rápidos de explicar, difíciles de escalar. Ejemplo: sistemas expertos de diagnóstico de avería en flotas.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Machine Learning (ML)</h3>
+              <p>Algoritmos que aprenden estadísticamente de datos históricos. Predicción de demanda, detección de fraude, clasificación de SKUs por riesgo de rotura de stock.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Deep Learning (DL)</h3>
+              <p>Redes neuronales profundas que aprenden representaciones jerárquicas. Reconocimiento de imagen en almacenes, OCR de albaranes, modelos de lenguaje (ChatGPT, Claude).</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">IA Generativa (Gen AI)</h3>
+              <p>Subconjunto de DL que crea contenido nuevo: texto, código, imágenes, planes. La frontera más activa en 2024-2026. LLMs como GPT-4o o Claude 3.5 son su exponente.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 06 — section: Casos de éxito -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
+        <h2 class="display-l text-aurora">Casos reales</h2>
+        <p class="lead">Amazon, DHL, Maersk e Inditex: lo que han construido y cuánto les ha costado no hacerlo antes.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 68%;" data-parallax="0.35"></div>
+      </section>
+
+      <!-- 07 — stat: cifra de mercado -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>EL TAMAÑO DEL MERCADO</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="49" data-suffix="B$">0B$</span>
+          <p class="stat-label">invertidos en IA para supply chain solo en 2024.</p>
+        </div>
+        <p class="stat-context">Según Gartner, el 79% de las empresas logísticas que desplegaron IA en 2023-2024 reportaron un ROI positivo en los primeros 18 meses. El mercado global de IA en supply chain alcanzará los 157 000 M$ en 2030 (CAGR del 23%).</p>
+      </section>
+
+      <!-- 08 — bullets: casos de éxito detallados -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>CASOS DE ÉXITO</span>
+        <h2 class="h1">Cuatro gigantes que ya <span class="text-aurora">lo hicieron</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">AMZ</span>
+            <div>
+              <h3 class="h3">Amazon — Anticipatory Shipping</h3>
+              <p>Predice qué producto comprará cada cliente antes de que haga el pedido y pre-posiciona el stock en el almacén más cercano. Reduce el tiempo de entrega un <strong>23%</strong> y el coste logístico en <strong>~2 200 M$ anuales</strong>.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">DHL</span>
+            <div>
+              <h3 class="h3">DHL — Predictive Network Management</h3>
+              <p>Sistema de ML que anticipa cuellos de botella en 500 hubs globales con 72 h de antelación. Reducción del <strong>15%</strong> en retrasos operativos. Ahorro estimado: <strong>400 M$</strong> en 3 años (2021-2024).</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">MSK</span>
+            <div>
+              <h3 class="h3">Maersk — Optimización de rutas con IA</h3>
+              <p>Algoritmos de optimización combinatoria + ML para ajustar velocidad y ruta de 700 barcos en tiempo real. Ahorro de <strong>2 M de toneladas de CO₂</strong> y <strong>600 M$</strong> en combustible al año desde 2023.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">ITX</span>
+            <div>
+              <h3 class="h3">Inditex — Demand Forecasting SKU-tienda</h3>
+              <p>Modelo de DL que predice ventas por referencia, talla, color y tienda con horizonte de 4 semanas. Reducción de exceso de stock un <strong>12%</strong> y rotura de talla un <strong>30%</strong>. Implantado en 6 700 tiendas.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 09 — timeline: evolución histórica de la IA -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>PERSPECTIVA HISTÓRICA</span>
+        <h2 class="h1">70 años en <span class="text-aurora">cinco hitos</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline timeline--5">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">1956</span>
+            <h3 class="h3">Nace la IA</h3>
+            <p>Conferencia de Dartmouth. Primer uso del término "Artificial Intelligence". Sistemas basados en reglas lógicas y árboles de búsqueda.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">1990s</span>
+            <h3 class="h3">Machine Learning</h3>
+            <p>El enfoque simbólico cede paso al estadístico. SVMs, árboles de decisión y redes bayesianas conquistan la industria.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">2012</span>
+            <h3 class="h3">Deep Learning</h3>
+            <p>AlexNet gana ImageNet con una ventaja del 10%. Las GPUs aceleran el entrenamiento. Las redes profundas superan al humano en visión.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">2017</span>
+            <h3 class="h3">Transformers</h3>
+            <p>Google publica "Attention is All You Need". Nace la arquitectura que habilita ChatGPT, Claude y todos los LLMs actuales.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="5">
+            <span class="timeline-marker">2023+</span>
+            <h3 class="h3">Era de Agentes</h3>
+            <p>Los LLMs aprenden a razonar en pasos y usar herramientas. La IA pasa de responder a actuar de forma autónoma sobre sistemas reales.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 10 — section: Ecosistema de herramientas -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
+        <h2 class="display-l text-aurora">Ecosistema</h2>
+        <p class="lead">Mapa de herramientas de IA por categoría funcional en logística.</p>
+        <div class="shape shape--circle-sm" style="top: 64%; left: 71%;" data-parallax="0.38"></div>
+      </section>
+
+      <!-- 11 — bullets: mapa de herramientas por categoría -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>MAPA DE HERRAMIENTAS</span>
+        <h2 class="h1">IA en logística: <span class="text-aurora">seis familias</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Demand Forecasting</h3>
+              <p>Nixtla (TimeGPT), Amazon Forecast, Google Cloud Demand Sensing, Blue Yonder. Predicen ventas a nivel SKU-ubicación con horizontes de 1-13 semanas.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Route Optimization</h3>
+              <p>Google OR-Tools, Routific, OptimoRoute, Here Routing API. Resuelven el problema del viajante (TSP/VRP) con ventanas temporales en segundos.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Warehouse Automation</h3>
+              <p>Symbotic (visión + robótica), Locus Robotics (AMRs con RL), Zebra Technologies (slotting dinámico). Integración con WMS vía API estándar.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Visibilidad y ETA Prediction</h3>
+              <p>FourKites, Project44, Shippeo. Combinan datos IoT, tráfico y clima para predecir ETAs con ±15 min de precisión en el último tramo.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Asistentes Generativos</h3>
+              <p>Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google). Generan informes, responden consultas sobre stock, redactan comunicaciones a carriers y clientes.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="6">
+            <span class="bullet-num">06</span>
+            <div>
+              <h3 class="h3">Plataformas de Datos + IA</h3>
+              <p>Snowflake Cortex, Databricks Mosaic AI, Microsoft Fabric. Unifican datos de ERP, WMS y TMS y los exponen a modelos ML/LLM sin mover datos entre sistemas.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 12 — section: IA Generativa vs Predictiva -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 04</span>
+        <h2 class="display-l text-aurora">Generativa vs Predictiva</h2>
+        <p class="lead">Dos paradigmas distintos. Cada uno tiene su momento.</p>
+        <div class="shape shape--circle-sm" style="top: 61%; left: 70%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 13 — split: Gen AI vs Predictive AI -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>DOS PARADIGMAS</span>
+        <h2 class="h1">Predictiva vs <span class="text-aurora">Generativa</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">IA PREDICTIVA</span>
+            <h3 class="h2">Anticipa lo que pasará</h3>
+            <ul class="check-list check-list--plus">
+              <li>Produce un número, clase o probabilidad</li>
+              <li>Entrenada con datos históricos etiquetados</li>
+              <li>Respuesta determinista o estocástica acotada</li>
+              <li>Casos: previsión de demanda, ETA, scoring de riesgo</li>
+              <li>KPIs: MAPE, F1 score, AUC-ROC</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">IA GENERATIVA</span>
+            <h3 class="h2">Crea contenido nuevo</h3>
+            <ul class="check-list check-list--plus">
+              <li>Produce texto, código, imágenes, planes de acción</li>
+              <li>Entrenada en corpus masivos no etiquetados</li>
+              <li>Respuesta flexible, creativa, en lenguaje natural</li>
+              <li>Casos: reportes automáticos, chatbots, contratos</li>
+              <li>KPIs: BLEU, evaluación humana, NPS de usuario</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 — content: cuándo usar cada una en logística -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>GUÍA DE DECISIÓN</span>
+        <h2 class="h1">¿Cuándo usar <span class="text-aurora">cuál</span>?</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">La pregunta no es "¿qué IA es mejor?" sino "¿qué tipo de salida necesito para este problema?"</p>
+            <p><strong>Usa IA Predictiva</strong> cuando el output debe ser un número concreto o una decisión binaria: ¿cuántas unidades pedir?, ¿llegará este camión a tiempo?, ¿este proveedor tiene riesgo de impago?</p>
+            <p><strong>Usa IA Generativa</strong> cuando el output debe ser lenguaje, documento o plan: redactar un email de incidencia, generar una SOP para un nuevo proceso, explicar por qué el modelo predijo X.</p>
+            <p><strong>Combínalas</strong> en pipelines híbridos: un modelo predictivo calcula el riesgo de rotura y un LLM redacta automáticamente el pedido urgente al proveedor alternativo.</p>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/00D4FF?text=Predictiva+%2B+Generativa" alt="Diagrama de flujo combinado IA predictiva y generativa en logística" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 15 — stat: impacto de la IA generativa en operaciones -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>IMPACTO MEDIDO · IA GENERATIVA</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="40" data-suffix="%">0%</span>
+          <p class="stat-label">de reducción en tiempo dedicado a tareas administrativas logísticas con IA generativa.</p>
+        </div>
+        <p class="stat-context">Estudio McKinsey (2024) sobre 120 empresas de supply chain. Los equipos que desplegaron asistentes de IA generativa en comunicación con carriers, generación de informes y gestión de incidencias redujeron su carga administrativa un 40% en los primeros 6 meses de uso.</p>
+      </section>
+
+      <!-- 16 — section: Agentes de IA -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 05</span>
+        <h2 class="display-l text-aurora">Agentes de IA</h2>
+        <p class="lead">La frontera activa: sistemas que no solo responden, sino que planifican y actúan.</p>
+        <div class="shape shape--circle-sm" style="top: 63%; left: 72%;" data-parallax="0.42"></div>
+      </section>
+
+      <!-- 17 — content: qué es un agente de IA -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEFINICIÓN</span>
+        <h2 class="h1">Agente: <span class="text-aurora">percibe, razona, actúa</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Un agente de IA recibe un objetivo de alto nivel, descompone el problema en pasos, ejecuta acciones reales (llamadas a APIs, búsquedas, escritura de código) y evalúa su propio progreso hasta completar la tarea.</p>
+            <p>A diferencia de un chatbot que espera la siguiente pregunta, un agente trabaja de forma autónoma en bucles de razonamiento + acción (frameworks ReAct, Plan-and-Execute, Agentic Loop).</p>
+            <p>Los ingredientes son: un LLM como "cerebro", un conjunto de herramientas (tools), un sistema de memoria a corto y largo plazo, y un mecanismo de evaluación del resultado.</p>
+            <div class="chip-row">
+              <span class="chip chip--accent">LLM + Tools</span>
+              <span class="chip chip--accent">Memoria</span>
+              <span class="chip chip--accent">Planificación</span>
+              <span class="chip chip--accent">Bucle Razonamiento-Acción</span>
+              <span class="chip chip--accent">Human-in-the-loop</span>
+            </div>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/FFB627?text=Percibe+%E2%86%92+Razona+%E2%86%92+Actu%CC%81a" alt="Ciclo de funcionamiento de un agente de IA: percibir, razonar, actuar" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 — bullets: casos de agentes en logística -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>AGENTES EN ACCIÓN</span>
+        <h2 class="h1">Cuatro agentes que ya operan en <span class="text-aurora">logística real</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Agente de gestión de incidencias</h3>
+              <p>Monitoriza el tracking de envíos. Si detecta un retraso, clasifica el impacto, contacta al carrier por API, notifica al cliente con propuesta de solución y escala a operaciones si no resuelve en 2 h.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Agente de reposición autónoma</h3>
+              <p>Combina modelo predictivo de demanda con reglas de stock de seguridad. Al detectar riesgo de rotura, negocia precios con proveedores alternativos vía API y genera el pedido, sometiéndolo a aprobación si supera el umbral de gasto.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Agente de customs &amp; compliance</h3>
+              <p>Extrae datos de albaranes mediante OCR, verifica clasificación arancelaria contra bases regulatorias, detecta discrepancias y prepara documentación de exportación. Reduce errores de aduanas un <strong>78%</strong> (DHL, 2024).</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Agente de optimización de flota dinámica</h3>
+              <p>Re-optimiza rutas de reparto cada 15 min en función de tráfico real, nuevas órdenes y cancelaciones. Usa OR-Tools como herramienta y se comunica con conductores vía app. Implantado por Correos Express en 2025.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 19 — quote -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">En logística, la ventaja competitiva no la da la IA que tienes, sino <span class="text-aurora">la velocidad a la que aprendes</span> a usarla.</p>
+          <div class="quote-attribution">
+            <strong>Kees Jacobs</strong>
+            <span>VP Insights &amp; Data, Capgemini Supply Chain &mdash; 2024</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 20 — stat: mini-stats resumen del módulo -->
+      <section class="slide" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>EN CIFRAS · RESUMEN DEL MÓDULO</span>
+        <h2 class="h1">El impacto de la IA en <span class="text-aurora">números reales</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="stat-grid">
+          <div class="mini-stat reveal" data-delay="1">
+            <span class="mini-stat-number text-aurora count-up" data-target="23" data-suffix="%">0%</span>
+            <span class="mini-stat-label">Reducción tiempo de entrega (Amazon Anticipatory Shipping)</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="2">
+            <span class="mini-stat-number text-aurora count-up" data-target="600" data-suffix="M$">0M$</span>
+            <span class="mini-stat-label">Ahorro anual combustible (Maersk route optimization)</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="3">
+            <span class="mini-stat-number text-aurora count-up" data-target="30" data-suffix="%">0%</span>
+            <span class="mini-stat-label">Reducción roturas de talla (Inditex demand forecasting)</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="4">
+            <span class="mini-stat-number text-aurora count-up" data-target="78" data-suffix="%">0%</span>
+            <span class="mini-stat-label">Menos errores en aduanas con agente de customs (DHL, 2024)</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="5">
+            <span class="mini-stat-number text-aurora count-up" data-target="157" data-suffix="B$">0B$</span>
+            <span class="mini-stat-label">Mercado global IA en supply chain en 2030 (Gartner)</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="6">
+            <span class="mini-stat-number text-aurora count-up" data-target="79" data-suffix="%">0%</span>
+            <span class="mini-stat-label">Empresas con ROI positivo en primeros 18 meses (Gartner 2024)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 21 — closing -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 01 DE 10</span>
+        <h2 class="display-l">
+          Siguiente módulo:<br><span class="text-aurora">Instalación y primeros pasos.</span>
+        </h2>
+        <p class="lead">En el Módulo 2 configuraremos nuestro entorno de trabajo: Python, Jupyter, las APIs de los LLMs y el primer pipeline de datos logístico.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../curso-ia-logistica-m02-instalacion/index.html">Módulo 2 &rarr;</a>
+          <a class="btn btn--ghost" href="../../index.html">Inicio del curso</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

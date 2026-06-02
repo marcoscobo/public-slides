@@ -1,0 +1,300 @@
+# AURORA — Catálogo de Layouts
+
+Cada slide HTML sigue esta estructura mínima:
+
+```html
+<section class="slide" data-layout="LAYOUT_NAME">
+  <!-- contenido según layout -->
+</section>
+```
+
+El JS y CSS se encargan del marcador numérico, barra de progreso, paginación y grain automáticamente.
+
+---
+
+## cover — Portada
+
+Una sola por deck. Establece tono y promesa.
+
+```html
+<section class="slide slide--center" data-layout="cover">
+  <span class="caption"><span class="caption-dot"></span>CHAPTER 00 · 2026</span>
+  <h1 class="display-xl">
+    El futuro de la <span class="text-aurora">data</span>
+    <br>empieza aquí.
+  </h1>
+  <p class="lead">Una introducción a los sistemas que están redefiniendo cómo trabajamos con información a escala.</p>
+  <div class="meta-row">
+    <span class="meta-item"><strong>Marc Cobo</strong></span>
+    <span class="meta-divider"></span>
+    <span class="meta-item">CIC · 2026</span>
+  </div>
+  <div class="shape shape--circle" data-parallax="0.3"></div>
+  <div class="shape shape--arc" data-parallax="0.5"></div>
+</section>
+```
+
+---
+
+## section — Divisor
+
+Entre capítulos. Muy poco contenido, mucho aire.
+
+```html
+<section class="slide slide--center" data-layout="section">
+  <span class="caption"><span class="caption-dot"></span>CHAPTER 02</span>
+  <h2 class="display-l text-aurora">Arquitectura</h2>
+  <p class="lead">Cómo se ensamblan las piezas y por qué importa el orden.</p>
+</section>
+```
+
+---
+
+## content — Contenido estándar
+
+Heading + párrafo, con o sin media a la derecha.
+
+```html
+<section class="slide" data-layout="content">
+  <span class="caption"><span class="caption-dot"></span>CONTEXTO</span>
+  <h2 class="h1">El problema que <span class="text-aurora">resolvemos</span></h2>
+  <div class="emphasis-line"></div>
+  <div class="content-grid">
+    <div class="content-text">
+      <p class="lead">Los pipelines tradicionales acumulan latencia en cada salto.
+      Con un diseño event-first, cortamos el tiempo de respuesta en un orden de magnitud.</p>
+      <p>Esto se traduce en decisiones tomadas con datos frescos, no con datos del día anterior.</p>
+    </div>
+    <div class="content-media">
+      <img src="..." alt="Diagrama de arquitectura" />
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## bullets — Lista
+
+3 a 6 ítems. Cada uno entra con stagger.
+
+```html
+<section class="slide" data-layout="bullets">
+  <span class="caption"><span class="caption-dot"></span>PRINCIPIOS</span>
+  <h2 class="h1">Cuatro reglas que <span class="text-aurora">no negociamos</span></h2>
+  <div class="emphasis-line"></div>
+  <ul class="bullet-list">
+    <li class="reveal" data-delay="1"><span class="bullet-num">01</span><div><h3 class="h3">Latencia primero</h3><p>Optimizamos para el percentil 99, no para la media.</p></div></li>
+    <li class="reveal" data-delay="2"><span class="bullet-num">02</span><div><h3 class="h3">Sin estado oculto</h3><p>Todo lo que importa se materializa en eventos auditables.</p></div></li>
+    <li class="reveal" data-delay="3"><span class="bullet-num">03</span><div><h3 class="h3">Reversibilidad</h3><p>Cada deploy puede deshacerse en menos de cinco minutos.</p></div></li>
+    <li class="reveal" data-delay="4"><span class="bullet-num">04</span><div><h3 class="h3">Coste explícito</h3><p>Cada componente declara su presupuesto de recursos.</p></div></li>
+  </ul>
+</section>
+```
+
+---
+
+## split — Comparativa
+
+Dos columnas iguales, ideal para antes/después o A vs B.
+
+```html
+<section class="slide" data-layout="split">
+  <span class="caption"><span class="caption-dot"></span>COMPARATIVA</span>
+  <h2 class="h1">Monolito vs <span class="text-aurora">eventos</span></h2>
+  <div class="emphasis-line"></div>
+  <div class="split-grid">
+    <div class="split-col split-col--muted">
+      <span class="col-label">ANTES</span>
+      <h3 class="h2">Una sola base de datos</h3>
+      <ul class="check-list check-list--minus">
+        <li>Acopla lecturas y escrituras</li>
+        <li>Escala vertical y caro</li>
+        <li>Cambios coordinados</li>
+      </ul>
+    </div>
+    <div class="split-col split-col--accent">
+      <span class="col-label">AHORA</span>
+      <h3 class="h2">Stream de eventos</h3>
+      <ul class="check-list check-list--plus">
+        <li>Cada servicio decide qué materializa</li>
+        <li>Escala horizontal</li>
+        <li>Despliegues independientes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## quote — Cita
+
+Pull-quote con atribución. Mucho aire.
+
+```html
+<section class="slide slide--center" data-layout="quote">
+  <div class="quote-block">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">La complejidad no se elimina, <span class="text-aurora">se mueve</span>.
+    Nuestro trabajo es decidir dónde queremos que viva.</p>
+    <div class="quote-attribution">
+      <strong>Rich Hickey</strong>
+      <span>Creador de Clojure</span>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## stat — Cifra monumental
+
+Una sola cifra ENORME. Contexto debajo o al lado.
+
+```html
+<section class="slide slide--center" data-layout="stat">
+  <span class="caption"><span class="caption-dot"></span>IMPACTO MEDIDO</span>
+  <div class="stat-block">
+    <span class="stat-number text-aurora count-up" data-target="87" data-suffix="%">0%</span>
+    <p class="stat-label">de reducción en el tiempo medio de procesamiento por evento.</p>
+  </div>
+  <p class="stat-context">Medido sobre 30 días de tráfico real, comparado contra la arquitectura anterior basada en batch nocturno.</p>
+</section>
+```
+
+---
+
+## code — Código
+
+Un bloque de código con resaltado básico + comentario lateral.
+
+```html
+<section class="slide" data-layout="code">
+  <span class="caption"><span class="caption-dot"></span>IMPLEMENTACIÓN</span>
+  <h2 class="h2">Definir un consumidor en <span class="text-aurora">7 líneas</span></h2>
+  <div class="code-grid">
+    <pre class="code-block"><code><span class="cm-key">async function</span> <span class="cm-fn">consume</span>(stream) {
+  <span class="cm-key">for await</span> (<span class="cm-key">const</span> event <span class="cm-key">of</span> stream) {
+    <span class="cm-key">if</span> (event.type !== <span class="cm-str">"order.created"</span>) <span class="cm-key">continue</span>;
+    <span class="cm-key">await</span> projection.apply(event);
+    <span class="cm-key">await</span> stream.ack(event.id);
+  }
+}</code></pre>
+    <aside class="code-notes">
+      <p><strong>Idempotente.</strong> Si re-procesamos un evento, la proyección absorbe el cambio sin duplicar estado.</p>
+      <p><strong>Backpressure.</strong> <code>for await</code> bloquea hasta que el handler termina.</p>
+    </aside>
+  </div>
+</section>
+```
+
+---
+
+## timeline — Cronología / proceso
+
+Pasos horizontales. Funciona como roadmap o como pipeline.
+
+```html
+<section class="slide" data-layout="timeline">
+  <span class="caption"><span class="caption-dot"></span>ROADMAP</span>
+  <h2 class="h1">Los próximos <span class="text-aurora">doce meses</span></h2>
+  <div class="emphasis-line"></div>
+  <ol class="timeline">
+    <li class="timeline-step reveal" data-delay="1">
+      <span class="timeline-marker">Q1</span>
+      <h3 class="h3">Fundamentos</h3>
+      <p>Migración del core a stream y observabilidad end-to-end.</p>
+    </li>
+    <li class="timeline-step reveal" data-delay="2">
+      <span class="timeline-marker">Q2</span>
+      <h3 class="h3">Productos</h3>
+      <p>Primeros tres productos sobre la nueva plataforma.</p>
+    </li>
+    <li class="timeline-step reveal" data-delay="3">
+      <span class="timeline-marker">Q3</span>
+      <h3 class="h3">Escala</h3>
+      <p>Multi-región y SLA de 99.95% comprometido.</p>
+    </li>
+    <li class="timeline-step reveal" data-delay="4">
+      <span class="timeline-marker">Q4</span>
+      <h3 class="h3">Apertura</h3>
+      <p>SDK público y casos de cliente externos.</p>
+    </li>
+  </ol>
+</section>
+```
+
+---
+
+## team — Equipo / personas
+
+Cards con foto, nombre, rol, una línea.
+
+```html
+<section class="slide" data-layout="team">
+  <span class="caption"><span class="caption-dot"></span>QUIÉN LO HACE</span>
+  <h2 class="h1">El equipo detrás del <span class="text-aurora">producto</span></h2>
+  <div class="emphasis-line"></div>
+  <div class="team-grid">
+    <article class="person-card reveal" data-delay="1">
+      <div class="person-avatar">MC</div>
+      <h3 class="h3">Marc Cobo</h3>
+      <span class="person-role">Tech Lead</span>
+      <p>Arquitectura de eventos y plataforma.</p>
+    </article>
+    <article class="person-card reveal" data-delay="2">
+      <div class="person-avatar">AL</div>
+      <h3 class="h3">Ana Lago</h3>
+      <span class="person-role">Data</span>
+      <p>Modelos, ingesta y calidad.</p>
+    </article>
+    <article class="person-card reveal" data-delay="3">
+      <div class="person-avatar">JR</div>
+      <h3 class="h3">Jorge Ruiz</h3>
+      <span class="person-role">Producto</span>
+      <p>Roadmap y go-to-market.</p>
+    </article>
+  </div>
+</section>
+```
+
+---
+
+## gallery — Mosaico de imágenes
+
+Grid 3 o 4 columnas. Mostrar trabajo, screenshots, capturas.
+
+```html
+<section class="slide" data-layout="gallery">
+  <span class="caption"><span class="caption-dot"></span>MOMENTOS</span>
+  <h2 class="h1">Lo que <span class="text-aurora">hemos visto</span></h2>
+  <div class="gallery-grid">
+    <figure class="gallery-item reveal" data-delay="1"><img src="..." alt=""><figcaption>Detección de anomalías</figcaption></figure>
+    <figure class="gallery-item reveal" data-delay="2"><img src="..." alt=""><figcaption>Topología</figcaption></figure>
+    <figure class="gallery-item reveal" data-delay="3"><img src="..." alt=""><figcaption>Backfill controlado</figcaption></figure>
+    <figure class="gallery-item reveal" data-delay="4"><img src="..." alt=""><figcaption>Replay determinista</figcaption></figure>
+  </div>
+</section>
+```
+
+---
+
+## closing — Cierre
+
+Última slide. Gracias / CTA / contacto.
+
+```html
+<section class="slide slide--center" data-layout="closing">
+  <span class="caption"><span class="caption-dot"></span>FIN</span>
+  <h2 class="display-l">
+    <span class="text-aurora">Gracias.</span>
+  </h2>
+  <p class="lead">Hablemos sobre cómo aplicar esto en tu equipo.</p>
+  <div class="cta-row">
+    <a class="btn btn--primary" href="mailto:mcobo@cic.es">mcobo@cic.es</a>
+    <a class="btn btn--ghost" href="https://cic.es">cic.es</a>
+  </div>
+  <div class="shape shape--circle" data-parallax="0.4"></div>
+</section>
+```
