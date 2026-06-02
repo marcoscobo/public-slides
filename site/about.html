@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acerca de</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="assets/logo.svg" alt="Logo" class="logo" />
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Acerca de</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Acerca del proyecto</h1>
+
+    <p>
+      Este ejemplo muestra cómo publicar una web estática usando Docker Compose,
+      Apache y un repositorio público de GitHub.
+    </p>
+
+    <h2>Flujo de despliegue</h2>
+
+    <ol>
+      <li>Docker Compose levanta un contenedor temporal con Git.</li>
+      <li>El contenedor clona el repositorio público.</li>
+      <li>Copia el directorio <code>site/</code> a un volumen Docker.</li>
+      <li>Apache sirve ese volumen como raíz web.</li>
+    </ol>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 - Mi sitio HTML</p>
+  </footer>
+</body>
+</html>
