@@ -229,6 +229,16 @@ button { font: inherit; }
 p { margin: 0 0 var(--space-3); max-width: 64ch; }
 .lead { font-size: var(--fs-body-l); line-height: 1.5; color: var(--text-muted); max-width: 72ch; }
 
+/* Gap título → subtítulo (STYLE_GUIDE §5 = 24px). Evita que el subtítulo se
+   pegue/solape con titulares grandes (display-*) de line-height < 1. Solo
+   aplica cuando el .lead sigue directamente al título; los layouts que
+   intercalan .emphasis-line no se ven afectados. */
+.display-xl + .lead,
+.display-l + .lead,
+.display-m + .lead,
+.h1 + .lead,
+.h2 + .lead { margin-top: var(--space-4); }
+
 /* Caption con punto */
 .caption {
   display: inline-flex;
@@ -436,6 +446,16 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
   width: 100%;
   border-radius: var(--radius-lg);
   border: 1px solid var(--ink-line);
+  object-fit: cover;
+  filter: saturate(0.95) contrast(1.05);
+}
+/* Variante para foto recortada sin fondo (PNG transparente): la figura flota
+   sobre el fondo, sin tarjeta, borde, recorte ni filtro. */
+.content-media--cutout img {
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+  filter: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -794,6 +814,29 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
   grid-template-columns: repeat(5, 1fr);
 }
 
+/* Variante de 3 pasos: los steps se reparten a todo el ancho, alineados
+   con la barra de fondo (que ocupa el 100%). */
+.timeline--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Variante con etiquetas de texto en los marcadores (p. ej. GRADO, MÁSTER,
+   EXPERTO) en lugar de Q1/Q2. Agranda la bola y baja el tamaño de fuente
+   para que la palabra completa quepa dentro del círculo sin desbordar. */
+.timeline--text-marker .timeline-marker {
+  width: 72px;
+  height: 72px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 0 4px;
+  text-align: center;
+  white-space: nowrap;
+}
+/* La barra de fondo se centra sobre las bolas más grandes (72px / 2 = 36px). */
+.timeline--text-marker::before {
+  top: 36px;
+}
+
 /* --------------------------------------------------------------------------
    17. Layout: team
    -------------------------------------------------------------------------- */
@@ -953,7 +996,83 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 .help-card dd { margin: 0; color: var(--text-muted); }
 
 /* --------------------------------------------------------------------------
-   21. Reduced motion
+   21. Layout modifier: cover with photo
+   Splits the cover into a left text column (7fr) and a right photo column (5fr).
+   Used when the deck schema provides a media.src for the cover slide.
+   La foto es un RECORTE SIN FONDO (PNG transparente): la figura "flota" sobre
+   el fondo, sin tarjeta, sin borde, sin recorte (object-fit: contain) y sin
+   overlay. Se apoya en la base de la columna para dar sensación de presencia.
+   -------------------------------------------------------------------------- */
+.slide--cover-photo {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  padding: 80px 96px;
+}
+
+/* All direct children go into column 1 by default */
+.slide--cover-photo > * {
+  grid-column: 1;
+}
+
+/* The photo wrapper occupies column 2, spanning all rows */
+.slide--cover-photo .cover-photo {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  align-self: stretch;
+  position: relative;
+}
+
+/* Halo de luz aurora detrás de la figura recortada. Resplandor radial
+   violeta→cian, desenfocado, con un pulso lento que da vida a la portada. */
+.slide--cover-photo .cover-photo::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 52%;
+  width: 118%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: var(--aurora);
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.42;
+  pointer-events: none;
+  animation: coverHaloPulse 8s var(--ease-out) infinite;
+}
+
+.slide--cover-photo .cover-photo img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+}
+
+@keyframes coverHaloPulse {
+  0%, 100% { opacity: 0.36; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.52; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Override: shapes stay in the visual background, behind the photo */
+.slide--cover-photo .shape {
+  z-index: 0;
+}
+
+/* Override: center modifier conflicts with cover-photo grid — disable flex centering */
+.slide--cover-photo.slide--center {
+  justify-content: unset;
+  align-items: center;
+  flex-direction: unset;
+}
+
+/* --------------------------------------------------------------------------
+   22. Reduced motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
