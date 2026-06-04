@@ -667,6 +667,59 @@ que te proporciono. Dirigido a la dirección general.</span>
         <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
+      <!-- DEMO — split: generación de informe logístico con ChatGPT -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · CHATGPT</span>
+        <h2 class="h1">Informe logístico generado <span class="text-aurora">en vivo</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">Prompt enviado a ChatGPT</span>
+            <pre class="code-block" style="font-size:14px;line-height:1.5;margin-top:var(--space-3);max-height:420px;overflow:auto;"><code><span class="cm-str">Eres el jefe de operaciones de un almacén
+de distribución de 8.000 m² con 25 operarios.
+Genera el informe semanal de operaciones
+dirigido a dirección general.</span>
+
+<span class="cm-fn">DATOS KPI SEMANA 23 · 2026:</span>
+<span class="cm-num">Pedidos:          1.312</span>  <span class="cm-cm">(prev: 1.247)</span>
+<span class="cm-num">OTD:              92,8%</span>  <span class="cm-cm">(obj: 95%)</span>
+<span class="cm-num">Incidencias:         31</span>  <span class="cm-cm">(prev: 23)</span>
+<span class="cm-num">Coste/pedido:      4,76€</span> <span class="cm-cm">(prev: 4,82€)</span>
+<span class="cm-num">Ocupación:           91%</span> <span class="cm-cm">(máx op: 90%)</span>
+<span class="cm-num">Devoluciones:      3,1%</span>  <span class="cm-cm">(obj: &lt;2,5%)</span>
+
+<span class="cm-str">ESTRUCTURA:
+1. Resumen ejecutivo (máx 3 líneas)
+2. KPIs vs objetivo y vs semana anterior
+3. Alertas críticas
+4. Acciones recomendadas
+TONO: ejecutivo, directo, basado en datos.</span></code></pre>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">Informe generado (fragmento)</span>
+            <div style="margin-top:var(--space-3);display:flex;flex-direction:column;gap:var(--space-3);">
+              <div style="background:var(--ink);border-radius:var(--radius-sm);padding:var(--space-4);border:1px solid var(--ink-line);">
+                <p style="font-size:13px;font-family:var(--ff-mono);color:var(--violet);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">Resumen ejecutivo</p>
+                <p style="font-size:16px;color:var(--text);margin:0;line-height:1.5;">Semana de alto volumen (+5,2% pedidos) con dos alertas: OTD por debajo del objetivo (92,8% vs 95%) e incidencias en aumento (+35%). La ocupación ha superado el límite operativo (91%). El coste por pedido mejora a 4,76€.</p>
+              </div>
+              <div style="background:var(--ink);border-radius:var(--radius-sm);padding:var(--space-4);border:1px solid var(--ink-line);">
+                <p style="font-size:13px;font-family:var(--ff-mono);color:var(--amber);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">Alertas críticas</p>
+                <ul style="margin:0;padding-left:20px;font-size:16px;color:var(--text);line-height:1.6;">
+                  <li>🔴 OTD 92,8% — 2,2 pp bajo objetivo. Revisar cuellos de botella en picking zona C.</li>
+                  <li>🔴 Ocupación 91% — activa protocolo de desvío de stock a almacén auxiliar.</li>
+                  <li>🟡 Devoluciones 3,1% — supera objetivo. Auditoría de control de calidad recomendada.</li>
+                </ul>
+              </div>
+              <div style="background:var(--ink);border-radius:var(--radius-sm);padding:var(--space-4);border:1px solid var(--ink-line);">
+                <p style="font-size:13px;font-family:var(--ff-mono);color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">Acciones recomendadas</p>
+                <p style="font-size:16px;color:var(--text-muted);margin:0;line-height:1.5;">1. Refuerzo de turno de tarde martes–jueves. 2. Activar almacén auxiliar para stock de alta rotación. 3. Reunión de incidencias el lunes a las 9:00.</p>
+              </div>
+            </div>
+            <p style="margin-top:var(--space-4);font-family:var(--ff-mono);font-size:13px;color:var(--amber);letter-spacing:0.06em;">▶ En directo, abrimos ChatGPT y lo hacemos juntos</p>
+          </div>
+        </div>
+      </section>
+
       <!-- 24 — quote -->
       <section class="slide slide--center" data-layout="quote">
         <div class="quote-block">
@@ -681,9 +734,11 @@ que te proporciono. Dirigido a la dirección general.</span>
 
       <!-- 25 — closing -->
       <section class="slide slide--center" data-layout="closing">
-        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 2</span>
-        <h2 class="display-l"><span class="text-aurora">Empieza hoy.</span></h2>
-        <p class="lead">Elige un proceso que repitas cada semana — un informe, un SOP, un documento — y automatízalo esta tarde con lo que has aprendido aquí.</p>
+        <span class="caption"><span class="caption-dot"></span>RESUMEN DEL MÓDULO</span>
+        <h2 class="display-l">
+          La <span class="text-aurora">IA multiplica</span><br>tu productividad logística.
+        </h2>
+        <p class="lead">En este módulo has dominado las herramientas clave: <strong>ChatGPT, Claude y Gemini</strong> y cuándo elegir cada uno; las técnicas de <strong>prompting profesional</strong> (chain-of-thought, few-shot, role prompting) para obtener outputs de calidad; la generación de <strong>SOPs asistidos por IA</strong> en formato ISO-compatible; la <strong>automatización documental</strong> de CMR, albaranes y comunicaciones; y la creación de <strong>informes operativos automáticos</strong> que pasan de horas a minutos.</p>
         <div class="cta-row">
           <a class="btn btn--primary" href="../curso-ia-logistica-m03-automatizacion/index.html">Siguiente módulo &rarr;</a>
           <a class="btn btn--ghost" href="../../index.html">Ir al inicio</a>

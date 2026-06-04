@@ -129,6 +129,39 @@
         </div>
       </section>
 
+      <!-- DEMO PRÁCTICO 01 — Forecasting básico con Prophet -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + IA</span>
+        <h2 class="h2">Forecasting con <span class="text-aurora">Prophet</span> — le pido el script a la IA</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm"># Prompt a Claude: "Genera un script Python que lea ventas históricas</span>
+<span class="cm-cm"># desde un CSV con columnas 'fecha' y 'unidades', entrene un modelo</span>
+<span class="cm-cm"># Prophet con estacionalidad anual y semanal, y muestre la predicción</span>
+<span class="cm-cm"># a 90 días con su gráfica de intervalos de confianza."</span>
+
+<span class="cm-key">import</span> pandas <span class="cm-key">as</span> pd
+<span class="cm-key">from</span> prophet <span class="cm-key">import</span> Prophet
+<span class="cm-key">import</span> matplotlib.pyplot <span class="cm-key">as</span> plt
+
+df = pd.<span class="cm-fn">read_csv</span>(<span class="cm-str">"ventas.csv"</span>)
+df = df.<span class="cm-fn">rename</span>(columns={<span class="cm-str">"fecha"</span>: <span class="cm-str">"ds"</span>, <span class="cm-str">"unidades"</span>: <span class="cm-str">"y"</span>})
+
+modelo = <span class="cm-fn">Prophet</span>(yearly_seasonality=<span class="cm-key">True</span>, weekly_seasonality=<span class="cm-key">True</span>)
+modelo.<span class="cm-fn">fit</span>(df)
+
+futuro = modelo.<span class="cm-fn">make_future_dataframe</span>(periods=<span class="cm-num">90</span>)
+pred = modelo.<span class="cm-fn">predict</span>(futuro)
+modelo.<span class="cm-fn">plot</span>(pred)
+plt.<span class="cm-fn">title</span>(<span class="cm-str">"Forecast 90 días"</span>)
+plt.<span class="cm-fn">show</span>()</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>¿Qué hace?</strong> Lee el CSV, renombra las columnas al formato que exige Prophet (ds/y), entrena el modelo y genera una gráfica con la predicción y sus intervalos de confianza al 80%.</p>
+            <p><strong>Resultado esperado:</strong> gráfica con la línea de forecast en azul, banda de incertidumbre sombreada y los puntos históricos sobreimpresos.</p>
+            <p><strong>Clave:</strong> tú no necesitas saber programar. Le describes lo que necesitas a la IA y obtienes el script en segundos.</p>
+          </aside>
+        </div>
+      </section>
+
       <!-- PAUSA INTERACTIVA · TEST -->
       <section class="slide slide--interactive" data-layout="interactive">
         <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
@@ -216,6 +249,37 @@
               <li>Mayor precisión en escenarios complejos, pero requieren más datos y recursos.</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <!-- DEMO PRÁCTICO 02 — Detección de estacionalidad -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + IA</span>
+        <h2 class="h2">Detectar <span class="text-aurora">estacionalidad</span> en tu serie de ventas</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm"># Prompt a Claude: "Descompón una serie temporal de ventas mensuales</span>
+<span class="cm-cm"># en sus componentes de tendencia, estacionalidad y residuo.</span>
+<span class="cm-cm"># Usa seasonal_decompose y muestra las 4 gráficas separadas."</span>
+
+<span class="cm-key">import</span> pandas <span class="cm-key">as</span> pd
+<span class="cm-key">from</span> statsmodels.tsa.seasonal <span class="cm-key">import</span> seasonal_decompose
+<span class="cm-key">import</span> matplotlib.pyplot <span class="cm-key">as</span> plt
+
+df = pd.<span class="cm-fn">read_csv</span>(<span class="cm-str">"ventas_mensuales.csv"</span>, index_col=<span class="cm-str">"fecha"</span>, parse_dates=<span class="cm-key">True</span>)
+serie = df[<span class="cm-str">"unidades"</span>]
+
+resultado = <span class="cm-fn">seasonal_decompose</span>(serie, model=<span class="cm-str">"additive"</span>, period=<span class="cm-num">12</span>)
+resultado.<span class="cm-fn">plot</span>()
+plt.suptitle(<span class="cm-str">"Descomposición: Tendencia · Estacionalidad · Residuo"</span>)
+plt.<span class="cm-fn">tight_layout</span>()
+plt.<span class="cm-fn">show</span>()
+
+<span class="cm-cm"># Ver el factor estacional por mes</span>
+<span class="cm-fn">print</span>(resultado.seasonal.<span class="cm-fn">groupby</span>(resultado.seasonal.index.month).<span class="cm-fn">mean</span>())</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>¿Qué hace?</strong> Separa la serie en tres capas: la tendencia subyacente, el patrón estacional que se repite cada año, y el ruido residual.</p>
+            <p><strong>Resultado esperado:</strong> 4 subgráficas (original, tendencia, estacionalidad, residuo) y una tabla con el factor multiplicador de cada mes — útil para ajustar el stock de seguridad por temporada.</p>
+          </aside>
         </div>
       </section>
 
@@ -354,6 +418,39 @@ modelo.plot(prediccion)</code></pre>
         </div>
       </section>
 
+      <!-- DEMO PRÁCTICO 03 — Predicción de ventas con RandomForest -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + IA</span>
+        <h2 class="h2">Predicción de ventas con <span class="text-aurora">RandomForest</span></h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm"># Prompt a Claude: "Crea un modelo RandomForest para predecir las ventas</span>
+<span class="cm-cm"># semanales. Incluye features: semana del año, mes, día_festivo, precio,</span>
+<span class="cm-cm"># ventas_lag_1 y ventas_lag_4. Muestra la importancia de cada variable."</span>
+
+<span class="cm-key">from</span> sklearn.ensemble <span class="cm-key">import</span> RandomForestRegressor
+<span class="cm-key">from</span> sklearn.model_selection <span class="cm-key">import</span> train_test_split
+<span class="cm-key">import</span> pandas <span class="cm-key">as</span> pd
+<span class="cm-key">import</span> matplotlib.pyplot <span class="cm-key">as</span> plt
+
+features = [<span class="cm-str">"semana"</span>, <span class="cm-str">"mes"</span>, <span class="cm-str">"es_festivo"</span>, <span class="cm-str">"precio"</span>, <span class="cm-str">"lag_1"</span>, <span class="cm-str">"lag_4"</span>]
+X, y = df[features], df[<span class="cm-str">"ventas"</span>]
+X_train, X_test, y_train, y_test = <span class="cm-fn">train_test_split</span>(X, y, test_size=<span class="cm-num">0.2</span>)
+
+modelo = <span class="cm-fn">RandomForestRegressor</span>(n_estimators=<span class="cm-num">200</span>, random_state=<span class="cm-num">42</span>)
+modelo.<span class="cm-fn">fit</span>(X_train, y_train)
+
+importancia = pd.<span class="cm-fn">Series</span>(modelo.feature_importances_, index=features)
+importancia.<span class="cm-fn">sort_values</span>().<span class="cm-fn">plot</span>(kind=<span class="cm-str">"barh"</span>)
+plt.title(<span class="cm-str">"Feature Importance — ¿qué explica las ventas?"</span>)
+plt.<span class="cm-fn">show</span>()</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>¿Qué hace?</strong> Entrena un modelo de bosque aleatorio con 6 variables de negocio y visualiza cuáles tienen más peso en la predicción.</p>
+            <p><strong>Resultado esperado:</strong> gráfico de barras horizontales con la importancia de cada feature. Normalmente <code>lag_1</code> y <code>semana</code> lideran, pero los festivos suelen sorprender.</p>
+            <p><strong>Valor:</strong> saber qué impulsa las ventas permite actuar sobre esas palancas, no solo predecir.</p>
+          </aside>
+        </div>
+      </section>
+
       <!-- PAUSA INTERACTIVA · DEBATE -->
       <section class="slide slide--interactive" data-layout="interactive">
         <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
@@ -478,6 +575,40 @@ modelo.plot(prediccion)</code></pre>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- DEMO PRÁCTICO 04 — Stock de seguridad con Monte Carlo -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + IA</span>
+        <h2 class="h2">Stock de seguridad óptimo con <span class="text-aurora">Monte Carlo</span></h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm"># Prompt a Claude: "Calcula el stock de seguridad para un SKU con</span>
+<span class="cm-cm"># demanda media 120 uds/día y desviación 25. Lead time 7 días (±1).</span>
+<span class="cm-cm"># Usa simulación Monte Carlo con 10.000 escenarios y muestra el</span>
+<span class="cm-cm"># histograma de demanda acumulada durante el lead time."</span>
+
+<span class="cm-key">import</span> numpy <span class="cm-key">as</span> np
+<span class="cm-key">import</span> matplotlib.pyplot <span class="cm-key">as</span> plt
+
+np.random.<span class="cm-fn">seed</span>(<span class="cm-num">42</span>)
+N = <span class="cm-num">10_000</span>
+demanda_diaria = np.random.<span class="cm-fn">normal</span>(<span class="cm-num">120</span>, <span class="cm-num">25</span>, (N, <span class="cm-num">8</span>))
+lead_time      = np.random.<span class="cm-fn">randint</span>(<span class="cm-num">6</span>, <span class="cm-num">9</span>, N)
+demanda_lt     = [demanda_diaria[i, :lead_time[i]].<span class="cm-fn">sum</span>() <span class="cm-key">for</span> i <span class="cm-key">in</span> <span class="cm-fn">range</span>(N)]
+
+ss_95  = np.<span class="cm-fn">percentile</span>(demanda_lt, <span class="cm-num">95</span>)  - np.<span class="cm-fn">mean</span>(demanda_lt)
+ss_99  = np.<span class="cm-fn">percentile</span>(demanda_lt, <span class="cm-num">99</span>)  - np.<span class="cm-fn">mean</span>(demanda_lt)
+<span class="cm-fn">print</span>(<span class="cm-str">f"SS al 95%: {ss_95:.0f} uds  |  SS al 99%: {ss_99:.0f} uds"</span>)
+
+plt.<span class="cm-fn">hist</span>(demanda_lt, bins=<span class="cm-num">60</span>, color=<span class="cm-str">"#7B4DFF"</span>, alpha=<span class="cm-num">0.7</span>)
+plt.axvline(<span class="cm-fn">np.percentile</span>(demanda_lt, <span class="cm-num">99</span>), color=<span class="cm-str">"#FFB627"</span>, linestyle=<span class="cm-str">"--"</span>)
+plt.<span class="cm-fn">show</span>()</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>¿Qué hace?</strong> Simula 10.000 escenarios de demanda durante el lead time, cada uno con variabilidad real. Del histograma extrae el colchón necesario para garantizar el nivel de servicio elegido.</p>
+            <p><strong>Resultado:</strong> SS al 95% ≈ 90 uds — SS al 99% ≈ 140 uds. La línea ámbar muestra el percentil 99 sobre el histograma.</p>
+            <p><strong>Ventaja frente a la fórmula Z·σ·√LT:</strong> captura la variabilidad del lead time y distribuciones no normales.</p>
+          </aside>
         </div>
       </section>
 
@@ -609,6 +740,39 @@ modelo.plot(prediccion)</code></pre>
         </ol>
       </section>
 
+      <!-- DEMO PRÁCTICO 05 — Interpretación de resultados con LLM -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + IA</span>
+        <h2 class="h2">Del forecast JSON al <span class="text-aurora">informe ejecutivo</span> con Claude</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm"># Prompt a Claude: "Genera un script que envíe el JSON de un forecast</span>
+<span class="cm-cm"># Prophet a la API de Claude y devuelva un párrafo ejecutivo con las</span>
+<span class="cm-cm"># 3 acciones logísticas más urgentes basadas en los datos."</span>
+
+<span class="cm-key">import</span> anthropic, json
+
+forecast_json = pred[[<span class="cm-str">"ds"</span>, <span class="cm-str">"yhat"</span>, <span class="cm-str">"yhat_lower"</span>, <span class="cm-str">"yhat_upper"</span>]] \
+    .<span class="cm-fn">tail</span>(<span class="cm-num">14</span>).<span class="cm-fn">to_json</span>(orient=<span class="cm-str">"records"</span>, date_format=<span class="cm-str">"iso"</span>)
+
+client = anthropic.<span class="cm-fn">Anthropic</span>()
+respuesta = client.messages.<span class="cm-fn">create</span>(
+    model=<span class="cm-str">"claude-opus-4-5"</span>,
+    max_tokens=<span class="cm-num">512</span>,
+    messages=[{
+        <span class="cm-str">"role"</span>: <span class="cm-str">"user"</span>,
+        <span class="cm-str">"content"</span>: <span class="cm-str">f"Analiza este forecast de demanda de las próximas 2 semanas "</span>
+                   <span class="cm-str">f"y dame 3 acciones logísticas concretas:\n{forecast_json}"</span>
+    }]
+)
+<span class="cm-fn">print</span>(respuesta.content[<span class="cm-num">0</span>].text)</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>¿Qué hace?</strong> Toma los últimos 14 días del forecast Prophet, los convierte en JSON y los envía a Claude como contexto. El LLM devuelve un párrafo accionable en lenguaje de negocio.</p>
+            <p><strong>Resultado esperado:</strong> texto como "Se prevé un pico del 34% la semana del 15. Recomiendo adelantar el pedido de REF-441 en 3 días y revisar la capacidad del almacén B."</p>
+            <p><strong>Clave:</strong> el modelo predice los números, el LLM los convierte en decisiones. La combinación elimina el cuello de botella del análisis manual.</p>
+          </aside>
+        </div>
+      </section>
+
       <!-- PAUSA INTERACTIVA · DEBATE -->
       <section class="slide slide--interactive" data-layout="interactive">
         <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
@@ -633,11 +797,11 @@ modelo.plot(prediccion)</code></pre>
 
       <!-- 22 — closing -->
       <section class="slide slide--center" data-layout="closing">
-        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 05</span>
+        <span class="caption"><span class="caption-dot"></span>RESUMEN DEL MÓDULO</span>
         <h2 class="display-l">
-          <span class="text-aurora">Predice</span> antes<br>de reaccionar.
+          La logística que <span class="text-aurora">anticipa</span><br>gana a la que reacciona.
         </h2>
-        <p class="lead">Forecasting, series temporales, optimización de inventarios e IA interpretativa: las cuatro palancas para una logística proactiva.</p>
+        <p class="lead">En este módulo has aprendido a elegir el modelo de <strong>forecasting</strong> adecuado según el horizonte temporal, a descomponer <strong>series temporales</strong> en tendencia y estacionalidad, a construir modelos de <strong>predicción de ventas</strong> con variables externas y feature importance, a calcular el <strong>stock de seguridad óptimo</strong> mediante simulación Monte Carlo, y a usar un <strong>LLM como capa interpretativa</strong> que convierte números en decisiones accionables.</p>
         <div class="cta-row">
           <a class="btn btn--primary" href="../curso-ia-logistica-m06-transporte/index.html">Siguiente módulo &rarr;</a>
           <a class="btn btn--ghost" href="../../index.html">Ir al inicio</a>

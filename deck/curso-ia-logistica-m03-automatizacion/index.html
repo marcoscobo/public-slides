@@ -530,16 +530,62 @@
         </ol>
       </section>
 
+      <!-- DEMO: De automatización a agente IA con n8n -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · AGENTE IA</span>
+        <h2 class="h2">De automatización a <span class="text-aurora">agente IA</span> con n8n</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm">── AUTOMATIZACIÓN CLÁSICA ─────────────────────────────</span>
+  <span class="cm-key">Trigger</span> (webhook pedido)
+      │
+      ▼
+  <span class="cm-fn">Parse datos</span> (nodo Set)
+      │
+      ▼
+  <span class="cm-key">IF</span> stock &gt; 0  ──→  <span class="cm-fn">Registrar ERP</span>  ──→  <span class="cm-str">Enviar email</span>
+      │
+      └──→  <span class="cm-str">Email "agotado"</span>
+
+<span class="cm-cm">── AGENTE IA (bucle de razonamiento) ─────────────────</span>
+  <span class="cm-key">Trigger</span> (webhook pedido)
+      │
+      ▼
+  <span class="cm-fn">Parse datos</span> (nodo Set)
+      │
+      ▼
+  <span class="cm-key">Nodo AI Agent</span> ◄──────────────────────────────────┐
+  <span class="cm-str">"Decide: aprobar, escalar o rechazar           │</span>
+  <span class="cm-str"> según reglas de negocio y contexto"</span>           │
+      │   ◄── herramientas disponibles:              │
+      │        · consultar_stock(sku)                 │
+      │        · verificar_credito(cliente_id)        │
+      │        · obtener_historial(pedido_id)         │
+      │                                               │
+      ├──→ <span class="cm-fn">APROBAR</span>  → ERP + email confirmación          │
+      ├──→ <span class="cm-fn">ESCALAR</span>  → Slack equipo + ticket Jira        │
+      └──→ <span class="cm-fn">RECHAZAR</span> → email motivo + log auditoría       │
+               ↑                                      │
+               └──── necesita más info ───────────────┘</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Automatización clásica.</strong> Lógica fija: si A entonces B. Rápida pero rígida — no gestiona excepciones ni contexto.</p>
+            <p><strong>Agente IA.</strong> El nodo AI Agent (LLM) razona sobre los datos del pedido, el historial del cliente y el stock antes de decidir. Puede pedir más información antes de actuar.</p>
+            <p><strong>Bucle de razonamiento.</strong> El agente itera hasta tener suficiente contexto; la automatización clásica ejecuta una sola vez.</p>
+            <p><strong>Ejemplo concreto.</strong> Pedido llega → IA detecta que el cliente tiene una deuda pendiente → escala al equipo de crédito en vez de aprobar automáticamente.</p>
+          </aside>
+        </div>
+      </section>
+
       <!-- 22 — CLOSING -->
       <section class="slide slide--center" data-layout="closing">
-        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 03</span>
-        <h2 class="display-l"><span class="text-aurora">Automatiza.</span></h2>
-        <p class="lead">n8n, flujos conectados y agentes autónomos son la base de una operación logística que escala sin añadir headcount. El siguiente módulo: IA aplicada a la previsión de demanda.</p>
+        <span class="caption"><span class="caption-dot"></span>RESUMEN DEL MÓDULO</span>
+        <h2 class="display-l">La logística que <span class="text-aurora">trabaja sola</span>.</h2>
+        <p class="lead">En este módulo hemos pasado de los flujos visuales de <strong>n8n</strong> a los agentes autónomos con IA: automatización de <strong>correos y alertas de stock</strong>, procesamiento de <strong>pedidos end-to-end</strong>, integración <strong>ERP-WMS-TMS</strong> mediante API REST, webhooks y consultas directas, y la construcción de <strong>agentes logísticos</strong> capaces de percibir, razonar y actuar sin intervención humana.</p>
         <div class="cta-row">
           <a class="btn btn--primary" href="../curso-ia-logistica-m04-analisis-datos/index.html">Siguiente módulo &rarr;</a>
           <a class="btn btn--ghost" href="../../index.html">Ir al inicio</a>
         </div>
         <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
       </section>
 
     </div>
