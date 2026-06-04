@@ -1111,7 +1111,76 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 }
 
 /* --------------------------------------------------------------------------
-   23. Reduced motion
+   23. Layout: interactive (pausa interactiva para clase)
+   -------------------------------------------------------------------------- */
+
+/* El punto del caption cambia a ámbar para identificar visualmente la pausa */
+.slide--interactive .caption-dot {
+  background: var(--amber);
+  box-shadow: 0 0 12px rgba(255, 182, 39, 0.5);
+}
+
+/* La línea de énfasis en ámbar→rose en lugar del gradiente aurora */
+.slide--interactive .emphasis-line {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--rose) 100%);
+}
+
+/* CTA de canal (Teams, etc.) */
+.interactive-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-7);
+  font-family: var(--ff-mono);
+  font-size: 16px;
+  color: var(--amber);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.interactive-cta::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 10px var(--amber);
+  flex-shrink: 0;
+}
+
+/* Lista de opciones para preguntas tipo test */
+.interactive-options {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 860px;
+}
+.interactive-options li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 1.5px solid var(--ink-line);
+  border-radius: var(--radius-md);
+  background: var(--ink-soft);
+  font-size: var(--fs-body);
+  color: var(--text);
+  transition: border-color 200ms var(--ease-out);
+}
+.interactive-options li:hover { border-color: var(--amber); }
+.opt-key {
+  font-family: var(--ff-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--amber);
+  min-width: 18px;
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   24. Reduced motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

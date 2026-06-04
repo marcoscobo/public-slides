@@ -117,6 +117,22 @@
         <p class="stat-context">Fuente: McKinsey &amp; Gartner, 2024. Empresas logísticas que implementaron IDP en flujos de facturas y CMR reportaron además una tasa de error inferior al 0.5%.</p>
       </section>
 
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Qué diferencia al IDP del OCR clásico de los 90</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver la evolución desde el OCR basado en reglas hasta los modelos transformer. Comprueba que lo tienes claro.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>El OCR clásico usaba redes neuronales y el IDP usa plantillas fijas</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>El IDP combina texto, layout e imagen para comprender semántica sin plantillas</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>El IDP solo funciona con documentos digitales, no con papel escaneado</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>La diferencia principal es el coste: el IDP es más barato por volumen</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 06 — section: Facturas -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CHAPTER 02</span>
@@ -170,6 +186,16 @@
         </div>
       </section>
 
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Qué campos de una factura os dan más problemas hoy</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">El IDP extrae campos semánticos y los cruza contra el ERP. Pensad en vuestro día a día: ¿dónde fallan más las facturas que recibís?</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 09 — section: Albaranes -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CHAPTER 03</span>
@@ -215,6 +241,16 @@
         </ul>
       </section>
 
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Diseñad el pipeline de digitalización de albaranes en vuestra empresa</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver el flujo completo: captura → extracción → WMS → trazabilidad. Aplicadlo a vuestro contexto real.</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 11 — section: CMR -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CHAPTER 04</span>
@@ -252,6 +288,16 @@
         </div>
       </section>
 
+      <!-- PAUSA INTERACTIVA · DEBATE -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Vale la pena digitalizar el CMR si el transportista sigue en papel</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">El 70% de errores en transporte internacional vienen de documentos en papel, según la IRU. Pero el cambio requiere que toda la cadena se sume.</p>
+        <p class="interactive-cta reveal" data-delay="2">Debate en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 14 — section: Clasificación -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CHAPTER 05</span>
@@ -287,6 +333,22 @@
             </ul>
           </div>
         </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Cuántos ejemplos necesita un modelo de clasificación documental</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Hemos visto que el fine-tuning de LayoutLM requiere sorprendentemente pocos datos. ¿Cuántos ejemplos por clase son suficientes para empezar?</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Mínimo 10.000 documentos por clase para obtener resultados fiables</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Entre 1.000 y 5.000 ejemplos, igual que cualquier clasificador de texto</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Entre 50 y 200 ejemplos por clase son suficientes con fine-tuning</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>No necesita ejemplos: los modelos zero-shot clasifican sin entrenamiento</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
       <!-- 16 — section: Extracción de información -->
@@ -365,6 +427,16 @@
         </div>
       </section>
 
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Identificad qué modelo usaríais para cada documento logístico</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Hemos visto NER, LayoutLM, Donut y LLMs. Cada uno tiene un punto fuerte. Relacionad tecnología con caso de uso concreto.</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 19 — stat: precisión de extracción -->
       <section class="slide slide--center" data-layout="stat">
         <span class="caption"><span class="caption-dot"></span>PRECISIÓN DEL SISTEMA</span>
@@ -373,6 +445,16 @@
           <p class="stat-label">de precisión media en extracción de campos clave con modelos transformer sobre documentos logísticos.</p>
         </div>
         <p class="stat-context">Benchmarks sobre conjuntos de datos FUNSD y CORD (2024). Para documentos específicos de un cliente con fine-tuning, la precisión supera el 99% en campos críticos.</p>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Qué haría falta en vuestra empresa para llegar al 97% de precisión</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Los benchmarks dicen 97% de media y más del 99% con fine-tuning específico. ¿Qué obstáculos veis para alcanzar eso en vuestro contexto?</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
       <!-- 20 — closing -->
@@ -386,6 +468,16 @@
         </div>
         <div class="shape shape--circle" data-parallax="0.4"></div>
         <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · DEBATE -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Por dónde empezaríais a implantar IA documental en vuestra operación</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Hemos cubierto OCR, facturas, albaranes, CMR, clasificación y extracción. Si tuvierais que elegir un primer caso de uso para esta semana, ¿cuál sería y por qué?</p>
+        <p class="interactive-cta reveal" data-delay="2">Debate en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
     </div>

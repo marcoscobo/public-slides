@@ -129,6 +129,22 @@
         </div>
       </section>
 
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Qué métrica usarías para comparar SKUs con volúmenes distintos?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver MAE, RMSE y MAPE — cada una cuenta algo diferente. Elige la más adecuada para este caso.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>MAE, porque es la más fácil de interpretar en unidades</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>RMSE, porque penaliza los errores grandes</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>MAPE, porque expresa el error en porcentaje e independiza el volumen</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>Cualquiera, todas son equivalentes en ese escenario</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 06 — section: Series temporales -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CHAPTER 02</span>
@@ -203,6 +219,16 @@
         </div>
       </section>
 
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Cuándo elegirías LSTM sobre Prophet en vuestro negocio?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Pensad en los datos que tenéis hoy y en la complejidad que podríais asumir. No hay respuesta única.</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 09 — code: configuración Prophet -->
       <section class="slide" data-layout="code">
         <span class="caption"><span class="caption-dot"></span>EJEMPLO PRÁCTICO</span>
@@ -231,6 +257,16 @@ modelo.plot(prediccion)</code></pre>
             <p><strong>Regresores.</strong> Añadir variables externas con <code>add_regressor()</code>: precio, temperatura, promociones.</p>
           </aside>
         </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Añade un regresor externo al código Prophet que acabamos de ver</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Usad el snippet de la slide anterior: incorporad una variable de temperatura con add_regressor() y describid qué cambiaría.</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
       <!-- 10 — section: Predicción de ventas -->
@@ -318,6 +354,16 @@ modelo.plot(prediccion)</code></pre>
         </div>
       </section>
 
+      <!-- PAUSA INTERACTIVA · DEBATE -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Quién debería ser dueño del modelo de predicción en vuestra empresa?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">El forecast conecta IT, compras, comercial y logística. Debatid quién lidera la integración con el ERP y quién valida el modelo.</p>
+        <p class="interactive-cta reveal" data-delay="2">Debate en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 13 — section: Optimización de inventarios -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CHAPTER 04</span>
@@ -361,6 +407,22 @@ modelo.plot(prediccion)</code></pre>
             </div>
           </li>
         </ul>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Qué pasa con el stock de seguridad si el nivel de servicio sube del 95% al 99%</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Recordad la fórmula SS = Z · σ · √LT y los valores de Z que comentamos.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Disminuye, porque el modelo es más preciso</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Se mantiene igual, solo cambia el punto de reorden</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Aumenta ligeramente, alrededor de un 5%</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>Aumenta significativamente, porque Z pasa de 1,65 a 2,33</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
       <!-- 15 — stat: impacto de la IA en inventarios -->
@@ -417,6 +479,16 @@ modelo.plot(prediccion)</code></pre>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Qué KPI de inventario mejoraríais primero con IA en vuestro almacén?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Fill rate, roturas, días de cobertura, MAPE… Priorizad uno y explicad por qué tiene más impacto en vuestro contexto.</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
       <!-- 17 — section: IA para interpretar resultados -->
@@ -498,6 +570,16 @@ modelo.plot(prediccion)</code></pre>
         </div>
       </section>
 
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Redacta el prompt para que un LLM genere una alerta de rotura de stock</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Usando el ejemplo de alerta inteligente de la slide anterior como referencia, escribid el prompt que le daríais a ChatGPT o Claude.</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
       <!-- 20 — timeline: proceso completo end-to-end -->
       <section class="slide" data-layout="timeline">
         <span class="caption"><span class="caption-dot"></span>PROCESO END-TO-END</span>
@@ -525,6 +607,16 @@ modelo.plot(prediccion)</code></pre>
             <p>El LLM genera el resumen ejecutivo, las alertas priorizadas y las propuestas de pedido. El planificador aprueba o modifica. El ERP ejecuta.</p>
           </li>
         </ol>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · DEBATE -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Automatizarías el lanzamiento de pedidos o siempre con aprobación humana?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">El proceso end-to-end puede culminar en un pedido automático. Debatid los límites de la autonomía de la IA en este último paso.</p>
+        <p class="interactive-cta reveal" data-delay="2">Debate en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
       <!-- 21 — quote -->

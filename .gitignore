@@ -1,1 +1,69 @@
+# ── Presentaciones fuente (no versionadas) ──────────────────────────────────
 *.pptx
+*.ppt
+*.key
+*.odp
+*.pdf
+
+# ── Assets de origen (antes de exportar a PNG/SVG) ──────────────────────────
+*.ai
+*.sketch
+*.fig
+*.xd
+*.afdesign
+*.afpub
+*.psb
+*.psd
+
+# ── Imágenes sin optimizar ───────────────────────────────────────────────────
+# Añadir a esta lista si se guardan originales sin comprimir
+assets/images/originals/
+assets/images/raw/
+
+# ── Vídeos y GIFs pesados ────────────────────────────────────────────────────
+*.mp4
+*.mov
+*.avi
+*.webm
+*.gif
+
+# ── Fuentes locales (se sirven desde Google Fonts) ──────────────────────────
+assets/fonts/
+
+# ── Archivos de sistema ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ─────────────────────────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.suo
+*.user
+
+# ── Node / tooling (si algún día se introduce un build step) ─────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log
+.pnpm-debug.log
+dist/
+.cache/
+.parcel-cache/
+
+# ── Entornos y secretos ──────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.secret
+secrets/
+
+# ── Docker ───────────────────────────────────────────────────────────────────
+docker-compose.override.yml
+
+# ── Logs y temporales ────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+*.swp
+*~
