@@ -18,32 +18,30 @@
     <div class="deck-stage">
 
       <!-- ============================================================
-           SLIDE 01 — cover
-           Modificador .slide--cover-photo añadido a aurora.css (sección 21)
-           para soportar grid texto + foto en portada sin inline styles.
+           SLIDE 01 — cover (portada tipográfica sin foto)
            ============================================================ -->
-      <section class="slide slide--cover-photo" data-layout="cover">
+      <section class="slide" data-layout="cover">
         <span class="caption"><span class="caption-dot"></span>ABOUT ME · 2026</span>
-        <h1 class="display-xl">
-          Marcos Cobo <span class="text-aurora">Carrillo</span>
+        <h1 class="display-xl" style="margin-top: var(--space-3);">
+          Marcos Cobo<br><span class="text-aurora">Carrillo</span>
         </h1>
-        <div class="emphasis-line"></div>
-        <p class="lead">Matemático de base. Máster en Ciencia de Datos e IA. Experto en ciberseguridad.</p>
-        <div class="meta-row">
-          <span class="meta-item"><strong>Marcos Cobo Carrillo</strong></span>
-          <span class="meta-divider"></span>
-          <span class="meta-item">Product Owner · Jefe de Proyectos de IA · Docente</span>
+        <div class="emphasis-line" style="margin-bottom: var(--space-8);"></div>
+        <div class="chip-row reveal" data-delay="1">
+          <span class="chip chip--accent">Matemáticas</span>
+          <span class="chip chip--accent">Ciencia de Datos · IA</span>
+          <span class="chip chip--accent">Ciberseguridad</span>
         </div>
-        <div class="cover-photo">
-          <img src="../../assets/images/perfil_transparent.png" alt="Foto de perfil de Marcos Cobo Carrillo" />
-        </div>
+        <p class="lead reveal" style="margin-top: var(--space-5);" data-delay="2">Product Owner · Jefe de Proyectos de IA · Docente</p>
         <div class="shape shape--circle" data-parallax="0.3"></div>
         <div class="shape shape--arc" data-parallax="0.5"></div>
-        <div class="shape shape--circle-sm" style="top: 22%; left: 58%;" data-parallax="0.6"></div>
+        <div class="shape shape--circle-sm" style="top: 12%; left: 64%;" data-parallax="0.6"></div>
+        <div class="shape shape--circle-sm" style="top: 65%; left: 80%; width: 260px; height: 260px;" data-parallax="0.4"></div>
       </section>
 
       <!-- ============================================================
            SLIDE 02 — content · Quién soy
+           La columna derecha muestra las tres disciplinas como tarjetas
+           apiladas en lugar de una foto.
            ============================================================ -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>QUIÉN SOY</span>
@@ -63,9 +61,6 @@
 
       <!-- ============================================================
            SLIDE 03 — timeline · Trayectoria académica
-           3 pasos: timeline--3 reparte los steps a todo el ancho (alineado
-           con la barra); timeline--text-marker agranda las bolas y ajusta
-           la tipografía para que las etiquetas de texto largo no se salgan.
            ============================================================ -->
       <section class="slide" data-layout="timeline">
         <span class="caption"><span class="caption-dot"></span>TRAYECTORIA ACADÉMICA</span>
@@ -92,12 +87,14 @@
 
       <!-- ============================================================
            SLIDE 04 — bullets · Lo que hago hoy (roles actuales)
+           Usa bullet-list--single para evitar el grid 2+1 desbalanceado
+           con solo 3 ítems.
            ============================================================ -->
       <section class="slide" data-layout="bullets">
         <span class="caption"><span class="caption-dot"></span>LO QUE HAGO HOY</span>
         <h2 class="h1">Tres roles, una misma <span class="text-aurora">dirección</span></h2>
         <div class="emphasis-line"></div>
-        <ul class="bullet-list">
+        <ul class="bullet-list bullet-list--3col">
           <li class="reveal" data-delay="1">
             <span class="bullet-num">01</span>
             <div>
@@ -129,7 +126,7 @@
         <span class="caption"><span class="caption-dot"></span>HABLEMOS</span>
         <h2 class="display-l">¿Seguimos la <span class="text-aurora">conversación</span>?</h2>
         <p class="lead">Si algo de lo que has visto resuena contigo, me encantaría conectar.</p>
-        <div class="cta-row cta-row--wrap">
+        <div class="cta-row cta-row--wrap reveal" data-delay="1">
           <a class="btn btn--primary" href="https://marcoscobo.com" target="_blank" rel="noopener">marcoscobo.com</a>
           <a class="btn btn--ghost" href="https://www.linkedin.com/in/marcoscobo" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn btn--ghost" href="https://github.com/marcoscobo" target="_blank" rel="noopener">GitHub</a>

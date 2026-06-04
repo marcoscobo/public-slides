@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AURORA Slides</title>
+  <title>Marcos Cobo Slides</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,7 +49,7 @@
       inset: 0;
       display: flex;
       flex-direction: column;
-      padding: 3vh 3.5vw 2.5vh;
+      padding: 3.5vh 4vw 3vh;
       overflow: hidden;
     }
 
@@ -103,7 +103,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 1.6vh;
+      padding-bottom: 2vh;
       border-bottom: 1px solid var(--ink-line);
       flex-shrink: 0;
       animation: ix-rise 0.5s var(--ease-out) both;
@@ -111,23 +111,24 @@
     .ix-brand {
       display: flex;
       align-items: center;
-      gap: 0.7vw;
+      gap: 0.8vw;
     }
     .ix-brand-mark {
-      width: 2rem; height: 2rem;
+      width: 2.2rem; height: 2.2rem;
       background: var(--aurora);
-      border-radius: 7px;
+      border-radius: 8px;
       display: grid;
       place-items: center;
       font-family: var(--ff-display);
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.72rem;
       color: #fff;
       flex-shrink: 0;
+      letter-spacing: -0.03em;
     }
     .ix-brand-name {
       font-family: var(--ff-display);
-      font-size: clamp(13px, 1vw, 17px);
+      font-size: clamp(14px, 1.1vw, 18px);
       font-weight: 600;
       color: var(--text-muted);
       line-height: 1;
@@ -140,14 +141,14 @@
     }
     .ix-header-center {
       font-family: var(--ff-mono);
-      font-size: clamp(9px, 0.7vw, 12px);
+      font-size: clamp(10px, 0.75vw, 13px);
       letter-spacing: 0.14em;
       color: var(--text-muted);
       text-transform: uppercase;
     }
     .ix-header-right {
       font-family: var(--ff-mono);
-      font-size: clamp(9px, 0.7vw, 12px);
+      font-size: clamp(10px, 0.75vw, 13px);
       color: var(--text-muted);
     }
 
@@ -157,51 +158,57 @@
       flex: 1;
       min-height: 0;
       gap: 0;
-      margin-top: 1.8vh;
+      margin-top: 2.5vh;
       animation: ix-rise 0.55s var(--ease-out) 0.08s both;
     }
 
     /* ── Sidebar ── */
     .ix-sidebar {
-      width: clamp(180px, 16vw, 260px);
+      width: clamp(200px, 18vw, 280px);
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.6vh;
-      padding-right: 1.8vw;
+      gap: 2.8vh;
+      padding-right: 2vw;
       border-right: 1px solid var(--ink-line);
     }
     .ix-sidebar-label {
       font-family: var(--ff-mono);
-      font-size: clamp(9px, 0.65vw, 11px);
+      font-size: clamp(10px, 0.7vw, 12px);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 0.4vh;
+      margin-bottom: 0.6vh;
       display: flex;
       align-items: center;
       gap: 0.5vw;
     }
     .ix-sidebar-label::before {
       content: '';
-      width: 5px; height: 5px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--violet);
-      box-shadow: 0 0 6px var(--violet);
+      box-shadow: 0 0 8px var(--violet);
       flex-shrink: 0;
+    }
+
+    #course-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
     }
 
     .ix-course-card {
       width: 100%;
       background: none;
       border: 1px solid var(--ink-line);
-      border-radius: 10px;
-      padding: clamp(10px, 1.2vh, 16px) clamp(12px, 1vw, 18px);
+      border-radius: 12px;
+      padding: clamp(14px, 1.6vh, 20px) clamp(14px, 1.2vw, 20px);
       cursor: pointer;
       text-align: left;
       display: flex;
       flex-direction: column;
-      gap: 0.5vh;
+      gap: 0.8vh;
       transition: border-color 0.2s ease, background 0.2s ease;
       position: relative;
       overflow: hidden;
@@ -222,7 +229,7 @@
 
     .ix-course-title {
       font-family: var(--ff-display);
-      font-size: clamp(12px, 0.9vw, 15px);
+      font-size: clamp(13px, 1vw, 16px);
       font-weight: 600;
       color: var(--text);
       line-height: 1.3;
@@ -234,14 +241,14 @@
     }
     .ix-course-sub {
       font-family: var(--ff-mono);
-      font-size: clamp(8px, 0.6vw, 10px);
+      font-size: clamp(9px, 0.65vw, 11px);
       color: var(--text-muted);
       letter-spacing: 0.06em;
     }
     .ix-course-badge {
       font-family: var(--ff-mono);
-      font-size: clamp(8px, 0.6vw, 10px);
-      padding: 2px 6px;
+      font-size: clamp(9px, 0.65vw, 11px);
+      padding: 3px 8px;
       border-radius: 20px;
       background: rgba(123,77,255,0.15);
       color: var(--violet);
@@ -260,24 +267,24 @@
       min-width: 0;
       display: flex;
       flex-direction: column;
-      padding-left: clamp(20px, 2vw, 36px);
+      padding-left: clamp(24px, 2.5vw, 48px);
     }
 
     .ix-content-header {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      padding-bottom: 1.4vh;
+      padding-bottom: 2vh;
       border-bottom: 1px solid var(--ink-line);
       flex-shrink: 0;
     }
     .ix-content-title {
       font-family: var(--ff-display);
-      font-size: clamp(18px, 2vw, 30px);
+      font-size: clamp(22px, 2.4vw, 36px);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       line-height: 1;
-      margin-bottom: 0.5vh;
+      margin-bottom: 0.7vh;
     }
     .ix-content-title span {
       background: var(--aurora);
@@ -286,24 +293,24 @@
     }
     .ix-content-subtitle {
       font-family: var(--ff-mono);
-      font-size: clamp(9px, 0.65vw, 11px);
+      font-size: clamp(10px, 0.72vw, 12px);
       color: var(--text-muted);
       letter-spacing: 0.08em;
     }
     .ix-content-stats {
       display: flex;
       align-items: center;
-      gap: 1.5vw;
+      gap: 2vw;
     }
     .ix-stat {
       font-family: var(--ff-mono);
-      font-size: clamp(9px, 0.65vw, 11px);
+      font-size: clamp(10px, 0.72vw, 12px);
       color: var(--text-muted);
       text-align: right;
     }
     .ix-stat strong {
       font-family: var(--ff-display);
-      font-size: clamp(16px, 1.6vw, 24px);
+      font-size: clamp(20px, 2vw, 32px);
       font-weight: 700;
       background: var(--aurora);
       -webkit-background-clip: text; background-clip: text;
@@ -316,40 +323,44 @@
     .ix-module-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: clamp(6px, 0.7vh, 10px);
+      gap: clamp(10px, 1.2vh, 16px);
       flex: 1;
       min-height: 0;
-      margin-top: clamp(8px, 1.2vh, 16px);
-      align-content: stretch;
+      margin-top: clamp(14px, 2vh, 24px);
+      align-content: start;
+      overflow-y: auto;
+      padding-bottom: 1vh;
     }
+    .ix-module-grid::-webkit-scrollbar { width: 4px; }
+    .ix-module-grid::-webkit-scrollbar-track { background: transparent; }
+    .ix-module-grid::-webkit-scrollbar-thumb { background: var(--ink-line); border-radius: 4px; }
 
     /* ── Module card ── */
     .ix-module-card {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 0;
       text-decoration: none;
       background: var(--ink-soft);
       border: 1px solid var(--ink-line);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       transition: border-color 0.22s ease, transform 0.22s var(--ease-out), box-shadow 0.22s ease;
       opacity: 0;
       animation: ix-rise 0.45s var(--ease-out) calc(var(--i) * 45ms + 0.18s) forwards;
-      min-height: 0;
+      min-height: clamp(72px, 9vh, 104px);
     }
     .ix-module-card:hover {
-      transform: translateX(3px);
-      border-color: rgba(123,77,255,0.4);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      transform: translateX(4px);
+      border-color: rgba(123,77,255,0.45);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.45);
     }
     .ix-module-card:hover .ix-mod-num-wrap { background: var(--aurora); }
     .ix-module-card:hover .ix-mod-num      { -webkit-text-fill-color: #fff; background: none; color: #fff; }
-    .ix-module-card:hover .ix-mod-arrow    { opacity: 1; transform: translateX(2px); }
+    .ix-module-card:hover .ix-mod-arrow    { opacity: 1; transform: translateX(3px); }
 
     .ix-mod-num-wrap {
-      width: clamp(44px, 4vw, 64px);
-      align-self: stretch;
+      width: clamp(56px, 5vw, 80px);
       display: grid;
       place-items: center;
       background: rgba(123,77,255,0.08);
@@ -359,7 +370,7 @@
     }
     .ix-mod-num {
       font-family: var(--ff-display);
-      font-size: clamp(13px, 1.1vw, 18px);
+      font-size: clamp(15px, 1.3vw, 22px);
       font-weight: 700;
       background: var(--aurora);
       -webkit-background-clip: text; background-clip: text;
@@ -369,25 +380,27 @@
 
     .ix-mod-title {
       font-family: var(--ff-display);
-      font-size: clamp(12px, 0.95vw, 15px);
+      font-size: clamp(13px, 1.05vw, 17px);
       font-weight: 600;
       color: var(--text);
       letter-spacing: -0.01em;
       line-height: 1.3;
       flex: 1;
-      padding: 0 clamp(10px, 1vw, 18px);
+      padding: 0 clamp(16px, 1.4vw, 24px);
+      display: flex;
+      align-items: center;
     }
 
     .ix-mod-right {
       display: flex;
       align-items: center;
-      gap: 0.6vw;
-      padding-right: clamp(10px, 1vw, 16px);
+      gap: 0.8vw;
+      padding-right: clamp(14px, 1.2vw, 20px);
       flex-shrink: 0;
     }
     .ix-mod-count {
       font-family: var(--ff-mono);
-      font-size: clamp(9px, 0.65vw, 11px);
+      font-size: clamp(10px, 0.72vw, 12px);
       color: var(--text-muted);
       white-space: nowrap;
     }
@@ -396,17 +409,17 @@
     .ix-mod-arrow {
       display: grid;
       place-items: center;
-      width: clamp(22px, 1.6vw, 28px);
-      height: clamp(22px, 1.6vw, 28px);
-      border-radius: 6px;
+      width: clamp(26px, 1.8vw, 32px);
+      height: clamp(26px, 1.8vw, 32px);
+      border-radius: 7px;
       background: rgba(123,77,255,0.1);
       border: 1px solid rgba(123,77,255,0.2);
-      opacity: 0.35;
+      opacity: 0.4;
       flex-shrink: 0;
       transition: opacity 0.2s ease, transform 0.22s var(--ease-out);
     }
     .ix-mod-arrow svg {
-      width: 10px; height: 10px;
+      width: 11px; height: 11px;
       stroke: var(--violet);
       fill: none;
       stroke-width: 2;
@@ -428,8 +441,8 @@
   <!-- Header -->
   <header class="ix-header">
     <div class="ix-brand">
-      <div class="ix-brand-mark" aria-hidden="true">A</div>
-      <span class="ix-brand-name"><strong>AURORA</strong> Slides</span>
+      <div class="ix-brand-mark" aria-hidden="true">MC</div>
+      <span class="ix-brand-name"><strong>Marcos Cobo</strong> Slides</span>
     </div>
     <span class="ix-header-center">Biblioteca de presentaciones</span>
     <span class="ix-header-right">2026</span>
@@ -438,7 +451,7 @@
   <!-- Body -->
   <div class="ix-body">
     <aside class="ix-sidebar" aria-label="Cursos">
-      <p class="ix-sidebar-label">Cursos</p>
+      <p class="ix-sidebar-label">Grupos</p>
       <div id="course-list"></div>
     </aside>
 
@@ -451,6 +464,14 @@
   'use strict';
 
   const COURSES = [
+    {
+      id: 'personal',
+      title: 'Personal',
+      year: '2026',
+      modules: [
+        { num: '01', title: 'About Me — Marcos Cobo Carrillo', slides: 5, href: 'deck/about-me-marcos-cobo/index.html' },
+      ]
+    },
     {
       id: 'ia-logistica',
       title: 'IA para Logística',
@@ -466,17 +487,9 @@
         { num: '08', title: 'Liderando la Transformación con IA',  slides: 27, href: 'deck/curso-ia-logistica-m08-transformacion/index.html' },
       ]
     },
-    {
-      id: 'personal',
-      title: 'Personal',
-      year: '2026',
-      modules: [
-        { num: '01', title: 'About Me — Marcos Cobo Carrillo', slides: 5, href: 'deck/about-me-marcos-cobo/index.html' },
-      ]
-    }
   ];
 
-  let active = COURSES[0].id;
+  let active = 'personal';
   const arrow = `<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
 
   function renderSidebar() {
