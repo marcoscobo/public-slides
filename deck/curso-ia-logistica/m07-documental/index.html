@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Documental — Módulo 7 · Curso IA para Logística</title>
+  <meta name="description" content="Módulo 7 del curso de IA para logística: OCR inteligente, procesamiento de facturas, albaranes, CMR y extracción de información con modelos transformer." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+  <script defer src="../../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 07 · CURSO IA LOGÍSTICA · 2026</span>
+        <h1 class="display-xl">
+          IA <span class="text-aurora">Documental</span><br>en Logística.
+        </h1>
+        <p class="lead">Del papel escaneado al dato estructurado: OCR inteligente, facturas, albaranes, CMR y extracción automática de información en la cadena de suministro.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA para Logística</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 07 de 10 · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — section: OCR -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 01</span>
+        <h2 class="display-l text-aurora">OCR Inteligente</h2>
+        <p class="lead">De los píxeles a los datos: la evolución del reconocimiento óptico de caracteres y el salto al procesamiento inteligente de documentos.</p>
+        <div class="shape shape--circle-sm" style="top: 65%; left: 72%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 03 — timeline: evolución OCR -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>EVOLUCIÓN TECNOLÓGICA</span>
+        <h2 class="h1">Del OCR clásico al <span class="text-aurora">IDP</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">1990s</span>
+            <h3 class="h3">OCR clásico (reglas)</h3>
+            <p>Reconocimiento por patrones fijos. Requería documentos perfectos, plantillas rígidas y alta supervisión manual.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">2010s</span>
+            <h3 class="h3">OCR con ML</h3>
+            <p>Redes neuronales convolucionales mejoran la tolerancia al ruido. Primeros modelos de reconocimiento de campos semánticos.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">2018+</span>
+            <h3 class="h3">Document AI / IDP</h3>
+            <p>Transformers multimodales (texto + layout + imagen). Comprensión semántica, extracción contextual, sin plantillas.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">HOY</span>
+            <h3 class="h3">LLMs documentales</h3>
+            <p>Modelos como GPT-4V o Claude para documentos complejos. Razonamiento sobre contenido, no solo extracción.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 04 — bullets: modelos actuales -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>HERRAMIENTAS DEL MERCADO</span>
+        <h2 class="h1">Modelos OCR <span class="text-aurora">actuales</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Tesseract (Open Source)</h3>
+              <p>Motor gratuito mantenido por Google. Bueno para documentos limpios, limitado en layouts complejos. Ideal para pruebas y volúmenes bajos.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">AWS Textract</h3>
+              <p>Extrae texto, tablas y formularios de PDFs e imágenes. API managed, pay-per-use. Integración nativa con el ecosistema AWS.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Azure Form Recognizer</h3>
+              <p>Modelos preentrenados para facturas, recibos y documentos de identidad. Permite entrenamiento custom con pocos ejemplos.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Google Document AI</h3>
+              <p>Suite completa: OCR, clasificación, extracción y enriquecimiento. Procesadores especializados por tipo de documento.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 05 — stat: impacto del IDP -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>IMPACTO OPERATIVO</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="80" data-suffix="%">0%</span>
+          <p class="stat-label">de reducción en tiempo de procesamiento manual de documentos al implementar IDP.</p>
+        </div>
+        <p class="stat-context">Fuente: McKinsey &amp; Gartner, 2024. Empresas logísticas que implementaron IDP en flujos de facturas y CMR reportaron además una tasa de error inferior al 0.5%.</p>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Qué diferencia al IDP del OCR clásico de los 90</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver la evolución desde el OCR basado en reglas hasta los modelos transformer. Comprueba que lo tienes claro.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>El OCR clásico usaba redes neuronales y el IDP usa plantillas fijas</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>El IDP combina texto, layout e imagen para comprender semántica sin plantillas</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>El IDP solo funciona con documentos digitales, no con papel escaneado</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>La diferencia principal es el coste: el IDP es más barato por volumen</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 06 — section: Facturas -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 02</span>
+        <h2 class="display-l text-aurora">Facturas</h2>
+        <p class="lead">Automatizar la validación, extracción y reconciliación de facturas con órdenes de compra: el caso de uso más maduro del IDP en logística.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 68%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 07 — content: estructura factura -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ANATOMÍA DE LA FACTURA</span>
+        <h2 class="h1">Campos clave para la <span class="text-aurora">extracción</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Una factura logística contiene datos estructurados en zonas predecibles. El IDP aprende la semántica de cada campo, no su posición exacta en la página.</p>
+            <p>Campos críticos: número de factura, fecha de emisión, emisor/receptor (CIF, razón social), líneas de detalle (cantidad, descripción, precio unitario, IVA), totales, número de PO referenciado y condiciones de pago.</p>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/7B4DFF?text=Factura+IDP" alt="Diagrama de campos extraídos de una factura" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 — split: validación y reconciliación -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>VALIDACIÓN AUTOMÁTICA</span>
+        <h2 class="h1">Extracción vs <span class="text-aurora">reconciliación</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">EXTRACCIÓN</span>
+            <h3 class="h2">Datos del documento</h3>
+            <ul class="check-list check-list--plus">
+              <li>OCR + NER sobre campos semánticos</li>
+              <li>Confianza por campo (0–100%)</li>
+              <li>Detección de anomalías tipográficas</li>
+              <li>Normalización de formatos (fechas, monedas)</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">RECONCILIACIÓN CON PO</span>
+            <h3 class="h2">Cruce con ERP/WMS</h3>
+            <ul class="check-list check-list--plus">
+              <li>Matching por número de PO referenciado</li>
+              <li>Tolerancia configurable (± 2% en importes)</li>
+              <li>Alerta automática en discrepancias</li>
+              <li>Flujo de aprobación para excepciones</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Qué campos de una factura os dan más problemas hoy</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">El IDP extrae campos semánticos y los cruza contra el ERP. Pensad en vuestro día a día: ¿dónde fallan más las facturas que recibís?</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 09 — section: Albaranes -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 03</span>
+        <h2 class="display-l text-aurora">Albaranes</h2>
+        <p class="lead">Digitalización en tiempo real, validación contra pedidos y trazabilidad total en el almacén.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 70%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 10 — bullets: pipeline albaranes -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>PIPELINE DE DIGITALIZACIÓN</span>
+        <h2 class="h1">Albarán digital: del papel al <span class="text-aurora">WMS</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Captura en recepción</h3>
+              <p>Foto con móvil o escáner en el muelle. La imagen se envía al pipeline IDP en tiempo real (latencia &lt;3 seg).</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Extracción y validación</h3>
+              <p>El modelo extrae líneas de pedido, referencias, cantidades y fechas. Se cruzan contra el pedido abierto en el ERP.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Integración WMS</h3>
+              <p>Si la validación es correcta, el WMS crea automáticamente el movimiento de stock. Sin teclear una línea.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Trazabilidad completa</h3>
+              <p>Cada albarán digitalizado queda enlazado a la expedición, el pedido y la factura. Auditoría completa en un clic.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Diseñad el pipeline de digitalización de albaranes en vuestra empresa</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver el flujo completo: captura → extracción → WMS → trazabilidad. Aplicadlo a vuestro contexto real.</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 11 — section: CMR -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 04</span>
+        <h2 class="display-l text-aurora">CMR</h2>
+        <p class="lead">La Carta de Porte internacional: campos obligatorios, extracción automática y beneficios en el transporte de mercancías por carretera.</p>
+        <div class="shape shape--circle-sm" style="top: 58%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 12 — content: CMR campos y extracción -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>CARTA DE PORTE INTERNACIONAL</span>
+        <h2 class="h1">CMR: campos obligatorios y <span class="text-aurora">extracción automática</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">El CMR (Convenio Relativo al Contrato de Transporte Internacional de Mercancías por Carretera) define 24 casillas normativas. El IDP extrae todas sin plantillas fijas.</p>
+            <p>Campos críticos: remitente y destinatario, lugar y fecha de carga, descripción de la mercancía, peso bruto, instrucciones para despacho de aduanas, número de matrícula del vehículo, firma y sello del transportista.</p>
+            <p>Beneficios: reducción de disputas por datos incorrectos, integración automática con TMS, trazabilidad en tiempo real y cumplimiento normativo automatizado.</p>
+          </div>
+          <div class="content-media">
+            <img src="https://placehold.co/800x600/131826/00D4FF?text=CMR+Doc" alt="Esquema de campos del documento CMR" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 13 — quote -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">El 70% de los errores en transporte internacional provienen de datos incorrectos en <span class="text-aurora">documentos de papel</span>. La IA documental los elimina en origen.</p>
+          <div class="quote-attribution">
+            <strong>IRU — International Road Transport Union</strong>
+            <span>Informe de Digitalización del Transporte, 2024</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · DEBATE -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Vale la pena digitalizar el CMR si el transportista sigue en papel</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">El 70% de errores en transporte internacional vienen de documentos en papel, según la IRU. Pero el cambio requiere que toda la cadena se sume.</p>
+        <p class="interactive-cta reveal" data-delay="2">Debate en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 14 — section: Clasificación -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 05</span>
+        <h2 class="display-l text-aurora">Clasificación</h2>
+        <p class="lead">Modelos que identifican el tipo de documento automáticamente antes de procesarlo: el guardabarros inteligente del pipeline documental.</p>
+        <div class="shape shape--circle-sm" style="top: 63%; left: 69%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 15 — split: clasificación automática -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>CLASIFICACIÓN DE DOCUMENTOS</span>
+        <h2 class="h1">Modelos y <span class="text-aurora">casos logísticos</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">CÓMO SE ENTRENA</span>
+            <h3 class="h2">Arquitectura del modelo</h3>
+            <ul class="check-list check-list--plus">
+              <li>Fine-tuning de LayoutLM o DistilBERT</li>
+              <li>Features visuales (layout) + textuales</li>
+              <li>Pocas muestras: 50–200 ejemplos por clase</li>
+              <li>Reentrenamiento continuo con feedback</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">CASOS EN LOGÍSTICA</span>
+            <h3 class="h2">Clases habituales</h3>
+            <ul class="check-list check-list--plus">
+              <li>Factura de proveedor nacional / internacional</li>
+              <li>Albarán de entrega / devolución</li>
+              <li>CMR, AWB (áereo), BL (marítimo)</li>
+              <li>Certificados de origen, packing lists</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Cuántos ejemplos necesita un modelo de clasificación documental</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Hemos visto que el fine-tuning de LayoutLM requiere sorprendentemente pocos datos. ¿Cuántos ejemplos por clase son suficientes para empezar?</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Mínimo 10.000 documentos por clase para obtener resultados fiables</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Entre 1.000 y 5.000 ejemplos, igual que cualquier clasificador de texto</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Entre 50 y 200 ejemplos por clase son suficientes con fine-tuning</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>No necesita ejemplos: los modelos zero-shot clasifican sin entrenamiento</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 16 — section: Extracción de información -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 06</span>
+        <h2 class="display-l text-aurora">Extracción</h2>
+        <p class="lead">NER, modelos transformer y pipelines de procesamiento: la maquinaria que convierte texto no estructurado en datos accionables.</p>
+        <div class="shape shape--circle-sm" style="top: 61%; left: 71%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 17 — bullets: NER y transformers -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>TECNOLOGÍAS DE EXTRACCIÓN</span>
+        <h2 class="h1">NER y <span class="text-aurora">Transformers</span> documentales</h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">NER (Named Entity Recognition)</h3>
+              <p>Identifica y clasifica entidades: fechas, importes, empresas, referencias, direcciones. Modelos spaCy o Flair sobre texto extraído por OCR.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">LayoutLM / LayoutLMv3</h3>
+              <p>Transformers que combinan texto, posición en la página e imagen. Estado del arte para extracción en documentos con layouts variables.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Donut (Document Understanding Transformer)</h3>
+              <p>End-to-end: imagen de entrada, JSON de salida. Sin OCR separado. Excelente para formularios y documentos semiestructurados.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">LLMs como extractor general</h3>
+              <p>GPT-4V o Claude con prompts estructurados extraen cualquier campo con razonamiento contextual. Flexible pero con coste y latencia mayores.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 18 — code: pipeline de extracción -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>IMPLEMENTACIÓN</span>
+        <h2 class="h2">Pipeline IDP en <span class="text-aurora">Python</span></h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-key">import</span> boto3
+<span class="cm-key">from</span> transformers <span class="cm-key">import</span> pipeline
+
+<span class="cm-fn">textract</span> = boto3.client(<span class="cm-str">'textract'</span>, region_name=<span class="cm-str">'eu-west-1'</span>)
+<span class="cm-fn">ner</span> = pipeline(<span class="cm-str">'ner'</span>, model=<span class="cm-str">'dslim/bert-base-NER'</span>)
+
+<span class="cm-key">def</span> <span class="cm-fn">process_document</span>(image_bytes):
+    <span class="cm-comment"># 1. OCR con AWS Textract</span>
+    ocr = textract.detect_document_text(
+        Document={<span class="cm-str">'Bytes'</span>: image_bytes}
+    )
+    text = <span class="cm-str">' '</span>.join(
+        b[<span class="cm-str">'Text'</span>] <span class="cm-key">for</span> b <span class="cm-key">in</span> ocr[<span class="cm-str">'Blocks'</span>]
+        <span class="cm-key">if</span> b[<span class="cm-str">'BlockType'</span>] == <span class="cm-str">'LINE'</span>
+    )
+    <span class="cm-comment"># 2. Extracción de entidades con NER</span>
+    entities = ner(text)
+    <span class="cm-key">return</span> entities</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Paso 1 — OCR.</strong> Textract devuelve bloques de texto con posición y confianza.</p>
+            <p><strong>Paso 2 — NER.</strong> El modelo BERT fine-tuneado identifica empresas, fechas e importes.</p>
+            <p><strong>Siguiente paso.</strong> Post-procesado para mapear entidades a campos del esquema de destino (ERP/WMS).</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Identificad qué modelo usaríais para cada documento logístico</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Hemos visto NER, LayoutLM, Donut y LLMs. Cada uno tiene un punto fuerte. Relacionad tecnología con caso de uso concreto.</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 19 — stat: precisión de extracción -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>PRECISIÓN DEL SISTEMA</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="97" data-suffix="%">0%</span>
+          <p class="stat-label">de precisión media en extracción de campos clave con modelos transformer sobre documentos logísticos.</p>
+        </div>
+        <p class="stat-context">Benchmarks sobre conjuntos de datos FUNSD y CORD (2024). Para documentos específicos de un cliente con fine-tuning, la precisión supera el 99% en campos críticos.</p>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Qué haría falta en vuestra empresa para llegar al 97% de precisión</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Los benchmarks dicen 97% de media y más del 99% con fine-tuning específico. ¿Qué obstáculos veis para alcanzar eso en vuestro contexto?</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · DEBATE -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">Por dónde empezaríais a implantar IA documental en vuestra operación</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Hemos cubierto OCR, facturas, albaranes, CMR, clasificación y extracción. Si tuvierais que elegir un primer caso de uso para esta semana, ¿cuál sería y por qué?</p>
+        <p class="interactive-cta reveal" data-delay="2">Debate en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- DEMO: Pipeline OCR + LLM — Slide 1: Flujo completo -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · OCR + LLM</span>
+        <h2 class="h1">Pipeline completo: factura escaneada a <span class="text-aurora">JSON</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Cuatro pasos para convertir una factura en papel en un registro estructurado listo para importar al ERP.</p>
+            <div class="content-cards">
+              <div class="split-col reveal" data-delay="1">
+                <span class="col-label">ENTRADA · FACTURA ESCANEADA</span>
+                <p style="font-family: var(--ff-mono); font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0;">FACTURA Nº: 2024-08741<br>PROVEEDOR: Transportes Ibéricos SL · CIF B-83421100<br>FECHA: 12/03/2024<br>SERVICIO: Transporte FTL Barcelona→Madrid<br>MATRÍCULA: 4821-KLM · CONDUCTOR: J. Martínez<br>IMPORTE BASE: 1.850,00 € · IVA 21%: 388,50 €<br>TOTAL: 2.238,50 €</p>
+              </div>
+              <div class="split-col split-col--accent reveal" data-delay="2">
+                <span class="col-label">PASOS DEL PIPELINE</span>
+                <ul class="check-list check-list--plus">
+                  <li><strong>Paso 1 — OCR</strong> (Tesseract / AWS Textract): extrae texto plano con coordenadas de cada token</li>
+                  <li><strong>Paso 2 — LLM</strong> (Claude): recibe el texto OCR y devuelve JSON estructurado con campos semánticos</li>
+                  <li><strong>Paso 3 — Validación</strong>: compara proveedor, importe y PO contra datos del ERP; alerta en discrepancias</li>
+                  <li><strong>Output</strong>: JSON validado listo para importar al ERP vía API</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="content-text reveal" data-delay="3">
+            <p style="font-family: var(--ff-mono); font-size: 15px; color: var(--text-muted); line-height: 1.7; margin: 0;">
+              <span class="cm-cm">// Output final — listo para ERP</span><br>
+              {<br>
+              &nbsp;&nbsp;<span class="cm-key">"factura_num"</span>: <span class="cm-str">"2024-08741"</span>,<br>
+              &nbsp;&nbsp;<span class="cm-key">"proveedor"</span>: <span class="cm-str">"Transportes Ibéricos SL"</span>,<br>
+              &nbsp;&nbsp;<span class="cm-key">"cif"</span>: <span class="cm-str">"B-83421100"</span>,<br>
+              &nbsp;&nbsp;<span class="cm-key">"fecha"</span>: <span class="cm-str">"2024-03-12"</span>,<br>
+              &nbsp;&nbsp;<span class="cm-key">"base_imponible"</span>: <span class="cm-num">1850.00</span>,<br>
+              &nbsp;&nbsp;<span class="cm-key">"iva_pct"</span>: <span class="cm-num">21</span>,<br>
+              &nbsp;&nbsp;<span class="cm-key">"total"</span>: <span class="cm-num">2238.50</span>,<br>
+              &nbsp;&nbsp;<span class="cm-key">"validado_erp"</span>: <span class="cm-num">true</span><br>
+              }
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEMO: Pipeline OCR + LLM — Slide 2: Prompt y JSON de respuesta -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PROMPT DE EXTRACCIÓN</span>
+        <h2 class="h2">El prompt enviado a <span class="text-aurora">Claude</span> y su respuesta JSON</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm"># Prompt enviado a Claude (con few-shot)</span>
+<span class="cm-fn">prompt</span> = <span class="cm-str">"""Eres un extractor de datos de facturas logísticas.
+Dado el siguiente texto extraído por OCR de una factura,
+devuelve ÚNICAMENTE un JSON con los campos indicados.
+Si un campo no existe, usa null.
+
+EJEMPLO:
+Texto OCR: "FACTURA 2024-001 ACME SL B-12345 15/01/2024
+            Transporte Madrid 500.00 EUR IVA 21%"
+JSON: {"factura_num": "2024-001", "proveedor": "ACME SL",
+       "cif": "B-12345", "fecha": "2024-01-15",
+       "concepto": "Transporte Madrid",
+       "base_imponible": 500.00, "iva_pct": 21,
+       "total": 605.00}
+
+TEXTO OCR A PROCESAR:
+{texto_ocr}
+
+JSON:"""</span>
+
+<span class="cm-cm"># Llamada a la API</span>
+<span class="cm-key">import</span> anthropic
+client = anthropic.<span class="cm-fn">Anthropic</span>()
+response = client.messages.<span class="cm-fn">create</span>(
+    model=<span class="cm-str">"claude-opus-4-5"</span>,
+    max_tokens=<span class="cm-num">1024</span>,
+    messages=[{<span class="cm-str">"role"</span>: <span class="cm-str">"user"</span>,
+               <span class="cm-str">"content"</span>: prompt.<span class="cm-fn">format</span>(texto_ocr=texto)}]
+)</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Few-shot.</strong> El ejemplo incluido en el prompt actúa como referencia de formato. Claude generaliza a cualquier factura sin entrenamiento adicional.</p>
+            <p><strong>JSON garantizado.</strong> Pedir explícitamente "devuelve ÚNICAMENTE un JSON" reduce el riesgo de texto extra que rompa el parser.</p>
+            <p><strong>Respuesta real</strong> para la factura del ejemplo anterior:</p>
+            <p style="font-family: var(--ff-mono); font-size: 14px; color: var(--cyan);">{<br>&nbsp;"factura_num": "2024-08741",<br>&nbsp;"proveedor": "Transportes Ibéricos SL",<br>&nbsp;"cif": "B-83421100",<br>&nbsp;"fecha": "2024-03-12",<br>&nbsp;"concepto": "FTL BCN→MAD",<br>&nbsp;"base_imponible": 1850.00,<br>&nbsp;"iva_pct": 21,<br>&nbsp;"total": 2238.50<br>}</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 20 — closing -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>RESUMEN DEL MÓDULO</span>
+        <h2 class="display-l">Del papel escaneado<br>al <span class="text-aurora">dato accionable</span>.</h2>
+        <p class="lead">Este módulo ha cubierto la cadena completa de la IA documental en logística: OCR inteligente (Tesseract, AWS Textract, Document AI), procesamiento de facturas con validación contra ERP, digitalización de albaranes con integración WMS en tiempo real, extracción automática de los 24 campos normativos del CMR, clasificación de documentos con LayoutLM con tan solo 50–200 ejemplos por clase, y pipelines de extracción con NER, Donut y LLMs para convertir texto no estructurado en JSON accionable.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../m08-transformacion/index.html">Siguiente módulo &rarr;</a>
+          <a class="btn btn--ghost" href="../../../index.html">Ir al inicio</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

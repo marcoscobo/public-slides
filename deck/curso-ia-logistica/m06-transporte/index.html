@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 6 — Optimización de Transporte con IA · Curso IA para Logística</title>
+  <meta name="description" content="Optimización de transporte con IA: VRP, bin packing 3D, predicción de ETA, gemelos digitales y reducción de costes. Módulo 6 del Curso de IA para Logística." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+  <script defer src="../../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 06 · CURSO IA LOGÍSTICA · 2026</span>
+        <h1 class="display-xl">
+          Optimización de<br>
+          <span class="text-aurora">Transporte</span>.
+        </h1>
+        <p class="lead">VRP, bin packing 3D, predicción de ETA, gemelos digitales y cómo la IA puede reducir el coste operativo de la flota hasta un 28 %.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA para Logística</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 6 de 10 · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — section: VRP -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
+        <h2 class="display-l text-aurora">Vehicle Routing Problem</h2>
+        <p class="lead">El problema combinatorio que define la logística de última milla — y cómo la IA lo ataca.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 03 — content: Definición VRP -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>FUNDAMENTOS</span>
+        <h2 class="h1">¿Qué es el <span class="text-aurora">VRP</span>?</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">El Vehicle Routing Problem consiste en encontrar el conjunto óptimo de rutas para una flota de vehículos que debe servir a un grupo de clientes dispersos geográficamente, minimizando el coste total.</p>
+            <p>Es una generalización del Travelling Salesman Problem (TSP): en vez de un único viajero, hay múltiples vehículos que parten y regresan a uno o varios depósitos. La complejidad computacional es NP-hard — una red de 100 clientes tiene más de 10¹⁵⁷ rutas posibles.</p>
+            <p>En logística real, el VRP se traduce directamente en decisiones diarias: ¿cuántos camiones salen hoy?, ¿en qué orden visitan los puntos?, ¿qué carga lleva cada uno? Un ahorro del 10 % en kilómetros puede suponer millones de euros al año en flotas grandes.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;background:#131826;border:1px solid #1F2638;">
+              <circle cx="240" cy="180" r="22" fill="#7B4DFF" opacity="0.9"/>
+              <text x="240" y="185" text-anchor="middle" fill="white" font-family="JetBrains Mono,monospace" font-size="11" font-weight="500">DEP</text>
+              <path d="M240 180 L100 80 L60 150 L90 260 L240 180" stroke="#7B4DFF" stroke-width="2.5" fill="none" opacity="0.8"/>
+              <circle cx="100" cy="80" r="10" fill="#7B4DFF" opacity="0.6"/>
+              <circle cx="60" cy="150" r="10" fill="#7B4DFF" opacity="0.6"/>
+              <circle cx="90" cy="260" r="10" fill="#7B4DFF" opacity="0.6"/>
+              <path d="M240 180 L380 70 L430 160 L400 280 L240 180" stroke="#00D4FF" stroke-width="2.5" fill="none" opacity="0.8"/>
+              <circle cx="380" cy="70" r="10" fill="#00D4FF" opacity="0.6"/>
+              <circle cx="430" cy="160" r="10" fill="#00D4FF" opacity="0.6"/>
+              <circle cx="400" cy="280" r="10" fill="#00D4FF" opacity="0.6"/>
+              <path d="M240 180 L200 50 L300 40 L350 120 L240 180" stroke="#FFB627" stroke-width="2.5" fill="none" opacity="0.8"/>
+              <circle cx="200" cy="50" r="10" fill="#FFB627" opacity="0.6"/>
+              <circle cx="300" cy="40" r="10" fill="#FFB627" opacity="0.6"/>
+              <circle cx="350" cy="120" r="10" fill="#FFB627" opacity="0.6"/>
+              <rect x="20" y="305" width="12" height="12" rx="2" fill="#7B4DFF"/>
+              <text x="38" y="316" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="11">Ruta 1</text>
+              <rect x="95" y="305" width="12" height="12" rx="2" fill="#00D4FF"/>
+              <text x="113" y="316" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="11">Ruta 2</text>
+              <rect x="170" y="305" width="12" height="12" rx="2" fill="#FFB627"/>
+              <text x="188" y="316" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="11">Ruta 3</text>
+              <text x="350" y="316" fill="#5C5F6B" font-family="JetBrains Mono,monospace" font-size="10">NP-hard</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — bullets: Variantes del VRP -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>VARIANTES PRINCIPALES</span>
+        <h2 class="h1">Del VRP clásico a las <span class="text-aurora">variantes reales</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">CVRP</span>
+            <div>
+              <h3 class="h3">Capacitated VRP</h3>
+              <p>Cada vehículo tiene una capacidad máxima de carga (peso o volumen). La variante más común en distribución. La demanda total de cada ruta no puede exceder la capacidad del vehículo asignado.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">VRPTW</span>
+            <div>
+              <h3 class="h3">VRP with Time Windows</h3>
+              <p>Cada cliente debe ser visitado dentro de una ventana horaria fija (ej.: 9:00–12:00). Añade restricciones temporales que complican enormemente la búsqueda del óptimo global.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">MDVRP</span>
+            <div>
+              <h3 class="h3">Multi-Depot VRP</h3>
+              <p>Los vehículos pueden partir de varios depósitos distintos. Esencial en redes con múltiples almacenes. Permite asignar cada cliente al depósito más eficiente según proximidad y disponibilidad.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">SDVRP</span>
+            <div>
+              <h3 class="h3">Split Delivery VRP</h3>
+              <p>Un mismo cliente puede ser servido por más de un vehículo en visitas parciales. Útil cuando la demanda supera la capacidad de un solo camión o cuando se quiere maximizar la ocupación de flota.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Qué variante del VRP añade restricciones de ventana horaria?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver las cuatro variantes principales del VRP. Una pregunta rápida para comprobar que os habéis quedado con los nombres.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>CVRP — Capacitated VRP</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>MDVRP — Multi-Depot VRP</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>VRPTW — VRP with Time Windows</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>SDVRP — Split Delivery VRP</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 05 — split: Algoritmos clásicos vs IA -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>COMPARATIVA DE ENFOQUES</span>
+        <h2 class="h1">Heurísticas clásicas vs <span class="text-aurora">IA moderna</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">ENFOQUES CLÁSICOS</span>
+            <h3 class="h2">Algoritmos exactos y heurísticas</h3>
+            <ul class="check-list check-list--minus">
+              <li>Clarke-Wright Savings: rápido pero subóptimo en instancias grandes (&gt;200 nodos)</li>
+              <li>Simulated Annealing: requiere afinación manual de parámetros temperatura/enfriamiento</li>
+              <li>Branch &amp; Bound: exacto pero inviable para más de 50 nodos en tiempo razonable</li>
+              <li>Ant Colony Optimization: resultados variables entre ejecuciones distintas</li>
+              <li>No aprende de datos históricos ni se adapta a condiciones en tiempo real</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">IA Y METAHEURÍSTICAS MODERNAS</span>
+            <h3 class="h2">Aprendizaje + optimización</h3>
+            <ul class="check-list check-list--plus">
+              <li>Reinforcement Learning: el agente aprende rutas óptimas por experiencia acumulada</li>
+              <li>Graph Neural Networks: modelan la topología de la red de distribución directamente</li>
+              <li>Pointer Networks: arquitectura Transformer para secuenciación de paradas</li>
+              <li>Hybrid IA + OR: combina predicciones ML con OR-Tools para la optimización final</li>
+              <li>Incorpora patrones históricos, tráfico en tiempo real y predicciones de demanda</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — code: Google OR-Tools -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>HERRAMIENTAS · IMPLEMENTACIÓN</span>
+        <h2 class="h2">CVRP con <span class="text-aurora">Google OR-Tools</span> en Python</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-cm"># CVRP con Google OR-Tools — esquema de producción</span>
+<span class="cm-key">from</span> ortools.constraint_solver <span class="cm-key">import</span> routing_enums_pb2
+<span class="cm-key">from</span> ortools.constraint_solver <span class="cm-key">import</span> pywrapcp
+
+<span class="cm-cm"># 1. Crear el gestor (nodos × vehículos × depósito)</span>
+manager = pywrapcp.<span class="cm-fn">RoutingIndexManager</span>(
+    len(data[<span class="cm-str">'distance_matrix'</span>]),
+    data[<span class="cm-str">'num_vehicles'</span>],
+    data[<span class="cm-str">'depot'</span>]
+)
+routing = pywrapcp.<span class="cm-fn">RoutingModel</span>(manager)
+
+<span class="cm-cm"># 2. Función de coste (distancia entre nodos)</span>
+<span class="cm-key">def</span> <span class="cm-fn">distance_callback</span>(from_idx, to_idx):
+    i = manager.<span class="cm-fn">IndexToNode</span>(from_idx)
+    j = manager.<span class="cm-fn">IndexToNode</span>(to_idx)
+    <span class="cm-key">return</span> data[<span class="cm-str">'distance_matrix'</span>][i][j]
+
+transit_cb = routing.<span class="cm-fn">RegisterTransitCallback</span>(distance_callback)
+routing.<span class="cm-fn">SetArcCostEvaluatorOfAllVehicles</span>(transit_cb)
+
+<span class="cm-cm"># 3. Restricción de capacidad por vehículo</span>
+<span class="cm-key">def</span> <span class="cm-fn">demand_callback</span>(idx):
+    <span class="cm-key">return</span> data[<span class="cm-str">'demands'</span>][manager.<span class="cm-fn">IndexToNode</span>(idx)]
+
+demand_cb = routing.<span class="cm-fn">RegisterUnaryTransitCallback</span>(demand_callback)
+routing.<span class="cm-fn">AddDimensionWithVehicleCapacity</span>(
+    demand_cb, <span class="cm-num">0</span>, data[<span class="cm-str">'vehicle_capacities'</span>], <span class="cm-key">True</span>, <span class="cm-str">'Capacity'</span>
+)
+
+<span class="cm-cm"># 4. Parámetros de búsqueda con metaheurística GLS</span>
+params = pywrapcp.<span class="cm-fn">DefaultRoutingSearchParameters</span>()
+params.first_solution_strategy = (
+    routing_enums_pb2.FirstSolutionStrategy.<span class="cm-fn">PATH_CHEAPEST_ARC</span>
+)
+params.local_search_metaheuristic = (
+    routing_enums_pb2.LocalSearchMetaheuristic.<span class="cm-fn">GUIDED_LOCAL_SEARCH</span>
+)
+params.time_limit.<span class="cm-fn">FromSeconds</span>(<span class="cm-num">30</span>)
+
+solution = routing.<span class="cm-fn">SolveWithParameters</span>(params)</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>OR-Tools.</strong> Librería open-source de Google. Soporta CVRP, VRPTW y MDVRP con pocas líneas de configuración. Escala hasta ~1 000 nodos en producción.</p>
+            <p><strong>Guided Local Search.</strong> Metaheurística por defecto para VRP. Escapa de mínimos locales penalizando arcos ya usados frecuentemente en iteraciones anteriores.</p>
+            <p><strong>OptaPlanner.</strong> Alternativa JVM (Java/Kotlin) con motor de constraint satisfaction. Más integrable con sistemas ERP y TMS basados en Java.</p>
+            <p><strong>Límite de tiempo.</strong> En producción se suele configurar 30–120 s. OR-Tools devuelve la mejor solución encontrada hasta ese momento al expirar el límite.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿En qué procesos de vuestras empresas aplicaríais OR-Tools?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Ya sabéis cómo funciona Google OR-Tools para resolver el CVRP. Pensad en vuestra operativa real: ¿dónde lo usaríais primero?</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 07 — section: Optimización de cargas -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
+        <h2 class="display-l text-aurora">Optimización de Cargas</h2>
+        <p class="lead">Bin packing 3D, restricciones físicas y software especializado para maximizar el aprovechamiento de cada vehículo.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 70%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 08 — content: Bin Packing 3D -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>BIN PACKING 3D</span>
+        <h2 class="h1">El problema del <span class="text-aurora">empaquetado 3D</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">El bin packing 3D consiste en colocar cajas de distintas dimensiones dentro de contenedores minimizando el espacio desaprovechado y cumpliendo restricciones físicas y operativas.</p>
+            <p>Es NP-hard en su versión tridimensional. Las soluciones industriales combinan heurísticas geométricas con modelos de IA entrenados sobre miles de cargas históricas.</p>
+            <p>Las ganancias son directas: un camión con el 92 % de ocupación volumétrica frente al 72 % habitual supone un 20 % menos de viajes y la misma reducción en costes de combustible y emisiones.</p>
+            <ul class="check-list check-list--plus" style="margin-top:16px;">
+              <li><strong>Bottom-Left-Fill (BLF):</strong> coloca cada caja en la posición más baja, izquierda y trasera disponible</li>
+              <li><strong>Extreme Points:</strong> genera puntos de inserción candidatos a partir de las esquinas de las cajas ya colocadas</li>
+              <li><strong>IA generativa:</strong> secuencia la carga y prevé estabilidad bajo frenadas</li>
+            </ul>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;background:#131826;border:1px solid #1F2638;">
+              <rect x="40" y="60" width="400" height="260" rx="6" stroke="#1F2638" stroke-width="2" fill="#0B0F1A"/>
+              <rect x="50" y="220" width="100" height="90" rx="4" fill="#7B4DFF" opacity="0.7" stroke="#7B4DFF" stroke-width="1"/>
+              <rect x="160" y="235" width="80" height="75" rx="4" fill="#00D4FF" opacity="0.6" stroke="#00D4FF" stroke-width="1"/>
+              <rect x="250" y="220" width="60" height="90" rx="4" fill="#FFB627" opacity="0.7" stroke="#FFB627" stroke-width="1"/>
+              <rect x="320" y="250" width="110" height="60" rx="4" fill="#7B4DFF" opacity="0.5" stroke="#7B4DFF" stroke-width="1"/>
+              <rect x="50" y="140" width="80" height="72" rx="4" fill="#00D4FF" opacity="0.5" stroke="#00D4FF" stroke-width="1"/>
+              <rect x="140" y="155" width="120" height="57" rx="4" fill="#FFB627" opacity="0.6" stroke="#FFB627" stroke-width="1"/>
+              <rect x="270" y="140" width="90" height="72" rx="4" fill="#C6FF3D" opacity="0.45" stroke="#C6FF3D" stroke-width="1"/>
+              <rect x="370" y="155" width="60" height="57" rx="4" fill="#7B4DFF" opacity="0.6" stroke="#7B4DFF" stroke-width="1"/>
+              <rect x="50" y="70" width="150" height="62" rx="4" fill="#7B4DFF" opacity="0.6" stroke="#7B4DFF" stroke-width="1"/>
+              <rect x="210" y="70" width="100" height="62" rx="4" fill="#00D4FF" opacity="0.55" stroke="#00D4FF" stroke-width="1"/>
+              <rect x="320" y="70" width="110" height="62" rx="4" fill="#FFB627" opacity="0.5" stroke="#FFB627" stroke-width="1"/>
+              <text x="240" y="345" text-anchor="middle" fill="#7B4DFF" font-family="JetBrains Mono,monospace" font-size="14" font-weight="500">Ocupación volumétrica: 94 %</text>
+              <text x="240" y="365" text-anchor="middle" fill="#5C5F6B" font-family="JetBrains Mono,monospace" font-size="11">Bin Packing 3D — vista de perfil lateral</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 — bullets: Factores de carga -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>RESTRICCIONES Y HERRAMIENTAS</span>
+        <h2 class="h1">Más allá del volumen: <span class="text-aurora">carga inteligente</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Peso y distribución axial</h3>
+              <p>El peso máximo por eje del vehículo es una restricción legal. Los algoritmos calculan el centro de gravedad y garantizan que la distribución sea conforme a la normativa de circulación vigente.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Compatibilidad de mercancías</h3>
+              <p>Algunos productos no pueden compartir espacio: frescos con secos, peligrosas con alimentos, frágiles bajo pesados. Las incompatibilidades se modelan como grafos de restricción binaria.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Orden de entrega LIFO</h3>
+              <p>La carga debe organizarse de forma que la primera entrega esté más accesible (Last In, First Out). Esto obliga a conocer el orden de ruta antes de planificar la carga — acoplando el VRP con el bin packing.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Software especializado</h3>
+              <p><strong>Cargo Planner, 3D Load, Packit3D:</strong> SaaS con IA y visualización 3D. <strong>SAP EWM:</strong> gestión de carga en ERP. <strong>Covariant AI:</strong> robótica + carga automatizada. <strong>Logiview / OpenBoxes:</strong> opciones open-source para pymes.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 10 — stat: Benchmark ocupación -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>IMPACTO MEDIDO · OPTIMIZACIÓN DE CARGA</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="23" data-suffix="%">0%</span>
+          <p class="stat-label">de aumento en la ocupación volumétrica media de camiones con bin packing 3D asistido por IA.</p>
+        </div>
+        <p class="stat-context">Estudio McKinsey &amp; Company (2024) sobre 14 operadores de transporte europeos. El incremento del 72 % al 92 % de ocupación se traduce directamente en un 20–23 % menos de viajes y una reducción equivalente de emisiones de CO₂ por tonelada transportada.</p>
+        <div class="stat-grid reveal" data-delay="2" style="margin-top:48px;">
+          <div class="mini-stat">
+            <span class="mini-stat-number text-aurora">−20%</span>
+            <span class="mini-stat-label">viajes totales necesarios</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-number" style="color:var(--amber);">92%</span>
+            <span class="mini-stat-label">ocupación volumétrica alcanzable</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-number" style="color:var(--lime);">−18%</span>
+            <span class="mini-stat-label">CO₂ por tonelada transportada</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Calcula el ahorro de viajes con bin packing en tu flota</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Si vuestra flota tiene una ocupación media del 72 % y el bin packing 3D la sube al 92 %, calculad cuántos viajes y litros de combustible ahorraríais al mes.</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 11 — section: ETA -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
+        <h2 class="display-l text-aurora">Predicción de ETA</h2>
+        <p class="lead">Modelos de Machine Learning para estimar tiempos de llegada con precisión real — no distancia dividida por velocidad media.</p>
+        <div class="shape shape--circle-sm" style="top: 65%; left: 68%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 12 — content: Factores ETA -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>FACTORES Y MODELOS</span>
+        <h2 class="h1">¿Qué determina el <span class="text-aurora">tiempo real de llegada</span>?</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">El ETA clásico asume velocidades medias constantes. Un modelo de ML incorpora todas las variables que determinan el tiempo real de tránsito en cada segmento de ruta.</p>
+            <p><strong style="color:var(--text);">Tráfico dinámico:</strong> APIs de HERE, TomTom o Google Maps en tiempo real, complementadas con patrones históricos por hora del día, día de la semana y eventos locales (eventos deportivos, obras).</p>
+            <p><strong style="color:var(--text);">Condiciones meteorológicas:</strong> lluvia, niebla, nieve y temperatura afectan la velocidad efectiva. Un modelo entrenado sobre histórico de despachos cuantifica el impacto por tipo de evento climático.</p>
+            <p><strong style="color:var(--text);">Historial del conductor:</strong> cada conductor tiene patrones propios de velocidad y paradas. El modelo aprende estas variaciones individuales y las incorpora a la predicción.</p>
+            <p><strong style="color:var(--text);">Tiempo en cliente:</strong> la variabilidad en el tiempo de descarga (colas, disponibilidad de muelles) es a menudo el mayor contribuyente a la dispersión del ETA real.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:16px;background:#131826;border:1px solid #1F2638;">
+              <text x="240" y="30" text-anchor="middle" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="12">Importancia de variables — modelo ETA (SHAP)</text>
+              <text x="190" y="68" text-anchor="end" fill="#ECEAE3" font-family="Inter,sans-serif" font-size="13">Tráfico real</text>
+              <rect x="200" y="54" width="220" height="20" rx="4" fill="#7B4DFF" opacity="0.85"/>
+              <text x="428" y="68" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="12">34%</text>
+              <text x="190" y="110" text-anchor="end" fill="#ECEAE3" font-family="Inter,sans-serif" font-size="13">Tiempo en cliente</text>
+              <rect x="200" y="96" width="185" height="20" rx="4" fill="#00D4FF" opacity="0.75"/>
+              <text x="393" y="110" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="12">28%</text>
+              <text x="190" y="152" text-anchor="end" fill="#ECEAE3" font-family="Inter,sans-serif" font-size="13">Hora del día</text>
+              <rect x="200" y="138" width="130" height="20" rx="4" fill="#FFB627" opacity="0.75"/>
+              <text x="338" y="152" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="12">20%</text>
+              <text x="190" y="194" text-anchor="end" fill="#ECEAE3" font-family="Inter,sans-serif" font-size="13">Historial conductor</text>
+              <rect x="200" y="180" width="80" height="20" rx="4" fill="#C6FF3D" opacity="0.65"/>
+              <text x="288" y="194" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="12">12%</text>
+              <text x="190" y="236" text-anchor="end" fill="#ECEAE3" font-family="Inter,sans-serif" font-size="13">Meteorología</text>
+              <rect x="200" y="222" width="42" height="20" rx="4" fill="#FF5B7A" opacity="0.65"/>
+              <text x="250" y="236" fill="#8B8D98" font-family="JetBrains Mono,monospace" font-size="12">6%</text>
+              <rect x="40" y="282" width="400" height="1" fill="#1F2638"/>
+              <text x="240" y="310" text-anchor="middle" fill="#5C5F6B" font-family="Inter,sans-serif" font-size="12">Modelos: XGBoost · LSTM · Transformer</text>
+              <text x="240" y="332" text-anchor="middle" fill="#5C5F6B" font-family="Inter,sans-serif" font-size="12">MAE urbano: 6.3 min · MAE interurbano: 11.8 min</text>
+              <text x="240" y="354" text-anchor="middle" fill="#5C5F6B" font-family="Inter,sans-serif" font-size="12">Actualización cada 15 min en producción</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Qué variable tiene más peso en el modelo ETA según el gráfico SHAP?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver el análisis de importancia de variables del modelo de ETA. ¿Cuál lidera el ranking?</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Historial del conductor</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Hora del día</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Meteorología</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>Tráfico real</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 13 — timeline: Pipeline ETA -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>ARQUITECTURA DEL SISTEMA</span>
+        <h2 class="h1">Pipeline de <span class="text-aurora">predicción de ETA</span> en producción</h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline timeline--5">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">01</span>
+            <h3 class="h3">Ingesta</h3>
+            <p>GPS del vehículo, APIs de tráfico HERE/TomTom, feeds meteorológicos y datos del TMS con latencia &lt; 30 s.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">02</span>
+            <h3 class="h3">Features</h3>
+            <p>Velocidad media últimos 5 km, ratio de paradas, temperatura, hora local, día de semana y festivos del país.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">03</span>
+            <h3 class="h3">Modelo ML</h3>
+            <p>XGBoost para rutas cortas con alta volatilidad. LSTM para rutas largas con dependencias temporales complejas.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">04</span>
+            <h3 class="h3">TMS</h3>
+            <p>El ETA predicho se publica en el TMS (SAP TM, Oracle OTM) y desencadena alertas automáticas de retraso.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="5">
+            <span class="timeline-marker">05</span>
+            <h3 class="h3">Cliente final</h3>
+            <p>SMS o push notification automático con ETA actualizado cada 15 min. Reduce llamadas de tracking en un 60 %.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 14 — stat: Precisión ETA -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>RENDIMIENTO EN PRODUCCIÓN · ETA ML</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="89" data-suffix="%">0%</span>
+          <p class="stat-label">de entregas con ETA predicho dentro de una ventana de ±15 minutos.</p>
+        </div>
+        <p class="stat-context">Benchmark de DHL Supply Chain 2024 con modelo XGBoost + LSTM en red de distribución urbana de 8 ciudades europeas. El ETA clásico (distancia/velocidad media) solo alcanzaba el 54 % de precisión en la misma ventana temporal. La mejora supone un 60 % menos de llamadas de tracking al call center.</p>
+        <div class="stat-grid reveal" data-delay="2" style="margin-top:48px;">
+          <div class="mini-stat">
+            <span class="mini-stat-number text-aurora">54%</span>
+            <span class="mini-stat-label">ETA clásico (distancia / velocidad)</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-number" style="color:var(--amber);">6.3 min</span>
+            <span class="mini-stat-label">MAE en entorno urbano</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-number" style="color:var(--lime);">−60%</span>
+            <span class="mini-stat-label">llamadas de tracking al call center</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · DEBATE -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Deberías informar al cliente si el modelo prevé un retraso?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">El sistema predice con 30 minutos de antelación que una entrega llegará tarde. ¿Notificáis al cliente de inmediato o esperáis a tener más certeza?</p>
+        <p class="interactive-cta reveal" data-delay="2">Debate en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 15 — section: Gemelos digitales -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 04</span>
+        <h2 class="display-l text-aurora">Gemelos Digitales</h2>
+        <p class="lead">Simulación de la red logística completa para anticipar cuellos de botella, evaluar cambios y preparar contingencias sin afectar al sistema real.</p>
+        <div class="shape shape--circle-sm" style="top: 64%; left: 72%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 16 — bullets: Gemelos digitales -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>SIMULACIÓN DE ESCENARIOS</span>
+        <h2 class="h1">Gemelos digitales en <span class="text-aurora">logística real</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Réplica en tiempo real</h3>
+              <p>Un gemelo digital replica el estado actual de la flota, los almacenes y los pedidos pendientes. Combina datos IoT del vehículo (GPS, temperatura, combustible) con el estado del TMS y el WMS en un modelo unificado y actualizado en tiempo real.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Simulación what-if</h3>
+              <p>¿Qué pasa si el almacén de Madrid cierra 4 horas? ¿Y si la demanda crece un 40 % en Black Friday? El gemelo ejecuta miles de simulaciones Monte Carlo sobre escenarios extremos antes de que ocurran.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Re-optimización dinámica</h3>
+              <p>Al conocer el estado exacto de cada vehículo en tiempo real, el gemelo re-optimiza rutas dinámicamente ante incidencias (accidente, retraso en cliente, avería) sin interrumpir el resto de la operación activa.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Herramientas del sector</h3>
+              <p><strong>NVIDIA Omniverse:</strong> simulación física 3D para almacenes automatizados. <strong>Anylogic:</strong> redes de distribución complejas. <strong>AWS Supply Chain:</strong> gemelo digital gestionado. <strong>Microsoft Azure Digital Twins:</strong> orquestación a escala enterprise.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · BRAINSTORMING -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Qué escenario what-if simularíais con vuestro gemelo digital?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Los gemelos digitales permiten simular escenarios extremos antes de que ocurran. Pensad en vuestra red logística: ¿qué contingencia os quita el sueño?</p>
+        <p class="interactive-cta reveal" data-delay="2">Escribe en el chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 17 — section: Reducción costes -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 05</span>
+        <h2 class="display-l text-aurora">Reducción de Costes</h2>
+        <p class="lead">Fuel optimization, backhauling inteligente, consolidación de envíos y los benchmarks que la industria ya está midiendo.</p>
+        <div class="shape shape--circle-sm" style="top: 63%; left: 75%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 18 — bullets: Estrategias ahorro -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>ESTRATEGIAS IA · AHORRO OPERATIVO</span>
+        <h2 class="h1">Cuatro palancas para <span class="text-aurora">reducir costes</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Fuel Optimization</h3>
+              <p>Modelos ML que predicen el consumo según ruta, carga, perfil del conductor y meteorología. Combinados con eco-routing (velocidad y marcha recomendada en tiempo real), logran reducciones del 8–15 % en consumo. Soluciones: Geotab, Samsara AI, Fleetio.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Backhauling Inteligente</h3>
+              <p>Detectar oportunidades de carga en el viaje de retorno. Algoritmos de matching cruzan rutas de retorno vacías con necesidades de transporte en la misma dirección. Transporeon y Timocom ofrecen mercados de cargas de retorno basados en IA.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Consolidación de Envíos</h3>
+              <p>Agrupar envíos de distintos clientes en una misma carga (LTL a FTL) cuando sus rutas y ventanas horarias son compatibles. Los modelos de clustering identifican oportunidades que un planificador humano no detectaría en tiempo real.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Mantenimiento Predictivo</h3>
+              <p>Sensores IoT en el vehículo (CAN bus) alimentan modelos de detección de anomalías (LSTM, autoencoders) que predicen averías 2–4 semanas antes. Reducen el tiempo de inmovilización no planificado hasta un 35 % y los costes de mantenimiento correctivo un 25 %.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 19 — stat: Multi-stat benchmarks -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>BENCHMARKS DE AHORRO · INDUSTRIA LOGÍSTICA · GARTNER 2025</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="28" data-suffix="%">0%</span>
+          <p class="stat-label">de reducción en el coste total de transporte al implementar un stack completo de optimización IA.</p>
+        </div>
+        <p class="stat-context">Gartner Supply Chain Technology Report 2025, operadores europeos con más de 200 vehículos. El ahorro se desglosa en: −12 % rutas, −8 % combustible, −5 % mantenimiento, −3 % personal de planificación. ROI positivo en 14 meses de media tras la implantación.</p>
+        <div class="stat-grid reveal" data-delay="2" style="margin-top:40px;">
+          <div class="mini-stat">
+            <span class="mini-stat-number text-aurora">−12%</span>
+            <span class="mini-stat-label">coste de rutas y kilómetros totales</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-number" style="color:var(--amber);">−8%</span>
+            <span class="mini-stat-label">consumo de combustible flota</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-number" style="color:var(--lime);">14 meses</span>
+            <span class="mini-stat-label">ROI medio de implantación</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · TEST -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Cuánto tiempo tarda en dar ROI positivo el stack de optimización IA?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Según el informe Gartner 2025 que acabamos de ver, ¿cuál es el plazo medio de retorno de la inversión?</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>6 meses</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>24 meses</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>14 meses</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>36 meses</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 20 — quote -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">La optimización de rutas no es un problema de software, es un problema de <span class="text-aurora">toma de decisiones</span> bajo incertidumbre. La IA no elimina esa incertidumbre — te da más tiempo para actuar antes de que se convierta en un problema.</p>
+          <div class="quote-attribution">
+            <strong>Martin Savelsbergh</strong>
+            <span>Catedrático de Investigación de Operaciones · Georgia Institute of Technology</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 21 — timeline: Roadmap implementación -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>HOJA DE RUTA PRÁCTICA</span>
+        <h2 class="h1">Implementar IA en transporte: <span class="text-aurora">plan de 4 fases</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">F1</span>
+            <h3 class="h3">Datos y visibilidad</h3>
+            <p>GPS en toda la flota, integración TMS y WMS, calidad de datos de demanda. Sin datos limpios no hay IA útil. Duración estimada: 2–4 meses.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">F2</span>
+            <h3 class="h3">VRP + ETA básico</h3>
+            <p>OR-Tools para optimización de rutas diaria. Modelo XGBoost para ETA. ROI positivo esperable en 3–6 meses tras la puesta en marcha.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">F3</span>
+            <h3 class="h3">Carga y flota</h3>
+            <p>Bin packing 3D e IoT para mantenimiento predictivo. Requiere histórico de cargas e instrumentación del vehículo con sensores CAN bus.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">F4</span>
+            <h3 class="h3">Gemelo digital</h3>
+            <p>Simulación en tiempo real y re-optimización dinámica. Inversión significativa; adecuada para operadores con más de 500 vehículos.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- PAUSA INTERACTIVA · EJERCICIO -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · EJERCICIO</span>
+        <h2 class="h1">Diseña las fases de implantación IA para tu empresa</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver el roadmap de 4 fases. Adaptadlo a vuestra realidad: ¿en qué fase estáis ahora mismo y qué necesitáis para avanzar a la siguiente?</p>
+        <p class="interactive-cta reveal" data-delay="2">5 min — comparte tu respuesta</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- DEMO 01 — VRP básico con OR-Tools -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + OR-TOOLS</span>
+        <h2 class="h2">VRP básico con <span class="text-aurora">OR-Tools</span> — definir distancias y resolver rutas</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-key">from</span> ortools.constraint_solver <span class="cm-key">import</span> routing_enums_pb2, pywrapcp
+
+<span class="cm-cm"># 1. Datos del problema: 5 clientes + 1 depósito (índice 0)</span>
+data = {
+    <span class="cm-str">'distance_matrix'</span>: [
+        [<span class="cm-num">0</span>,  <span class="cm-num">10</span>, <span class="cm-num">15</span>, <span class="cm-num">20</span>, <span class="cm-num">25</span>, <span class="cm-num">12</span>],
+        [<span class="cm-num">10</span>,  <span class="cm-num">0</span>, <span class="cm-num">35</span>, <span class="cm-num">25</span>, <span class="cm-num">30</span>, <span class="cm-num">18</span>],
+        [<span class="cm-num">15</span>, <span class="cm-num">35</span>,  <span class="cm-num">0</span>, <span class="cm-num">30</span>, <span class="cm-num">20</span>, <span class="cm-num">22</span>],
+        [<span class="cm-num">20</span>, <span class="cm-num">25</span>, <span class="cm-num">30</span>,  <span class="cm-num">0</span>, <span class="cm-num">15</span>, <span class="cm-num">28</span>],
+        [<span class="cm-num">25</span>, <span class="cm-num">30</span>, <span class="cm-num">20</span>, <span class="cm-num">15</span>,  <span class="cm-num">0</span>, <span class="cm-num">14</span>],
+        [<span class="cm-num">12</span>, <span class="cm-num">18</span>, <span class="cm-num">22</span>, <span class="cm-num">28</span>, <span class="cm-num">14</span>,  <span class="cm-num">0</span>],
+    ],
+    <span class="cm-str">'num_vehicles'</span>: <span class="cm-num">2</span>, <span class="cm-str">'depot'</span>: <span class="cm-num">0</span>
+}
+manager = pywrapcp.<span class="cm-fn">RoutingIndexManager</span>(
+    len(data[<span class="cm-str">'distance_matrix'</span>]), data[<span class="cm-str">'num_vehicles'</span>], data[<span class="cm-str">'depot'</span>])
+routing = pywrapcp.<span class="cm-fn">RoutingModel</span>(manager)
+
+<span class="cm-key">def</span> <span class="cm-fn">dist_cb</span>(i, j):
+    <span class="cm-key">return</span> data[<span class="cm-str">'distance_matrix'</span>][manager.<span class="cm-fn">IndexToNode</span>(i)][manager.<span class="cm-fn">IndexToNode</span>(j)]
+
+cb = routing.<span class="cm-fn">RegisterTransitCallback</span>(dist_cb)
+routing.<span class="cm-fn">SetArcCostEvaluatorOfAllVehicles</span>(cb)
+
+params = pywrapcp.<span class="cm-fn">DefaultRoutingSearchParameters</span>()
+params.first_solution_strategy = (
+    routing_enums_pb2.FirstSolutionStrategy.<span class="cm-fn">PATH_CHEAPEST_ARC</span>)
+sol = routing.<span class="cm-fn">SolveWithParameters</span>(params)
+
+<span class="cm-cm"># 2. Imprimir rutas óptimas</span>
+<span class="cm-key">for</span> v <span class="cm-key">in</span> <span class="cm-fn">range</span>(data[<span class="cm-str">'num_vehicles'</span>]):
+    idx, ruta = routing.<span class="cm-fn">Start</span>(v), []
+    <span class="cm-key">while not</span> routing.<span class="cm-fn">IsEnd</span>(idx):
+        ruta.<span class="cm-fn">append</span>(manager.<span class="cm-fn">IndexToNode</span>(idx))
+        idx = sol.<span class="cm-fn">Value</span>(routing.<span class="cm-fn">NextVar</span>(idx))
+    <span class="cm-fn">print</span>(<span class="cm-str">f"Vehículo {v}: {ruta} → depósito"</span>)</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Instala con:</strong> <code>pip install ortools</code></p>
+            <p><strong>Resultado esperado.</strong> El solver asigna los 5 clientes entre los 2 vehículos minimizando la distancia total. Verás algo como: Vehículo 0: [0, 1, 3, 4] → depósito.</p>
+            <p><strong>Prueba esto.</strong> Cambia <code>num_vehicles</code> a 3 y observa cómo se redistribuyen las rutas. O sube la matriz a 10 clientes generándola con <code>random.randint(5, 50)</code>.</p>
+            <p><strong>En producción.</strong> La matriz de distancias se calcula con la API de Google Maps o HERE para usar distancias reales por carretera.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DEMO 02 — Bin packing greedy + verificación con IA -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + OR-TOOLS</span>
+        <h2 class="h2">Bin packing greedy: <span class="text-aurora">optimización de cargas</span> y verificación</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-key">from</span> ortools.algorithms.python <span class="cm-key">import</span> knapsack_solver
+
+<span class="cm-cm"># Pesos (kg) y volúmenes (dm³) de 8 bultos. Camión: 10.000 kg, 50 m³</span>
+pesos   = [<span class="cm-num">1200</span>, <span class="cm-num">800</span>, <span class="cm-num">3200</span>, <span class="cm-num">950</span>, <span class="cm-num">2100</span>, <span class="cm-num">400</span>, <span class="cm-num">1750</span>, <span class="cm-num">600</span>]
+valores = [<span class="cm-num">120</span>,  <span class="cm-num">85</span>,  <span class="cm-num">310</span>, <span class="cm-num">95</span>,  <span class="cm-num">200</span>,  <span class="cm-num">45</span>,  <span class="cm-num">180</span>,  <span class="cm-num">65</span>]
+cap_kg  = <span class="cm-num">10000</span>
+
+<span class="cm-cm"># Greedy simple: ordenar por densidad de valor (valor/peso)</span>
+bultos = <span class="cm-fn">sorted</span>(<span class="cm-fn">zip</span>(valores, pesos, <span class="cm-fn">range</span>(len(pesos))),
+               key=<span class="cm-key">lambda</span> x: x[<span class="cm-num">0</span>]/x[<span class="cm-num">1</span>], reverse=<span class="cm-key">True</span>)
+seleccionados, peso_total, valor_total = [], <span class="cm-num">0</span>, <span class="cm-num">0</span>
+<span class="cm-key">for</span> v, p, i <span class="cm-key">in</span> bultos:
+    <span class="cm-key">if</span> peso_total + p &lt;= cap_kg:
+        seleccionados.<span class="cm-fn">append</span>(i); peso_total += p; valor_total += v
+
+<span class="cm-fn">print</span>(<span class="cm-str">f"Greedy — bultos: {seleccionados}, peso: {peso_total} kg, valor: {valor_total}"</span>)
+
+<span class="cm-cm"># Verificación exacta con OR-Tools knapsack (óptimo garantizado)</span>
+solver = knapsack_solver.<span class="cm-fn">KnapsackSolver</span>(
+    knapsack_solver.KNAPSACK_DYNAMIC_PROGRAMMING_SOLVER, <span class="cm-str">'KP'</span>)
+solver.<span class="cm-fn">Init</span>(valores, [pesos], [cap_kg])
+opt = solver.<span class="cm-fn">Solve</span>()
+opt_items = [i <span class="cm-key">for</span> i <span class="cm-key">in</span> <span class="cm-fn">range</span>(len(pesos)) <span class="cm-key">if</span> solver.<span class="cm-fn">BestSolutionContains</span>(i)]
+<span class="cm-fn">print</span>(<span class="cm-str">f"OR-Tools óptimo — bultos: {opt_items}, valor total: {opt}"</span>)
+<span class="cm-fn">print</span>(<span class="cm-str">f"Gap greedy vs óptimo: {((opt-valor_total)/opt)*100:.1f}%"</span>)</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Dos enfoques.</strong> El greedy es instantáneo pero no garantiza el óptimo. OR-Tools calcula el óptimo exacto y te muestra el gap.</p>
+            <p><strong>Qué observar.</strong> El gap suele ser &lt; 5 % para instancias reales. Si el greedy da el mismo valor que el óptimo, ¡felicidades, no hay gap!</p>
+            <p><strong>Extensión práctica.</strong> Añade una segunda restricción <code>[volumenes], [50000]</code> al método <code>Init</code> para modelar la capacidad volumétrica del camión además del peso.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DEMO 03 — Predicción de ETA con sklearn -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + OR-TOOLS</span>
+        <h2 class="h2">Predicción de ETA con <span class="text-aurora">regresión</span> y sklearn</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-key">import</span> pandas <span class="cm-key">as</span> pd
+<span class="cm-key">import</span> numpy <span class="cm-key">as</span> np
+<span class="cm-key">from</span> sklearn.ensemble <span class="cm-key">import</span> GradientBoostingRegressor
+<span class="cm-key">from</span> sklearn.model_selection <span class="cm-key">import</span> train_test_split
+<span class="cm-key">from</span> sklearn.metrics <span class="cm-key">import</span> mean_absolute_error
+
+<span class="cm-cm"># Dataset sintético de 500 viajes — copia y ajusta con tus datos reales</span>
+np.random.<span class="cm-fn">seed</span>(<span class="cm-num">42</span>)
+n = <span class="cm-num">500</span>
+df = pd.<span class="cm-fn">DataFrame</span>({
+    <span class="cm-str">'distancia_km'</span>:  np.random.<span class="cm-fn">uniform</span>(<span class="cm-num">10</span>, <span class="cm-num">400</span>, n),
+    <span class="cm-str">'hora_salida'</span>:   np.random.<span class="cm-fn">randint</span>(<span class="cm-num">0</span>, <span class="cm-num">24</span>, n),
+    <span class="cm-str">'lluvia'</span>:        np.random.<span class="cm-fn">choice</span>([<span class="cm-num">0</span>, <span class="cm-num">1</span>], n, p=[<span class="cm-num">0.8</span>, <span class="cm-num">0.2</span>]),
+    <span class="cm-str">'tipo_ruta'</span>:     np.random.<span class="cm-fn">choice</span>([<span class="cm-num">0</span>, <span class="cm-num">1</span>, <span class="cm-num">2</span>], n),  <span class="cm-cm"># 0=urbana 1=nacional 2=autopista</span>
+    <span class="cm-str">'trafico_idx'</span>:   np.random.<span class="cm-fn">uniform</span>(<span class="cm-num">0.5</span>, <span class="cm-num">2.0</span>, n),
+})
+velocidad_base = [<span class="cm-num">35</span>, <span class="cm-num">70</span>, <span class="cm-num">110</span>]
+df[<span class="cm-str">'eta_min'</span>] = (df[<span class="cm-str">'distancia_km'</span>] / df[<span class="cm-str">'tipo_ruta'</span>].<span class="cm-fn">map</span>({<span class="cm-num">0</span>:<span class="cm-num">35</span>,<span class="cm-num">1</span>:<span class="cm-num">70</span>,<span class="cm-num">2</span>:<span class="cm-num">110</span>})
+               ) * <span class="cm-num">60</span> * df[<span class="cm-str">'trafico_idx'</span>] + df[<span class="cm-str">'lluvia'</span>]*<span class="cm-num">12</span>
+
+features = [<span class="cm-str">'distancia_km'</span>, <span class="cm-str">'hora_salida'</span>, <span class="cm-str">'lluvia'</span>, <span class="cm-str">'tipo_ruta'</span>, <span class="cm-str">'trafico_idx'</span>]
+X, y = df[features], df[<span class="cm-str">'eta_min'</span>]
+X_train, X_test, y_train, y_test = <span class="cm-fn">train_test_split</span>(X, y, test_size=<span class="cm-num">0.2</span>)
+
+model = <span class="cm-fn">GradientBoostingRegressor</span>(n_estimators=<span class="cm-num">100</span>, max_depth=<span class="cm-num">4</span>)
+model.<span class="cm-fn">fit</span>(X_train, y_train)
+preds = model.<span class="cm-fn">predict</span>(X_test)
+<span class="cm-fn">print</span>(<span class="cm-str">f"MAE: {mean_absolute_error(y_test, preds):.1f} minutos"</span>)
+<span class="cm-fn">print</span>(<span class="cm-str">f"Ejemplo predicción: {model.predict([[150, 8, 0, 1, 1.2]])[0]:.0f} min"</span>)</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Instala con:</strong> <code>pip install scikit-learn pandas numpy</code></p>
+            <p><strong>MAE esperado.</strong> Con datos sintéticos debería ser &lt; 5 min. Con datos reales de tu TMS, espera 8–15 min según la calidad del histórico.</p>
+            <p><strong>Siguiente paso.</strong> Sustituye el dataset sintético por un CSV de tu TMS exportado con columnas: <code>distancia, hora, condicion_meteo, tipo_via, tiempo_real_min</code>. El modelo aprenderá los patrones reales de tu red.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DEMO 04 — Simulación de escenarios de coste -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + OR-TOOLS</span>
+        <h2 class="h2">Simulación de <span class="text-aurora">escenarios de coste</span> con pandas + itertools</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-key">import</span> pandas <span class="cm-key">as</span> pd
+<span class="cm-key">import</span> itertools
+
+<span class="cm-cm"># Rutas activas de la semana (km, horas conductor, tipo vehículo)</span>
+rutas = pd.<span class="cm-fn">DataFrame</span>({
+    <span class="cm-str">'ruta'</span>:       [<span class="cm-str">'Madrid-Valencia'</span>, <span class="cm-str">'BCN-Zaragoza'</span>, <span class="cm-str">'Sevilla-Málaga'</span>, <span class="cm-str">'Bilbao-Vitoria'</span>],
+    <span class="cm-str">'km'</span>:         [<span class="cm-num">356</span>, <span class="cm-num">307</span>, <span class="cm-num">212</span>, <span class="cm-num">68</span>],
+    <span class="cm-str">'horas_cond'</span>: [<span class="cm-num">4.2</span>, <span class="cm-num">3.8</span>, <span class="cm-num">2.6</span>, <span class="cm-num">1.1</span>],
+    <span class="cm-str">'peaje'</span>:      [<span class="cm-num">42</span>,  <span class="cm-num">28</span>,  <span class="cm-num">15</span>,  <span class="cm-num">6</span>],
+    <span class="cm-str">'consumo_l100'</span>: [<span class="cm-num">30</span>, <span class="cm-num">28</span>, <span class="cm-num">26</span>, <span class="cm-num">24</span>],
+})
+
+<span class="cm-cm"># Escenarios: precio combustible (€/L) × coste conductor (€/h)</span>
+combustibles = [<span class="cm-num">1.45</span>, <span class="cm-num">1.65</span>, <span class="cm-num">1.85</span>]
+coste_conductor = [<span class="cm-num">18</span>, <span class="cm-num">22</span>, <span class="cm-num">26</span>]
+
+resultados = []
+<span class="cm-key">for</span> precio_fuel, coste_h <span class="cm-key">in</span> itertools.<span class="cm-fn">product</span>(combustibles, coste_conductor):
+    df = rutas.<span class="cm-fn">copy</span>()
+    df[<span class="cm-str">'coste_fuel'</span>] = df[<span class="cm-str">'km'</span>] * df[<span class="cm-str">'consumo_l100'</span>] / <span class="cm-num">100</span> * precio_fuel
+    df[<span class="cm-str">'coste_cond'</span>] = df[<span class="cm-str">'horas_cond'</span>] * coste_h
+    df[<span class="cm-str">'coste_total'</span>] = df[<span class="cm-str">'coste_fuel'</span>] + df[<span class="cm-str">'coste_cond'</span>] + df[<span class="cm-str">'peaje'</span>]
+    resultados.<span class="cm-fn">append</span>({<span class="cm-str">'fuel'</span>: precio_fuel, <span class="cm-str">'cond'</span>: coste_h,
+                       <span class="cm-str">'total_semana'</span>: df[<span class="cm-str">'coste_total'</span>].<span class="cm-fn">sum</span>()})
+
+tabla = pd.<span class="cm-fn">DataFrame</span>(resultados).<span class="cm-fn">pivot</span>(index=<span class="cm-str">'fuel'</span>, columns=<span class="cm-str">'cond'</span>, values=<span class="cm-str">'total_semana'</span>)
+<span class="cm-fn">print</span>(tabla.<span class="cm-fn">round</span>(<span class="cm-num">0</span>))</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Instala con:</strong> <code>pip install pandas</code> (itertools es de la stdlib).</p>
+            <p><strong>Resultado.</strong> Tabla 3×3 con el coste total de la semana para cada combinación de precio de combustible y tarifa de conductor. Permite ver el impacto de negociar un convenio diferente.</p>
+            <p><strong>Amplía el análisis.</strong> Añade una columna <code>escenario_peaje</code> con los valores <code>[0.8, 1.0, 1.2]</code> para simular también subidas de tarifa de autopista e integra el tercer nivel con <code>itertools.product</code> de 3 variables.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DEMO 05 — Análisis de costes con LLM (Claude) -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEMO PRÁCTICO · PYTHON + OR-TOOLS</span>
+        <h2 class="h2">Análisis de costes con <span class="text-aurora">LLM</span> — enviar tabla a Claude</h2>
+        <div class="code-grid">
+<pre class="code-block reveal" data-delay="1"><code><span class="cm-key">import</span> anthropic, json
+
+<span class="cm-cm"># Tabla de rutas de la semana (en producción: lee de tu TMS/ERP)</span>
+tabla_rutas = [
+    {<span class="cm-str">"ruta"</span>: <span class="cm-str">"Madrid-Valencia"</span>, <span class="cm-str">"km"</span>: <span class="cm-num">356</span>, <span class="cm-str">"coste_total"</span>: <span class="cm-num">318</span>, <span class="cm-str">"ocupacion_pct"</span>: <span class="cm-num">68</span>},
+    {<span class="cm-str">"ruta"</span>: <span class="cm-str">"BCN-Zaragoza"</span>,    <span class="cm-str">"km"</span>: <span class="cm-num">307</span>, <span class="cm-str">"coste_total"</span>: <span class="cm-num">271</span>, <span class="cm-str">"ocupacion_pct"</span>: <span class="cm-num">91</span>},
+    {<span class="cm-str">"ruta"</span>: <span class="cm-str">"Sevilla-Málaga"</span>,  <span class="cm-str">"km"</span>: <span class="cm-num">212</span>, <span class="cm-str">"coste_total"</span>: <span class="cm-num">198</span>, <span class="cm-str">"ocupacion_pct"</span>: <span class="cm-num">55</span>},
+    {<span class="cm-str">"ruta"</span>: <span class="cm-str">"Bilbao-Vitoria"</span>,  <span class="cm-str">"km"</span>: <span class="cm-num">68</span>,  <span class="cm-str">"coste_total"</span>: <span class="cm-num">84</span>,  <span class="cm-str">"ocupacion_pct"</span>: <span class="cm-num">42</span>},
+]
+tabla_str = json.<span class="cm-fn">dumps</span>(tabla_rutas, ensure_ascii=<span class="cm-key">False</span>, indent=<span class="cm-num">2</span>)
+
+client = anthropic.<span class="cm-fn">Anthropic</span>()  <span class="cm-cm"># ANTHROPIC_API_KEY en variable de entorno</span>
+mensaje = client.messages.<span class="cm-fn">create</span>(
+    model=<span class="cm-str">"claude-opus-4-5"</span>,
+    max_tokens=<span class="cm-num">1024</span>,
+    messages=[{
+        <span class="cm-str">"role"</span>: <span class="cm-str">"user"</span>,
+        <span class="cm-str">"content"</span>: (
+            <span class="cm-str">f"Analiza esta tabla de rutas logísticas y proporciona:\n"</span>
+            <span class="cm-str">f"1. Las 2 rutas con mayor oportunidad de ahorro y por qué.\n"</span>
+            <span class="cm-str">f"2. Una recomendación concreta para cada una (consolidación, horario, carga).\n"</span>
+            <span class="cm-str">f"3. Ahorro estimado en porcentaje si se aplican las medidas.\n\n"</span>
+            <span class="cm-str">f"Datos:\n{tabla_str}"</span>
+        )
+    }]
+)
+<span class="cm-fn">print</span>(mensaje.content[<span class="cm-num">0</span>].text)</code></pre>
+          <aside class="code-notes reveal" data-delay="2">
+            <p><strong>Instala con:</strong> <code>pip install anthropic</code></p>
+            <p><strong>API key.</strong> Crea una en <code>console.anthropic.com</code> y ponla en la variable de entorno <code>ANTHROPIC_API_KEY</code>. No la escribas en el código.</p>
+            <p><strong>Qué hace el LLM.</strong> Identifica que Bilbao-Vitoria (42 % ocupación) y Sevilla-Málaga (55 %) son las candidatas a consolidación o cambio de frecuencia, y cuantifica el ahorro potencial.</p>
+            <p><strong>En producción.</strong> Automatiza esta llamada cada lunes por la mañana y envía el análisis por email al jefe de tráfico antes de la reunión de planificación semanal.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 22 — closing -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>RESUMEN DEL MÓDULO</span>
+        <h2 class="display-l">La flota que <span class="text-aurora">piensa</span><br>gasta un 28 % menos.</h2>
+        <p class="lead">En este módulo hemos aprendido a resolver el Vehicle Routing Problem con OR-Tools y metaheurísticas GLS, maximizar la ocupación volumétrica con bin packing 3D, predecir ETAs precisos mediante XGBoost y LSTM con features de tráfico y climatología, simular escenarios de coste con pandas, replicar la operativa en tiempo real con gemelos digitales, y usar LLMs para detectar rutas ineficientes y recomendar consolidaciones — todo con scripts Python ejecutables.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../m07-documental/index.html">Siguiente módulo &rarr;</a>
+          <a class="btn btn--ghost" href="../../../index.html">Ir al inicio</a>
+        </div>
+        <div class="meta-row" style="margin-top:32px;">
+          <span class="meta-item">Google OR-Tools</span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">OptaPlanner</span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">XGBoost · LSTM</span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Anylogic · NVIDIA Omniverse</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

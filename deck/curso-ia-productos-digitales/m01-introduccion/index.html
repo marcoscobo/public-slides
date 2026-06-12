@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 01 — Introducción al Desarrollo Asistido por IA</title>
+  <meta name="description" content="Qué es la IA generativa aplicada al desarrollo de productos digitales, herramientas clave, capacidades y limitaciones, ciclo de vida de un producto digital y el nuevo rol del AI Product Developer." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+  <script defer src="../../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 01 · CURSO IA PRODUCTOS DIGITALES · 2026</span>
+        <h1 class="display-xl">
+          Construir productos digitales con <span class="text-aurora">IA generativa</span>.
+        </h1>
+        <p class="lead">De qué es la IA generativa a por qué estás en el lugar correcto en el momento correcto.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Marcos Cobo</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 01 · 2 horas · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — section: El momento histórico -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
+        <h2 class="display-l text-aurora">El momento histórico</h2>
+        <p class="lead">Por qué este curso existe ahora y no hace cinco años.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 03 — content: Por qué ahora -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>CONTEXTO HISTÓRICO</span>
+        <h2 class="h1">Por primera vez, la barrera entre idea y producto ha <span class="text-aurora">caído</span>.</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">El acceso al desarrollo de software se ha democratizado en tres saltos históricos.</p>
+            <p>Hasta ahora necesitabas años de formación técnica o plataformas no-code limitadas. Hoy basta con describir lo que quieres — con criterio.</p>
+            <p>No es una mejora incremental. Es un cambio de orden de magnitud.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" aria-label="Línea de tiempo histórica de la democratización del desarrollo de software">
+              <defs>
+                <linearGradient id="aurora-grad-03" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-03" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#8B8D98"/>
+                </marker>
+              </defs>
+              <!-- Timeline arrow -->
+              <line x1="40" y1="200" x2="510" y2="200" stroke="#1F2638" stroke-width="2" marker-end="url(#arrow-03)"/>
+              <!-- Era 1 -->
+              <circle cx="100" cy="200" r="28" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <!-- Terminal icon era 1 -->
+              <rect x="88" y="189" width="24" height="16" rx="2" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="92" y1="195" x2="102" y2="195" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="92" y1="199" x2="108" y2="199" stroke="#8B8D98" stroke-width="1.5"/>
+              <text x="100" y="168" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFB627" letter-spacing="0.5">1970–2000</text>
+              <text x="100" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Solo</text>
+              <text x="100" y="257" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">desarrolladores</text>
+              <text x="100" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">con formación</text>
+              <!-- Era 2 -->
+              <circle cx="280" cy="200" r="28" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <!-- Blocks icon era 2 -->
+              <rect x="268" y="190" width="10" height="10" rx="1.5" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <rect x="282" y="190" width="10" height="10" rx="1.5" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <rect x="268" y="203" width="10" height="10" rx="1.5" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <rect x="282" y="203" width="10" height="10" rx="1.5" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <text x="280" y="168" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFB627" letter-spacing="0.5">2000–2020</text>
+              <text x="280" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#ECEAE3">No-code / low-code:</text>
+              <text x="280" y="257" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#ECEAE3">democratización</text>
+              <text x="280" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">parcial pero limitada</text>
+              <!-- Era 3 — aurora highlight -->
+              <circle cx="460" cy="200" r="34" fill="url(#aurora-grad-03)" opacity="0.18"/>
+              <circle cx="460" cy="200" r="34" fill="none" stroke="url(#aurora-grad-03)" stroke-width="2"/>
+              <!-- Brain/AI icon era 3 -->
+              <ellipse cx="460" cy="197" rx="12" ry="10" fill="none" stroke="#7B4DFF" stroke-width="1.5"/>
+              <line x1="448" y1="197" x2="472" y2="197" stroke="#7B4DFF" stroke-width="1"/>
+              <line x1="460" y1="187" x2="460" y2="207" stroke="#7B4DFF" stroke-width="1"/>
+              <circle cx="455" cy="193" r="2" fill="#00D4FF"/>
+              <circle cx="465" cy="193" r="2" fill="#00D4FF"/>
+              <circle cx="455" cy="201" r="2" fill="#00D4FF"/>
+              <circle cx="465" cy="201" r="2" fill="#00D4FF"/>
+              <text x="460" y="156" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFB627" letter-spacing="0.5">2023–2026</text>
+              <text x="460" y="248" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#ECEAE3">IA generativa:</text>
+              <text x="460" y="261" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#ECEAE3">cualquier persona con</text>
+              <text x="460" y="274" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#7B4DFF">criterio puede construir</text>
+              <!-- Connecting dots on timeline -->
+              <circle cx="100" cy="200" r="5" fill="#8B8D98"/>
+              <circle cx="280" cy="200" r="5" fill="#ECEAE3"/>
+              <circle cx="460" cy="200" r="6" fill="url(#aurora-grad-03)"/>
+              <!-- Labels top -->
+              <text x="40" y="110" font-family="Space Grotesk, sans-serif" font-size="12" fill="#8B8D98" font-weight="600">HISTORIA DE LA DEMOCRATIZACIÓN DEL SOFTWARE</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — stat: 76% ya usan IA -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>STACK OVERFLOW DEVELOPER SURVEY · 2024</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="76" data-suffix="%">0%</span>
+          <p class="stat-label">de los desarrolladores ya usan o planean usar herramientas de IA en su flujo de trabajo.</p>
+        </div>
+        <p class="stat-context">La adopción no fue gradual: en dos años la IA pasó de experimento marginal a práctica mayoritaria del sector.</p>
+      </section>
+
+      <!-- 05 — section: Qué es la IA generativa -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
+        <h2 class="display-l text-aurora">Qué es la IA generativa</h2>
+        <p class="lead">Sin magia. Sin ciencia ficción. Con mecánica real.</p>
+        <div class="shape shape--circle-sm" style="top: 63%; left: 71%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 06 — content: Cómo funciona realmente -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEFINICIÓN · IA GENERATIVA</span>
+        <h2 class="h1">Un colaborador que ha leído más código del que ningún humano podría leer en <span class="text-aurora">diez vidas</span>.</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Un modelo de lenguaje ha sido entrenado con miles de millones de líneas de código. Cuando le describes lo que quieres, puede escribirlo por ti, explicarlo, corregirlo y mejorarlo.</p>
+            <p>No es magia. Es un colaborador muy rápido que no duerme, no se cansa y ha leído más código del que ningún humano podría leer en diez vidas.</p>
+            <p>Pero necesita dirección: tú eres el director, la IA es el implementador.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama del ciclo de traducción: idea en lenguaje natural, modelo LLM y código ejecutable, con bucle de iteración de vuelta a la idea">
+              <defs>
+                <linearGradient id="aurora-grad-06" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-06" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#7B4DFF"/>
+                </marker>
+                <marker id="arrow-06-cyan" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#00D4FF"/>
+                </marker>
+              </defs>
+              <!-- Node 1: Tu Idea -->
+              <circle cx="80" cy="200" r="52" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <!-- Chat icon -->
+              <rect x="60" y="185" width="40" height="28" rx="4" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="67" y1="195" x2="93" y2="195" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="67" y1="202" x2="85" y2="202" stroke="#8B8D98" stroke-width="1.5"/>
+              <text x="80" y="271" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" font-weight="600" letter-spacing="1">TU IDEA</text>
+              <text x="80" y="285" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Lenguaje natural</text>
+              <!-- Arrow 1→2: prompt -->
+              <path d="M129,183 L218,152" fill="none" stroke="#7B4DFF" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-06)"/>
+              <text x="162" y="152" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">prompt</text>
+              <!-- Node 2: Modelo LLM (center top, large) -->
+              <circle cx="280" cy="130" r="64" fill="url(#aurora-grad-06)" opacity="0.15"/>
+              <circle cx="280" cy="130" r="64" fill="none" stroke="url(#aurora-grad-06)" stroke-width="2.5"/>
+              <!-- Brain icon LLM -->
+              <ellipse cx="280" cy="124" rx="22" ry="18" fill="none" stroke="#7B4DFF" stroke-width="1.5"/>
+              <line x1="258" y1="124" x2="302" y2="124" stroke="#7B4DFF" stroke-width="1"/>
+              <line x1="280" y1="106" x2="280" y2="142" stroke="#7B4DFF" stroke-width="1"/>
+              <circle cx="272" cy="118" r="3" fill="#00D4FF"/>
+              <circle cx="288" cy="118" r="3" fill="#00D4FF"/>
+              <circle cx="272" cy="130" r="3" fill="#7B4DFF"/>
+              <circle cx="288" cy="130" r="3" fill="#7B4DFF"/>
+              <circle cx="280" cy="138" r="3" fill="#00D4FF"/>
+              <text x="280" y="38" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="600" letter-spacing="1">MODELO LLM</text>
+              <text x="280" y="52" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Traduce intención a código</text>
+              <!-- Arrow 2→3: genera -->
+              <path d="M340,154 L406,180" fill="none" stroke="#7B4DFF" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-06)"/>
+              <text x="382" y="152" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">genera</text>
+              <!-- Node 3: Código ejecutable -->
+              <circle cx="456" cy="200" r="52" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <!-- Terminal/code icon -->
+              <rect x="435" y="185" width="42" height="30" rx="4" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <text x="440" y="200" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF">&gt;_</text>
+              <line x1="450" y1="200" x2="472" y2="200" stroke="#ECEAE3" stroke-width="1.5"/>
+              <line x1="440" y1="208" x2="466" y2="208" stroke="#8B8D98" stroke-width="1"/>
+              <text x="456" y="271" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#ECEAE3" font-weight="600" letter-spacing="1">CÓDIGO</text>
+              <text x="456" y="285" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Output ejecutable</text>
+              <!-- Iteration loop: código → idea -->
+              <path d="M419,237 Q268,330 121,239" fill="none" stroke="#00D4FF" stroke-width="2" stroke-dasharray="6,5" opacity="0.7" marker-end="url(#arrow-06-cyan)"/>
+              <text x="268" y="305" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#00D4FF" letter-spacing="0.5">ITERAS: pruebas, ajustas el prompt y vuelves a pedir</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 — section: Las herramientas -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
+        <h2 class="display-l text-aurora">Las herramientas</h2>
+        <p class="lead">El ecosistema que usarás durante el curso y más allá.</p>
+        <div class="shape shape--circle-sm" style="top: 64%; left: 69%;" data-parallax="0.38"></div>
+      </section>
+
+      <!-- 08 — split: Ecosistema de herramientas -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>ECOSISTEMA · 2026</span>
+        <h2 class="h1">Cuatro herramientas, <span class="text-aurora">un flujo</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">AGENTES DE PROYECTO</span>
+            <h3 class="h2">Razonan sobre el proyecto completo</h3>
+            <ul class="check-list check-list--plus">
+              <li>Claude Code — Agente de desarrollo en terminal. Razona sobre proyectos completos. Núcleo de este curso.</li>
+              <li>Cursor — Editor con IA integrada al nivel de proyecto. Alternativa a VS Code + Copilot.</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">ASISTENTES Y AUTOCOMPLETADO</span>
+            <h3 class="h2">Aceleran tareas concretas</h3>
+            <ul class="check-list check-list--plus">
+              <li>ChatGPT / Claude.ai — Interfaz conversacional para explorar ideas y definir requisitos.</li>
+              <li>GitHub Copilot — Autocompletado inline en el editor, línea a línea.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 — split: Capacidades reales -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>CAPACIDADES REALES · 2026</span>
+        <h2 class="h1">Lo que <span class="text-aurora">sí puede</span> — y lo que aún no</h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--accent reveal" data-delay="1">
+            <span class="col-label">LO QUE SÍ PUEDE</span>
+            <h3 class="h2">Capacidades probadas</h3>
+            <ul class="check-list check-list--plus">
+              <li>Escribir código funcional desde descripción en lenguaje natural</li>
+              <li>Explicar código existente línea a línea</li>
+              <li>Refactorizar y corregir errores</li>
+              <li>Generar tests, documentación y configuración</li>
+              <li>Iterar rápidamente sobre prototipos</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--muted reveal" data-delay="2">
+            <span class="col-label">LO QUE AÚN NO PUEDE</span>
+            <h3 class="h2">Limitaciones actuales</h3>
+            <ul class="check-list check-list--minus">
+              <li>Garantizar código correcto sin revisión humana (alucinaciones)</li>
+              <li>Mantener contexto ilimitado en proyectos grandes</li>
+              <li>Tomar decisiones de negocio o diseño por ti</li>
+              <li>Saber si lo que construyes tiene sentido para tus usuarios</li>
+              <li>Gestionar deuda técnica sin guía explícita</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 — split: La trampa oculta — deuda técnica -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>LA TRAMPA OCULTA · DEUDA TÉCNICA</span>
+        <h2 class="h1">La IA optimiza para <span class="text-aurora">ahora</span>, no para siempre</h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">QUÉ ES</span>
+            <h3 class="h2">El problema silencioso</h3>
+            <ul class="check-list check-list--minus">
+              <li>La IA optimiza para resolver el problema inmediato, no para la sostenibilidad a largo plazo</li>
+              <li>Señal: código duplicado sin motivo aparente</li>
+              <li>Señal: funciones con nombres poco claros como 'handleStuff'</li>
+              <li>Señal: ausencia de tests y sin documentación</li>
+              <li>Si no la gestionas, el proyecto se vuelve inmantenible en semanas</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">CÓMO GESTIONARLA</span>
+            <h3 class="h2">Hábitos que funcionan</h3>
+            <ul class="check-list check-list--plus">
+              <li>Incluir en CLAUDE.md: 'Prioriza código limpio y mantenible'</li>
+              <li>Pedir revisiones periódicas al agente sobre el estado del código</li>
+              <li>Hacer sesiones de refactoring regularmente</li>
+              <li>Mantener tests actualizados desde el inicio</li>
+              <li>Documentar decisiones de arquitectura en el propio repositorio</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 — quote: Karpathy -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">El código es el medio, no el fin. La IA elimina la barrera entre tener una <span class="text-aurora">idea</span> y tener un producto.</p>
+          <div class="quote-attribution">
+            <strong>Andrej Karpathy</strong>
+            <span>Ex Director de IA en Tesla, fundador de Eureka Labs</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 — section: El ciclo de vida del producto digital -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 04</span>
+        <h2 class="display-l text-aurora">El ciclo de vida del producto digital</h2>
+        <p class="lead">Cinco fases. Un proyecto real. La IA como copiloto en cada una.</p>
+        <div class="shape shape--circle-sm" style="top: 65%; left: 72%;" data-parallax="0.42"></div>
+      </section>
+
+      <!-- 13 — content: Las cinco fases del producto digital -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>CICLO DE VIDA · PRODUCTO DIGITAL</span>
+        <h2 class="h1">Cinco fases, un proyecto real, <span class="text-aurora">IA en cada paso</span>.</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">En este curso recorremos el ciclo completo una vez, de principio a fin, con un proyecto real.</p>
+            <p>Cada módulo cubre una fase del ciclo. Al terminar el curso tendrás un producto digital desplegado y funcionando.</p>
+            <p>La IA no reemplaza el proceso: lo acelera y reduce la fricción entre cada fase.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama circular de las cinco fases del ciclo de vida de un producto digital con IA como copiloto en el centro">
+              <defs>
+                <linearGradient id="aurora-grad-13" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-13" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#8B8D98"/>
+                </marker>
+              </defs>
+              <!-- Center circle -->
+              <circle cx="240" cy="190" r="52" fill="url(#aurora-grad-13)" opacity="0.2"/>
+              <circle cx="240" cy="190" r="52" fill="none" stroke="url(#aurora-grad-13)" stroke-width="2"/>
+              <text x="240" y="185" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">IA</text>
+              <text x="240" y="200" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">COPILOTO</text>
+              <!-- Orbit ring -->
+              <circle cx="240" cy="190" r="130" fill="none" stroke="#1F2638" stroke-width="1" stroke-dasharray="4,6"/>
+              <!-- Spokes center→nodes -->
+              <line x1="240" y1="134" x2="240" y2="94" stroke="#1F2638" stroke-width="1" stroke-dasharray="3,4"/>
+              <line x1="293" y1="173" x2="331" y2="160" stroke="#1F2638" stroke-width="1" stroke-dasharray="3,4"/>
+              <line x1="273" y1="235" x2="296" y2="268" stroke="#1F2638" stroke-width="1" stroke-dasharray="3,4"/>
+              <line x1="207" y1="235" x2="184" y2="268" stroke="#1F2638" stroke-width="1" stroke-dasharray="3,4"/>
+              <line x1="187" y1="173" x2="149" y2="160" stroke="#1F2638" stroke-width="1" stroke-dasharray="3,4"/>
+              <!-- Flow arcs (clockwise along the orbit) -->
+              <path d="M278,66 A130,130 0 0 1 344,112" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M370,188 A130,130 0 0 1 347,265" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M282,313 A130,130 0 0 1 202,314" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M136,268 A130,130 0 0 1 110,192" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M134,115 A130,130 0 0 1 198,67" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <!-- Node 1: IDEA — top (240, 60) -->
+              <circle cx="240" cy="60" r="30" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <circle cx="240" cy="52" r="10" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="236" y1="62" x2="244" y2="62" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="238" y1="66" x2="242" y2="66" stroke="#8B8D98" stroke-width="1"/>
+              <text x="240" y="22" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" font-weight="600" letter-spacing="0.8">IDEA</text>
+              <!-- Node 2: DISEÑO — (364, 150) -->
+              <circle cx="364" cy="150" r="30" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="352" y="141" width="24" height="18" rx="2" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <line x1="352" y1="147" x2="376" y2="147" stroke="#ECEAE3" stroke-width="1"/>
+              <line x1="361" y1="147" x2="361" y2="159" stroke="#ECEAE3" stroke-width="1"/>
+              <text x="402" y="154" text-anchor="start" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" font-weight="600" letter-spacing="0.8">DISEÑO</text>
+              <!-- Node 3: CONSTRUCCIÓN — (316, 295), fase destacada -->
+              <circle cx="316" cy="295" r="30" fill="#131826" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="316" y="300" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#7B4DFF">&lt;/&gt;</text>
+              <text x="316" y="343" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#7B4DFF" font-weight="600" letter-spacing="0.8">CONSTRUCCIÓN</text>
+              <!-- Node 4: VALIDACIÓN — (164, 295) -->
+              <circle cx="164" cy="295" r="30" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <path d="M151 295 L160 305 L179 284" fill="none" stroke="#ECEAE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="164" y="343" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" font-weight="600" letter-spacing="0.8">VALIDACIÓN</text>
+              <!-- Node 5: DESPLIEGUE — (116, 150) -->
+              <circle cx="116" cy="150" r="30" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <path d="M116 163 L112 158 L112 148 Q116 140 120 148 L120 158 Z" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+              <circle cx="116" cy="152" r="3" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+              <text x="78" y="154" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627" font-weight="600" letter-spacing="0.8">DESPLIEGUE</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 — section: El AI Product Developer -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 05</span>
+        <h2 class="display-l text-aurora">El AI Product Developer</h2>
+        <p class="lead">Un perfil nuevo que no existía hace tres años.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 73%;" data-parallax="0.41"></div>
+      </section>
+
+      <!-- 15 — bullets: Qué hace un AI Product Developer -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>NUEVO ROL PROFESIONAL · 2026</span>
+        <h2 class="h1">Cinco roles en <span class="text-aurora">una sola persona</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Director de producto + implementador</h3>
+              <p>Define qué se construye Y lo construye. No espera a un equipo técnico para validar sus ideas.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Maestro del prompt</h3>
+              <p>Sabe cómo hablarle a la IA para obtener resultados precisos, reproducibles y de calidad.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Árbitro de calidad</h3>
+              <p>Revisa el código generado, detecta alucinaciones y decide qué vale y qué se rehace.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Comunicador entre negocio y IA</h3>
+              <p>Traduce necesidades de negocio a instrucciones que la IA puede ejecutar con éxito.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Deployador autónomo</h3>
+              <p>Lleva el producto de la idea al servidor sin depender de nadie. Controla el ciclo completo.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 16 — interactive: ¿Cuál es la habilidad más importante? -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSA INTERACTIVA</span>
+        <h2 class="h1">¿Cuál crees que es la habilidad más importante del <span class="text-aurora">AI Product Developer</span>?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">No hay respuesta incorrecta. Discutamos.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Saber programar antes de usar IA</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Dominar el arte del prompt</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Entender el negocio y al usuario</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>Ser capaz de desplegar de forma autónoma</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 17 — bullets: Quién ya lo está haciendo -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>CASOS REALES · 2025–2026</span>
+        <h2 class="h1">Personas reales, productos <span class="text-aurora">reales</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Indie hackers que lanzaron SaaS en semanas, solos</h3>
+              <p>Sin equipo técnico, sin inversión externa. Una persona, una idea, Claude Code y un servidor. Producto en producción.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Investigadores que automatizaron análisis sin equipo técnico</h3>
+              <p>Scripts de procesamiento de datos, dashboards de visualización y pipelines de ingesta construidos por los propios investigadores.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Consultores que crearon herramientas internas para sus clientes</h3>
+              <p>Aplicaciones web a medida entregadas en días, no meses. Margen más alto, cliente más satisfecho.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Emprendedores que validaron ideas antes de invertir</h3>
+              <p>Prototipos funcionales en 48 horas para testear con usuarios reales antes de comprometer tiempo y dinero.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 18 — timeline: Estructura del curso módulo a módulo -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>ESTRUCTURA DEL CURSO · 7 MÓDULOS</span>
+        <h2 class="h1">Lo que aprenderás en los próximos <span class="text-aurora">módulos</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline timeline--6">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">M02</span>
+            <h3 class="h3">Entorno de desarrollo</h3>
+            <p>Terminal, Git, VS Code y Claude Code instalados, configurados y verificados.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">M03</span>
+            <h3 class="h3">Colaboración con IA</h3>
+            <p>Prompts efectivos, contexto e iteración: el lenguaje de trabajo con la IA.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">M04</span>
+            <h3 class="h3">Entorno optimizado</h3>
+            <p>CLAUDE.md, estructura de repositorio y convenciones para que la IA rinda.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">M05</span>
+            <h3 class="h3">Diseño y MVP</h3>
+            <p>De la idea a un producto mínimo funcional construido junto a la IA.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="5">
+            <span class="timeline-marker">M06</span>
+            <h3 class="h3">Despliegue y evolución</h3>
+            <p>Tu producto en producción: publicación, mantenimiento y mejora continua.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="6">
+            <span class="timeline-marker">M07</span>
+            <h3 class="h3">Proyecto final</h3>
+            <p>Construyes y presentas tu propio producto digital de principio a fin.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 19 — closing -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 01</span>
+        <h2 class="display-l">
+          Ya tienes el <span class="text-aurora">mapa</span>.
+        </h2>
+        <p class="lead">Ahora vamos a configurar el entorno para que puedas construir desde el primer minuto del módulo siguiente.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../m02-entorno/index.html">Siguiente: Módulo 02 — Configuración del Entorno &rarr;</a>
+          <a class="btn btn--ghost" href="../../../index.html">Volver al índice del curso</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

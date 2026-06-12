@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 05 — Diseño y Construcción de un MVP</title>
+  <meta name="description" content="Qué es un MVP, cómo definir el scope mínimo, el ciclo iterativo con IA generativa, validación sin programar, arquitectura mínima de una web app y testing asistido por IA." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+  <script defer src="../../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 05 · 4 HORAS</span>
+        <h1 class="display-xl">
+          Diseño y Construcción de un <span class="text-aurora">MVP</span>
+        </h1>
+        <p class="lead">Todo lo que aprendiste hasta ahora fue preparación para este momento. Vamos a construir algo real.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA Generativa · Productos Digitales</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">CIC · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — content: Qué es un MVP -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>FUNDAMENTOS</span>
+        <h2 class="h1">Qué es un <span class="text-aurora">MVP</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Minimum Viable Product: la versión más pequeña de tu producto que entrega valor real a un usuario real.</p>
+            <p>El MVP no es un producto incompleto. Es un producto completo para un problema muy específico. La diferencia es enorme.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de Venn MVP: Deseable, Viable, Factible">
+              <defs>
+                <linearGradient id="aurora-grad-02" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+              <!-- Triangle outline -->
+              <polygon points="260,40 60,360 460,360" fill="none" stroke="#1F2638" stroke-width="2"/>
+              <!-- Top vertex: DESEABLE -->
+              <text x="260" y="22" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" fill="#7B4DFF">DESEABLE</text>
+              <text x="260" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">¿Lo quieren tus usuarios?</text>
+              <!-- Bottom-left vertex: VIABLE -->
+              <text x="80" y="390" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" fill="#ECEAE3">VIABLE</text>
+              <text x="80" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">¿Tiene sentido de negocio?</text>
+              <!-- Bottom-right vertex: FACTIBLE -->
+              <text x="440" y="390" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" fill="#ECEAE3">FACTIBLE</text>
+              <text x="440" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">¿Podemos construirlo?</text>
+              <!-- Center MVP badge -->
+              <rect x="213" y="218" width="94" height="38" rx="8" fill="url(#aurora-grad-02)"/>
+              <text x="260" y="241" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">MVP</text>
+              <!-- Amber note near FACTIBLE -->
+              <rect x="330" y="290" width="160" height="60" rx="6" fill="#131826"/>
+              <rect x="330" y="290" width="3" height="60" rx="1" fill="#FFB627"/>
+              <text x="342" y="310" font-family="Inter, sans-serif" font-size="10" fill="#FFB627">La IA generativa amplía</text>
+              <text x="342" y="324" font-family="Inter, sans-serif" font-size="10" fill="#FFB627">enormemente el área</text>
+              <text x="342" y="338" font-family="Inter, sans-serif" font-size="10" fill="#FFB627">FACTIBLE.</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 — content: El error más común -->
+      <section class="slide slide--accent-amber" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>EL RIESGO REAL</span>
+        <h2 class="h1">El error más <span class="text-aurora">común</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <h2 class="h2" style="color: var(--amber); margin-bottom: 24px;">Construir demasiado.</h2>
+            <p class="lead">El mayor riesgo cuando tienes una herramienta tan poderosa es caer en el feature creep. La IA puede construir todo lo que se le pida. Tú debes decidir qué NO pedir.</p>
+            <p style="color: var(--text-muted);">El MVP se define más por lo que excluye que por lo que incluye.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama: MVP es una fracción del espacio posible">
+              <defs>
+                <linearGradient id="aurora-grad-03" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+              <!-- Outer circle: todo lo que puedes pedir -->
+              <circle cx="190" cy="190" r="160" fill="none" stroke="#7B4DFF" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="190" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">TODO LO QUE</text>
+              <text x="190" y="82" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">PUEDES PEDIR</text>
+              <!-- Inner MVP circle -->
+              <circle cx="190" cy="210" r="52" fill="url(#aurora-grad-03)" fill-opacity="0.2" stroke="url(#aurora-grad-03)" stroke-width="2"/>
+              <text x="190" y="215" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">MVP</text>
+              <!-- Feature creep arrow -->
+              <line x1="310" y1="120" x2="232" y2="179" stroke="#FF5B7A" stroke-width="1.5" marker-end="url(#arrow-rose)"/>
+              <defs>
+                <marker id="arrow-rose" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#FF5B7A"/>
+                </marker>
+              </defs>
+              <text x="308" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#FF5B7A">Feature creep</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — section: Capítulo 01 -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
+        <h2 class="display-l text-aurora">Definir el producto</h2>
+        <p class="lead">De la idea vaga al requisito concreto que la IA puede ejecutar.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 05 — content: Cómo definir el scope -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>SCOPE</span>
+        <h2 class="h1">Cómo definir el <span class="text-aurora">scope</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Para cada feature potencial, hazte una sola pregunta.</p>
+            <p style="color: var(--text); font-weight: 600; margin-bottom: 8px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;">DENTRO DEL MVP</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Crear tarea</li>
+              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Marcar completada</li>
+              <li style="display: flex; align-items: center; gap: 8px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Ver lista</li>
+            </ul>
+            <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 8px; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;">BACKLOG</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: var(--text-muted);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Notificaciones</li>
+              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: var(--text-muted);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Prioridades</li>
+              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: var(--text-muted);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Categorías / Filtros</li>
+              <li style="display: flex; align-items: center; gap: 8px; color: var(--text-muted);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Integración calendario</li>
+            </ul>
+            <p style="color: var(--text-muted); font-style: italic; font-size: 14px;">Puedes construir todo el backlog después. Con IA, cada feature es cuestión de horas, no semanas.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" aria-label="Árbol de decisión para filtrar features">
+              <!-- Root node -->
+              <rect x="60" y="20" width="280" height="56" rx="8" fill="#131826" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="200" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ECEAE3">¿Sin esta feature, el usuario</text>
+              <text x="200" y="59" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ECEAE3">NO puede conseguir el valor principal?</text>
+              <!-- Branch lines -->
+              <line x1="140" y1="76" x2="100" y2="160" stroke="#1F2638" stroke-width="1.5"/>
+              <line x1="260" y1="76" x2="300" y2="160" stroke="#1F2638" stroke-width="1.5"/>
+              <!-- SÍ label -->
+              <text x="108" y="122" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#C6FF3D">SÍ</text>
+              <!-- NO label -->
+              <text x="276" y="122" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#8B8D98">NO</text>
+              <!-- MVP node -->
+              <rect x="28" y="160" width="144" height="50" rx="8" fill="rgba(198,255,61,0.12)" stroke="#C6FF3D" stroke-width="2"/>
+              <text x="100" y="183" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#C6FF3D">DENTRO DEL MVP</text>
+              <text x="100" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ECEAE3">Core del producto</text>
+              <!-- BACKLOG node -->
+              <rect x="228" y="160" width="144" height="50" rx="8" fill="#131826" stroke="#1F2638" stroke-width="2"/>
+              <text x="300" y="183" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#8B8D98">BACKLOG</text>
+              <text x="300" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">después</text>
+              <!-- Arrow heads -->
+              <polygon points="96,156 100,168 104,156" fill="#C6FF3D"/>
+              <polygon points="296,156 300,168 304,156" fill="#1F2638"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — content: Definir la idea -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>CLARIDAD DE IDEA</span>
+        <h2 class="h1">Tres preguntas para <span class="text-aurora">clarificar</span> tu idea</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <div class="reveal" data-delay="1" style="display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 28px; color: var(--violet); font-weight: 700; flex-shrink: 0; line-height: 1;">01</span>
+              <div>
+                <h3 class="h3" style="margin-bottom: 4px;">¿Qué problema específico resuelve?</h3>
+                <p style="color: var(--text-muted);">No: quiero una red social. Sí: quiero una app para que mi equipo de 5 personas vea qué tarea está haciendo cada uno sin tener que preguntar.</p>
+              </div>
+            </div>
+            <div class="reveal" data-delay="2" style="display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 28px; color: var(--violet); font-weight: 700; flex-shrink: 0; line-height: 1;">02</span>
+              <div>
+                <h3 class="h3" style="margin-bottom: 4px;">¿Para quién exactamente?</h3>
+                <p style="color: var(--text-muted);">Cuanto más específico, mejor. La especificidad es una ventaja, no una limitación.</p>
+              </div>
+            </div>
+            <div class="reveal" data-delay="3" style="display: flex; gap: 16px; align-items: flex-start;">
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 28px; color: var(--violet); font-weight: 700; flex-shrink: 0; line-height: 1;">03</span>
+              <div>
+                <h3 class="h3" style="margin-bottom: 4px;">¿Cuál es el momento mínimo de valor?</h3>
+                <p style="color: var(--text-muted);">El primer instante en que el usuario experimenta el beneficio.</p>
+              </div>
+            </div>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg" aria-label="Tres nodos conectados. El tercero, el momento mínimo de valor, está iluminado.">
+              <defs>
+                <linearGradient id="aurora-grad-06" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.3"/>
+                </linearGradient>
+                <linearGradient id="aurora-stroke-06" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+              <!-- Node 1 -->
+              <circle cx="100" cy="48" r="36" fill="#131826" stroke="#1F2638" stroke-width="2"/>
+              <text x="100" y="54" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" fill="#8B8D98">01</text>
+              <!-- Connector 1-2 -->
+              <line x1="100" y1="84" x2="100" y2="138" stroke="#1F2638" stroke-width="2"/>
+              <!-- Node 2 -->
+              <circle cx="100" cy="174" r="36" fill="#131826" stroke="#1F2638" stroke-width="2"/>
+              <text x="100" y="180" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" fill="#8B8D98">02</text>
+              <!-- Connector 2-3 -->
+              <line x1="100" y1="210" x2="100" y2="264" stroke="#1F2638" stroke-width="2"/>
+              <!-- Node 3 (highlighted) -->
+              <circle cx="100" cy="300" r="36" fill="url(#aurora-grad-06)" stroke="url(#aurora-stroke-06)" stroke-width="2.5"/>
+              <text x="100" y="306" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="18" fill="#FFFFFF" font-weight="500">03</text>
+              <!-- Label below node 3 -->
+              <text x="100" y="348" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#7B4DFF" letter-spacing="0.08em">MOMENTO MÍNIMO DE VALOR</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 — content: Requisitos en lenguaje natural -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>REQUISITOS</span>
+        <h2 class="h1">Requisitos en <span class="text-aurora">lenguaje natural</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Los requisitos son la traducción de la idea en instrucciones concretas que la IA puede ejecutar.</p>
+            <div style="border-left: 4px solid var(--violet); background: var(--ink-soft); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
+              <span style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 8px;">FORMATO</span>
+              <code style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text); line-height: 1.6;">Como [tipo de usuario],<br>quiero [funcionalidad],<br>para [beneficio].</code>
+            </div>
+            <div class="reveal" data-delay="2" style="border-left: 3px solid var(--violet); background: var(--ink-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 12px;">
+              <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 6px;">EJEMPLO 01</span>
+              <p style="margin: 0; color: var(--text); font-size: 15px; line-height: 1.5;">Como miembro del equipo, quiero poder crear una tarea nueva indicando nombre y responsable, para que todo el mundo sepa quién está haciendo qué.</p>
+            </div>
+            <div class="reveal" data-delay="3" style="border-left: 3px solid var(--cyan); background: var(--ink-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 16px;">
+              <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 6px;">EJEMPLO 02</span>
+              <p style="margin: 0; color: var(--text); font-size: 15px; line-height: 1.5;">Como gestor, quiero ver en un panel todas las tareas activas con su estado, para no tener que preguntar en qué está cada persona.</p>
+            </div>
+            <p style="color: var(--text-muted); font-style: italic; font-size: 14px;">Los user stories son el lenguaje que conecta tu visión con las instrucciones de la IA.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" aria-label="Estructura de una user story: como tipo de usuario, quiero funcionalidad, para beneficio; el conjunto se convierte en un requisito ejecutable por la IA">
+              <defs>
+                <linearGradient id="aurora-grad-07" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-07" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#7B4DFF"/>
+                </marker>
+              </defs>
+              <!-- Bloque 1: quién -->
+              <rect x="60" y="24" width="360" height="72" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="24" width="4" height="72" rx="2" fill="#7B4DFF"/>
+              <text x="84" y="55" font-family="JetBrains Mono, monospace" font-size="15" fill="#ECEAE3">Como <tspan fill="#7B4DFF">[tipo de usuario]</tspan>,</text>
+              <text x="84" y="78" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">QUIÉN — el contexto de la persona</text>
+              <!-- Bloque 2: qué -->
+              <rect x="60" y="112" width="360" height="72" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="112" width="4" height="72" rx="2" fill="#00D4FF"/>
+              <text x="84" y="143" font-family="JetBrains Mono, monospace" font-size="15" fill="#ECEAE3">quiero <tspan fill="#00D4FF">[funcionalidad]</tspan>,</text>
+              <text x="84" y="166" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">QUÉ — la acción concreta y verificable</text>
+              <!-- Bloque 3: para qué -->
+              <rect x="60" y="200" width="360" height="72" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="200" width="4" height="72" rx="2" fill="#FFB627"/>
+              <text x="84" y="231" font-family="JetBrains Mono, monospace" font-size="15" fill="#ECEAE3">para <tspan fill="#FFB627">[beneficio]</tspan>.</text>
+              <text x="84" y="254" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">PARA QUÉ — el valor que obtiene</text>
+              <!-- Flecha de síntesis -->
+              <line x1="240" y1="280" x2="240" y2="322" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrow-07)"/>
+              <!-- Resultado -->
+              <rect x="60" y="330" width="360" height="58" rx="10" fill="#131826" stroke="url(#aurora-grad-07)" stroke-width="1.5"/>
+              <text x="240" y="355" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Requisito listo para la IA</text>
+              <text x="240" y="374" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">específico, verificable y sin ambigüedad</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 — section: Capítulo 02 -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
+        <h2 class="display-l text-aurora">El ciclo iterativo</h2>
+        <p class="lead">La unidad de trabajo con IA generativa: del requisito al commit en 5–15 minutos.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 70%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 09 — bullets: El ciclo iterativo -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>EL PROCESO</span>
+        <h2 class="h1">Cinco pasos que <span class="text-aurora">se repiten</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Definir el requisito</h3>
+              <p>Escribir la user story en lenguaje natural antes de abrir Claude Code.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Contextualizar el prompt</h3>
+              <p>Aplicar la estructura de las 5 partes aprendida en el Módulo 04: rol, contexto, restricciones, formato, tarea.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Revisar el plan</h3>
+              <p>Pedir a la IA que explique qué va a hacer antes de ejecutar. Nunca ejecutar a ciegas.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Ejecutar e inspeccionar</h3>
+              <p>Probar manualmente como lo haría un usuario real. No confiar sin verificar.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Comprometer o iterar</h3>
+              <p>Si funciona: git commit. Si no: describir el problema con precisión y repetir desde el paso 01.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 10 — content: El bucle en la práctica -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DIAGRAMA DEL CICLO</span>
+        <h2 class="h1">El <span class="text-aurora">bucle</span> en la práctica</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 17px; line-height: 1.5;">Este ciclo puede completarse en <strong style="color: var(--text);">5–15 minutos</strong> por feature.</p>
+            <p style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--text); font-size: 19px; line-height: 1.4;">Un día productivo son 6–10 ciclos completos.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de flujo circular del ciclo iterativo">
+              <defs>
+                <linearGradient id="aurora-grad-10" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrowhead-10" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#1F2638"/>
+                </marker>
+                <marker id="arrowhead-rose-10" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#FF5B7A"/>
+                </marker>
+                <marker id="arrowhead-lime-10" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#C6FF3D"/>
+                </marker>
+              </defs>
+
+              <!-- REQUISITO (human): top-center -->
+              <rect x="168" y="18" width="144" height="52" rx="8" fill="#F5EFE3" stroke="#1F2638" stroke-width="2"/>
+              <text x="240" y="40" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#0B0F1A">REQUISITO</text>
+              <text x="240" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5C5F6B">user story</text>
+
+              <!-- Arrow REQUISITO -> PROMPT -->
+              <line x1="312" y1="44" x2="388" y2="100" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrowhead-10)"/>
+              <text x="358" y="76" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">enviar</text>
+
+              <!-- PROMPT (IA): right-upper -->
+              <rect x="380" y="96" width="128" height="52" rx="8" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="444" y="118" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#ECEAE3">PROMPT</text>
+              <text x="444" y="134" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Claude Code</text>
+
+              <!-- Arrow PROMPT -> CÓDIGO -->
+              <line x1="444" y1="148" x2="444" y2="238" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrowhead-10)"/>
+              <text x="452" y="196" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">genera</text>
+
+              <!-- CÓDIGO GENERADO (IA): right-lower -->
+              <rect x="368" y="238" width="152" height="52" rx="8" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="444" y="260" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#ECEAE3">CÓDIGO</text>
+              <text x="444" y="276" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">generado</text>
+
+              <!-- Arrow CÓDIGO -> PRUEBA -->
+              <line x1="368" y1="290" x2="318" y2="348" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrowhead-10)"/>
+              <text x="324" y="322" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">probar</text>
+
+              <!-- PRUEBA MANUAL (human): bottom-center -->
+              <rect x="154" y="348" width="164" height="52" rx="8" fill="#F5EFE3" stroke="#1F2638" stroke-width="2"/>
+              <text x="236" y="370" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#0B0F1A">PRUEBA MANUAL</text>
+              <text x="236" y="386" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#5C5F6B">como usuario real</text>
+
+              <!-- Arrow PRUEBA -> COMMIT (success path) -->
+              <line x1="154" y1="380" x2="102" y2="358" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrowhead-lime-10)"/>
+              <text x="118" y="372" font-family="Inter, sans-serif" font-size="10" fill="#C6FF3D">OK</text>
+
+              <!-- COMMIT (success): left-lower -->
+              <rect x="14" y="304" width="104" height="52" rx="8" fill="rgba(198,255,61,0.15)" stroke="#C6FF3D" stroke-width="2"/>
+              <text x="66" y="326" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C6FF3D">COMMIT</text>
+              <text x="66" y="342" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#ECEAE3">git commit</text>
+
+              <!-- Arrow COMMIT -> back to REQUISITO (loop) -->
+              <path d="M 14,320 Q 30,180 168,44" fill="none" stroke="#1F2638" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrowhead-10)"/>
+              <text x="42" y="188" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98" transform="rotate(-60, 42, 188)">siguiente</text>
+
+              <!-- Bug path from PRUEBA -->
+              <line x1="154" y1="386" x2="86" y2="404" stroke="#FF5B7A" stroke-width="1.5" marker-end="url(#arrowhead-rose-10)"/>
+              <text x="124" y="404" font-family="Inter, sans-serif" font-size="10" fill="#FF5B7A">falla</text>
+
+              <!-- BUG node -->
+              <polygon points="28,418 66,390 104,418 104,446 28,446" fill="rgba(255,91,122,0.12)" stroke="#FF5B7A" stroke-width="1.5"/>
+              <text x="66" y="420" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="700" fill="#FF5B7A">DESCRIPCIÓN</text>
+              <text x="66" y="432" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#FF5B7A">DEL BUG</text>
+
+              <!-- Arrow BUG -> PROMPT (nuevo prompt con el error) -->
+              <path d="M 104,410 Q 240,250 374,136" fill="none" stroke="#FF5B7A" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowhead-rose-10)"/>
+              <text x="226" y="248" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#FF5B7A">nuevo prompt con el error</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 — stat: 5-15 min -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>VELOCIDAD DE ITERACIÓN</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora">5–15</span>
+          <p class="stat-label">min es lo que tarda un ciclo completo: del requisito al commit probado.</p>
+        </div>
+        <p class="stat-context">Un día de trabajo intenso son 6–10 ciclos. Eso es 6–10 features validadas en un solo día.</p>
+      </section>
+
+      <!-- 12 — section: Capítulo 03 -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
+        <h2 class="display-l text-aurora">Validar sin saber código</h2>
+        <p class="lead">Cómo saber si lo que la IA construyó es correcto, seguro y sólido.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 68%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 13 — bullets: Validación -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>VALIDACIÓN</span>
+        <h2 class="h1">Cinco estrategias de <span class="text-aurora">validación</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Prueba funcional</h3>
+              <p>¿Hace exactamente lo que pediste? Pruébalo como lo haría un usuario real, sin atajos.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Pregunta a la IA</h3>
+              <p>Explícame en términos simples qué hace este código y qué podría fallar.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Verifica restricciones</h3>
+              <p>¿Cumplió todas las restricciones que pusiste? ¿Modificó algo que no debía?</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Regresión</h3>
+              <p>¿Todo lo que funcionaba antes sigue funcionando tras el último cambio?</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Revisión de deuda</h3>
+              <p>Si un desarrollador profesional viera este código, ¿qué criticaría? Pregúntaselo a la IA.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 14 — content: Arquitectura mínima -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ARQUITECTURA</span>
+        <h2 class="h1">La arquitectura <span class="text-aurora">mínima</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">No necesitas saber implementar cada capa. Necesitas saber describírsela a la IA.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de arquitectura de tres capas: Frontend, Backend y Base de Datos dentro de un contenedor Docker">
+              <defs>
+                <marker id="arrow-arch" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+                  <polygon points="0 0, 7 3, 0 6" fill="#1F2638"/>
+                </marker>
+              </defs>
+
+              <!-- User -->
+              <text x="228" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8B8D98">usuario</text>
+              <line x1="228" y1="22" x2="228" y2="76" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-arch)"/>
+
+              <!-- Docker container -->
+              <rect x="30" y="48" width="400" height="328" rx="10" fill="none" stroke="#1F2638" stroke-width="1.5" stroke-dasharray="6 4"/>
+              <text x="48" y="66" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98" letter-spacing="0.08em">Contenedor Docker</text>
+
+              <!-- FRONTEND layer -->
+              <rect x="54" y="80" width="352" height="76" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="54" y="80" width="3" height="76" rx="1" fill="#00D4FF"/>
+              <text x="74" y="104" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#00D4FF" letter-spacing="0.1em">FRONTEND (navegador)</text>
+              <text x="74" y="122" font-family="JetBrains Mono, monospace" font-size="13" fill="#ECEAE3">HTML + CSS + JavaScript</text>
+              <text x="74" y="140" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Lo que ve el usuario</text>
+
+              <!-- Arrow FE <-> BE -->
+              <line x1="228" y1="156" x2="228" y2="184" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-arch)"/>
+              <line x1="222" y1="184" x2="222" y2="156" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-arch)"/>
+              <text x="238" y="174" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">HTTP / API REST</text>
+
+              <!-- BACKEND layer -->
+              <rect x="54" y="188" width="352" height="76" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="54" y="188" width="3" height="76" rx="1" fill="#7B4DFF"/>
+              <text x="74" y="212" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#7B4DFF" letter-spacing="0.1em">BACKEND (servidor)</text>
+              <text x="74" y="230" font-family="JetBrains Mono, monospace" font-size="13" fill="#ECEAE3">Node.js + Express</text>
+              <text x="74" y="248" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Lógica de negocio, procesa peticiones</text>
+
+              <!-- Arrow BE <-> DB -->
+              <line x1="228" y1="264" x2="228" y2="292" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-arch)"/>
+              <line x1="222" y1="292" x2="222" y2="264" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-arch)"/>
+              <text x="238" y="282" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">SQL queries</text>
+
+              <!-- DATABASE layer -->
+              <rect x="54" y="296" width="352" height="68" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="54" y="296" width="3" height="68" rx="1" fill="#FFB627"/>
+              <text x="74" y="318" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#FFB627" letter-spacing="0.1em">BASE DE DATOS</text>
+              <text x="74" y="336" font-family="JetBrains Mono, monospace" font-size="13" fill="#ECEAE3">PostgreSQL o SQLite</text>
+              <text x="74" y="352" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Guarda la información de forma persistente</text>
+
+              <!-- Railway hosting label -->
+              <text x="228" y="406" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Railway (hosting)</text>
+              <line x1="228" y1="396" x2="228" y2="376" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-arch)"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 15 — content: Testing sin programar -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>TESTING</span>
+        <h2 class="h1">Testing sin <span class="text-aurora">programar</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Los tests son el seguro de vida de tu producto. La IA los escribe por ti, pero necesitas entender qué cubren.</p>
+            <div class="reveal" data-delay="1" style="border-left: 3px solid var(--violet); background: var(--ink-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 12px;">
+              <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 8px;">TESTS UNITARIOS</span>
+              <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-muted); line-height: 1.5;">Escribe tests para la función que calcula el total del carrito.</code>
+            </div>
+            <div class="reveal" data-delay="2" style="border-left: 3px solid var(--cyan); background: var(--ink-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 12px;">
+              <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 8px;">TESTS DE INTEGRACIÓN</span>
+              <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-muted); line-height: 1.5;">Escribe tests que comprueben que el registro funciona de principio a fin.</code>
+            </div>
+            <div class="reveal" data-delay="3" style="border-left: 3px solid var(--amber); background: var(--ink-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 16px;">
+              <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 600; display: block; margin-bottom: 8px;">TESTS MANUALES GUIADOS</span>
+              <code style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-muted); line-height: 1.5;">Dame una lista de casos que debería probar manualmente para validar el login.</code>
+            </div>
+            <div class="reveal" data-delay="4" style="border: 2px solid var(--amber); background: rgba(255,182,39,0.08); padding: 14px 18px; border-radius: 8px;">
+              <span style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 600; display: block; margin-bottom: 6px;">HÁBITO CLAVE</span>
+              <p style="margin: 0; color: var(--text); font-size: 15px; line-height: 1.5;">En el prompt de cada nueva feature, incluye siempre: <em>y escribe los tests correspondientes.</em></p>
+            </div>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg" aria-label="Pirámide de tests: muchos tests unitarios en la base, tests de integración en el medio y pocos tests manuales en la cima">
+              <defs>
+                <marker id="arrow-15" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#8B8D98"/>
+                </marker>
+              </defs>
+              <text x="230" y="28" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" fill="#8B8D98" letter-spacing="2">PIRÁMIDE DE TESTS</text>
+              <!-- Cima: manuales -->
+              <polygon points="175,162 285,162 230,80" fill="rgba(255,182,39,0.16)" stroke="#FFB627" stroke-width="1.5"/>
+              <text x="230" y="148" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600" fill="#FFB627">MANUALES</text>
+              <!-- Medio: integración -->
+              <polygon points="130,242 330,242 285,170 175,170" fill="rgba(0,212,255,0.14)" stroke="#00D4FF" stroke-width="1.5"/>
+              <text x="230" y="204" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" fill="#00D4FF">INTEGRACIÓN</text>
+              <text x="230" y="222" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#8B8D98">flujos completos, de extremo a extremo</text>
+              <!-- Base: unitarios -->
+              <polygon points="70,330 390,330 330,250 130,250" fill="rgba(123,77,255,0.16)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="230" y="288" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#7B4DFF">UNITARIOS</text>
+              <text x="230" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#8B8D98">funciones aisladas · la IA los genera en segundos</text>
+              <!-- Eje izquierdo: cantidad -->
+              <line x1="40" y1="100" x2="40" y2="320" stroke="#8B8D98" stroke-width="1.5" opacity="0.6" marker-end="url(#arrow-15)"/>
+              <text x="28" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98" transform="rotate(-90,28,210)">+ cantidad de tests</text>
+              <!-- Eje derecho: coste -->
+              <line x1="420" y1="320" x2="420" y2="100" stroke="#8B8D98" stroke-width="1.5" opacity="0.6" marker-end="url(#arrow-15)"/>
+              <text x="434" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98" transform="rotate(90,434,210)">+ coste de mantener</text>
+              <!-- Nota inferior -->
+              <text x="230" y="372" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">La IA escribe los tres niveles. Tú decides qué merece cobertura.</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 — split: Estrategias ante errores -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>GESTIÓN DE ERRORES</span>
+        <h2 class="h1">Cuando algo <span class="text-aurora">no funciona</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">CUANDO LA IA SE BLOQUEA</span>
+            <h3 class="h2">Qué hacer tú</h3>
+            <ul class="check-list check-list--plus">
+              <li>Copia el error completo y pégaselo: "Este es el error que veo: [error]. ¿Qué está pasando y cómo lo resuelvo?"</li>
+              <li>Pide opciones: "Dame 3 formas distintas de solucionar este problema."</li>
+              <li>Simplifica: "Hagamos esto en pasos más pequeños. Primero solo [parte A]."</li>
+              <li>Busca el error exacto en internet (StackOverflow, GitHub Issues).</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">CUÁNDO PEDIR AYUDA HUMANA</span>
+            <h3 class="h2">Los límites reales</h3>
+            <ul class="check-list check-list--plus">
+              <li>Llevas más de 1 hora atascado en el mismo error.</li>
+              <li>La IA propone soluciones que contradicen el CLAUDE.md del proyecto.</li>
+              <li>El problema parece de infraestructura o de la plataforma, no de tu código.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 17 — quote: Reid Hoffman -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">Si no te da vergüenza <span class="text-aurora">la primera versión</span> de tu producto, lo lanzaste demasiado tarde.</p>
+          <div class="quote-attribution">
+            <strong>Reid Hoffman</strong>
+            <span>Co-fundador de LinkedIn</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 — content: Pausa interactiva -->
+      <section class="slide slide--interactive" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
+        <h2 class="h1">¿Tienes ya una idea de qué producto <span class="text-aurora">construirías</span>?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Antes de la demo en vivo, cuéntanos en qué punto estás. No hay respuesta incorrecta.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Sí, tengo una idea clara y sé a quién va dirigida.</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Tengo varias ideas pero no me decido por ninguna.</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Tengo un boceto pero no sé si es viable.</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>Todavía no tengo claro qué quiero construir.</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top: 55%; left: 72%; opacity: 0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 19 — content: Demo en vivo -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO</span>
+        <h2 class="h1">Construcción de un prototipo <span class="text-aurora">funcional</span> en directo</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">El profesor construirá una app web con registro de usuarios, login y panel de tareas usando el ciclo iterativo en tiempo real. ~45–60 minutos.</p>
+            <p style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 10px;">STACK</p>
+            <div class="chip-row" style="margin-bottom: 20px;">
+              <span class="chip">Node.js</span>
+              <span class="chip">Express</span>
+              <span class="chip">SQLite</span>
+            </div>
+            <p style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 10px;">FEATURES QUE SE CONSTRUIRÁN</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
+              <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Registro de usuario</li>
+              <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Login con sesión</li>
+              <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Crear tarea</li>
+              <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Marcar tarea completada</li>
+              <li style="display: flex; align-items: center; gap: 10px; color: var(--text);"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Ver lista de tareas</li>
+            </ul>
+            <div style="border: 2px solid var(--amber); background: rgba(255,182,39,0.08); padding: 14px 18px; border-radius: 8px;">
+              <p style="margin: 0; color: var(--amber); font-size: 15px; line-height: 1.5;">Esta app es la base de tu proyecto final. El código estará disponible en el repositorio del curso.</p>
+            </div>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-label="Ciclos en directo: 5 pasos que se repiten">
+              <defs>
+                <linearGradient id="aurora-demo" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF" stop-opacity="0.06"/>
+                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.06"/>
+                </linearGradient>
+                <marker id="arrow-19" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+                  <polygon points="0 0, 7 3, 0 6" fill="#1F2638"/>
+                </marker>
+              </defs>
+              <!-- Background glow -->
+              <rect x="0" y="0" width="460" height="380" rx="16" fill="url(#aurora-demo)"/>
+
+              <!-- DEMO EN VIVO badge -->
+              <rect x="140" y="18" width="180" height="36" rx="8" fill="#FFB627"/>
+              <text x="230" y="41" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700" fill="#0B0F1A">● DEMO EN VIVO</text>
+
+              <!-- Cycle steps horizontal mini-timeline -->
+              <text x="230" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98" letter-spacing="0.1em">CICLOS EN DIRECTO · SE REPITE 5 VECES</text>
+
+              <!-- Step nodes -->
+              <!-- REQUISITO -->
+              <rect x="18" y="110" width="74" height="40" rx="6" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <text x="55" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">REQUISITO</text>
+              <text x="55" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">user story</text>
+
+              <!-- Arrow -->
+              <line x1="92" y1="130" x2="108" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-19)"/>
+
+              <!-- PROMPT -->
+              <rect x="108" y="110" width="74" height="40" rx="6" fill="rgba(123,77,255,0.15)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="145" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">PROMPT</text>
+              <text x="145" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">Claude Code</text>
+
+              <!-- Arrow -->
+              <line x1="182" y1="130" x2="198" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-19)"/>
+
+              <!-- REVISIÓN -->
+              <rect x="198" y="110" width="74" height="40" rx="6" fill="rgba(123,77,255,0.15)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="235" y="126" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">REVISIÓN</text>
+              <text x="235" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">del plan</text>
+              <text x="235" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">primero</text>
+
+              <!-- Arrow -->
+              <line x1="272" y1="130" x2="288" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-19)"/>
+
+              <!-- EJECUCIÓN -->
+              <rect x="288" y="110" width="74" height="40" rx="6" fill="rgba(123,77,255,0.15)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="325" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">EJECUCIÓN</text>
+              <text x="325" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">e inspección</text>
+
+              <!-- Arrow -->
+              <line x1="362" y1="130" x2="378" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-19)"/>
+
+              <!-- COMMIT -->
+              <rect x="378" y="110" width="68" height="40" rx="6" fill="rgba(198,255,61,0.15)" stroke="#C6FF3D" stroke-width="1.5"/>
+              <text x="412" y="128" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="700" fill="#C6FF3D">COMMIT</text>
+              <text x="412" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#ECEAE3">y se repite</text>
+
+              <!-- Return arrow loop -->
+              <path d="M 412,150 Q 412,180 230,190 Q 55,200 55,150" fill="none" stroke="#1F2638" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow-19)"/>
+              <text x="230" y="208" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">siguiente ciclo</text>
+
+              <!-- 5 cycle indicators -->
+              <text x="230" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">×5 ciclos en esta sesión</text>
+              <circle cx="150" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="150" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">1</text>
+              <circle cx="190" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="190" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">2</text>
+              <circle cx="230" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="230" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">3</text>
+              <circle cx="270" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="270" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">4</text>
+              <circle cx="310" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="310" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">5</text>
+
+              <!-- Terminal decorative element -->
+              <rect x="60" y="300" width="340" height="62" rx="8" fill="#0B0F1A" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="300" width="340" height="20" rx="8" fill="#131826"/>
+              <circle cx="80" cy="310" r="4" fill="#FF5B7A"/>
+              <circle cx="96" cy="310" r="4" fill="#FFB627"/>
+              <circle cx="112" cy="310" r="4" fill="#C6FF3D"/>
+              <text x="80" y="335" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">$</text>
+              <text x="96" y="335" font-family="JetBrains Mono, monospace" font-size="11" fill="#ECEAE3">git commit -m "feat: add task panel"</text>
+              <text x="80" y="352" font-family="JetBrains Mono, monospace" font-size="11" fill="#C6FF3D">[main] 1 file changed, 42 insertions(+)</text>
+            </svg>
+          </div>
+        </div>
+        <div class="shape shape--circle" style="bottom: 8%; right: 6%; opacity: 0.06;" data-parallax="0.2"></div>
+      </section>
+
+      <!-- 20 — split: Con IA vs sin IA -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>IMPACTO REAL</span>
+        <h2 class="h1">Con IA vs <span class="text-aurora">sin IA</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">SIN IA GENERATIVA</span>
+            <h3 class="h2">Desarrollo tradicional</h3>
+            <ul class="check-list check-list--minus">
+              <li>MVP básico: 2–4 semanas.</li>
+              <li>Dependencia total de equipo técnico.</li>
+              <li>Coste externalizado: 5.000–20.000€.</li>
+              <li>Iteraciones lentas: días por feature.</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">CON IA GENERATIVA</span>
+            <h3 class="h2">Tu nuevo superpoder</h3>
+            <ul class="check-list check-list--plus">
+              <li>MVP básico: 2–5 días.</li>
+              <li>Autonomía total. Tú decides cuándo y qué.</li>
+              <li>Coste de herramientas: &lt;100€/mes.</li>
+              <li>Iteraciones rápidas: horas por feature.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 21 — stat: Lo que cambia -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>EN NÚMEROS</span>
+        <h2 class="h1">Lo que <span class="text-aurora">cambia</span></h2>
+        <div class="stat-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="mini-stat reveal" data-delay="1">
+            <span class="mini-stat-number" style="color: var(--violet);">2–5 <span style="font-size: 48px;">días</span></span>
+            <span class="mini-stat-label">para construir un MVP básico funcional desde cero</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="2">
+            <span class="mini-stat-number" style="color: var(--amber);">&lt;100 <span style="font-size: 48px;">€/mes</span></span>
+            <span class="mini-stat-label">coste de todas las herramientas del curso</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="3">
+            <span class="mini-stat-number" style="color: var(--amber);">5–15 <span style="font-size: 48px;">min</span></span>
+            <span class="mini-stat-label">por ciclo iterativo completo: del requisito al commit</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="4">
+            <span class="mini-stat-number text-aurora count-up" data-target="10" data-suffix="x">0x</span>
+            <span class="mini-stat-label">velocidad de iteración con IA vs desarrollo tradicional</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 22 — closing -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>FIN DEL MÓDULO 05</span>
+        <h2 class="display-l">
+          A <span class="text-aurora">construir.</span>
+        </h2>
+        <p class="lead">Ya tienes el ciclo, el scope y las herramientas. El siguiente módulo te enseña a desplegarlo y hacerlo evolucionar.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../m06-despliegue/index.html">Módulo 06 — Despliegue, Evolución y Mantenimiento &rarr;</a>
+          <a class="btn btn--ghost" href="../../../index.html">Volver al índice del curso</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

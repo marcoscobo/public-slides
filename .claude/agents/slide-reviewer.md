@@ -84,7 +84,7 @@ Ejemplo:
 - [ ] No hay clicables que dependan solo de color.
 
 ### Apache / publicación
-- [ ] Rutas a `aurora.css` y `deck.js` son resolubles desde la ubicación del HTML (`../../assets/...` por defecto).
+- [ ] Rutas a `aurora.css` y `deck.js` son resolubles desde la ubicación del HTML (`../../../assets/...` por defecto).
 - [ ] No hay rutas absolutas a la máquina local (`C:\...`, `file://...`).
 - [ ] Los `src` de imágenes son URLs públicas o rutas relativas al deck.
 

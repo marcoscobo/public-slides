@@ -60,8 +60,8 @@ Un único archivo HTML completo en `decks/<slug>/index.html`. El archivo se basa
 2. Crea la carpeta `decks/<slug>/` si no existe.
 3. Genera el HTML siguiendo `templates/deck.html`. Asegura que los enlaces a CSS/JS resuelven correctamente desde `decks/<slug>/index.html`:
    ```html
-   <link rel="stylesheet" href="../../assets/css/aurora.css" />
-   <script defer src="../../assets/js/deck.js"></script>
+   <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+   <script defer src="../../../assets/js/deck.js"></script>
    ```
 4. Por cada slide del esquema, **copia el snippet correspondiente** de `LAYOUTS.md` y rellénalo con `content`.
 5. Para imágenes que el esquema no aporta (placeholder), usa `https://placehold.co/800x600/131826/7B4DFF?text=...` — nunca dejes `src` vacío.
@@ -127,7 +127,7 @@ Un único archivo HTML completo en `decks/<slug>/index.html`. El archivo se basa
 
 - [ ] El HTML valida (etiquetas cerradas, atributos con comillas).
 - [ ] Cada slide tiene `data-layout`.
-- [ ] Las rutas `../../assets/...` apuntan bien.
+- [ ] Las rutas `../../../assets/...` apuntan bien.
 - [ ] No hay clases inventadas.
 - [ ] `text-aurora` aparece como mucho una vez por slide.
 - [ ] Animaciones `reveal` con delays incrementales en listas/grids.

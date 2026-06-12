@@ -708,6 +708,18 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 
 /* Diagrama SVG genérico dentro de slides */
 .diagram { width: 100%; height: auto; max-height: 520px; }
+/* Variante tarjeta: enmarca el diagrama sobre superficie elevada. */
+.diagram--card {
+  border-radius: 16px;
+  border: 1px solid var(--ink-line);
+  background: var(--ink-soft);
+}
+/* Variante tarjeta con acento ámbar (demos en vivo, avisos). */
+.diagram--card-amber {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 182, 39, 0.4);
+  background: rgba(255, 182, 39, 0.06);
+}
 .diagram-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -818,6 +830,11 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
    con la barra de fondo (que ocupa el 100%). */
 .timeline--3 {
   grid-template-columns: repeat(3, 1fr);
+}
+
+/* Variante de 6 pasos (p. ej. estructura de un curso de 6-7 módulos). */
+.timeline--6 {
+  grid-template-columns: repeat(6, 1fr);
 }
 
 /* Variante con etiquetas de texto en los marcadores (p. ej. GRADO, MÁSTER,

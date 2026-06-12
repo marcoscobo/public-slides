@@ -99,12 +99,6 @@
     }
   });
 
-  // ---------- Click avance ----------------------------------------------
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('a, button, .overview, .overview-thumb, .help-modal, .help-card')) return;
-    next();
-  });
-
   // ---------- Fullscreen -------------------------------------------------
   function toggleFullscreen() {
     if (!document.fullscreenElement) document.documentElement.requestFullscreen();

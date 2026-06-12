@@ -1,6 +1,6 @@
 ---
 name: create-deck
-description: Crea una presentación HTML AURORA completa a partir de un prompt o tema. Orquesta los agentes slide-architect → slide-designer → slide-reviewer y deja el resultado en decks/<slug>/index.html listo para servir por Apache. Usar cuando el usuario pida una presentación, una deck, unas slides o similar.
+description: Crea una presentación HTML AURORA completa a partir de un prompt o tema. Orquesta los agentes slide-architect → slide-designer → slide-reviewer y deja el resultado en deck/<curso>/<modulo-slug>/index.html listo para servir por Apache. Usar cuando el usuario pida una presentación, una deck, unas slides o similar.
 ---
 
 # /create-deck
@@ -31,18 +31,18 @@ Si el prompt es lo bastante específico, no preguntes — toma decisiones razona
 
 Llama al agente `slide-architect` con el prompt y los parámetros confirmados. Espera un JSON con `title`, `description`, `lang`, `slug`, y `slides[]`.
 
-Guarda ese JSON temporalmente (puedes incluirlo en `decks/<slug>/_outline.json` para trazabilidad).
+Guarda ese JSON temporalmente (puedes incluirlo en `deck/<curso>/<modulo-slug>/_outline.json` para trazabilidad).
 
 ### Paso 2 — Diseño
 
 Llama al agente `slide-designer` pasándole el JSON. El designer:
-- Crea la carpeta `decks/<slug>/`.
+- Crea la carpeta `deck/<curso>/<modulo-slug>/`.
 - Escribe `index.html` siguiendo `templates/deck.html`.
 - Por cada slide del esquema, usa el snippet correspondiente de `templates/layouts.html` / `LAYOUTS.md`.
 
 ### Paso 3 — Revisión
 
-Llama al agente `slide-reviewer` apuntando a `decks/<slug>/index.html`. Recibe un informe con issues.
+Llama al agente `slide-reviewer` apuntando a `deck/<curso>/<modulo-slug>/index.html`. Recibe un informe con issues.
 
 - Si veredicto = ✅ → terminado.
 - Si veredicto = ⚠ → vuelve a llamar al reviewer pidiéndole que **aplique los fixes critical y major**, después re-audita.
@@ -53,7 +53,7 @@ Llama al agente `slide-reviewer` apuntando a `decks/<slug>/index.html`. Recibe u
 Reporta en máximo 3 líneas:
 1. Ruta absoluta del HTML generado.
 2. Total de slides y layouts usados.
-3. URL sugerida si se sirve por Apache (`http://<host>/decks/<slug>/`).
+3. URL sugerida si se sirve por Apache (`http://<host>/deck/<curso>/<modulo-slug>/`).
 
 Si el usuario tiene un comando para abrir el navegador, sugiere abrir el archivo directamente.
 
@@ -63,7 +63,7 @@ Si el usuario tiene un comando para abrir el navegador, sugiere abrir el archivo
 - "más visual / menos texto" → re-llamar al designer pidiendo cambiar layouts densos por `stat`, `quote` o `gallery`.
 - "tono más técnico" → re-llamar al designer reescribiendo los textos.
 
-Cada variante se guarda como `decks/<slug>-v2/`, sin sobreescribir la original.
+Cada variante se guarda como `deck/<curso>/<modulo-slug>-v2/`, sin sobreescribir la original.
 
 ## Reglas duras
 

@@ -43,18 +43,29 @@ public-slides/
 ├── assets/
 │   ├── css/aurora.css                  ← design system implementado
 │   └── js/deck.js                      ← navegación + animaciones
-└── deck/                               ← output (cada subcarpeta = un deck)
-    ├── curso-ia-logistica-m01-fundamentos/
-    ├── curso-ia-logistica-m02-productividad/
-    ├── curso-ia-logistica-m03-automatizacion/
-    ├── curso-ia-logistica-m04-analisis-datos/
-    ├── curso-ia-logistica-m05-prediccion-demanda/
-    ├── curso-ia-logistica-m06-transporte/
-    ├── curso-ia-logistica-m07-documental/
-    └── curso-ia-logistica-m08-transformacion/
+└── deck/                               ← output, agrupado por curso/grupo
+    ├── personal/
+    │   └── about-me-marcos-cobo/
+    ├── curso-ia-productos-digitales/   ← un curso = una carpeta
+    │   ├── m01-introduccion/
+    │   ├── m02-entorno/
+    │   ├── m03-colaboracion/
+    │   ├── m04-entorno-ia/
+    │   ├── m05-mvp/
+    │   ├── m06-despliegue/
+    │   └── m07-proyecto-final/
+    └── curso-ia-logistica/
+        ├── m01-fundamentos/
+        ├── m02-productividad/
+        ├── m03-automatizacion/
+        ├── m04-analisis-datos/
+        ├── m05-prediccion-demanda/
+        ├── m06-transporte/
+        ├── m07-documental/
+        └── m08-transformacion/
 ```
 
-> **Nota:** el directorio de output es `deck/` (sin 's'), no `decks/`. Las rutas relativas en los deck HTML deben apuntar a `../../assets/...`.
+> **Nota:** el directorio de output es `deck/` (sin 's'), no `decks/`. Cada deck vive en `deck/<curso>/<modulo>/index.html`, así que las rutas relativas a los assets compartidos deben apuntar a `../../../assets/...` y al índice raíz con `../../../index.html`. Los enlaces entre módulos del mismo curso son hermanos: `../<modulo>/index.html`.
 
 ## Flujo de trabajo
 
@@ -64,11 +75,11 @@ public-slides/
    - **slide-architect**: convierte el prompt en una estructura (lista de slides con tipo + intención narrativa).
    - **slide-designer**: por cada slide en la estructura, genera HTML respetando AURORA.
    - **slide-reviewer**: revisa la deck completa contra el STYLE_GUIDE y propone correcciones.
-3. Se guarda en `deck/<nombre-slug>/index.html`, listo para servir por Apache.
+3. Se guarda en `deck/<curso>/<modulo-slug>/index.html`, listo para servir por Apache.
 4. Si el deck es nuevo, añadir manualmente una tarjeta en `index.html` (portada) para mantener el índice actualizado.
 
 ### Servir por Apache
-Cada deck es **autocontenida**: importa CSS/JS por ruta relativa (`../../assets/...`) o por URL absoluta si se sirve desde el VirtualHost. Sin frameworks, sin npm, sin servidor de Node.
+Cada deck es **autocontenida**: importa CSS/JS por ruta relativa (`../../../assets/...`) o por URL absoluta si se sirve desde el VirtualHost. Sin frameworks, sin npm, sin servidor de Node.
 
 El servidor expone `index.html` en la raíz como portada pública. El deploy se gestiona con **Docker Compose + Apache** tal como describe el `README.md`.
 

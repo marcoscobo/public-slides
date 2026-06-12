@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Módulo 04 — Construyendo un Entorno Optimizado para IA</title>
+  <meta name="description" content="DevContainers, CLAUDE.md, agentes especializados, skills personalizados y anatomía de un prompt efectivo. Todo lo que necesitas para que la IA trabaje dentro de tu proyecto, no solo a su lado." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+  <script defer src="../../../assets/js/deck.js"></script>
+
+  <style>
+    /* Overrides documentados para este deck — Módulo 04 */
+
+    /* slide--demo: alerta visual ámbar para pausas de demo en directo.
+       No existe en aurora.css como componente; se define aquí para no
+       contaminar el sistema global hasta que se decida promoverlo. */
+    .slide--demo .demo-alert {
+      background: rgba(255, 182, 39, 0.10);
+      border: 1.5px solid rgba(255, 182, 39, 0.40);
+      border-radius: 16px;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 32px;
+      max-width: 940px;
+    }
+    .slide--demo .demo-icon { flex-shrink: 0; color: #FFB627; }
+    .slide--demo .demo-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 44px;
+      color: #FFB627;
+      margin: 0 0 4px;
+      letter-spacing: -0.02em;
+    }
+    .slide--demo .demo-subtitle {
+      color: #ECEAE3;
+      font-size: 20px;
+      margin: 0;
+      max-width: 60ch;
+    }
+    .slide--demo .demo-step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      counter-reset: step;
+      max-width: 860px;
+    }
+    .slide--demo .demo-step-list li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 20px;
+      color: #ECEAE3;
+      line-height: 1.5;
+    }
+    .slide--demo .demo-step-list li::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #FFB627;
+      padding-top: 4px;
+      min-width: 24px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 04 · CURSO IA PRODUCTOS DIGITALES · 4 HORAS</span>
+        <h1 class="display-xl">
+          Construyendo un <span class="text-aurora">Entorno Optimizado</span><br>para IA
+        </h1>
+        <p class="lead">La diferencia entre usar la IA como chatbot y usarla como agente que trabaja en tu proyecto está en la configuración.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Curso IA Productos Digitales</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Módulo 04 de 07 · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — quote -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">La IA sin contexto es <span class="text-aurora">poderosa</span>. La IA con contexto es transformadora.</p>
+          <div class="quote-attribution">
+            <strong>Principio del módulo</strong>
+            <span>Cuando defines quién eres, qué construyes y cómo trabajas, cada prompt que escribas valdrá el doble.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 — section: Capítulo 01 DevContainers -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
+        <h2 class="display-l text-aurora">DevContainers</h2>
+        <p class="lead">Mismo entorno para todos, siempre. Nueva persona en el equipo, cero horas de configuración.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 72%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 04 — content: DevContainers concepto -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>CONCEPTO</span>
+        <h2 class="h1">Tu proyecto como <span class="text-aurora">entorno reproducible</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">VS Code lo lee y levanta el entorno en segundos. Cualquiera que clone tu repo tendrá exactamente el mismo entorno que tú.</p>
+            <p>Un DevContainer es un contenedor Docker que define el entorno de desarrollo completo de tu proyecto: sistema operativo, herramientas, extensiones de editor y comandos de inicialización, todo en un archivo de configuración versionado junto a tu código.</p>
+            <p>Cuando alguien clona el repositorio y abre VS Code, el editor detecta el archivo .devcontainer/devcontainer.json y ofrece levantar el entorno automáticamente. En dos minutos tienen Node.js, Python, Git, Claude CLI y todas las extensiones instaladas, exactamente igual que tú.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 440 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de capas: tu ordenador contiene Docker Engine, y dentro el contenedor DevContainer con el sistema operativo, las herramientas, las extensiones de VS Code, las variables de entorno y tu código del proyecto">
+              <defs>
+                <linearGradient id="aurora-grad-04" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <linearGradient id="aurora-grad-04-soft" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF" stop-opacity="0.14"/>
+                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.14"/>
+                </linearGradient>
+              </defs>
+              <!-- Capa exterior: Tu ordenador -->
+              <rect x="8" y="8" width="424" height="364" rx="16" fill="#0B0F1A" stroke="#1F2638" stroke-width="1.5"/>
+              <text x="24" y="34" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#8B8D98" letter-spacing="0.06em">TU ORDENADOR (WINDOWS / MAC / LINUX)</text>
+              <!-- Capa intermedia: Docker Engine -->
+              <rect x="28" y="46" width="384" height="306" rx="12" fill="#131826" stroke="#7B4DFF" stroke-width="1" stroke-opacity="0.35"/>
+              <text x="44" y="70" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" fill="#7B4DFF" letter-spacing="0.06em" fill-opacity="0.8">DOCKER ENGINE</text>
+              <!-- Capa interior: DevContainer (elemento protagonista, gradiente firma) -->
+              <rect x="48" y="80" width="344" height="258" rx="10" fill="url(#aurora-grad-04-soft)" stroke="url(#aurora-grad-04)" stroke-width="1.5"/>
+              <text x="64" y="102" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#ECEAE3" letter-spacing="0.08em">CONTENEDOR DEVCONTAINER</text>
+              <!-- Chips internos -->
+              <!-- Chip 1: SO base — icono monitor -->
+              <rect x="68" y="112" width="304" height="38" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+              <rect x="79" y="122" width="16" height="11" rx="2" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="87" y1="133" x2="87" y2="137" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="83" y1="137" x2="91" y2="137" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="104" y="128" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Ubuntu / Debian</text>
+              <text x="104" y="143" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Sistema operativo base</text>
+              <!-- Chip 2: Herramientas — icono terminal -->
+              <rect x="68" y="157" width="304" height="38" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+              <polyline points="80,170 85,175 80,180" fill="none" stroke="#7B4DFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="89" y1="180" x2="95" y2="180" stroke="#7B4DFF" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="104" y="173" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Node.js · Python · Git · Claude CLI</text>
+              <text x="104" y="188" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Herramientas del entorno</text>
+              <!-- Chip 3: Extensiones — icono bloques -->
+              <rect x="68" y="202" width="304" height="38" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+              <rect x="79" y="215" width="7" height="7" rx="1.5" fill="none" stroke="#00D4FF" stroke-width="1.5"/>
+              <rect x="79" y="224" width="7" height="7" rx="1.5" fill="none" stroke="#00D4FF" stroke-width="1.5"/>
+              <rect x="88" y="224" width="7" height="7" rx="1.5" fill="none" stroke="#00D4FF" stroke-width="1.5"/>
+              <rect x="90" y="213" width="7" height="7" rx="1.5" fill="none" stroke="#00D4FF" stroke-width="1.5"/>
+              <text x="104" y="218" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Extensiones VS Code</text>
+              <text x="104" y="233" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">GitLens, Docker, ErrorLens…</text>
+              <!-- Chip 4: Variables — icono llave -->
+              <rect x="68" y="247" width="304" height="38" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+              <circle cx="84" cy="261" r="4.5" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+              <line x1="87.5" y1="264.5" x2="95" y2="272" stroke="#FFB627" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="92" y1="269" x2="95" y2="266" stroke="#FFB627" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="104" y="263" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Variables de entorno</text>
+              <text x="104" y="278" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">API keys, configuración segura</text>
+              <!-- Chip 5: Código — icono brackets -->
+              <rect x="68" y="292" width="304" height="38" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+              <polyline points="83,306 79,311 83,316" fill="none" stroke="#C6FF3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="91,306 95,311 91,316" fill="none" stroke="#C6FF3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="104" y="308" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Tu código del proyecto</text>
+              <text x="104" y="323" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Montado desde tu sistema local</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — split: Sin DevContainer vs Con DevContainer -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>COMPARATIVA</span>
+        <h2 class="h1">Sin DevContainer vs <span class="text-aurora">Con DevContainer</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">SIN DEVCONTAINER</span>
+            <h3 class="h2">"En mi máquina funciona"</h3>
+            <ul class="check-list check-list--minus">
+              <li>Horas de configuración para cada nuevo colaborador</li>
+              <li>Diferencias entre entornos de dev y producción</li>
+              <li>"Instala la versión 18, no la 20" — mensajes en Slack</li>
+              <li>La IA no sabe qué herramientas tiene disponibles</li>
+              <li>Onboarding doloroso cada vez que entra alguien nuevo</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">CON DEVCONTAINER</span>
+            <h3 class="h2">Mismo entorno. Siempre.</h3>
+            <ul class="check-list check-list--plus">
+              <li>Nueva persona → clona repo → abre VS Code → listo en 2 min</li>
+              <li>Entorno idéntico al de producción, sin sorpresas</li>
+              <li>Todas las herramientas preinstaladas y versionadas</li>
+              <li>La IA conoce exactamente el entorno y puede aprovecharlo</li>
+              <li>Onboarding que escala sin esfuerzo manual</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — bullets: Las 5 secciones de un devcontainer.json -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>ANATOMÍA DEL ARCHIVO</span>
+        <h2 class="h1">Las 5 secciones de un <span class="text-aurora">devcontainer.json</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">name — Identificador del entorno</h3>
+              <p>"mi-proyecto-dev" — Solo para identificación en VS Code. Descriptivo y en kebab-case.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">image — Imagen base del contenedor</h3>
+              <p>"mcr.microsoft.com/devcontainers/javascript-node:20" — La imagen oficial con Node.js 20 ya instalado.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">features — Herramientas adicionales</h3>
+              <p>git, docker-in-docker, github-cli. Cada feature es una línea: el contenedor las instala automáticamente al crear.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">customizations.vscode.extensions — Extensiones del editor</h3>
+              <p>["ms-azuretools.vscode-docker", "eamodio.gitlens", "usernamehw.errorlens"] — Se instalan automáticamente al abrir en contenedor.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">postCreateCommand — Comando de inicialización</h3>
+              <p>"npm install &amp;&amp; echo 'Entorno listo'" — Se ejecuta una sola vez cuando el contenedor se crea por primera vez.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 07 — code: devcontainer.json completo -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>CÓDIGO REAL · COPIA Y USA</span>
+        <h2 class="h2">devcontainer.json <span class="text-aurora">completo</span></h2>
+        <div class="code-grid">
+<pre class="code-block"><code><span class="cm-cm">{</span>
+  <span class="cm-str">"name"</span>: <span class="cm-str">"mi-proyecto"</span>,
+  <span class="cm-str">"image"</span>: <span class="cm-str">"mcr.microsoft.com/devcontainers/javascript-node:20"</span>,
+  <span class="cm-str">"features"</span>: <span class="cm-cm">{</span>
+    <span class="cm-str">"ghcr.io/devcontainers/features/git:1"</span>: <span class="cm-cm">{}</span>,
+    <span class="cm-str">"ghcr.io/devcontainers/features/github-cli:1"</span>: <span class="cm-cm">{}</span>
+  <span class="cm-cm">}</span>,
+  <span class="cm-str">"customizations"</span>: <span class="cm-cm">{</span>
+    <span class="cm-str">"vscode"</span>: <span class="cm-cm">{</span>
+      <span class="cm-str">"extensions"</span>: <span class="cm-cm">[</span>
+        <span class="cm-str">"ms-azuretools.vscode-docker"</span>,
+        <span class="cm-str">"eamodio.gitlens"</span>,
+        <span class="cm-str">"usernamehw.errorlens"</span>
+      <span class="cm-cm">]</span>
+    <span class="cm-cm">}</span>
+  <span class="cm-cm">}</span>,
+  <span class="cm-str">"postCreateCommand"</span>: <span class="cm-str">"npm install"</span>
+<span class="cm-cm">}</span></code></pre>
+          <aside class="code-notes">
+            <p><strong>image.</strong> Imagen oficial de Microsoft con Node.js 20 LTS. Cambia el número para fijar otra versión.</p>
+            <p><strong>features.</strong> Git y GitHub CLI se añaden sobre la imagen base. Cada feature es un módulo versionado independiente.</p>
+            <p><strong>extensions.</strong> Estas tres extensiones se instalan automáticamente para todos los que abran el proyecto en contenedor.</p>
+            <p><strong>postCreateCommand.</strong> npm install se ejecuta una sola vez al crear el contenedor. Añade aquí cualquier setup inicial.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 08 — content: Demo en vivo 01 -->
+      <section class="slide slide--demo" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO · 01</span>
+        <div class="demo-alert reveal" data-delay="1">
+          <div class="demo-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+          </div>
+          <div>
+            <p class="demo-title">DEMO EN VIVO</p>
+            <p class="demo-subtitle">Configurar DevContainer desde cero en el proyecto del curso</p>
+          </div>
+        </div>
+        <h2 class="h1">Configurar <span class="text-aurora">DevContainer</span> desde cero</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="2">El profesor creará el archivo devcontainer.json para el proyecto del curso, lo abrirá en VS Code y mostrará cómo el entorno se levanta automáticamente con todas las herramientas preinstaladas.</p>
+        <ul class="demo-step-list reveal" data-delay="3">
+          <li>Crear .devcontainer/devcontainer.json con ayuda de Claude Code. Le pedimos que genere el archivo completo para nuestro proyecto.</li>
+          <li>Reabrir en contenedor. VS Code detecta el archivo y sugiere automáticamente 'Reopen in Container'. Hacemos clic.</li>
+          <li>Verificar entorno. Abrimos la terminal integrada y ejecutamos: node --version, git --version, claude --version. Todo disponible dentro del contenedor.</li>
+          <li>Comprobar extensiones. Abrimos la lista de extensiones instaladas y vemos GitLens, Docker y ErrorLens ya activas sin haberlas instalado manualmente.</li>
+        </ul>
+      </section>
+
+      <!-- 09 — section: Capítulo 02 CLAUDE.md -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
+        <h2 class="display-l text-aurora">CLAUDE.md</h2>
+        <p class="lead">El onboarding que le harías a un nuevo colaborador. Sin él, la IA asume. Con él, la IA sabe.</p>
+        <div class="shape shape--circle-sm" style="top: 58%; left: 70%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 10 — content: CLAUDE.md qué es y por qué importa -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>QUÉ ES CLAUDE.md</span>
+        <h2 class="h1">El archivo que le da <span class="text-aurora">identidad</span> a tu proyecto</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Cada vez que abres Claude Code en un proyecto, lee CLAUDE.md antes de hacer nada. Es tu oportunidad de definir quién eres, qué estás construyendo y cómo quieres que trabaje.</p>
+            <p>El CLAUDE.md es el onboarding que le harías a un nuevo colaborador brillante pero que no sabe nada de tu proyecto. Sin él, la IA hace suposiciones razonables pero genéricas. Con él, la IA actúa como si llevara meses en tu equipo.</p>
+            <p>No es solo una lista de instrucciones técnicas: es contexto de negocio, convenciones de equipo, restricciones críticas y criterio de calidad. Todo lo que necesitas explicarle a alguien el primer día para que no cometa errores innecesarios.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Documento CLAUDE.md con sus secciones: descripción del proyecto, stack, convenciones y reglas. Claude Code lo lee al inicio de cada sesión">
+              <defs>
+                <linearGradient id="aurora-grad-10" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="aurora-arrow-10" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="#00D4FF"/>
+                </marker>
+              </defs>
+              <!-- Documento principal (elemento protagonista, borde gradiente firma) -->
+              <rect x="60" y="16" width="280" height="244" rx="16" fill="#131826" stroke="url(#aurora-grad-10)" stroke-width="1.5"/>
+              <!-- Cabecera del documento: icono de archivo + nombre -->
+              <path d="M84,34 h12 l6,6 v14 h-18 Z" fill="none" stroke="#ECEAE3" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M96,34 v6 h6" fill="none" stroke="#ECEAE3" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="112" y="51" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700" fill="#ECEAE3">CLAUDE.md</text>
+              <line x1="84" y1="68" x2="316" y2="68" stroke="#1F2638" stroke-width="1"/>
+              <!-- Sección 1: descripción del proyecto -->
+              <text x="84" y="91" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF"># Mi Proyecto</text>
+              <rect x="84" y="99" width="190" height="7" rx="3.5" fill="#8B8D98" fill-opacity="0.35"/>
+              <rect x="84" y="111" width="140" height="7" rx="3.5" fill="#8B8D98" fill-opacity="0.25"/>
+              <!-- Sección 2: stack -->
+              <text x="84" y="139" font-family="JetBrains Mono, monospace" font-size="12" fill="#00D4FF">## Stack</text>
+              <rect x="84" y="147" width="170" height="7" rx="3.5" fill="#8B8D98" fill-opacity="0.35"/>
+              <rect x="84" y="159" width="120" height="7" rx="3.5" fill="#8B8D98" fill-opacity="0.25"/>
+              <!-- Sección 3: convenciones -->
+              <text x="84" y="187" font-family="JetBrains Mono, monospace" font-size="12" fill="#FFB627">## Convenciones</text>
+              <rect x="84" y="195" width="150" height="7" rx="3.5" fill="#8B8D98" fill-opacity="0.35"/>
+              <!-- Sección 4: reglas -->
+              <text x="84" y="223" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">## Reglas</text>
+              <rect x="84" y="231" width="180" height="7" rx="3.5" fill="#8B8D98" fill-opacity="0.35"/>
+              <rect x="84" y="243" width="110" height="7" rx="3.5" fill="#8B8D98" fill-opacity="0.25"/>
+              <!-- Flecha documento → chip -->
+              <line x1="200" y1="264" x2="200" y2="286" stroke="#00D4FF" stroke-width="1.5" marker-end="url(#aurora-arrow-10)"/>
+              <!-- Chip informativo -->
+              <rect x="58" y="292" width="284" height="36" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+              <text x="200" y="314" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">Claude Code lo lee al inicio de cada sesión</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 — bullets: Las 5 secciones de un CLAUDE.md efectivo -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>LAS 5 SECCIONES CLAVE</span>
+        <h2 class="h1">Anatomía de un <span class="text-aurora">CLAUDE.md efectivo</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Descripción del proyecto</h3>
+              <p>Qué es, para quién y qué problema resuelve. 2-3 párrafos. Es lo primero que lee la IA: debe quedar claro el propósito.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Stack tecnológico</h3>
+              <p>Todas las herramientas, versiones y frameworks. La IA sabrá exactamente qué puede usar y qué no inventarse.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Convenciones de equipo</h3>
+              <p>Nomenclatura de archivos, idioma de comentarios, estructura de carpetas preferida. Consistencia automática en cada línea generada.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Reglas de trabajo</h3>
+              <p>Qué no debe cambiar sin preguntar. Cómo gestionar errores. Cuándo hacer commits. Las restricciones que salvan proyectos.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Contexto de negocio</h3>
+              <p>Quién es el usuario final, cuál es el objetivo del producto y qué es prioritario. La IA toma mejores decisiones cuando entiende el para qué.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 12 — code: CLAUDE.md completo de un proyecto real -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>EJEMPLO REAL · PLANTILLA</span>
+        <h2 class="h2">CLAUDE.md <span class="text-aurora">completo</span></h2>
+        <div class="code-grid">
+<pre class="code-block"><code><span class="cm-key"># Mi Proyecto de Gestión de Tareas</span>
+
+App web para que equipos pequeños gestionen sus tareas
+sin reuniones de seguimiento.
+
+<span class="cm-key">## Stack</span>
+<span class="cm-cm">- Frontend: HTML + CSS + JavaScript vanilla (sin frameworks)</span>
+<span class="cm-cm">- Backend: Node.js + Express 4.x</span>
+<span class="cm-cm">- Base de datos: PostgreSQL 15 (esquema en /docs/schema.sql)</span>
+<span class="cm-cm">- Deploy: Railway (configurado en /railway.toml)</span>
+
+<span class="cm-key">## Convenciones</span>
+<span class="cm-cm">- Archivos en kebab-case, siempre</span>
+<span class="cm-cm">- Comentarios en español</span>
+<span class="cm-cm">- Variables de entorno NUNCA hardcodeadas — usar process.env</span>
+
+<span class="cm-key">## Reglas</span>
+<span class="cm-cm">- Antes de un cambio grande, explícame el plan primero</span>
+<span class="cm-cm">- No modificar el esquema de BD sin confirmación explícita</span>
+<span class="cm-cm">- Hacer git commit por cada feature completada</span>
+<span class="cm-cm">- Si algo falla, mostrarme el error y proponer 2-3 soluciones</span></code></pre>
+          <aside class="code-notes">
+            <p><strong>Descripción clara.</strong> Dos frases que definen qué es y para quién. La IA ya sabe el contexto antes de leer nada más.</p>
+            <p><strong>Versiones explícitas.</strong> Express 4.x, PostgreSQL 15 — sin versiones la IA puede usar APIs que no existen en tu entorno.</p>
+            <p><strong>Reglas que protegen.</strong> "No modificar BD sin confirmación" evita que la IA haga migraciones destructivas por buena fe.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 13 — stat: 80% de los malentendidos -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>EL VALOR DEL CONTEXTO</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="80" data-suffix="%">0%</span>
+          <p class="stat-label">de los malentendidos con la IA desaparecen con un CLAUDE.md bien escrito.</p>
+        </div>
+        <p class="stat-context">El mismo prompt produce resultados completamente distintos con y sin CLAUDE.md. Sin contexto, la IA adivina el stack, las convenciones y las restricciones — y a menudo adivina mal. Con CLAUDE.md, trabaja dentro de tus parámetros desde el primer token.</p>
+      </section>
+
+      <!-- 14 — section: Capítulo 03 Agentes -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
+        <h2 class="display-l text-aurora">Agentes especializados</h2>
+        <p class="lead">Para proyectos complejos, múltiples agentes especializados son más efectivos que uno generalista. Divide y vencerás.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 68%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 15 — content: Arquitectura de agentes -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ARQUITECTURA DE AGENTES</span>
+        <h2 class="h1">Un equipo de IA <span class="text-aurora">especializado</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Claude Code actúa como orquestador: delega cada tipo de tarea en el agente que mejor la conoce, con instrucciones y criterio propios.</p>
+            <p>Los agentes se definen como archivos .md en .claude/agents/ con instrucciones específicas para ese rol. Claude Code orquesta entre ellos según el tipo de tarea.</p>
+            <p>Un agente arquitecto diseña la estructura. Un agente implementador escribe el código. Un agente tester verifica que funciona. Un agente documentador mantiene el README actualizado. Cada uno hace una cosa y la hace bien.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Claude Code como orquestador central conectado a cuatro agentes especializados dentro de tu proyecto: arquitecto, implementador, tester y documentador">
+              <defs>
+                <linearGradient id="aurora-grad-15" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="aurora-arrow-15" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                  <path d="M0,0 L8,4 L0,8 Z" fill="#7B4DFF"/>
+                </marker>
+              </defs>
+              <!-- Rectángulo exterior: Tu proyecto -->
+              <rect x="14" y="10" width="372" height="320" rx="16" fill="none" stroke="#ECEAE3" stroke-width="1" stroke-opacity="0.18"/>
+              <text x="200" y="326" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" fill="#ECEAE3" fill-opacity="0.55">Tu proyecto</text>
+              <!-- Conexiones: del borde del orquestador al borde de cada agente, con flecha -->
+              <line x1="167.3" y1="140.6" x2="123.8" y2="101.4" stroke="#7B4DFF" stroke-width="1.5" stroke-opacity="0.6" marker-end="url(#aurora-arrow-15)"/>
+              <line x1="232.7" y1="140.6" x2="276.2" y2="101.4" stroke="#7B4DFF" stroke-width="1.5" stroke-opacity="0.6" marker-end="url(#aurora-arrow-15)"/>
+              <line x1="167.3" y1="199.4" x2="123.8" y2="238.6" stroke="#7B4DFF" stroke-width="1.5" stroke-opacity="0.6" marker-end="url(#aurora-arrow-15)"/>
+              <line x1="232.7" y1="199.4" x2="276.2" y2="238.6" stroke="#7B4DFF" stroke-width="1.5" stroke-opacity="0.6" marker-end="url(#aurora-arrow-15)"/>
+              <!-- Nodo central: Claude Code (elemento protagonista, gradiente firma) -->
+              <circle cx="200" cy="170" r="44" fill="#131826" stroke="url(#aurora-grad-15)" stroke-width="2"/>
+              <text x="200" y="167" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Claude Code</text>
+              <text x="200" y="183" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">orquestador</text>
+              <!-- Agente arquitecto (compás) -->
+              <circle cx="100" cy="80" r="30" fill="#131826" stroke="#7B4DFF" stroke-width="1.5"/>
+              <circle cx="100" cy="68" r="2.5" fill="none" stroke="#7B4DFF" stroke-width="1.5"/>
+              <line x1="98.5" y1="70" x2="91" y2="90" stroke="#7B4DFF" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="101.5" y1="70" x2="109" y2="90" stroke="#7B4DFF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M93,85 A14,14 0 0,0 107,85" fill="none" stroke="#7B4DFF" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="100" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#ECEAE3">agente-arquitecto</text>
+              <!-- Agente implementador (brackets de código) -->
+              <circle cx="300" cy="80" r="30" fill="#131826" stroke="#00D4FF" stroke-width="1.5"/>
+              <polyline points="293,72 285,80 293,88" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="307,72 315,80 307,88" fill="none" stroke="#00D4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="300" y="124" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#ECEAE3">agente-implementador</text>
+              <!-- Agente tester (check) -->
+              <circle cx="100" cy="260" r="30" fill="#131826" stroke="#FFB627" stroke-width="1.5"/>
+              <polyline points="88,260 96,268 112,250" fill="none" stroke="#FFB627" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="100" y="306" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#ECEAE3">agente-tester</text>
+              <!-- Agente documentador (documento) -->
+              <circle cx="300" cy="260" r="30" fill="#131826" stroke="#C6FF3D" stroke-width="1.5"/>
+              <path d="M291,248 h12 l6,6 v18 h-18 Z" fill="none" stroke="#C6FF3D" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M303,248 v6 h6" fill="none" stroke="#C6FF3D" stroke-width="1.5" stroke-linejoin="round"/>
+              <line x1="295" y1="261" x2="305" y2="261" stroke="#C6FF3D" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="295" y1="266" x2="302" y2="266" stroke="#C6FF3D" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="300" y="306" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#ECEAE3">agente-documentador</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 — code: Anatomía de un agente especializado -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>DEFINICIÓN DE AGENTE · .claude/agents/</span>
+        <h2 class="h2">Anatomía de un agente <span class="text-aurora">especializado</span></h2>
+        <div class="code-grid">
+<pre class="code-block"><code><span class="cm-cm">---</span>
+<span class="cm-key">name</span>: <span class="cm-str">code-reviewer</span>
+<span class="cm-key">description</span>: <span class="cm-str">Revisa el código generado buscando bugs,</span>
+  <span class="cm-str">problemas de seguridad y mejoras de calidad.</span>
+<span class="cm-cm">---</span>
+
+Eres un revisor de código experto.
+Cuando revises código:
+
+<span class="cm-num">1</span>. Busca bugs potenciales antes de que lleguen a producción
+<span class="cm-num">2</span>. Identifica problemas de seguridad (inyección SQL, XSS, etc.)
+<span class="cm-num">3</span>. Sugiere mejoras de legibilidad sin cambiar la lógica
+<span class="cm-num">4</span>. Verifica que se siguen las convenciones del CLAUDE.md
+<span class="cm-num">5</span>. Si algo está bien, dilo explícitamente — no solo señales errores</code></pre>
+          <aside class="code-notes">
+            <p><strong>Frontmatter YAML.</strong> name y description son los metadatos que Claude Code usa para decidir cuándo invocar este agente.</p>
+            <p><strong>Instrucciones de rol.</strong> La sección tras el --- define la personalidad y el comportamiento. Cuanto más específico, mejor resultado.</p>
+            <p><strong>Lista de tareas.</strong> Numerar las responsabilidades ayuda al agente a no olvidar ningún paso en revisiones largas.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 17 — content: Skills personalizados -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>SKILLS PERSONALIZADOS</span>
+        <h2 class="h1">Skills: flujos de trabajo en <span class="text-aurora">un comando</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-text">
+          <p class="lead">En lugar de escribir el mismo prompt largo cada vez, defines la skill una vez y la invocas con /nombre.</p>
+          <p>Las skills son comandos reutilizables que encapsulan un flujo de trabajo completo. Se definen en .claude/skills/ como archivos .md con las instrucciones del proceso.</p>
+          <p><strong>/deploy</strong> — Despliega a Railway verificando que los tests pasan primero y actualizando el CHANGELOG automáticamente.</p>
+          <p><strong>/test-all</strong> — Ejecuta toda la suite de tests, agrupa los fallos por módulo y propone correcciones para los errores recurrentes.</p>
+          <p><strong>/review</strong> — Revisa el código pendiente de commit: bugs, seguridad, convenciones del CLAUDE.md y cobertura de tests.</p>
+          <p><strong>/document</strong> — Actualiza el README, el CHANGELOG y los comentarios JSDoc para todos los archivos modificados desde el último commit.</p>
+        </div>
+      </section>
+
+      <!-- 18 — section: Capítulo 04 Prompts -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 04</span>
+        <h2 class="display-l text-aurora">Anatomía de un Prompt Efectivo</h2>
+        <p class="lead">Un prompt vago produce resultados vagos. Un prompt con estructura produce código preciso.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 71%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 19 — content: Los 5 elementos del prompt -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>LOS 5 ELEMENTOS DEL PROMPT</span>
+        <h2 class="h1">Los 5 bloques de un prompt que <span class="text-aurora">funciona</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Un prompt vago produce resultados vagos. Un prompt con estructura produce código preciso y predecible.</p>
+            <p>Cada prompt efectivo tiene cinco componentes. Puedes usarlos todos o solo los que aplican a tu caso, pero conocerlos te da un checklist mental antes de enviar.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 440 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Los cinco bloques de un prompt efectivo apilados: contexto, objetivo, restricciones, criterio de éxito y formato">
+              <defs>
+                <linearGradient id="g-arrow" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+              <!-- Bloque 1: Contexto (violeta) -->
+              <rect x="20" y="10" width="360" height="50" rx="8" fill="#7B4DFF" fill-opacity="0.22"/>
+              <rect x="20" y="10" width="4" height="50" rx="2" fill="#7B4DFF"/>
+              <text x="36" y="32" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#F5EFE3">01 CONTEXTO</text>
+              <text x="36" y="50" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Qué existe ya en el proyecto</text>
+              <!-- Bloque 2: Objetivo (cian) -->
+              <rect x="20" y="68" width="360" height="50" rx="8" fill="#00D4FF" fill-opacity="0.16"/>
+              <rect x="20" y="68" width="4" height="50" rx="2" fill="#00D4FF"/>
+              <text x="36" y="90" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#F5EFE3">02 OBJETIVO</text>
+              <text x="36" y="108" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Qué quiero conseguir</text>
+              <!-- Bloque 3: Restricciones (ámbar) -->
+              <rect x="20" y="126" width="360" height="50" rx="8" fill="#FFB627" fill-opacity="0.16"/>
+              <rect x="20" y="126" width="4" height="50" rx="2" fill="#FFB627"/>
+              <text x="36" y="148" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#F5EFE3">03 RESTRICCIONES</text>
+              <text x="36" y="166" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Qué no debe cambiar</text>
+              <!-- Bloque 4: Criterio (lima) -->
+              <rect x="20" y="184" width="360" height="50" rx="8" fill="#C6FF3D" fill-opacity="0.14"/>
+              <rect x="20" y="184" width="4" height="50" rx="2" fill="#C6FF3D"/>
+              <text x="36" y="206" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#F5EFE3">04 CRITERIO DE ÉXITO</text>
+              <text x="36" y="224" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Cómo sé que está bien</text>
+              <!-- Bloque 5: Formato (rosa) -->
+              <rect x="20" y="242" width="360" height="50" rx="8" fill="#FF5B7A" fill-opacity="0.16"/>
+              <rect x="20" y="242" width="4" height="50" rx="2" fill="#FF5B7A"/>
+              <text x="36" y="264" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#F5EFE3">05 FORMATO</text>
+              <text x="36" y="282" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Cómo quiero el output</text>
+              <!-- Flecha derecha -->
+              <line x1="400" y1="30" x2="400" y2="272" stroke="url(#g-arrow)" stroke-width="2"/>
+              <polygon points="394,268 400,282 406,268" fill="url(#g-arrow)"/>
+              <text x="420" y="160" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98" writing-mode="tb" text-anchor="middle">Prompt completo</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 20 — split: Prompt vago vs Prompt efectivo -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>EN LA PRÁCTICA</span>
+        <h2 class="h1">Prompt vago vs <span class="text-aurora">Prompt efectivo</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">PROMPT VAGO</span>
+            <h3 class="h2">"Añade un login a mi web."</h3>
+            <ul class="check-list check-list--minus">
+              <li>La IA hace suposiciones sobre el stack</li>
+              <li>Puede usar la librería equivocada (passport en lugar de bcrypt directo)</li>
+              <li>Puede crear una tabla users diferente a la existente</li>
+              <li>Resultado: código que hay que reescribir</li>
+              <li>Tiempo perdido: 30-60 minutos de correcciones</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">PROMPT EFECTIVO</span>
+            <h3 class="h2">"Mi web usa Node.js + Express + PostgreSQL. Necesito autenticación por email con bcrypt. No cambies la tabla users. Tras el login debe redirigir a /dashboard. Antes de escribir código, explícame el plan."</h3>
+            <ul class="check-list check-list--plus">
+              <li>Contexto: Node.js + Express + PostgreSQL</li>
+              <li>Objetivo: autenticación por email con bcrypt</li>
+              <li>Restricción: no cambiar tabla users existente</li>
+              <li>Criterio de éxito: redirige a /dashboard</li>
+              <li>Formato: plan de archivos antes de código</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 21 — interactive: Pausa reflexión -->
+      <section class="slide slide--interactive" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>PAUSA · REFLEXIÓN</span>
+        <h2 class="h1">¿Qué elemento del prompt olvidas más frecuentemente?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Acabamos de ver los 5 bloques de un prompt efectivo. Identifica cuál es tu talón de Aquiles.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Contexto — No siempre explico qué hay ya en el proyecto antes de pedir algo nuevo</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Restricciones — Olvido decirle qué no debe tocar o cambiar</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Criterio de éxito — No defino cómo sé que el resultado es correcto</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>Formato del output — No especifico qué archivos crear o qué estructura quiero</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+        <div class="shape shape--circle-sm" style="top: 55%; left: 72%;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 22 — content: Demo en vivo 02 -->
+      <section class="slide slide--demo" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO · 02</span>
+        <div class="demo-alert reveal" data-delay="1">
+          <div class="demo-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </div>
+          <div>
+            <p class="demo-title">DEMO EN VIVO</p>
+            <p class="demo-subtitle">CLAUDE.md en vivo: la diferencia real entre con y sin contexto</p>
+          </div>
+        </div>
+        <h2 class="h1">CLAUDE.md en vivo: la <span class="text-aurora">diferencia real</span></h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="2">El profesor generará el CLAUDE.md del proyecto del curso con Claude Code y mostrará en directo la diferencia en calidad de respuestas con y sin contexto.</p>
+        <ul class="demo-step-list reveal" data-delay="3">
+          <li>Prompt de generación: "Genera el CLAUDE.md para mi proyecto de gestión de tareas con Node.js + Express + PostgreSQL. Incluye stack, convenciones y reglas de trabajo."</li>
+          <li>Revisar y enriquecer el CLAUDE.md generado. Añadir contexto de negocio específico del proyecto.</li>
+          <li>Demostración comparativa: mismo prompt ("añade validación al formulario de login") ejecutado antes y después de tener el CLAUDE.md. El alumno ve la diferencia de calidad.</li>
+          <li>Crear el agente code-reviewer en .claude/agents/code-reviewer.md e invocarlo sobre el código generado.</li>
+        </ul>
+      </section>
+
+      <!-- 23 — stat: 55% reducción en tiempo de desarrollo -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>GITHUB RESEARCH · 2023</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora count-up" data-target="55" data-suffix="%">0%</span>
+          <p class="stat-label">más rápido completaron una tarea real los desarrolladores que usaban un asistente de IA frente al grupo de control.</p>
+        </div>
+        <p class="stat-context">La diferencia no está en usar IA. Está en usarla bien. DevContainers, CLAUDE.md y agentes especializados no son overhead — son el multiplicador que convierte cada hora de configuración en semanas de productividad recuperada.</p>
+      </section>
+
+      <!-- 24 — closing -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>RESUMEN DEL MÓDULO 04</span>
+        <h2 class="display-l">
+          La IA trabaja mejor cuando <span class="text-aurora">sabe dónde está</span>.
+        </h2>
+        <p class="lead">En este módulo hemos construido el entorno completo: DevContainers para que todos trabajen en el mismo contexto técnico, CLAUDE.md para que la IA conozca tu proyecto antes de tocar una línea de código, agentes especializados para dividir la complejidad, skills para encapsular flujos repetitivos, y el framework de 5 elementos para escribir prompts que producen resultados precisos en el primer intento.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../m05-mvp/index.html">Siguiente: Módulo 05 — Diseño y Construcción de un MVP →</a>
+          <a class="btn btn--ghost" href="../../../index.html">Ir al inicio</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

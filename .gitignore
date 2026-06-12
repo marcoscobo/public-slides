@@ -1,3 +1,6 @@
+# ── Directorio a ignorar ──────────────────────────────────
+ignore/
+
 # ── Presentaciones fuente (no versionadas) ──────────────────────────────────
 *.pptx
 *.ppt
