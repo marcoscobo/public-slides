@@ -274,6 +274,8 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
+      gap: 8px 32px;
+      flex-wrap: wrap;
       padding-bottom: 2vh;
       border-bottom: 1px solid var(--ink-line);
       flex-shrink: 0;
@@ -300,13 +302,15 @@
     .ix-content-stats {
       display: flex;
       align-items: center;
-      gap: 2vw;
+      gap: clamp(20px, 2vw, 40px);
+      flex-shrink: 0;
     }
     .ix-stat {
       font-family: var(--ff-mono);
       font-size: clamp(10px, 0.72vw, 12px);
       color: var(--text-muted);
       text-align: right;
+      white-space: nowrap;
     }
     .ix-stat strong {
       font-family: var(--ff-display);
@@ -430,6 +434,64 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; opacity: 1 !important; }
     }
+
+    /* ── Responsive: móvil y tablet ─────────────────────────────────────
+       El layout de dos columnas (cursos | módulos) necesita bastante ancho
+       y se queda muy justo en tablets (iPad Air 1180px en horizontal); por
+       debajo de 1200px apilamos: cabecera, selector de cursos en fila con
+       scroll horizontal y la lista de módulos a una columna y ancho completo. */
+    @media (max-width: 1199px) {
+      html, body { overflow-x: hidden; overflow-y: auto; height: auto; }
+
+      .ix {
+        position: static;
+        height: auto;
+        min-height: 100vh;
+        padding: 24px 18px 40px;
+        overflow: visible;
+      }
+
+      /* Las formas ambientales se posicionan fuera del viewport y, con .ix en
+         overflow visible, provocaban scroll horizontal: se ocultan en móvil. */
+      .ix-blob { display: none; }
+
+      /* Header: dejar respirar y ocultar el rótulo central */
+      .ix-header { flex-wrap: wrap; gap: 6px 16px; padding-bottom: 16px; }
+      .ix-header-center { display: none; }
+
+      /* Cuerpo en vertical */
+      .ix-body { flex-direction: column; margin-top: 20px; gap: 22px; }
+
+      /* Sidebar → tira de cursos con scroll horizontal */
+      .ix-sidebar {
+        width: 100%;
+        gap: 12px;
+        padding-right: 0;
+        border-right: none;
+      }
+      #course-list {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 12px;
+        padding-bottom: 8px;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+      }
+      #course-list::-webkit-scrollbar { height: 4px; }
+      #course-list::-webkit-scrollbar-thumb { background: var(--ink-line); border-radius: 4px; }
+      .ix-course-card { width: auto; min-width: 200px; max-width: 260px; flex: 0 0 auto; scroll-snap-align: start; }
+
+      /* Contenido: título + stats apilados, módulos a una columna */
+      .ix-content { padding-left: 0; }
+      .ix-content-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .ix-content-stats { gap: 28px; }
+      .ix-module-grid {
+        grid-template-columns: 1fr;
+        overflow: visible;
+        min-height: auto;
+        margin-top: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -525,6 +587,9 @@
         active = btn.dataset.id;
         renderSidebar();
         renderContent();
+        // En móvil la lista de cursos es una tira horizontal: traer el activo a la vista
+        const activeBtn = el.querySelector('.ix-course-card.is-active');
+        if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
       });
     });
   }

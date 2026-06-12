@@ -100,8 +100,17 @@ El servidor expone `index.html` en la raíz como portada pública. El deploy se 
 - `F`: pantalla completa
 - `O`: vista general (overview con todas las miniaturas)
 - `?`: ayuda
+- **Táctil (tablet/móvil horizontal):** swipe izq/dcha o las flechas en pantalla.
+- **Móvil vertical:** scroll vertical (las slides se apilan).
+
+## Responsive
+
+El sistema funciona en dos modos, ambos automáticos vía `aurora.css` + `deck.js` (las decks no necesitan nada extra):
+- **Modo canvas** (desktop y tablet/móvil en horizontal, ≥768px): el canvas fijo 1920×1080 se escala y **se centra** en el viewport (`deck.js` aplica `translate + scale` con `transform-origin: 0 0`). Navegación por teclado, swipe o flechas táctiles.
+- **Modo flujo** (móvil en vertical, <768px): se desactiva el escalado; las slides se apilan en vertical con scroll-snap, la tipografía se reduce vía tokens y las rejillas colapsan a una columna. La navegación es scroll.
 
 ## Notas de mantenimiento
 
 - Al actualizar `aurora.css` o `deck.js`, todas las decks ya servidas se benefician (ruta compartida).
 - Si una deck necesita una variante (p.ej. tema light-first), crear una clase modificadora en `aurora.css` (`.deck--light-first`) en vez de duplicar la deck.
+- Para previsualizar decks en local hay un `python3 -m http.server` configurado en `.claude/launch.json` (puerto 8731).

@@ -103,17 +103,18 @@ button { font: inherit; }
 .deck {
   position: fixed;
   inset: 0;
-  display: grid;
-  place-items: center;
+  overflow: hidden;
   background: var(--ink);
 }
 
 .deck-stage {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: var(--canvas-w);
   height: var(--canvas-h);
-  transform-origin: center center;
-  /* JS calcula y aplica scale */
+  transform-origin: 0 0;
+  /* JS calcula y aplica translate + scale para centrar a cualquier viewport */
 }
 
 /* --------------------------------------------------------------------------
@@ -1206,4 +1207,138 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
     transition-duration: 0.01ms !important;
   }
   .slide { transform: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   25. Navegación en pantalla (táctil / sin teclado)
+   deck.js inyecta estos botones y los activa en dispositivos con puntero
+   grueso. En desktop con teclado permanecen ocultos.
+   -------------------------------------------------------------------------- */
+.deck-nav {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: none;
+  gap: 10px;
+  z-index: 150;
+}
+.deck-nav.is-visible { display: flex; }
+.deck-nav button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-line);
+  background: rgba(19, 24, 38, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 200ms var(--ease-out), background 200ms var(--ease-out);
+}
+.deck-nav button:hover { border-color: var(--violet); }
+.deck-nav button:active { background: var(--ink-line); }
+.deck-nav button:disabled { opacity: 0.35; cursor: default; }
+.deck-nav svg {
+  width: 20px; height: 20px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* --------------------------------------------------------------------------
+   26. Responsive — móvil en vertical (modo flujo)
+   El deck se diseña sobre un canvas fijo 1920x1080 que deck.js escala al
+   viewport (modo "canvas": ideal en desktop y tablet/móvil en horizontal).
+   En pantallas estrechas ese escalado dejaría el contenido diminuto, así que
+   por debajo de 768px pasamos a modo "flujo": se mantiene el paso de slide a
+   slide (una activa cada vez), pero sin escalar — cada slide llena el viewport
+   con el texto reducido (vía tokens) y las rejillas colapsadas a una columna.
+   Las slides altas hacen scroll vertical interno; el cambio de slide es swipe
+   horizontal o flechas en pantalla.
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Tokens tipográficos reducidos — cascada a todo lo que usa las variables */
+  :root {
+    --fs-display-xl: 44px;
+    --fs-display-l:  38px;
+    --fs-display-m:  30px;
+    --fs-h1:         30px;
+    --fs-h2:         24px;
+    --fs-h3:         19px;
+    --fs-body-l:     18px;
+    --fs-body:       16px;
+    --fs-caption:    12px;
+    --fs-mono:       13px;
+  }
+  body { font-size: var(--fs-body); }
+
+  /* El canvas deja de escalarse: cada slide llena el viewport con el layout
+     reflowado. Se mantiene el modelo "una slide activa" (paso de slide a slide
+     preciso vía swipe horizontal / flechas). Si el contenido de una slide no
+     cabe, hace scroll vertical INTERNO sin afectar a la navegación. */
+  .deck-stage {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+  }
+  .slide {
+    padding: 56px 24px 72px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: safe center;
+  }
+
+  /* Marcador numérico y paginación más discretos */
+  .slide::after { font-size: 64px; top: 16px; right: 20px; }
+  .slide[data-layout="cover"]::after { font-size: 96px; }
+  .slide .pagination { left: 24px; bottom: 24px; }
+
+  /* Rejillas → una columna */
+  .content-grid,
+  .bullet-list,
+  .bullet-list--3col,
+  .split-grid,
+  .code-grid,
+  .diagram-grid,
+  .address-grid,
+  .timeline, .timeline--3, .timeline--5, .timeline--6 {
+    grid-template-columns: 1fr !important;
+  }
+  /* Rejillas de tarjetas: 2 columnas siguen siendo legibles */
+  .stat-grid,
+  .team-grid,
+  .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Timeline: la barra horizontal no aplica en vertical */
+  .timeline::before { display: none; }
+  .timeline { gap: var(--space-4); margin-top: var(--space-5); }
+
+  /* Tamaños grandes con valor fijo (no derivan de tokens) */
+  .stat-number    { font-size: 92px; }
+  .stat-label     { font-size: 24px; }
+  .mini-stat-number { font-size: 52px; }
+  .quote-text     { font-size: 28px; }
+  .quote-mark     { font-size: 120px; top: -20px; }
+  .quote-block    { padding-left: var(--space-5); }
+  .bullet-list--3col .bullet-num { font-size: 36px; }
+
+  /* Portada con foto: la imagen baja debajo del texto */
+  .slide--cover-photo {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding: 56px 24px 72px;
+  }
+  .slide--cover-photo > * { grid-column: 1; }
+  .slide--cover-photo .cover-photo {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 240px;
+  }
+
+  /* Reducir formas decorativas para que no saturen el ancho */
+  .shape--circle { width: 240px; height: 240px; }
+  .shape--arc    { width: 320px; height: 320px; }
 }

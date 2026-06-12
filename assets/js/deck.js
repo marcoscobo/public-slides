@@ -29,12 +29,21 @@
   progress.className = 'progress-bar';
   document.body.appendChild(progress);
 
+  // ---------- Modo flujo (móvil) vs canvas (desktop/tablet) -------------
+  // En pantallas estrechas el CSS apila las slides en vertical; aquí solo
+  // evitamos que el escalado de canvas pelee con ese layout.
+  const flowMode = window.matchMedia('(max-width: 768px)');
+
   // ---------- Escalado de canvas ----------------------------------------
   const CANVAS_W = 1920;
   const CANVAS_H = 1080;
   function fit() {
+    if (flowMode.matches) { stage.style.transform = ''; return; }
     const scale = Math.min(window.innerWidth / CANVAS_W, window.innerHeight / CANVAS_H);
-    stage.style.transform = `scale(${scale})`;
+    // Centrar el canvas escalado en el viewport (origin top-left + translate)
+    const tx = (window.innerWidth - CANVAS_W * scale) / 2;
+    const ty = (window.innerHeight - CANVAS_H * scale) / 2;
+    stage.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
   }
   window.addEventListener('resize', fit);
   fit();
@@ -50,8 +59,10 @@
       else if (i < current) s.classList.add('is-prev');
     });
     progress.style.width = `${((current + 1) / total) * 100}%`;
+    slides[current].scrollTop = 0; // abrir cada slide desde arriba (scroll interno en móvil)
     updateHash();
     triggerSlideAnimations(slides[current]);
+    updateNavButtons();
     if (!opts.silent) closeOverview();
   }
   function next() { goto(Math.min(current + 1, total - 1)); }
@@ -98,6 +109,58 @@
         closeOverview(); closeHelp(); break;
     }
   });
+
+  // ---------- Navegación en pantalla (flechas táctiles) -----------------
+  const nav = document.createElement('div');
+  nav.className = 'deck-nav';
+  nav.innerHTML = `
+    <button type="button" data-nav="prev" aria-label="Slide anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button type="button" data-nav="next" aria-label="Siguiente slide">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>`;
+  document.body.appendChild(nav);
+  const navPrev = nav.querySelector('[data-nav="prev"]');
+  const navNext = nav.querySelector('[data-nav="next"]');
+  navPrev.addEventListener('click', prev);
+  navNext.addEventListener('click', next);
+
+  function updateNavButtons() {
+    navPrev.disabled = current === 0;
+    navNext.disabled = current === total - 1;
+  }
+
+  // Mostrar las flechas en dispositivos táctiles o cuando el deck está en
+  // modo flujo (móvil): en ambos casos no hay teclado para navegar.
+  const coarsePointer = window.matchMedia('(pointer: coarse)');
+  function syncNavVisibility() {
+    const show = coarsePointer.matches || flowMode.matches;
+    nav.classList.toggle('is-visible', show);
+  }
+
+  // ---------- Swipe horizontal (canvas y flujo) -------------------------
+  // El gesto vertical queda libre para el scroll interno de slides altas;
+  // solo el desplazamiento claramente horizontal cambia de slide.
+  let touchX = 0, touchY = 0;
+  deck.addEventListener('touchstart', (e) => {
+    touchX = e.changedTouches[0].clientX;
+    touchY = e.changedTouches[0].clientY;
+  }, { passive: true });
+  deck.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  function applyMode() {
+    fit();
+    syncNavVisibility();
+  }
+  flowMode.addEventListener('change', applyMode);
+  coarsePointer.addEventListener('change', syncNavVisibility);
 
   // ---------- Fullscreen -------------------------------------------------
   function toggleFullscreen() {
@@ -201,4 +264,5 @@
 
   // ---------- Init -------------------------------------------------------
   readHash();
+  applyMode();
 })();
