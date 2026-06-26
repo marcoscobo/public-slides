@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Módulo 02 — Configuración del Entorno de Desarrollo</title>
-  <meta name="description" content="Instalación y configuración de VS Code, Docker y Claude CLI para crear un entorno de desarrollo moderno y reproducible. El entorno como código: herramientas, versiones y variables declaradas en archivos que la IA puede leer, entender y modificar." />
+  <meta name="description" content="Instalación y configuración de Docker, VS Code y Claude CLI / Antigravity para crear un entorno de desarrollo moderno y reproducible." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,81 +34,84 @@
         <div class="shape shape--arc" data-parallax="0.5"></div>
       </section>
 
-      <!-- 02 — content: el problema -->
+      <!-- 02 — content: el problema — diagrama con Node + Python -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>EL PROBLEMA</span>
         <h2 class="h1">"En mi máquina <span class="text-aurora">funciona"</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
+        <div class="content-grid" style="grid-template-columns:1fr 1.5fr;">
           <div class="content-text">
             <p class="lead">Sin un entorno reproducible, cada nuevo colaborador —o tú mismo en otro ordenador— parte de cero.</p>
             <p>Tres ordenadores distintos. Tres versiones de Node. Tres versiones de Python. Tres resultados diferentes para el mismo código.</p>
             <p>El tiempo que se pierde en "funciona en local pero no en producción" no es un accidente: es la consecuencia directa de no haber declarado el entorno como código.</p>
           </div>
-          <div class="content-media">
-            <svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Tres máquinas con versiones distintas de Node intentan desplegar al mismo servidor y las tres conexiones fallan">
+          <div class="content-media" style="overflow:visible;">
+            <svg viewBox="0 0 560 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Tres máquinas con versiones distintas de Node y Python intentan desplegar al mismo servidor y las conexiones fallan">
               <defs>
                 <marker id="arrow-02" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
                   <path d="M0 0 L6 3 L0 6 Z" fill="#8B8D98"/>
                 </marker>
               </defs>
               <!-- Ordenador 1 -->
-              <rect x="20" y="60" width="120" height="88" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="28" y="68" width="104" height="60" rx="4" fill="#0B0F1A"/>
-              <rect x="50" y="154" width="60" height="6" rx="3" fill="#1F2638"/>
-              <rect x="40" y="160" width="80" height="4" rx="2" fill="#1F2638"/>
-              <!-- Badge Node 16 -->
-              <rect x="46" y="76" width="68" height="20" rx="10" fill="rgba(255,91,122,0.18)" stroke="#FF5B7A" stroke-width="1"/>
-              <text x="80" y="90" font-family="JetBrains Mono, monospace" font-size="9" fill="#FF5B7A" text-anchor="middle">Node 16</text>
-              <text x="80" y="180" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" text-anchor="middle">Máquina A</text>
+              <rect x="16" y="40" width="130" height="110" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="26" y="50" width="110" height="72" rx="4" fill="#0B0F1A"/>
+              <rect x="46" y="166" width="66" height="6" rx="3" fill="#1F2638"/>
+              <rect x="36" y="172" width="86" height="4" rx="2" fill="#1F2638"/>
+              <rect x="36" y="58" width="78" height="18" rx="9" fill="rgba(255,91,122,0.18)" stroke="#FF5B7A" stroke-width="1"/>
+              <text x="75" y="71" font-family="JetBrains Mono, monospace" font-size="9" fill="#FF5B7A" text-anchor="middle">Node 16</text>
+              <rect x="36" y="82" width="78" height="18" rx="9" fill="rgba(255,91,122,0.12)" stroke="#FF5B7A" stroke-width="1" stroke-opacity="0.6"/>
+              <text x="75" y="95" font-family="JetBrains Mono, monospace" font-size="9" fill="#FF5B7A" text-anchor="middle" opacity="0.8">Python 3.8</text>
+              <text x="81" y="192" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina A</text>
 
               <!-- Ordenador 2 -->
-              <rect x="210" y="60" width="120" height="88" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="218" y="68" width="104" height="60" rx="4" fill="#0B0F1A"/>
-              <rect x="240" y="154" width="60" height="6" rx="3" fill="#1F2638"/>
-              <rect x="230" y="160" width="80" height="4" rx="2" fill="#1F2638"/>
-              <!-- Badge Node 20 -->
-              <rect x="236" y="76" width="68" height="20" rx="10" fill="rgba(123,77,255,0.18)" stroke="#7B4DFF" stroke-width="1"/>
-              <text x="270" y="90" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF" text-anchor="middle">Node 20</text>
-              <text x="270" y="180" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" text-anchor="middle">Máquina B</text>
+              <rect x="210" y="40" width="130" height="110" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="220" y="50" width="110" height="72" rx="4" fill="#0B0F1A"/>
+              <rect x="240" y="166" width="66" height="6" rx="3" fill="#1F2638"/>
+              <rect x="230" y="172" width="86" height="4" rx="2" fill="#1F2638"/>
+              <rect x="230" y="58" width="78" height="18" rx="9" fill="rgba(123,77,255,0.18)" stroke="#7B4DFF" stroke-width="1"/>
+              <text x="269" y="71" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF" text-anchor="middle">Node 20</text>
+              <rect x="230" y="82" width="78" height="18" rx="9" fill="rgba(123,77,255,0.12)" stroke="#7B4DFF" stroke-width="1" stroke-opacity="0.6"/>
+              <text x="269" y="95" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF" text-anchor="middle" opacity="0.8">Python 3.11</text>
+              <text x="275" y="192" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina B</text>
 
               <!-- Ordenador 3 -->
-              <rect x="400" y="60" width="120" height="88" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="408" y="68" width="104" height="60" rx="4" fill="#0B0F1A"/>
-              <rect x="430" y="154" width="60" height="6" rx="3" fill="#1F2638"/>
-              <rect x="420" y="160" width="80" height="4" rx="2" fill="#1F2638"/>
-              <!-- Badge Node 18 -->
-              <rect x="426" y="76" width="68" height="20" rx="10" fill="rgba(255,182,39,0.18)" stroke="#FFB627" stroke-width="1"/>
-              <text x="460" y="90" font-family="JetBrains Mono, monospace" font-size="9" fill="#FFB627" text-anchor="middle">Node 18</text>
-              <text x="460" y="180" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" text-anchor="middle">Máquina C</text>
+              <rect x="404" y="40" width="130" height="110" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="414" y="50" width="110" height="72" rx="4" fill="#0B0F1A"/>
+              <rect x="434" y="166" width="66" height="6" rx="3" fill="#1F2638"/>
+              <rect x="424" y="172" width="86" height="4" rx="2" fill="#1F2638"/>
+              <rect x="424" y="58" width="78" height="18" rx="9" fill="rgba(255,182,39,0.18)" stroke="#FFB627" stroke-width="1"/>
+              <text x="463" y="71" font-family="JetBrains Mono, monospace" font-size="9" fill="#FFB627" text-anchor="middle">Node 18</text>
+              <rect x="424" y="82" width="78" height="18" rx="9" fill="rgba(255,182,39,0.12)" stroke="#FFB627" stroke-width="1" stroke-opacity="0.6"/>
+              <text x="463" y="95" font-family="JetBrains Mono, monospace" font-size="9" fill="#FFB627" text-anchor="middle" opacity="0.8">Python 3.10</text>
+              <text x="469" y="192" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina C</text>
 
               <!-- Servidor central -->
-              <rect x="218" y="260" width="104" height="70" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="228" y="270" width="84" height="40" rx="4" fill="#0B0F1A"/>
-              <text x="270" y="284" font-family="JetBrains Mono, monospace" font-size="9" fill="#8B8D98" text-anchor="middle">SERVIDOR</text>
-              <text x="270" y="306" font-family="Space Grotesk, sans-serif" font-size="22" fill="#FF5B7A" text-anchor="middle">?</text>
-              <text x="270" y="344" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">¿Qué versión espera?</text>
+              <rect x="218" y="288" width="120" height="76" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="230" y="298" width="96" height="42" rx="4" fill="#0B0F1A"/>
+              <text x="278" y="314" font-family="JetBrains Mono, monospace" font-size="9" fill="#8B8D98" text-anchor="middle">SERVIDOR</text>
+              <text x="278" y="336" font-family="Space Grotesk, sans-serif" font-size="22" fill="#FF5B7A" text-anchor="middle">?</text>
+              <text x="278" y="378" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">¿Qué versión espera?</text>
 
-              <!-- Conexión rota desde Máquina A -->
-              <line x1="140" y1="140" x2="214" y2="250" stroke="#8B8D98" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-02)"/>
-              <circle cx="177" cy="195" r="10" fill="#FF5B7A" opacity="0.15"/>
-              <line x1="171" y1="189" x2="183" y2="201" stroke="#FF5B7A" stroke-width="2"/>
-              <line x1="183" y1="189" x2="171" y2="201" stroke="#FF5B7A" stroke-width="2"/>
+              <!-- Conexión rota A -->
+              <line x1="146" y1="148" x2="218" y2="288" stroke="#8B8D98" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-02)"/>
+              <circle cx="182" cy="214" r="11" fill="#FF5B7A" opacity="0.15"/>
+              <line x1="175" y1="207" x2="189" y2="221" stroke="#FF5B7A" stroke-width="2"/>
+              <line x1="189" y1="207" x2="175" y2="221" stroke="#FF5B7A" stroke-width="2"/>
 
-              <!-- Conexión rota desde Máquina B (arranca bajo la etiqueta) -->
-              <line x1="270" y1="190" x2="270" y2="250" stroke="#8B8D98" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-02)"/>
-              <circle cx="270" cy="219" r="10" fill="#FF5B7A" opacity="0.15"/>
-              <line x1="264" y1="213" x2="276" y2="225" stroke="#FF5B7A" stroke-width="2"/>
-              <line x1="276" y1="213" x2="264" y2="225" stroke="#FF5B7A" stroke-width="2"/>
+              <!-- Conexión rota B -->
+              <line x1="278" y1="198" x2="278" y2="288" stroke="#8B8D98" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-02)"/>
+              <circle cx="278" cy="240" r="11" fill="#FF5B7A" opacity="0.15"/>
+              <line x1="271" y1="233" x2="285" y2="247" stroke="#FF5B7A" stroke-width="2"/>
+              <line x1="285" y1="233" x2="271" y2="247" stroke="#FF5B7A" stroke-width="2"/>
 
-              <!-- Conexión rota desde Máquina C -->
-              <line x1="400" y1="140" x2="326" y2="250" stroke="#8B8D98" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-02)"/>
-              <circle cx="363" cy="195" r="10" fill="#FF5B7A" opacity="0.15"/>
-              <line x1="357" y1="189" x2="369" y2="201" stroke="#FF5B7A" stroke-width="2"/>
-              <line x1="369" y1="189" x2="357" y2="201" stroke="#FF5B7A" stroke-width="2"/>
+              <!-- Conexión rota C -->
+              <line x1="410" y1="148" x2="338" y2="288" stroke="#8B8D98" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-02)"/>
+              <circle cx="374" cy="214" r="11" fill="#FF5B7A" opacity="0.15"/>
+              <line x1="367" y1="207" x2="381" y2="221" stroke="#FF5B7A" stroke-width="2"/>
+              <line x1="381" y1="207" x2="367" y2="221" stroke="#FF5B7A" stroke-width="2"/>
 
-              <!-- Tagline inferior -->
-              <text x="270" y="364" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98" text-anchor="middle">3 máquinas · 3 versiones · 0 garantías</text>
+              <!-- Tagline -->
+              <text x="278" y="396" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98" text-anchor="middle">3 máquinas · versiones distintas · 0 garantías</text>
             </svg>
           </div>
         </div>
@@ -126,21 +129,19 @@
         </div>
       </section>
 
-      <!-- 04 — content: la solución -->
+      <!-- 04 — content: la solución (mismo estilo que slide 2) -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>LA SOLUCIÓN</span>
         <h2 class="h1">El entorno como <span class="text-aurora">código</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
+        <div class="content-grid" style="grid-template-columns:1fr 1.5fr;">
           <div class="content-text">
             <p class="lead">Herramientas, versiones, variables de entorno: todo declarado en archivos que la IA puede leer, entender y modificar.</p>
-            <p>Un archivo <code>devcontainer.json</code> define exactamente qué software, qué versiones y qué configuración necesita tu proyecto. No hay ambigüedad, no hay "instala esto que se me olvidó decirte".</p>
+            <p>Un archivo <code>devcontainer.json</code> define exactamente qué software, qué versiones y qué configuración necesita tu proyecto. No hay ambigüedad.</p>
             <p>La IA puede leer ese archivo, entender el contexto del proyecto y actuar sobre él. Sin ese archivo, la IA trabaja a ciegas.</p>
           </div>
-          <div class="content-media">
-            <svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Un archivo devcontainer.json conectado con éxito a tres máquinas idénticas">
-              <!-- Archivo central devcontainer.json -->
-              <rect x="188" y="130" width="164" height="120" rx="10" fill="#131826" stroke-width="2" stroke="url(#aurora-border)"/>
+          <div class="content-media" style="overflow:visible;">
+            <svg viewBox="0 0 560 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Un archivo devcontainer.json conectado con éxito a tres máquinas idénticas">
               <defs>
                 <linearGradient id="aurora-border" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#7B4DFF"/>
@@ -151,57 +152,57 @@
                   <stop offset="100%" stop-color="#7B4DFF" stop-opacity="0"/>
                 </radialGradient>
               </defs>
-              <ellipse cx="270" cy="190" rx="90" ry="70" fill="url(#aurora-glow)"/>
-              <text x="270" y="158" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF" text-anchor="middle">devcontainer.json</text>
-              <text x="208" y="175" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"image": "node:20"</text>
-              <text x="208" y="191" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"features": ["docker"]</text>
-              <text x="208" y="207" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"extensions": [...]</text>
-              <text x="208" y="223" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"postCreate": "npm ci"</text>
-              <text x="270" y="242" font-family="Space Grotesk, sans-serif" font-size="9" fill="#00D4FF" text-anchor="middle">fuente de verdad</text>
+              <!-- Archivo central devcontainer.json -->
+              <rect x="178" y="148" width="200" height="130" rx="10" fill="#131826" stroke-width="2" stroke="url(#aurora-border)"/>
+              <ellipse cx="278" cy="213" rx="110" ry="80" fill="url(#aurora-glow)"/>
+              <text x="278" y="174" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF" text-anchor="middle">devcontainer.json</text>
+              <text x="196" y="192" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"image": "node:20"</text>
+              <text x="196" y="208" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"python": "3.11"</text>
+              <text x="196" y="224" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"features": ["docker"]</text>
+              <text x="196" y="240" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"extensions": [...]</text>
+              <text x="196" y="256" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">"postCreate": "npm ci"</text>
+              <text x="278" y="272" font-family="Space Grotesk, sans-serif" font-size="9" fill="#00D4FF" text-anchor="middle">fuente de verdad</text>
 
               <!-- Ordenador izquierda -->
-              <rect x="22" y="60" width="110" height="80" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="30" y="68" width="94" height="52" rx="4" fill="#0B0F1A"/>
-              <rect x="46" y="146" width="52" height="5" rx="2.5" fill="#1F2638"/>
-              <rect x="38" y="151" width="68" height="4" rx="2" fill="#1F2638"/>
-              <rect x="30" y="76" width="68" height="18" rx="9" fill="rgba(0,212,255,0.12)" stroke="#00D4FF" stroke-width="1"/>
-              <text x="64" y="89" font-family="JetBrains Mono, monospace" font-size="8" fill="#00D4FF" text-anchor="middle">Node 20</text>
-              <text x="77" y="168" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina A</text>
+              <rect x="16" y="70" width="120" height="90" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="26" y="80" width="100" height="60" rx="4" fill="#0B0F1A"/>
+              <rect x="42" y="174" width="60" height="5" rx="2.5" fill="#1F2638"/>
+              <rect x="34" y="179" width="76" height="4" rx="2" fill="#1F2638"/>
+              <rect x="32" y="88" width="80" height="16" rx="8" fill="rgba(0,212,255,0.12)" stroke="#00D4FF" stroke-width="1"/>
+              <text x="72" y="100" font-family="JetBrains Mono, monospace" font-size="8" fill="#00D4FF" text-anchor="middle">Node 20 / Py 3.11</text>
+              <text x="76" y="198" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina A</text>
 
               <!-- Ordenador centro arriba -->
-              <rect x="205" y="14" width="110" height="80" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="213" y="22" width="94" height="52" rx="4" fill="#0B0F1A"/>
-              <rect x="229" y="100" width="52" height="5" rx="2.5" fill="#1F2638"/>
-              <rect x="221" y="105" width="68" height="4" rx="2" fill="#1F2638"/>
-              <rect x="213" y="30" width="68" height="18" rx="9" fill="rgba(0,212,255,0.12)" stroke="#00D4FF" stroke-width="1"/>
-              <text x="247" y="43" font-family="JetBrains Mono, monospace" font-size="8" fill="#00D4FF" text-anchor="middle">Node 20</text>
-              <text x="260" y="120" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina B</text>
+              <rect x="210" y="20" width="120" height="90" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="220" y="30" width="100" height="60" rx="4" fill="#0B0F1A"/>
+              <rect x="236" y="114" width="60" height="5" rx="2.5" fill="#1F2638"/>
+              <rect x="228" y="119" width="76" height="4" rx="2" fill="#1F2638"/>
+              <rect x="226" y="38" width="80" height="16" rx="8" fill="rgba(0,212,255,0.12)" stroke="#00D4FF" stroke-width="1"/>
+              <text x="266" y="50" font-family="JetBrains Mono, monospace" font-size="8" fill="#00D4FF" text-anchor="middle">Node 20 / Py 3.11</text>
+              <text x="270" y="136" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina B</text>
 
               <!-- Ordenador derecha -->
-              <rect x="408" y="60" width="110" height="80" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="416" y="68" width="94" height="52" rx="4" fill="#0B0F1A"/>
-              <rect x="432" y="146" width="52" height="5" rx="2.5" fill="#1F2638"/>
-              <rect x="424" y="151" width="68" height="4" rx="2" fill="#1F2638"/>
-              <rect x="416" y="76" width="68" height="18" rx="9" fill="rgba(0,212,255,0.12)" stroke="#00D4FF" stroke-width="1"/>
-              <text x="450" y="89" font-family="JetBrains Mono, monospace" font-size="8" fill="#00D4FF" text-anchor="middle">Node 20</text>
-              <text x="463" y="168" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina C</text>
+              <rect x="420" y="70" width="120" height="90" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="430" y="80" width="100" height="60" rx="4" fill="#0B0F1A"/>
+              <rect x="446" y="174" width="60" height="5" rx="2.5" fill="#1F2638"/>
+              <rect x="438" y="179" width="76" height="4" rx="2" fill="#1F2638"/>
+              <rect x="436" y="88" width="80" height="16" rx="8" fill="rgba(0,212,255,0.12)" stroke="#00D4FF" stroke-width="1"/>
+              <text x="476" y="100" font-family="JetBrains Mono, monospace" font-size="8" fill="#00D4FF" text-anchor="middle">Node 20 / Py 3.11</text>
+              <text x="480" y="198" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Máquina C</text>
 
-              <!-- Flechas con check desde archivo a cada máquina -->
-              <!-- A izquierda -->
-              <line x1="188" y1="175" x2="135" y2="130" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.6"/>
-              <circle cx="140" cy="127" r="8" fill="rgba(0,212,255,0.15)"/>
-              <text x="140" y="131" font-family="Space Grotesk, sans-serif" font-size="10" fill="#00D4FF" text-anchor="middle">✓</text>
-              <!-- B centro arriba -->
-              <line x1="260" y1="130" x2="260" y2="100" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.6"/>
-              <circle cx="260" cy="96" r="8" fill="rgba(0,212,255,0.15)"/>
-              <text x="260" y="100" font-family="Space Grotesk, sans-serif" font-size="10" fill="#00D4FF" text-anchor="middle">✓</text>
-              <!-- C derecha -->
-              <line x1="352" y1="175" x2="406" y2="130" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.6"/>
-              <circle cx="401" cy="127" r="8" fill="rgba(0,212,255,0.15)"/>
-              <text x="401" y="131" font-family="Space Grotesk, sans-serif" font-size="10" fill="#00D4FF" text-anchor="middle">✓</text>
+              <!-- Checks -->
+              <line x1="178" y1="192" x2="140" y2="148" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.6"/>
+              <circle cx="145" cy="145" r="9" fill="rgba(0,212,255,0.15)"/>
+              <text x="145" y="150" font-family="Space Grotesk, sans-serif" font-size="11" fill="#00D4FF" text-anchor="middle">✓</text>
+              <line x1="268" y1="148" x2="268" y2="116" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.6"/>
+              <circle cx="268" cy="112" r="9" fill="rgba(0,212,255,0.15)"/>
+              <text x="268" y="117" font-family="Space Grotesk, sans-serif" font-size="11" fill="#00D4FF" text-anchor="middle">✓</text>
+              <line x1="378" y1="192" x2="416" y2="148" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.6"/>
+              <circle cx="411" cy="145" r="9" fill="rgba(0,212,255,0.15)"/>
+              <text x="411" y="150" font-family="Space Grotesk, sans-serif" font-size="11" fill="#00D4FF" text-anchor="middle">✓</text>
 
               <!-- Texto inferior -->
-              <text x="280" y="298" font-family="Space Grotesk, sans-serif" font-size="12" fill="#8B8D98" text-anchor="middle">mismo entorno en cualquier máquina</text>
+              <text x="278" y="320" font-family="Space Grotesk, sans-serif" font-size="12" fill="#8B8D98" text-anchor="middle">mismo entorno en cualquier máquina</text>
             </svg>
           </div>
         </div>
@@ -217,7 +218,7 @@
         <p class="stat-context">Multiplicado por cada nuevo colaborador, cada nuevo proyecto, cada nueva máquina. El entorno reproducible se amortiza en el primer onboarding.</p>
       </section>
 
-      <!-- 06 — section: chapter 01 -->
+      <!-- 06 — section: chapter 01 El Stack -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
         <h2 class="display-l text-aurora">El Stack Base</h2>
@@ -225,7 +226,7 @@
         <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
       </section>
 
-      <!-- 07 — timeline: el stack -->
+      <!-- 07 — timeline: el stack (reordenado: Docker → VSCode → Claude/Antigravity) -->
       <section class="slide" data-layout="timeline">
         <span class="caption"><span class="caption-dot"></span>EL STACK BASE</span>
         <h2 class="h1">Tres piezas, un <span class="text-aurora">entorno</span></h2>
@@ -233,52 +234,23 @@
         <ol class="timeline timeline--3">
           <li class="timeline-step reveal" data-delay="1">
             <span class="timeline-marker">01</span>
-            <h3 class="h3">VS Code</h3>
-            <p>El editor. Tu ventana al proyecto. Donde escribes, navegas y hablas con la terminal. El punto de control de todo lo que ocurre.</p>
+            <h3 class="h3">Docker</h3>
+            <p>El contenedor. Empaqueta herramientas, dependencias y configuración en una caja reproducible. Lo que funciona aquí, funciona en cualquier lugar.</p>
           </li>
           <li class="timeline-step reveal" data-delay="2">
             <span class="timeline-marker">02</span>
-            <h3 class="h3">Docker</h3>
-            <p>El contenedor. La caja que empaqueta herramientas, dependencias y configuración. Lo que funciona aquí, funciona en cualquier lugar.</p>
+            <h3 class="h3">VS Code <span style="font-weight:400;color:#8B8D98;font-size:0.85em;">(o el IDE que prefieras)</span></h3>
+            <p>El editor. Tu ventana al proyecto. Donde escribes, navegas y hablas con la terminal. También funciona con JetBrains, Cursor o cualquier IDE moderno.</p>
           </li>
           <li class="timeline-step reveal" data-delay="3">
             <span class="timeline-marker">03</span>
-            <h3 class="h3">Claude CLI</h3>
-            <p>La IA que actúa. El motor del curso. Convierte instrucciones en lenguaje natural en código, archivos y comandos ejecutados en tu proyecto.</p>
+            <h3 class="h3">Claude CLI / Antigravity <span style="font-weight:400;color:#8B8D98;font-size:0.85em;">(o cualquier agente)</span></h3>
+            <p>La IA que actúa. Convierte instrucciones en código, archivos y comandos. Claude CLI si tienes licencia, Antigravity si prefieres la capa gratuita.</p>
           </li>
         </ol>
       </section>
 
-      <!-- 08 — split: VS Code en detalle -->
-      <section class="slide" data-layout="split">
-        <span class="caption"><span class="caption-dot"></span>VS CODE EN DETALLE</span>
-        <h2 class="h1">Lo que ves y lo que <span class="text-aurora">hace</span></h2>
-        <div class="emphasis-line"></div>
-        <div class="split-grid">
-          <div class="split-col split-col--muted reveal" data-delay="1">
-            <span class="col-label">QUÉ VES</span>
-            <h3 class="h2">La interfaz</h3>
-            <ul class="check-list check-list--minus">
-              <li>Explorador de archivos — navegas el proyecto completo</li>
-              <li>Editor de código — ves y modificas cada archivo</li>
-              <li>Terminal integrado — donde vive y actúa Claude CLI</li>
-              <li>Panel de extensiones — el ecosistema que lo amplía todo</li>
-            </ul>
-          </div>
-          <div class="split-col split-col--accent reveal" data-delay="2">
-            <span class="col-label">EXTENSIONES CLAVE</span>
-            <h3 class="h2">El poder real</h3>
-            <ul class="check-list check-list--plus">
-              <li>Docker Extension — gestiona contenedores sin salir del editor</li>
-              <li>GitLens — historial de cambios con contexto de autoría</li>
-              <li>Error Lens — errores inline, en el momento en que ocurren</li>
-              <li>REST Client — prueba APIs directamente desde archivos .http</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- 09 — section: chapter 02 docker -->
+      <!-- 08 — section: chapter 02 Docker -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
         <h2 class="display-l text-aurora">Docker</h2>
@@ -286,7 +258,7 @@
         <div class="shape shape--circle-sm" style="top: 60%; left: 70%;" data-parallax="0.38"></div>
       </section>
 
-      <!-- 10 — content: docker explicado -->
+      <!-- 09 — content: docker explicado -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>DOCKER EXPLICADO</span>
         <h2 class="h1">Por qué Docker <span class="text-aurora">cambia todo</span></h2>
@@ -300,58 +272,43 @@
           <div class="content-media">
             <svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama comparativo sin Docker y con Docker">
               <defs>
-                <marker id="arrow-10-rose" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <marker id="arrow-09-rose" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
                   <path d="M0 0 L6 3 L0 6 Z" fill="#FF5B7A"/>
                 </marker>
-                <marker id="arrow-10-cyan" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <marker id="arrow-09-cyan" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
                   <path d="M0 0 L6 3 L0 6 Z" fill="#00D4FF"/>
                 </marker>
               </defs>
-              <!-- Divisor central -->
               <line x1="280" y1="20" x2="280" y2="360" stroke="#1F2638" stroke-width="1" stroke-dasharray="6 4"/>
               <text x="140" y="40" font-family="Space Grotesk, sans-serif" font-size="12" fill="#FF5B7A" text-anchor="middle" font-weight="600">SIN DOCKER</text>
               <text x="420" y="40" font-family="Space Grotesk, sans-serif" font-size="12" fill="#00D4FF" text-anchor="middle" font-weight="600">CON DOCKER</text>
-
-              <!-- Lado izquierdo (sin docker) -->
-              <!-- Portátil izq -->
+              <!-- Izquierda -->
               <rect x="60" y="60" width="100" height="72" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
               <rect x="68" y="68" width="84" height="48" rx="4" fill="#0B0F1A"/>
               <text x="110" y="97" font-family="JetBrains Mono, monospace" font-size="9" fill="#8B8D98" text-anchor="middle">Node 20</text>
               <text x="110" y="109" font-family="JetBrains Mono, monospace" font-size="9" fill="#8B8D98" text-anchor="middle">macOS</text>
               <rect x="80" y="136" width="60" height="4" rx="2" fill="#1F2638"/>
               <text x="110" y="156" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Tu máquina</text>
-
-              <!-- Flecha izq con X -->
-              <line x1="110" y1="166" x2="110" y2="244" stroke="#FF5B7A" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7" marker-end="url(#arrow-10-rose)"/>
+              <line x1="110" y1="166" x2="110" y2="244" stroke="#FF5B7A" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7" marker-end="url(#arrow-09-rose)"/>
               <circle cx="110" cy="210" r="12" fill="rgba(255,91,122,0.15)"/>
               <line x1="103" y1="203" x2="117" y2="217" stroke="#FF5B7A" stroke-width="2"/>
               <line x1="117" y1="203" x2="103" y2="217" stroke="#FF5B7A" stroke-width="2"/>
-
-              <!-- Servidor izq -->
               <rect x="60" y="248" width="100" height="72" rx="7" fill="#131826" stroke="#FF5B7A" stroke-width="1" stroke-opacity="0.5"/>
               <rect x="68" y="256" width="84" height="48" rx="4" fill="#0B0F1A"/>
               <text x="110" y="285" font-family="JetBrains Mono, monospace" font-size="9" fill="#FF5B7A" text-anchor="middle">Node 18</text>
               <text x="110" y="297" font-family="JetBrains Mono, monospace" font-size="9" fill="#FF5B7A" text-anchor="middle">Ubuntu</text>
               <text x="110" y="336" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Servidor</text>
-
-              <!-- Lado derecho (con docker) -->
-              <!-- Portátil der -->
+              <!-- Derecha -->
               <rect x="310" y="60" width="100" height="72" rx="7" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
               <rect x="318" y="68" width="84" height="48" rx="4" fill="#0B0F1A"/>
               <text x="360" y="97" font-family="JetBrains Mono, monospace" font-size="9" fill="#8B8D98" text-anchor="middle">Tu app</text>
               <rect x="330" y="136" width="60" height="4" rx="2" fill="#1F2638"/>
               <text x="360" y="156" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">Tu máquina</text>
-
-              <!-- Contenedor en la flecha (der) -->
-              <line x1="360" y1="166" x2="360" y2="244" stroke="#00D4FF" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow-10-cyan)"/>
+              <line x1="360" y1="166" x2="360" y2="248" stroke="#00D4FF" stroke-width="1.5" opacity="0.4" marker-end="url(#arrow-09-cyan)"/>
               <rect x="320" y="185" width="80" height="28" rx="6" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
               <text x="360" y="203" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF" text-anchor="middle">contenedor</text>
-
-              <!-- Check -->
               <circle cx="360" cy="232" r="10" fill="rgba(0,212,255,0.15)"/>
               <text x="360" y="237" font-family="Space Grotesk, sans-serif" font-size="12" fill="#00D4FF" text-anchor="middle">✓</text>
-
-              <!-- Servidor der -->
               <rect x="310" y="248" width="100" height="72" rx="7" fill="#131826" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.5"/>
               <rect x="318" y="256" width="84" height="28" rx="6" fill="rgba(123,77,255,0.15)" stroke="#7B4DFF" stroke-width="1"/>
               <text x="360" y="274" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF" text-anchor="middle">contenedor</text>
@@ -363,7 +320,7 @@
         </div>
       </section>
 
-      <!-- 11 — bullets: vocabulario docker -->
+      <!-- 10 — bullets: vocabulario docker -->
       <section class="slide" data-layout="bullets">
         <span class="caption"><span class="caption-dot"></span>CONCEPTOS CLAVE</span>
         <h2 class="h1">El vocabulario de <span class="text-aurora">Docker</span></h2>
@@ -400,62 +357,336 @@
         </ul>
       </section>
 
-      <!-- 12 — section: chapter 03 claude cli -->
+      <!-- 11 — content: Instalar Docker Desktop -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>INSTALACIÓN · DOCKER DESKTOP</span>
+        <h2 class="h1">Instalar Docker en tu <span class="text-aurora">sistema</span></h2>
+        <div class="emphasis-line"></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.4rem; margin-top:0.5rem;">
+          <!-- Windows -->
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
+            <div style="font-size:28px; margin-bottom:0.8rem;">🪟</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Windows</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li>Activar WSL2 en <em>Características de Windows</em></li>
+              <li>Descargar Docker Desktop desde <code style="color:#7B4DFF;">docker.com</code></li>
+              <li>Instalar y reiniciar</li>
+              <li>Verificar: <code style="color:#00D4FF;">docker --version</code></li>
+            </ol>
+            <div style="margin-top:1rem; background:#0B0F1A; border-radius:6px; padding:0.6rem; font-size:11px; color:#FFB627; font-family:'JetBrains Mono',monospace;">wsl --install</div>
+          </div>
+          <!-- Mac -->
+          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:12px; padding:1.4rem;">
+            <div style="font-size:28px; margin-bottom:0.8rem;">🍎</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">macOS</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li>Descargar Docker Desktop para Mac (elige Intel o Apple Silicon)</li>
+              <li>Abrir el .dmg y arrastrar a Aplicaciones</li>
+              <li>Iniciar Docker desde Launchpad</li>
+              <li>Verificar: <code style="color:#00D4FF;">docker --version</code></li>
+            </ol>
+            <div style="margin-top:1rem; background:#0B0F1A; border-radius:6px; padding:0.6rem; font-size:11px; color:#FFB627; font-family:'JetBrains Mono',monospace;">brew install --cask docker</div>
+          </div>
+          <!-- Linux -->
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
+            <div style="font-size:28px; margin-bottom:0.8rem;">🐧</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Linux (Ubuntu/Debian)</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li>Actualizar paquetes</li>
+              <li>Instalar Docker Engine</li>
+              <li>Añadir usuario al grupo docker</li>
+              <li>Verificar: <code style="color:#00D4FF;">docker run hello-world</code></li>
+            </ol>
+            <div style="margin-top:1rem; background:#0B0F1A; border-radius:6px; padding:0.6rem; font-size:11px; color:#FFB627; font-family:'JetBrains Mono',monospace;">sudo apt install docker.io</div>
+          </div>
+        </div>
+        <div style="margin-top:1.4rem; background:#0B0F1A; border:1px solid #00D4FF33; border-radius:8px; padding:1rem 1.4rem;">
+          <p style="font-size:12px; color:#8B8D98; margin:0;">✓ Prueba que funciona: <code style="color:#00D4FF;">docker run hello-world</code> — deberías ver "Hello from Docker!"</p>
+        </div>
+      </section>
+
+      <!-- 12 — section: chapter 03 VS Code -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
-        <h2 class="display-l text-aurora">Claude CLI</h2>
-        <p class="lead">Tu terminal como agente de desarrollo. Leer, escribir, ejecutar, razonar.</p>
+        <h2 class="display-l text-aurora">VS Code</h2>
+        <p class="lead">El IDE que usaremos en el curso. También funciona con JetBrains, Cursor o cualquier entorno moderno.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 68%;" data-parallax="0.36"></div>
+      </section>
+
+      <!-- 13 — split: VS Code en detalle -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>VS CODE EN DETALLE</span>
+        <h2 class="h1">Lo que ves y lo que <span class="text-aurora">hace</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">QUÉ VES</span>
+            <h3 class="h2">La interfaz</h3>
+            <ul class="check-list check-list--plus">
+              <li>Explorador de archivos — navegas el proyecto completo</li>
+              <li>Editor de código — ves y modificas cada archivo</li>
+              <li>Terminal integrado — donde vive y actúa el agente IA</li>
+              <li>Panel de extensiones — el ecosistema que lo amplía todo</li>
+            </ul>
+            <p style="margin-top:1rem; font-size:12px; color:#8B8D98;">Cualquier IDE moderno (JetBrains, Cursor, Antigravity) cumple el mismo papel — lo importante es tener acceso a la terminal y a las extensiones.</p>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">EXTENSIONES CLAVE</span>
+            <h3 class="h2">El poder real</h3>
+            <ul class="check-list check-list--plus">
+              <li>Docker Extension — gestiona contenedores sin salir del editor</li>
+              <li>GitLens — historial de cambios con contexto de autoría</li>
+              <li>Error Lens — errores inline, en el momento en que ocurren</li>
+              <li>REST Client — prueba APIs directamente desde archivos .http</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 — content: Instalar VS Code -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>INSTALACIÓN · VS CODE</span>
+        <h2 class="h1">Instalar VS Code en tu <span class="text-aurora">sistema</span></h2>
+        <div class="emphasis-line"></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.4rem; margin-top:0.5rem;">
+          <!-- Windows -->
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
+            <div style="font-size:28px; margin-bottom:0.8rem;">🪟</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Windows</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li>Ir a <code style="color:#7B4DFF;">code.visualstudio.com</code></li>
+              <li>Descargar instalador para Windows</li>
+              <li>Ejecutar y marcar <em>"Añadir al PATH"</em></li>
+              <li>Verificar: <code style="color:#00D4FF;">code --version</code></li>
+            </ol>
+          </div>
+          <!-- Mac -->
+          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:12px; padding:1.4rem;">
+            <div style="font-size:28px; margin-bottom:0.8rem;">🍎</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">macOS</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li>Ir a <code style="color:#7B4DFF;">code.visualstudio.com</code></li>
+              <li>Descargar la versión para Mac</li>
+              <li>Arrastrar a Aplicaciones</li>
+              <li>Desde VS Code: Cmd+Shift+P → <em>Shell Command: Install 'code'</em></li>
+            </ol>
+          </div>
+          <!-- Linux -->
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
+            <div style="font-size:28px; margin-bottom:0.8rem;">🐧</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Linux</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li>Ubuntu/Debian: <code style="color:#7B4DFF;">snap install code</code></li>
+              <li>Fedora/RHEL: <code style="color:#7B4DFF;">rpm --import</code> + repositorio</li>
+              <li>O descargar .deb/.rpm desde la web</li>
+              <li>Verificar: <code style="color:#00D4FF;">code --version</code></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- 15 — section: chapter 04 Agentes -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CAPÍTULO 04</span>
+        <h2 class="display-l text-aurora">Los Agentes de IA</h2>
+        <p class="lead">Claude CLI o Antigravity. El motor que convierte instrucciones en código.</p>
         <div class="shape shape--circle-sm" style="top: 63%; left: 72%;" data-parallax="0.42"></div>
       </section>
 
-      <!-- 13 — content: claude cli -->
+      <!-- 16 — content: Claude CLI — qué es -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>CLAUDE CLI</span>
-        <h2 class="h1">La IA que actúa en tu <span class="text-aurora">proyecto</span></h2>
+        <h2 class="h1">La IA de Anthropic que actúa en tu <span class="text-aurora">proyecto</span></h2>
         <div class="emphasis-line"></div>
         <div class="content-grid">
           <div class="content-text">
-            <p class="lead">Claude CLI convierte tu terminal en un agente de desarrollo que puede leer, escribir, ejecutar y razonar sobre tu proyecto completo.</p>
-            <p><code>npm install -g @anthropic-ai/claude-code</code></p>
-            <p><code>claude auth login</code></p>
-            <p><code>claude "crea una web de hola mundo en Node.js"</code></p>
+            <p class="lead">Claude Code (CLI) convierte tu terminal en un agente de desarrollo que puede leer, escribir, ejecutar y razonar sobre todo tu proyecto.</p>
+            <p>No es un chatbot. Es un agente que actúa: crea archivos, modifica código, ejecuta comandos y razona sobre el contexto completo del repositorio.</p>
+            <p>Requiere cuenta en <strong>Anthropic Console</strong> con créditos de API (de pago). Es la herramienta principal del curso para quien tenga licencia.</p>
+            <p style="margin-top:0.8rem; font-size:12px; color:#FFB627;">Contexto de ventana: 200k tokens. Multiarchivo. Soporte para CLAUDE.md y agentes personalizados.</p>
           </div>
           <div class="content-media">
-            <svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ventana de terminal con Claude CLI en acción">
-              <!-- Ventana terminal -->
-              <rect x="20" y="20" width="520" height="340" rx="12" fill="#0B0F1A" stroke="#1F2638" stroke-width="1.5"/>
-              <!-- Barra superior -->
-              <rect x="20" y="20" width="520" height="36" rx="12" fill="#131826"/>
-              <rect x="20" y="44" width="520" height="12" fill="#131826"/>
-              <!-- Botones de la barra -->
-              <circle cx="50" cy="38" r="6" fill="#FF5B7A" opacity="0.85"/>
-              <circle cx="74" cy="38" r="6" fill="#FFB627" opacity="0.85"/>
-              <circle cx="98" cy="38" r="6" fill="#00D4FF" opacity="0.5"/>
-              <text x="280" y="43" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" text-anchor="middle">Terminal — bash</text>
-
-              <!-- Líneas de código -->
-              <text x="44" y="90" font-family="JetBrains Mono, monospace" font-size="12" fill="#8B8D98">$ npm install -g @anthropic-ai/claude-code</text>
-              <text x="44" y="116" font-family="JetBrains Mono, monospace" font-size="12" fill="#8B8D98">$ claude auth login</text>
-              <text x="44" y="148" font-family="JetBrains Mono, monospace" font-size="13" fill="#00D4FF">$ claude "crea una web de hola mundo en Node.js"</text>
-              <!-- Cursor -->
-              <rect x="426" y="137" width="8" height="14" rx="1" fill="#00D4FF" opacity="0.9"/>
-
-              <!-- Bloque de respuesta Claude -->
-              <rect x="32" y="168" width="496" height="170" rx="8" fill="#131826"/>
-              <rect x="32" y="168" width="4" height="170" rx="2" fill="#7B4DFF"/>
-              <text x="50" y="191" font-family="Space Grotesk, sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">Claude</text>
-              <text x="50" y="213" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">Creando estructura del proyecto...</text>
-              <text x="50" y="235" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">  ● app.js</text>
-              <text x="50" y="255" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">  ● package.json</text>
-              <text x="50" y="275" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">  ● Dockerfile</text>
-              <text x="50" y="301" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">Listo. Ejecuta: docker run -p 3000:3000 hola-mundo</text>
-              <rect x="496" y="323" width="8" height="12" rx="1" fill="#7B4DFF" opacity="0.9"/>
+            <svg viewBox="0 0 480 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Terminal con Claude CLI">
+              <rect x="20" y="20" width="440" height="300" rx="12" fill="#0B0F1A" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="20" y="20" width="440" height="36" rx="12" fill="#131826"/>
+              <rect x="20" y="44" width="440" height="12" fill="#131826"/>
+              <circle cx="48" cy="38" r="5" fill="#FF5B7A" opacity="0.85"/>
+              <circle cx="70" cy="38" r="5" fill="#FFB627" opacity="0.85"/>
+              <circle cx="92" cy="38" r="5" fill="#00D4FF" opacity="0.5"/>
+              <text x="240" y="43" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" text-anchor="middle">Terminal — bash</text>
+              <text x="40" y="84" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">$ claude --version</text>
+              <text x="40" y="104" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">Claude Code 1.x.x</text>
+              <text x="40" y="130" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">$ claude "crea un README para este proyecto"</text>
+              <rect x="32" y="148" width="416" height="152" rx="8" fill="#131826"/>
+              <rect x="32" y="148" width="4" height="152" rx="2" fill="#7B4DFF"/>
+              <text x="50" y="171" font-family="Space Grotesk, sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">Claude</text>
+              <text x="50" y="193" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">Leyendo estructura del proyecto...</text>
+              <text x="50" y="215" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">  ● Creando README.md</text>
+              <text x="50" y="237" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">Listo. README generado con instalación y uso.</text>
+              <rect x="428" y="285" width="8" height="12" rx="1" fill="#7B4DFF" opacity="0.9"/>
             </svg>
           </div>
         </div>
       </section>
 
-      <!-- 14 — code: primer comando -->
+      <!-- 17 — content: Antigravity — qué es -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ANTIGRAVITY · GOOGLE</span>
+        <h2 class="h1">El agente de Google con <span class="text-aurora">capa gratuita</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Antigravity es el agente de desarrollo de Google. Equivalente funcional a Claude Code, también opera desde la terminal y actúa sobre el repositorio completo.</p>
+            <p>La diferencia clave: tiene <strong>capa gratuita</strong>. Para quien no disponga de licencia de Claude, Antigravity es la alternativa recomendada en este curso.</p>
+            <p>Mismos conceptos, misma mecánica. Los ejemplos del curso se mostrarán primero con Claude y después con Antigravity para que puedas seguir con cualquiera de los dos.</p>
+            <p style="margin-top:0.8rem; font-size:12px; color:#FFB627;">Requiere cuenta de Google. Integración con Google Cloud y Workspace. Compatible con el mismo flujo de trabajo.</p>
+          </div>
+          <div class="content-media">
+            <div style="background:#131826; border:1px solid #1F2638; border-radius:16px; padding:2rem; text-align:center;">
+              <div style="font-size:48px; margin-bottom:1rem;">🪐</div>
+              <div style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; color:#ECEAE3; margin-bottom:1.4rem;">Antigravity</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; text-align:left;">
+                <div style="background:#0B0F1A; border:1px solid #7B4DFF33; border-radius:8px; padding:0.8rem;">
+                  <div style="font-size:10px; color:#7B4DFF; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Ventaja</div>
+                  <div style="font-size:12px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Capa gratuita disponible</div>
+                </div>
+                <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
+                  <div style="font-size:10px; color:#8B8D98; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Integración</div>
+                  <div style="font-size:12px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Google Cloud &amp; Workspace</div>
+                </div>
+                <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
+                  <div style="font-size:10px; color:#8B8D98; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Modelo</div>
+                  <div style="font-size:12px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Gemini (Google)</div>
+                </div>
+                <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
+                  <div style="font-size:10px; color:#8B8D98; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Acceso</div>
+                  <div style="font-size:12px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Cuenta Google</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 — content: Otras alternativas -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>OTRAS ALTERNATIVAS</span>
+        <h2 class="h1">El ecosistema de agentes <span class="text-aurora">completo</span></h2>
+        <div class="emphasis-line"></div>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem; margin-top:0.5rem;">
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Codex (OpenAI)</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.5; margin-bottom:0.8rem;">Agente de OpenAI. Ejecuta tareas de código en entornos aislados. Basado en los modelos o3/o4.</div>
+            <div style="font-size:10px; color:#FFB627; font-family:'JetBrains Mono',monospace;">openai.com/codex</div>
+          </div>
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Cursor</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.5; margin-bottom:0.8rem;">IDE con IA integrada al 100%. Puede usar modelos de varios proveedores. Popular entre desarrolladores que prefieren una UI visual.</div>
+            <div style="font-size:10px; color:#FFB627; font-family:'JetBrains Mono',monospace;">cursor.com</div>
+          </div>
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">GitHub Copilot</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.5; margin-bottom:0.8rem;">De Microsoft/GitHub. Integrado en VS Code, JetBrains, etc. Autocompletado y Copilot Workspace para tareas más largas.</div>
+            <div style="font-size:10px; color:#FFB627; font-family:'JetBrains Mono',monospace;">github.com/features/copilot</div>
+          </div>
+        </div>
+        <div style="margin-top:1.2rem; background:#0B0F1A; border:1px solid #7B4DFF33; border-radius:8px; padding:1rem 1.4rem;">
+          <p style="font-size:12px; color:#8B8D98; margin:0;">El curso usa <strong style="color:#7B4DFF;">Claude Code</strong> como referencia principal y <strong style="color:#00D4FF;">Antigravity</strong> como alternativa gratuita. Los conceptos son iguales en todos — si dominas uno, puedes cambiar al otro con facilidad.</p>
+        </div>
+      </section>
+
+      <!-- 19 — bullets: verificación del entorno (antes de la demo) -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>VERIFICACIÓN DEL ENTORNO</span>
+        <h2 class="h1">Cómo saber que todo <span class="text-aurora">funciona</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">code --version</h3>
+              <p>Devuelve el número de versión de VS Code. Si no reconoce el comando, reinstalar y marcar la opción "Añadir al PATH".</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">docker --version &amp;&amp; docker run hello-world</h3>
+              <p>El primer comando verifica la instalación. El segundo ejecuta un contenedor de prueba. Si ves "Hello from Docker", todo funciona.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">claude --version / antigravity --version</h3>
+              <p>Confirma que el agente está instalado. Si falla, verificar que Node.js está en el PATH con <code>node --version</code>.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">claude "dime hola" / antigravity "dime hola"</h3>
+              <p>La prueba definitiva: el agente responde en lenguaje natural. Si pide autenticación, seguir el flujo de login de la herramienta correspondiente.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 20 — code: instalar Claude CLI -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>INSTALACIÓN · CLAUDE CLI</span>
+        <h2 class="h2">Instalar <span class="text-aurora">Claude Code</span></h2>
+        <div class="code-grid">
+<pre class="code-block"><code><span class="cm-cm"># Paso 1: Verificar Node.js (versión 18+)</span>
+<span class="cm-key">node</span> --version
+
+<span class="cm-cm"># Si no tienes Node.js, instálalo desde nodejs.org (versión LTS)</span>
+
+<span class="cm-cm"># Paso 2: Instalar Claude Code globalmente</span>
+<span class="cm-key">npm</span> install -g <span class="cm-str">@anthropic-ai/claude-code</span>
+
+<span class="cm-cm"># Paso 3: Autenticar con tu cuenta de Anthropic</span>
+<span class="cm-key">claude</span> auth login
+<span class="cm-cm"># Se abrirá el navegador para completar la autenticación</span>
+
+<span class="cm-cm"># Paso 4: Verificar instalación</span>
+<span class="cm-key">claude</span> --version
+<span class="cm-key">claude</span> <span class="cm-str">"dime hola"</span></code></pre>
+          <aside class="code-notes">
+            <p><strong>Requisito:</strong> Node.js 18 o superior. Si tienes versiones antiguas, usa <code>nvm</code> para gestionar múltiples versiones.</p>
+            <p><strong>API Key:</strong> Necesitas una cuenta en console.anthropic.com con créditos. El login abre el navegador automáticamente.</p>
+            <p><strong>Windows:</strong> Ejecutar en PowerShell o en WSL2 (recomendado para mejor compatibilidad).</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 21 — code: instalar Antigravity -->
+      <section class="slide" data-layout="code">
+        <span class="caption"><span class="caption-dot"></span>INSTALACIÓN · ANTIGRAVITY</span>
+        <h2 class="h2">Instalar <span class="text-aurora">Antigravity</span> (Google)</h2>
+        <div class="code-grid">
+<pre class="code-block"><code><span class="cm-cm"># Paso 1: Verificar Node.js (versión 18+)</span>
+<span class="cm-key">node</span> --version
+
+<span class="cm-cm"># Paso 2: Instalar Antigravity globalmente</span>
+<span class="cm-key">npm</span> install -g <span class="cm-str">@google/antigravity</span>
+
+<span class="cm-cm"># Paso 3: Autenticar con tu cuenta de Google</span>
+<span class="cm-key">antigravity</span> auth login
+<span class="cm-cm"># Se abrirá el navegador para autenticar con Google</span>
+
+<span class="cm-cm"># Paso 4: Verificar instalación</span>
+<span class="cm-key">antigravity</span> --version
+<span class="cm-key">antigravity</span> <span class="cm-str">"dime hola"</span></code></pre>
+          <aside class="code-notes">
+            <p><strong>Gratuito:</strong> Antigravity tiene capa gratuita con límite mensual de tokens. Suficiente para el curso.</p>
+            <p><strong>Cuenta Google:</strong> Necesitas una cuenta de Google activa. El login usa OAuth estándar.</p>
+            <p><strong>Mismo flujo:</strong> Una vez instalado, los comandos son equivalentes a Claude Code. Misma mecánica, diferente proveedor.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 22 — code: primer comando real -->
       <section class="slide" data-layout="code">
         <span class="caption"><span class="caption-dot"></span>PRIMER COMANDO REAL</span>
         <h2 class="h2">De cero a web en <span class="text-aurora">30 segundos</span></h2>
@@ -469,14 +700,14 @@
 <span class="cm-fn">●</span> Creando <span class="cm-str">Dockerfile</span>...
 <span class="cm-fn">●</span> Listo. Ejecuta: <span class="cm-key">docker build</span> -t hola-mundo . <span class="cm-key">&amp;&amp;</span> <span class="cm-key">docker run</span> -p <span class="cm-num">3000</span>:<span class="cm-num">3000</span> hola-mundo</code></pre>
           <aside class="code-notes">
-            <p><strong>Lenguaje natural.</strong> No hay sintaxis especial que aprender. Describes lo que quieres como si se lo explicaras a un compañero.</p>
-            <p><strong>Resultado concreto.</strong> Claude no da instrucciones: actúa. Crea los archivos, escribe el código y te indica exactamente cómo ejecutarlo.</p>
-            <p><strong>Listo para Docker.</strong> El Dockerfile se genera alineado con la app. No necesitas saber escribirlo: la IA lo hace correctamente desde el primer intento.</p>
+            <p><strong>Lenguaje natural.</strong> No hay sintaxis especial. Describes lo que quieres como si se lo explicaras a un compañero.</p>
+            <p><strong>Resultado concreto.</strong> El agente no da instrucciones: actúa. Crea los archivos y te indica cómo ejecutarlos.</p>
+            <p><strong>Con Antigravity</strong> el prompt es idéntico: <code>antigravity "Crea una app..."</code></p>
           </aside>
         </div>
       </section>
 
-      <!-- 15 — content: pausa interactiva -->
+      <!-- 23 — content: pausa interactiva -->
       <section class="slide slide--interactive" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>PAUSA · CHAT</span>
         <h2 class="h1">¿Qué te resulta más <span class="text-aurora">nuevo</span>?</h2>
@@ -485,103 +716,43 @@
         <ul class="interactive-options">
           <li class="reveal" data-delay="2"><span class="opt-key">A</span>VS Code — Nunca lo he usado como entorno de desarrollo principal</li>
           <li class="reveal" data-delay="3"><span class="opt-key">B</span>Docker — Los contenedores siguen siendo un misterio para mí</li>
-          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Claude CLI — Usar una IA desde la terminal es algo completamente nuevo</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Los agentes IA — Usar Claude o Antigravity desde la terminal es completamente nuevo</li>
           <li class="reveal" data-delay="5"><span class="opt-key">D</span>Las tres son nuevas — Empiezo desde cero en este stack</li>
         </ul>
         <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
         <div class="shape shape--circle-sm" style="top: 55%; left: 72%; opacity: 0.35;" data-parallax="0.3"></div>
       </section>
 
-      <!-- 16 — content: demo en vivo -->
-      <section class="slide" data-layout="content">
+      <!-- 24 — content: demo en vivo (simplificada) -->
+      <section class="slide slide--demo" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO</span>
         <h2 class="h1">Stack completo: de cero a <span class="text-aurora">producción</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
-          <div class="content-text">
-            <p class="lead">El profesor instalará VS Code, Docker Desktop y Claude CLI en tiempo real y levantará una primera web en menos de 10 minutos.</p>
-            <p><strong>PASO 1</strong> — Descargar VS Code desde code.visualstudio.com e instalar.</p>
-            <p><strong>PASO 2</strong> — Instalar Docker Desktop desde docker.com/products/docker-desktop.</p>
-            <p><strong>PASO 3</strong> — En terminal: <code>npm install -g @anthropic-ai/claude-code</code></p>
-            <p><strong>PASO 4</strong> — Autenticar: <code>claude auth login</code> (se abre el navegador).</p>
-            <p><strong>PASO 5</strong> — Primer prompt: <code>claude "crea una web hola mundo en Node.js con Dockerfile"</code></p>
-            <p><strong>PASO 6</strong> — Construir y ejecutar: <code>docker build -t demo . &amp;&amp; docker run -p 3000:3000 demo</code></p>
-            <p><strong>PASO 7</strong> — Abrir <code>http://localhost:3000</code> en el navegador. Resultado: Hola Mundo.</p>
+        <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:12px; padding:1.8rem; margin-bottom:1.4rem;">
+          <p style="font-size:14px; color:#FFB627; font-family:'Space Grotesk',sans-serif; font-weight:700; margin:0 0 0.6rem;">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
+          <p style="font-size:13px; color:#8B8D98; margin:0; line-height:1.5;">Instalar VS Code + Docker + Claude Code en tiempo real, crear la primera web "Hola mundo" con Node.js y levantar el contenedor Docker. Repetir el mismo flujo con Antigravity.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem;">
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:10px; padding:1rem; text-align:center;">
+            <div style="font-size:20px; margin-bottom:0.4rem;">🐳</div>
+            <div style="font-size:11px; color:#8B8D98; font-family:'Space Grotesk',sans-serif;">Instalar Docker</div>
           </div>
-          <div class="content-media">
-            <svg viewBox="0 0 480 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Badge DEMO EN VIVO con decoración de terminal">
-              <!-- Badge principal -->
-              <rect x="80" y="40" width="320" height="60" rx="12" fill="rgba(255,182,39,0.12)" stroke="#FFB627" stroke-width="2"/>
-              <text x="240" y="63" font-family="Space Grotesk, sans-serif" font-size="11" fill="#FFB627" text-anchor="middle" font-weight="700" letter-spacing="3">DEMO EN VIVO</text>
-              <circle cx="110" cy="70" r="6" fill="#FFB627"/>
-              <circle cx="110" cy="70" r="10" fill="#FFB627" opacity="0.3"/>
-              <text x="240" y="83" font-family="Space Grotesk, sans-serif" font-size="13" fill="#FFB627" text-anchor="middle" font-weight="500">Sigue los pasos en tu propia máquina</text>
-
-              <!-- Terminal decorativa -->
-              <rect x="40" y="130" width="400" height="180" rx="10" fill="#0B0F1A" stroke="#1F2638" stroke-width="1.5"/>
-              <rect x="40" y="130" width="400" height="30" rx="10" fill="#131826"/>
-              <rect x="40" y="148" width="400" height="12" fill="#131826"/>
-              <circle cx="66" cy="145" r="5" fill="#FF5B7A" opacity="0.8"/>
-              <circle cx="86" cy="145" r="5" fill="#FFB627" opacity="0.8"/>
-              <circle cx="106" cy="145" r="5" fill="#00D4FF" opacity="0.5"/>
-              <text x="240" y="150" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">demo — bash</text>
-
-              <text x="60" y="182" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">$ docker build -t demo .</text>
-              <text x="60" y="200" font-family="JetBrains Mono, monospace" font-size="10" fill="#00D4FF">Successfully built 3a7f891d</text>
-              <text x="60" y="220" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">$ docker run -p 3000:3000 demo</text>
-              <text x="60" y="240" font-family="JetBrains Mono, monospace" font-size="10" fill="#7B4DFF">Server running on http://localhost:3000</text>
-              <text x="60" y="265" font-family="Space Grotesk, sans-serif" font-size="13" fill="#FFB627" font-weight="600">Hola Mundo</text>
-              <rect x="380" y="292" width="7" height="12" rx="1" fill="#00D4FF" opacity="0.9"/>
-            </svg>
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:10px; padding:1rem; text-align:center;">
+            <div style="font-size:20px; margin-bottom:0.4rem;">💻</div>
+            <div style="font-size:11px; color:#8B8D98; font-family:'Space Grotesk',sans-serif;">Instalar VS Code</div>
+          </div>
+          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:10px; padding:1rem; text-align:center;">
+            <div style="font-size:20px; margin-bottom:0.4rem;">🤖</div>
+            <div style="font-size:11px; color:#7B4DFF; font-family:'Space Grotesk',sans-serif;">Instalar Claude/Antigravity</div>
+          </div>
+          <div style="background:#131826; border:1px solid #00D4FF33; border-radius:10px; padding:1rem; text-align:center;">
+            <div style="font-size:20px; margin-bottom:0.4rem;">🌐</div>
+            <div style="font-size:11px; color:#00D4FF; font-family:'Space Grotesk',sans-serif;">Primera web en Docker</div>
           </div>
         </div>
       </section>
 
-      <!-- 17 — bullets: verificación del entorno -->
-      <section class="slide" data-layout="bullets">
-        <span class="caption"><span class="caption-dot"></span>VERIFICACIÓN DEL ENTORNO</span>
-        <h2 class="h1">Cómo saber que todo <span class="text-aurora">funciona</span></h2>
-        <div class="emphasis-line"></div>
-        <ul class="bullet-list">
-          <li class="reveal" data-delay="1">
-            <span class="bullet-num">01</span>
-            <div>
-              <h3 class="h3">code --version</h3>
-              <p>Devuelve el número de versión de VS Code. Si no reconoce el comando, reinstalar VS Code y marcar la opción "Añadir al PATH".</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="2">
-            <span class="bullet-num">02</span>
-            <div>
-              <h3 class="h3">docker --version &amp;&amp; docker run hello-world</h3>
-              <p>El primer comando verifica la instalación. El segundo descarga una imagen de prueba y ejecuta un contenedor real. Si ves "Hello from Docker", todo funciona.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="3">
-            <span class="bullet-num">03</span>
-            <div>
-              <h3 class="h3">claude --version</h3>
-              <p>Confirma que Claude CLI está instalado globalmente via npm. Si falla, verificar que Node.js está en el PATH con <code>node --version</code>.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="4">
-            <span class="bullet-num">04</span>
-            <div>
-              <h3 class="h3">claude "dime hola"</h3>
-              <p>La prueba definitiva: Claude CLI responde en lenguaje natural. Si pide autenticación, ejecutar <code>claude auth login</code> de nuevo y verificar la API key.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="5">
-            <span class="bullet-num">05</span>
-            <div>
-              <h3 class="h3">npm --version &amp;&amp; node --version</h3>
-              <p>Prerequisito silencioso: Node.js y npm deben estar instalados antes que Claude CLI. Si fallan, instalar desde nodejs.org (versión LTS recomendada).</p>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <!-- 18 — content: variables de entorno -->
+      <!-- 25 — content: variables de entorno -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>BUENAS PRÁCTICAS</span>
         <h2 class="h1">Variables de entorno y <span class="text-aurora">secretos</span></h2>
@@ -595,53 +766,39 @@
           </div>
           <div class="content-media">
             <svg viewBox="0 0 480 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama de tres archivos: .env, .env.example y .gitignore">
-              <!-- Tarjeta .env -->
               <rect x="40" y="30" width="200" height="90" rx="10" fill="#131826" stroke="#FF5B7A" stroke-width="1.5"/>
               <text x="60" y="58" font-family="JetBrains Mono, monospace" font-size="13" fill="#FF5B7A" font-weight="500">.env</text>
-              <!-- Candado -->
               <rect x="170" y="44" width="18" height="14" rx="3" fill="none" stroke="#FF5B7A" stroke-width="1.5"/>
               <path d="M174 44 v-5 a5 5 0 0 1 10 0 v5" stroke="#FF5B7A" stroke-width="1.5" fill="none"/>
               <circle cx="179" cy="51" r="2" fill="#FF5B7A"/>
               <text x="60" y="80" font-family="JetBrains Mono, monospace" font-size="9" fill="#8B8D98">ANTHROPIC_API_KEY=</text>
               <text x="60" y="96" font-family="JetBrains Mono, monospace" font-size="9" fill="#FF5B7A">sk-ant-api-real-key...</text>
-
-              <!-- Tarjeta .env.example -->
               <rect x="40" y="148" width="200" height="90" rx="10" fill="#131826" stroke="#00D4FF" stroke-width="1.5"/>
               <text x="60" y="176" font-family="JetBrains Mono, monospace" font-size="12" fill="#00D4FF" font-weight="500">.env.example</text>
               <text x="60" y="198" font-family="JetBrains Mono, monospace" font-size="9" fill="#8B8D98">ANTHROPIC_API_KEY=</text>
               <text x="60" y="214" font-family="JetBrains Mono, monospace" font-size="9" fill="#00D4FF">tu-api-key-aqui</text>
-
-              <!-- Tarjeta .gitignore -->
               <rect x="40" y="266" width="200" height="54" rx="10" fill="#131826" stroke="#FFB627" stroke-width="1.5"/>
               <text x="60" y="292" font-family="JetBrains Mono, monospace" font-size="13" fill="#FFB627" font-weight="500">.gitignore</text>
               <text x="60" y="310" font-family="JetBrains Mono, monospace" font-size="10" fill="#FFB627">.env</text>
-
-              <!-- Repositorio Git -->
               <rect x="350" y="140" width="110" height="64" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
               <text x="405" y="168" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" text-anchor="middle" font-weight="600">Git</text>
               <text x="405" y="186" font-family="Space Grotesk, sans-serif" font-size="9" fill="#8B8D98" text-anchor="middle">repositorio</text>
-
-              <!-- .env → Git: bloqueado por .gitignore -->
               <line x1="248" y1="75" x2="346" y2="158" stroke="#FF5B7A" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>
               <circle cx="297" cy="116" r="11" fill="rgba(255,91,122,0.15)"/>
               <line x1="291" y1="110" x2="303" y2="122" stroke="#FF5B7A" stroke-width="2"/>
               <line x1="303" y1="110" x2="291" y2="122" stroke="#FF5B7A" stroke-width="2"/>
-              <text x="297" y="96" font-family="Inter, sans-serif" font-size="9" fill="#FF5B7A" text-anchor="middle">bloqueado por .gitignore</text>
-
-              <!-- .env.example → Git: se versiona -->
+              <text x="297" y="96" font-family="Inter, sans-serif" font-size="9" fill="#FF5B7A" text-anchor="middle">bloqueado</text>
               <line x1="248" y1="193" x2="346" y2="178" stroke="#00D4FF" stroke-width="1.5" opacity="0.7"/>
               <circle cx="297" cy="186" r="10" fill="rgba(0,212,255,0.15)"/>
               <text x="297" y="190" font-family="Space Grotesk, sans-serif" font-size="11" fill="#00D4FF" text-anchor="middle">✓</text>
-
-              <!-- .gitignore → Git: también se versiona -->
               <line x1="248" y1="293" x2="346" y2="196" stroke="#FFB627" stroke-width="1.5" opacity="0.5"/>
-              <text x="322" y="256" font-family="Inter, sans-serif" font-size="9" fill="#FFB627" text-anchor="middle">también versionado</text>
+              <text x="322" y="256" font-family="Inter, sans-serif" font-size="9" fill="#FFB627" text-anchor="middle">versionado</text>
             </svg>
           </div>
         </div>
       </section>
 
-      <!-- 19 — split: problemas y soluciones -->
+      <!-- 26 — split: problemas frecuentes -->
       <section class="slide" data-layout="split">
         <span class="caption"><span class="caption-dot"></span>PROBLEMAS FRECUENTES</span>
         <h2 class="h1">Errores frecuentes y sus <span class="text-aurora">soluciones</span></h2>
@@ -662,7 +819,7 @@
             <h3 class="h2">Qué hacer</h3>
             <ul class="check-list check-list--plus">
               <li>Verificar que Docker Desktop está ejecutándose (icono en la barra del sistema)</li>
-              <li>Cambiar el puerto en docker-compose.yml de 3000 a 3001 (o cualquier otro libre)</li>
+              <li>Cambiar el puerto en docker-compose.yml de 3000 a 3001</li>
               <li>Instalar Node.js desde nodejs.org primero, luego repetir npm install -g</li>
               <li>Ejecutar claude auth login de nuevo y completar el flujo en el navegador</li>
             </ul>
@@ -670,7 +827,7 @@
         </div>
       </section>
 
-      <!-- 20 — bullets: troubleshooting detallado -->
+      <!-- 27 — bullets: troubleshooting -->
       <section class="slide" data-layout="bullets">
         <span class="caption"><span class="caption-dot"></span>TROUBLESHOOTING</span>
         <h2 class="h1">Cuatro errores y sus <span class="text-aurora">soluciones</span></h2>
@@ -680,50 +837,50 @@
             <span class="bullet-num">01</span>
             <div>
               <h3 class="h3">Docker no arranca — Docker Desktop debe estar en ejecución</h3>
-              <p>Docker CLI necesita que Docker Desktop esté corriendo en segundo plano. Busca el icono de la ballena en la barra del sistema. Si no está, ábrelo manualmente antes de ejecutar cualquier comando docker.</p>
+              <p>Docker CLI necesita que Docker Desktop esté corriendo en segundo plano. Busca el icono de la ballena en la barra del sistema. Si no está, ábrelo manualmente.</p>
             </div>
           </li>
           <li class="reveal" data-delay="2">
             <span class="bullet-num">02</span>
             <div>
               <h3 class="h3">Puerto en uso — Cambiar puerto en docker-compose.yml</h3>
-              <p>Si el puerto 3000 está ocupado por otra aplicación, edita la línea <code>ports: - 3000:3000</code> y cámbiala a <code>3001:3000</code>. El primer número es el puerto de tu máquina; el segundo es interno al contenedor.</p>
+              <p>Si el puerto 3000 está ocupado, edita <code>ports: - 3000:3000</code> y cámbiala a <code>3001:3000</code>. El primer número es el puerto de tu máquina.</p>
             </div>
           </li>
           <li class="reveal" data-delay="3">
             <span class="bullet-num">03</span>
             <div>
-              <h3 class="h3">Claude CLI no autenticado — claude auth login</h3>
-              <p>La sesión de autenticación puede expirar. Ejecuta <code>claude auth login</code>, sigue el flujo en el navegador que se abre automáticamente y verifica que la API key del perfil de Anthropic Console es válida.</p>
+              <h3 class="h3">Claude/Antigravity no autenticado — repetir auth login</h3>
+              <p>La sesión puede expirar. Ejecuta <code>claude auth login</code> o <code>antigravity auth login</code> y sigue el flujo en el navegador.</p>
             </div>
           </li>
           <li class="reveal" data-delay="4">
             <span class="bullet-num">04</span>
             <div>
               <h3 class="h3">npm not found — Instalar Node.js primero</h3>
-              <p>Claude CLI requiere Node.js para instalarse. Si npm no existe en tu sistema, visita nodejs.org, descarga la versión LTS e instala. Luego cierra y vuelve a abrir la terminal antes de reintentar.</p>
+              <p>Visita nodejs.org, descarga la versión LTS e instala. Cierra y vuelve a abrir la terminal antes de reintentar cualquier comando npm.</p>
             </div>
           </li>
         </ul>
       </section>
 
-      <!-- 21 — stat: resumen del módulo -->
+      <!-- 28 — stat: resumen -->
       <section class="slide slide--center" data-layout="stat">
         <span class="caption"><span class="caption-dot"></span>LO QUE HAS CONSEGUIDO HOY</span>
         <div class="stat-block">
           <span class="stat-number text-aurora count-up" data-target="3" data-suffix=" herramientas">0 herramientas</span>
           <p class="stat-label">instaladas, configuradas y funcionando juntas en un entorno reproducible.</p>
         </div>
-        <p class="stat-context">VS Code + Docker + Claude CLI. El stack completo del curso, listo para el Módulo 03.</p>
+        <p class="stat-context">Docker + VS Code + Claude Code / Antigravity. El stack completo del curso, listo para el Módulo 03.</p>
       </section>
 
-      <!-- 22 — closing -->
+      <!-- 29 — closing -->
       <section class="slide slide--center" data-layout="closing">
         <span class="caption"><span class="caption-dot"></span>FIN DEL MÓDULO 02</span>
         <h2 class="display-l">
           El entorno está <span class="text-aurora">listo</span>.
         </h2>
-        <p class="lead">Has instalado el stack completo, has visto el primer prompt en acción y tienes un entorno reproducible desde hoy. En el siguiente módulo, aprendemos a colaborar con la IA para que trabaje a tu ritmo.</p>
+        <p class="lead">Has instalado el stack completo, has visto el primer prompt en acción y tienes un entorno reproducible desde hoy. En el siguiente módulo, aprendemos a organizar proyectos con Git para que la IA trabaje a tu ritmo.</p>
         <div class="cta-row">
           <a class="btn btn--primary" href="../m03-colaboracion/index.html">Módulo 03 — Fundamentos de Colaboración con IA &rarr;</a>
           <a class="btn btn--ghost" href="../../../index.html">Volver al índice del curso</a>

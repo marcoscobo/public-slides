@@ -65,8 +65,8 @@
     updateNavButtons();
     if (!opts.silent) closeOverview();
   }
-  function next() { goto(Math.min(current + 1, total - 1)); }
-  function prev() { goto(Math.max(current - 1, 0)); }
+  function next() { if (current < total - 1) goto(current + 1); }
+  function prev() { if (current > 0) goto(current - 1); }
 
   function updateHash() {
     history.replaceState(null, '', `#${current + 1}`);

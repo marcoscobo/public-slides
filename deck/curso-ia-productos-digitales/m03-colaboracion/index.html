@@ -19,7 +19,7 @@
 
       <!-- 01 — cover -->
       <section class="slide slide--center" data-layout="cover">
-        <span class="caption"><span class="caption-dot"></span>MÓDULO 03 · 3 HORAS · CURSO IA PRODUCTOS DIGITALES · 2026</span>
+        <span class="caption"><span class="caption-dot"></span>MÓDULO 03 · 3 HORAS</span>
         <h1 class="display-xl">
           La IA no trabaja <span class="text-aurora">sola</span>.
         </h1>
@@ -27,7 +27,7 @@
         <div class="meta-row">
           <span class="meta-item"><strong>Marcos Cobo</strong></span>
           <span class="meta-divider"></span>
-          <span class="meta-item">Curso IA Productos Digitales · Módulo 3 de 7 · 2026</span>
+          <span class="meta-item">CIC · Construyendo Productos Digitales con IA Generativa · 2026</span>
         </div>
         <div class="shape shape--circle" data-parallax="0.3"></div>
         <div class="shape shape--arc" data-parallax="0.5"></div>
@@ -41,118 +41,136 @@
         <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
       </section>
 
-      <!-- 03 — content: Git es tu máquina del tiempo -->
+      <!-- 03 — content: Git timeline vertical + cómo instalar -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>POR QUÉ GIT</span>
         <h2 class="h1">Git es tu <span class="text-aurora">máquina del tiempo</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
+        <div class="content-grid" style="grid-template-columns:1fr 1.4fr;">
           <div class="content-text">
-            <p class="lead">Git es como el historial de versiones de Word, pero para proyectos enteros. Guarda una fotografía del proyecto en cada momento importante.</p>
-            <p>Con la IA, Git es todavía más valioso: cuando el agente hace cambios grandes, un commit previo te permite deshacer en segundos.</p>
-            <p>No se trata de ser programador. Se trata de trabajar con seguridad.</p>
+            <p class="lead">Git guarda una fotografía del proyecto en cada momento importante. Si algo falla, vuelves a cualquier punto anterior en segundos.</p>
+            <p>Con la IA esto es todavía más valioso: el agente hace cambios grandes sin preguntar. Un commit previo te permite deshacer todo con un solo comando.</p>
+            <div style="margin-top:1.2rem;">
+              <div style="font-size:11px; font-weight:700; color:#7B4DFF; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.8rem; font-family:'Space Grotesk',sans-serif;">Instalar Git</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem;">
+                <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.6rem;">
+                  <div style="font-size:11px; color:#ECEAE3; font-weight:600; margin-bottom:0.3rem; font-family:'Space Grotesk',sans-serif;">🪟 Windows</div>
+                  <div style="font-size:10px; color:#8B8D98; font-family:'JetBrains Mono',monospace; line-height:1.5;">git-scm.com<br>→ instalar</div>
+                </div>
+                <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.6rem;">
+                  <div style="font-size:11px; color:#ECEAE3; font-weight:600; margin-bottom:0.3rem; font-family:'Space Grotesk',sans-serif;">🍎 Mac</div>
+                  <div style="font-size:10px; color:#FFB627; font-family:'JetBrains Mono',monospace; line-height:1.5;">brew install<br>git</div>
+                </div>
+                <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.6rem;">
+                  <div style="font-size:11px; color:#ECEAE3; font-weight:600; margin-bottom:0.3rem; font-family:'Space Grotesk',sans-serif;">🐧 Linux</div>
+                  <div style="font-size:10px; color:#FFB627; font-family:'JetBrains Mono',monospace; line-height:1.5;">apt install<br>git</div>
+                </div>
+              </div>
+              <div style="margin-top:0.5rem; font-size:10px; color:#8B8D98; font-family:'JetBrains Mono',monospace;">Verificar: git --version</div>
+            </div>
           </div>
-          <div class="content-media">
-            <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Historial de commits de Git con vuelta atrás a la versión anterior mediante git checkout">
-              <!-- línea principal -->
-              <line x1="60" y1="120" x2="500" y2="120" stroke="#7B4DFF" stroke-width="3" stroke-dasharray="0"/>
-              <!-- nodo 1: versión inicial -->
-              <circle cx="80" cy="120" r="14" fill="#7B4DFF"/>
-              <text x="80" y="155" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#8B8D98">versión inicial</text>
-              <!-- nodo 2: añadí login -->
-              <circle cx="200" cy="120" r="14" fill="#7B4DFF"/>
-              <text x="200" y="155" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#8B8D98">añadí login</text>
-              <!-- nodo 3: añadí pagos -->
-              <circle cx="320" cy="120" r="14" fill="#7B4DFF"/>
-              <text x="320" y="155" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#8B8D98">añadí pagos</text>
-              <!-- nodo 4: algo se rompió (rose) -->
-              <circle cx="440" cy="120" r="14" fill="#FF5B7A"/>
-              <text x="440" y="155" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#FF5B7A">algo se rompió</text>
-              <!-- flecha de retorno curva desde nodo 4 a nodo 3 -->
-              <path d="M 440 106 C 440 50, 320 50, 320 106" stroke="#FFB627" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrowAmber)"/>
-              <text x="382" y="62" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#FFB627">git checkout</text>
-              <!-- definición del marcador flecha -->
+          <div class="content-media" style="overflow:visible;">
+            <svg viewBox="0 0 380 440" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:420px;overflow:visible;" aria-label="Historial vertical de commits de Git con vuelta atrás al estado anterior">
               <defs>
-                <marker id="arrowAmber" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-                  <path d="M0,0 L8,4 L0,8 Z" fill="#FFB627"/>
+                <linearGradient id="line-03" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="80%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#FF5B7A"/>
+                </linearGradient>
+                <marker id="arrow-03-amber" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                  <path d="M0 0 L8 4 L0 8 Z" fill="#FFB627"/>
                 </marker>
               </defs>
-              <!-- etiqueta título -->
-              <text x="280" y="30" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#ECEAE3">Historial de commits</text>
-              <!-- líneas entre nodos -->
-              <line x1="94" y1="120" x2="186" y2="120" stroke="#7B4DFF" stroke-width="2"/>
-              <line x1="214" y1="120" x2="306" y2="120" stroke="#7B4DFF" stroke-width="2"/>
-              <line x1="334" y1="120" x2="426" y2="120" stroke="#7B4DFF" stroke-width="2"/>
+              <!-- Línea vertical central -->
+              <line x1="80" y1="40" x2="80" y2="380" stroke="url(#line-03)" stroke-width="3"/>
+              <!-- Nodo 1: versión inicial -->
+              <circle cx="80" cy="60" r="16" fill="#7B4DFF"/>
+              <text x="80" y="65" font-family="JetBrains Mono, monospace" font-size="11" fill="white" text-anchor="middle" font-weight="600">01</text>
+              <text x="110" y="55" font-family="Space Grotesk, sans-serif" font-size="14" fill="#ECEAE3" font-weight="600">versión inicial</text>
+              <text x="110" y="72" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">git commit -m "feat: init"</text>
+              <!-- Nodo 2: añadí login -->
+              <circle cx="80" cy="160" r="16" fill="#7B4DFF"/>
+              <text x="80" y="165" font-family="JetBrains Mono, monospace" font-size="11" fill="white" text-anchor="middle" font-weight="600">02</text>
+              <text x="110" y="155" font-family="Space Grotesk, sans-serif" font-size="14" fill="#ECEAE3" font-weight="600">añadí login</text>
+              <text x="110" y="172" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">git commit -m "feat: login"</text>
+              <!-- Nodo 3: añadí pagos -->
+              <circle cx="80" cy="260" r="16" fill="#7B4DFF"/>
+              <text x="80" y="265" font-family="JetBrains Mono, monospace" font-size="11" fill="white" text-anchor="middle" font-weight="600">03</text>
+              <text x="110" y="255" font-family="Space Grotesk, sans-serif" font-size="14" fill="#ECEAE3" font-weight="600">añadí pagos</text>
+              <text x="110" y="272" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">git commit -m "feat: pagos"</text>
+              <!-- Nodo 4: algo se rompió -->
+              <circle cx="80" cy="360" r="16" fill="#FF5B7A"/>
+              <text x="80" y="365" font-family="JetBrains Mono, monospace" font-size="11" fill="white" text-anchor="middle" font-weight="600">04</text>
+              <text x="110" y="355" font-family="Space Grotesk, sans-serif" font-size="14" fill="#FF5B7A" font-weight="600">algo se rompió 💥</text>
+              <text x="110" y="372" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">la IA cambió demasiado</text>
+              <!-- Flecha de vuelta curva desde nodo 4 hacia nodo 3 -->
+              <path d="M 64 360 C 24 360, 24 260, 64 260" stroke="#FFB627" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#arrow-03-amber)"/>
+              <text x="10" y="318" font-family="JetBrains Mono, monospace" font-size="10" fill="#FFB627" writing-mode="tb" text-anchor="middle">git checkout</text>
+              <!-- Título -->
+              <text x="190" y="24" font-family="Space Grotesk, sans-serif" font-size="13" fill="#8B8D98" text-anchor="middle">Historial de commits</text>
             </svg>
           </div>
         </div>
       </section>
 
-      <!-- 04 — content: De tu ordenador a GitHub -->
+      <!-- 04 — content: De tu ordenador a GitHub — diagrama grande abajo -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>CÓMO FUNCIONA</span>
         <h2 class="h1">De tu ordenador a <span class="text-aurora">GitHub</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
-          <div class="content-text">
-            <p class="lead">Git tiene cuatro zonas. Entender cómo fluye el código entre ellas lo aclara todo.</p>
-            <p>Cada comando mueve los cambios de una zona a la siguiente. La flecha de retorno (git pull) trae los cambios del remoto de vuelta a tu máquina.</p>
+        <p style="font-size:13px; color:#8B8D98; margin-bottom:0.8rem;">Git tiene cuatro zonas. Cada comando mueve los cambios de una zona a la siguiente. <a href="https://github.com" style="color:#7B4DFF; text-decoration:none;">github.com</a> — crea tu cuenta si aún no tienes.</p>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.7rem; margin-bottom:1.2rem;">
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Working Directory</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.5;">Donde editas los archivos. Los cambios aún no están registrados por Git.</div>
           </div>
-          <div class="content-media">
-            <svg viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Flujo de Git en cuatro zonas: working directory, staging area, repositorio local y GitHub">
-              <!-- nodo 1: Working Directory -->
-              <rect x="20" y="100" width="110" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <text x="75" y="127" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" fill="#ECEAE3">Working</text>
-              <text x="75" y="144" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" fill="#ECEAE3">Directory</text>
-              <!-- icono carpeta -->
-              <path d="M58,108 L58,118 L92,118 L92,108 L74,108 L70,104 L58,104 Z" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <!-- flecha 1→2 con etiqueta git add -->
-              <line x1="130" y1="130" x2="168" y2="130" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrowV1)"/>
-              <text x="149" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7B4DFF">git add</text>
-              <!-- nodo 2: Staging Area -->
-              <rect x="168" y="100" width="110" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <text x="223" y="127" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" fill="#ECEAE3">Staging</text>
-              <text x="223" y="144" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" fill="#ECEAE3">Area</text>
-              <!-- icono bandeja -->
-              <rect x="208" y="107" width="30" height="14" rx="3" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <!-- flecha 2→3 con etiqueta git commit -->
-              <line x1="278" y1="130" x2="316" y2="130" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrowV1)"/>
-              <text x="297" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7B4DFF">git commit</text>
-              <!-- nodo 3: Repo Local -->
-              <rect x="316" y="100" width="110" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <text x="371" y="127" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" fill="#ECEAE3">Repositorio</text>
-              <text x="371" y="144" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" fill="#ECEAE3">Local</text>
-              <!-- icono cilindro -->
-              <ellipse cx="371" cy="110" rx="13" ry="5" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <line x1="358" y1="110" x2="358" y2="118" stroke="#8B8D98" stroke-width="1.5"/>
-              <line x1="384" y1="110" x2="384" y2="118" stroke="#8B8D98" stroke-width="1.5"/>
-              <ellipse cx="371" cy="118" rx="13" ry="5" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <!-- flecha 3→4 con etiqueta git push -->
-              <line x1="426" y1="130" x2="464" y2="130" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrowV1)"/>
-              <text x="445" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7B4DFF">git push</text>
-              <!-- nodo 4: GitHub -->
-              <rect x="464" y="100" width="62" height="60" rx="8" fill="#131826" stroke="#7B4DFF" stroke-width="1.5" fill-opacity="0.1"/>
-              <rect x="464" y="100" width="62" height="60" rx="8" fill="none" stroke="#7B4DFF" stroke-width="1.5"/>
-              <text x="495" y="135" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#7B4DFF">GitHub</text>
-              <!-- icono nube (simplificado) -->
-              <path d="M484,113 Q484,107 490,107 Q491,102 496,102 Q501,102 502,107 Q507,107 507,113 Z" stroke="#7B4DFF" stroke-width="1" fill="none"/>
-              <!-- flecha retorno inferior git pull -->
-              <path d="M 464 168 C 464 200, 130 200, 130 168" stroke="#00D4FF" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrowC1)"/>
-              <text x="297" y="214" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">git pull</text>
-              <!-- marcadores -->
-              <defs>
-                <marker id="arrowV1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
-                  <path d="M0,0 L7,3.5 L0,7 Z" fill="#7B4DFF"/>
-                </marker>
-                <marker id="arrowC1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
-                  <path d="M0,0 L7,3.5 L0,7 Z" fill="#00D4FF"/>
-                </marker>
-              </defs>
-              <!-- título -->
-              <text x="270" y="30" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600" fill="#ECEAE3">Flujo de Git en 4 zonas</text>
-            </svg>
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Staging Area</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.5;">La sala de espera. Preparas qué va en el próximo commit con <code style="color:#7B4DFF;">git add</code>.</div>
+          </div>
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Repositorio Local</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.5;">El historial en tu máquina. Commits guardados con <code style="color:#7B4DFF;">git commit</code>.</div>
+          </div>
+          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:8px; padding:0.8rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; color:#7B4DFF; margin-bottom:0.4rem;">GitHub (Remoto)</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.5;">La nube. Copia de seguridad y punto de despliegue. Se sube con <code style="color:#7B4DFF;">git push</code>.</div>
           </div>
         </div>
+        <svg viewBox="0 0 880 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Flujo de Git en cuatro zonas con git add, git commit, git push y git pull">
+          <defs>
+            <marker id="arrowV1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7B4DFF"/></marker>
+            <marker id="arrowC1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#00D4FF"/></marker>
+          </defs>
+          <!-- Nodo 1 -->
+          <rect x="10" y="30" width="160" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+          <text x="90" y="57" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ECEAE3">Working Directory</text>
+          <text x="90" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">tus cambios sin registrar</text>
+          <!-- flecha 1 -->
+          <line x1="170" y1="60" x2="218" y2="60" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrowV1)"/>
+          <text x="194" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">git add</text>
+          <!-- Nodo 2 -->
+          <rect x="218" y="30" width="160" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+          <text x="298" y="57" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ECEAE3">Staging Area</text>
+          <text x="298" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">cambios preparados</text>
+          <!-- flecha 2 -->
+          <line x1="378" y1="60" x2="426" y2="60" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrowV1)"/>
+          <text x="402" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">git commit</text>
+          <!-- Nodo 3 -->
+          <rect x="426" y="30" width="160" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+          <text x="506" y="57" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ECEAE3">Repositorio Local</text>
+          <text x="506" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">historial en tu máquina</text>
+          <!-- flecha 3 -->
+          <line x1="586" y1="60" x2="634" y2="60" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrowV1)"/>
+          <text x="610" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">git push</text>
+          <!-- Nodo 4 GitHub -->
+          <rect x="634" y="30" width="160" height="60" rx="8" fill="#0B0F1A" stroke="#7B4DFF" stroke-width="1.5"/>
+          <text x="714" y="57" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700" fill="#7B4DFF">GitHub</text>
+          <text x="714" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">copia en la nube</text>
+          <!-- flecha retorno git pull -->
+          <path d="M 634 92 C 634 128, 170 128, 170 92" stroke="#00D4FF" stroke-width="2" stroke-dasharray="5 3" fill="none" marker-end="url(#arrowC1)"/>
+          <text x="402" y="140" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">git pull — traer cambios del remoto</text>
+        </svg>
       </section>
 
       <!-- 05 — bullets: 4 comandos esenciales -->
@@ -165,62 +183,109 @@
             <span class="bullet-num">01</span>
             <div>
               <h3 class="h3">git init / git clone</h3>
-              <p>Crear un repo nuevo o clonar uno existente. Tu punto de partida en cualquier proyecto.</p>
+              <p>Crear un repo nuevo en local o clonar uno existente de GitHub. Es siempre tu punto de partida en cualquier proyecto.</p>
             </div>
           </li>
           <li class="reveal" data-delay="2">
             <span class="bullet-num">02</span>
             <div>
               <h3 class="h3">git add + git commit</h3>
-              <p>Fotografía del estado actual. Hazlo ANTES de pedirle a la IA un cambio grande. Es tu red de seguridad.</p>
+              <p>Fotografía del estado actual. Hazlo ANTES de pedirle a la IA un cambio grande. Es tu red de seguridad: si algo falla, vuelves aquí.</p>
             </div>
           </li>
           <li class="reveal" data-delay="3">
             <span class="bullet-num">03</span>
             <div>
               <h3 class="h3">git push</h3>
-              <p>Subir cambios a GitHub. Copia de seguridad en la nube y punto de despliegue automático.</p>
+              <p>Subir los commits a GitHub. Copia de seguridad en la nube y, si tienes despliegue continuo configurado, disparador automático de una nueva versión.</p>
             </div>
           </li>
           <li class="reveal" data-delay="4">
             <span class="bullet-num">04</span>
             <div>
               <h3 class="h3">git checkout / git reset</h3>
-              <p>Volver a una versión anterior. El salvavidas cuando algo se rompe después de una sesión con la IA.</p>
+              <p>Volver a una versión anterior. El salvavidas cuando algo se rompe después de una sesión con la IA. La diferencia entre perder horas y perder segundos.</p>
             </div>
           </li>
         </ul>
       </section>
 
-      <!-- 06 — code: Primer commit -->
+      <!-- 06 — code: Primer commit (sin conventional commits aquí) -->
       <section class="slide" data-layout="code">
         <span class="caption"><span class="caption-dot"></span>EN LA PRÁCTICA</span>
         <h2 class="h2">Tu primer <span class="text-aurora">commit</span></h2>
         <div class="code-grid">
-<pre class="code-block"><code><span class="cm-cm"># 1. Crear la carpeta del proyecto y entrar</span>
-<span class="cm-fn">git init</span> mi-proyecto
-<span class="cm-key">cd</span> mi-proyecto
+<pre class="code-block"><code><span class="cm-cm"># 1. Crear la carpeta del proyecto y convertirla en repositorio Git</span>
+<span class="cm-fn">git init</span> my-first-repo
+<span class="cm-key">cd</span> my-first-repo
 
-<span class="cm-cm"># 2. Fotografiar el estado actual (todos los archivos)</span>
+<span class="cm-cm"># 2. Añadir todos los archivos a la zona de staging</span>
 <span class="cm-fn">git add</span> <span class="cm-str">.</span>
 
-<span class="cm-cm"># 3. Guardar la fotografía con un mensaje descriptivo</span>
-<span class="cm-fn">git commit</span> <span class="cm-key">-m</span> <span class="cm-str">"feat: estructura inicial del proyecto"</span>
+<span class="cm-cm"># 3. Crear el primer commit con un mensaje descriptivo</span>
+<span class="cm-fn">git commit</span> <span class="cm-key">-m</span> <span class="cm-str">"primer commit del proyecto"</span>
 
 <span class="cm-cm"># 4. Conectar con el repositorio remoto en GitHub</span>
-<span class="cm-fn">git remote add</span> origin https://github.com/usuario/mi-proyecto.git
+<span class="cm-fn">git remote add</span> origin https://github.com/tu-usuario/my-first-repo.git
 
 <span class="cm-cm"># 5. Subir el primer commit a la rama principal</span>
 <span class="cm-fn">git push</span> <span class="cm-key">-u</span> origin main</code></pre>
           <aside class="code-notes">
-            <p><strong>Convención de mensajes.</strong> El prefijo <code>feat:</code> sigue Conventional Commits. Otros: <code>fix:</code>, <code>docs:</code>, <code>refactor:</code>. La IA puede mantener este estilo por ti.</p>
-            <p><strong>git add .</strong> El punto significa "todos los archivos modificados". Puedes ser más selectivo: <code>git add src/archivo.js</code></p>
-            <p><strong>-u origin main.</strong> Solo necesitas este flag la primera vez. Después, <code>git push</code> es suficiente.</p>
+            <p><strong>git init</strong> Crea una carpeta oculta <code>.git/</code> que contiene todo el historial de versiones. Sin esta carpeta, el directorio no es un repositorio.</p>
+            <p><strong>git add .</strong> El punto selecciona todos los archivos modificados. Puedes ser más selectivo: <code>git add src/app.js</code> solo añade ese archivo.</p>
+            <p><strong>git commit -m</strong> Guarda la fotografía con un mensaje que explica qué hay en ese estado. Cuanto más descriptivo, más útil será meses después.</p>
+            <p><strong>git push -u</strong> El flag <code>-u</code> vincula la rama local con la remota. Solo se necesita la primera vez; después basta con <code>git push</code>.</p>
           </aside>
         </div>
       </section>
 
-      <!-- 07 — stat: 15 segundos -->
+      <!-- 07 — NEW: content: ¿Qué es .gitignore? -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ARCHIVOS ESENCIALES</span>
+        <h2 class="h1">El archivo que protege tus <span class="text-aurora">secretos</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead"><code>.gitignore</code> es una lista de archivos y carpetas que Git debe ignorar completamente. Nunca los incluirá en ningún commit.</p>
+            <p>Sin este archivo, podrías subir accidentalmente a GitHub tus claves de API, tokens de acceso, contraseñas de bases de datos o carpetas de cientos de megabytes de dependencias.</p>
+            <p>Se crea en la raíz del proyecto y Git lo lee automáticamente. Lo primero que hace la IA cuando inicializa un proyecto es generar este archivo.</p>
+            <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:8px; padding:0.8rem; margin-top:1rem;">
+              <p style="font-size:12px; color:#FFB627; margin:0;"><strong>Regla de oro:</strong> si no quieres que el mundo lo vea, está en <code>.gitignore</code>. Si necesita viajar con el proyecto, está en el repo.</p>
+            </div>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 440 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama: qué entra en el .gitignore">
+              <rect x="10" y="10" width="420" height="320" rx="12" fill="#0B0F1A" stroke="#1F2638" stroke-width="1"/>
+              <circle cx="30" cy="28" r="5" fill="#FF5B7A"/>
+              <circle cx="46" cy="28" r="5" fill="#FFB627"/>
+              <circle cx="62" cy="28" r="5" fill="#C6FF3D"/>
+              <text x="28" y="62" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#FFB627">.gitignore</text>
+              <!-- Entradas -->
+              <text x="28" y="92" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">.env</text>
+              <text x="160" y="92" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">← claves y secretos</text>
+              <text x="28" y="114" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">.env.local</text>
+              <text x="28" y="136" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">node_modules/</text>
+              <text x="200" y="136" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">← dependencias</text>
+              <text x="28" y="158" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">__pycache__/</text>
+              <text x="200" y="158" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">← Python cache</text>
+              <text x="28" y="180" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">vendor/</text>
+              <text x="160" y="180" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">← PHP dependencies</text>
+              <text x="28" y="202" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">dist/  build/  .next/</text>
+              <text x="280" y="202" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">← builds</text>
+              <text x="28" y="224" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">*.log</text>
+              <text x="120" y="224" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">← logs del sistema</text>
+              <text x="28" y="246" font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5B7A">.DS_Store  Thumbs.db</text>
+              <text x="280" y="246" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">← OS files</text>
+              <!-- Separador -->
+              <line x1="28" y1="262" x2="412" y2="262" stroke="#1F2638" stroke-width="1"/>
+              <text x="28" y="282" font-family="Space Grotesk, sans-serif" font-size="11" fill="#00D4FF">Sí se versiona: .env.example, README.md, src/, docs/</text>
+              <text x="28" y="300" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">Consejo: usa gitignore.io para generar el archivo según tu stack</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 — stat: 15 segundos -->
       <section class="slide slide--center" data-layout="stat">
         <span class="caption"><span class="caption-dot"></span>CON GIT + IA</span>
         <div class="stat-block">
@@ -230,52 +295,123 @@
         <p class="stat-context">Sin Git: reescribir el código manualmente, buscar qué cambió, perder trabajo. Con Git: <code>git checkout .</code> y listo.</p>
       </section>
 
-      <!-- 08 — content: Ramas -->
+      <!-- 09 — content: Ramas (branches) — diagrama más grande -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>RAMAS · BRANCHES</span>
         <h2 class="h1">Experimenta sin <span class="text-aurora">romper</span> nada</h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
+        <div class="content-grid" style="grid-template-columns:1fr 1.6fr;">
           <div class="content-text">
-            <p class="lead">La rama main es la versión estable de tu proyecto. Las ramas de feature permiten probar cambios sin afectar a main.</p>
-            <p>Con IA, usa ramas para experimentar: si Claude Code sugiere una refactorización grande, hazlo en una rama nueva. Si funciona, la fusionas. Si no, la borras sin consecuencias.</p>
-            <p><code>git checkout -b feature/mi-experimento</code> — este comando es tu escudo.</p>
+            <p class="lead">La rama <code>main</code> es la versión estable de tu proyecto. Las ramas de feature permiten probar cambios sin afectar a main.</p>
+            <p>Con IA, usa ramas para experimentar: si Claude Code o Antigravity sugiere una refactorización grande, hazlo en una rama nueva. Si funciona, la fusionas. Si no, la borras sin consecuencias.</p>
+            <p><code>git checkout -b feature/mi-experimento</code></p>
+            <p style="font-size:12px; color:#8B8D98;">Este es el flujo básico. En el siguiente slide vemos cómo escalar esto al estándar completo de equipos.</p>
           </div>
-          <div class="content-media">
-            <svg viewBox="0 0 540 340" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Árbol de ramas Git: main estable y dos ramas feature que se fusionan de vuelta">
+          <div class="content-media" style="overflow:visible;">
+            <svg viewBox="0 0 580 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Árbol de ramas Git: main estable y dos ramas feature que se fusionan de vuelta">
               <!-- Línea main -->
-              <line x1="40" y1="170" x2="500" y2="170" stroke="#7B4DFF" stroke-width="3"/>
-              <text x="25" y="174" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#7B4DFF">main</text>
+              <line x1="30" y1="160" x2="550" y2="160" stroke="#7B4DFF" stroke-width="3"/>
+              <text x="14" y="164" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#7B4DFF">main</text>
               <!-- Commits en main -->
-              <circle cx="80" cy="170" r="10" fill="#7B4DFF"/>
-              <circle cx="200" cy="170" r="10" fill="#7B4DFF"/>
-              <circle cx="360" cy="170" r="14" fill="#7B4DFF" stroke="#00D4FF" stroke-width="2"/>
-              <text x="360" y="196" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">merge</text>
-              <circle cx="450" cy="170" r="14" fill="#7B4DFF" stroke="#FFB627" stroke-width="2"/>
-              <text x="450" y="196" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFB627">merge</text>
-              <circle cx="490" cy="170" r="10" fill="#7B4DFF"/>
+              <circle cx="70" cy="160" r="11" fill="#7B4DFF"/>
+              <circle cx="200" cy="160" r="11" fill="#7B4DFF"/>
+              <circle cx="370" cy="160" r="15" fill="#7B4DFF" stroke="#00D4FF" stroke-width="2"/>
+              <text x="370" y="188" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#00D4FF">merge</text>
+              <circle cx="470" cy="160" r="15" fill="#7B4DFF" stroke="#FFB627" stroke-width="2"/>
+              <text x="470" y="188" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFB627">merge</text>
+              <circle cx="540" cy="160" r="11" fill="#7B4DFF"/>
               <!-- Rama feature/login (cyan) -->
-              <path d="M 200 160 C 200 80, 290 80, 290 80" stroke="#00D4FF" stroke-width="2" fill="none"/>
-              <line x1="290" y1="80" x2="350" y2="80" stroke="#00D4FF" stroke-width="2"/>
-              <path d="M 350 80 C 350 80, 360 80, 360 160" stroke="#00D4FF" stroke-width="2" fill="none"/>
-              <circle cx="250" cy="80" r="8" fill="#00D4FF"/>
-              <circle cx="310" cy="80" r="8" fill="#00D4FF"/>
-              <text x="280" y="62" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#00D4FF">feature/login</text>
+              <path d="M 200 149 C 200 80, 260 80, 260 80" stroke="#00D4FF" stroke-width="2.5" fill="none"/>
+              <line x1="260" y1="80" x2="360" y2="80" stroke="#00D4FF" stroke-width="2.5"/>
+              <path d="M 360 80 C 360 80, 370 80, 370 148" stroke="#00D4FF" stroke-width="2.5" fill="none"/>
+              <circle cx="290" cy="80" r="9" fill="#00D4FF"/>
+              <circle cx="330" cy="80" r="9" fill="#00D4FF"/>
+              <text x="310" y="60" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#00D4FF" font-weight="600">feature/login</text>
               <!-- Rama feature/pagos (amber) -->
-              <path d="M 360 184 C 360 260, 390 260, 390 260" stroke="#FFB627" stroke-width="2" fill="none"/>
-              <line x1="390" y1="260" x2="440" y2="260" stroke="#FFB627" stroke-width="2"/>
-              <path d="M 440 260 C 440 260, 450 260, 450 184" stroke="#FFB627" stroke-width="2" fill="none"/>
-              <circle cx="400" cy="260" r="8" fill="#FFB627"/>
-              <circle cx="430" cy="260" r="8" fill="#FFB627"/>
-              <text x="415" y="285" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#FFB627">feature/pagos</text>
-              <!-- título -->
-              <text x="270" y="25" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600" fill="#ECEAE3">Árbol de ramas Git</text>
+              <path d="M 370 172 C 370 250, 400 250, 400 250" stroke="#FFB627" stroke-width="2.5" fill="none"/>
+              <line x1="400" y1="250" x2="460" y2="250" stroke="#FFB627" stroke-width="2.5"/>
+              <path d="M 460 250 C 460 250, 470 250, 470 176" stroke="#FFB627" stroke-width="2.5" fill="none"/>
+              <circle cx="415" cy="250" r="9" fill="#FFB627"/>
+              <circle cx="445" cy="250" r="9" fill="#FFB627"/>
+              <text x="432" y="278" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#FFB627" font-weight="600">feature/pagos</text>
+              <!-- Etiqueta -->
+              <text x="290" y="304" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">git checkout -b feature/nombre → trabajar → git merge → git push</text>
             </svg>
           </div>
         </div>
       </section>
 
-      <!-- 09 — split: Sin Git vs con Git -->
+      <!-- 10 — NEW: content: Gitflow completo -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>GITFLOW · ESTÁNDAR DE EQUIPOS</span>
+        <h2 class="h1">El flujo completo para <span class="text-aurora">proyectos reales</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid" style="grid-template-columns:1fr 1.8fr;">
+          <div class="content-text">
+            <p class="lead">Gitflow es el estándar que usan la mayoría de equipos profesionales. Añade dos ramas permanentes y reglas claras de cuándo hacer cada cosa.</p>
+            <ul style="list-style:none; padding:0; margin:0; font-size:12px; color:#8B8D98; line-height:2;">
+              <li><span style="color:#7B4DFF; font-weight:700;">main</span> — código en producción. Solo recibe de release o hotfix.</li>
+              <li><span style="color:#00D4FF; font-weight:700;">develop</span> — integración continua. Features van aquí.</li>
+              <li><span style="color:#FFB627; font-weight:700;">feature/*</span> — nuevas funcionalidades desde develop.</li>
+              <li><span style="color:#C6FF3D; font-weight:700;">release/*</span> — preparar una versión. Va de develop a main.</li>
+              <li><span style="color:#FF5B7A; font-weight:700;">hotfix/*</span> — parches urgentes desde main, vuelven a develop.</li>
+            </ul>
+          </div>
+          <div class="content-media" style="overflow:visible;">
+            <svg viewBox="0 0 620 360" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Diagrama gitflow completo con ramas main, develop, feature, release y hotfix">
+              <defs>
+                <marker id="gf-arrow" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#8B8D98"/></marker>
+              </defs>
+              <!-- main -->
+              <line x1="30" y1="60" x2="590" y2="60" stroke="#7B4DFF" stroke-width="3"/>
+              <text x="8" y="64" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#7B4DFF">main</text>
+              <circle cx="50" cy="60" r="10" fill="#7B4DFF"/>
+              <circle cx="450" cy="60" r="10" fill="#7B4DFF" stroke="#C6FF3D" stroke-width="2"/>
+              <text x="450" y="46" font-family="JetBrains Mono, monospace" font-size="9" fill="#C6FF3D" text-anchor="middle">v1.0</text>
+              <circle cx="570" cy="60" r="10" fill="#7B4DFF" stroke="#FF5B7A" stroke-width="2"/>
+              <text x="570" y="46" font-family="JetBrains Mono, monospace" font-size="9" fill="#FF5B7A" text-anchor="middle">hotfix</text>
+              <!-- develop -->
+              <line x1="50" y1="130" x2="420" y2="130" stroke="#00D4FF" stroke-width="2.5"/>
+              <text x="8" y="134" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#00D4FF">dev</text>
+              <circle cx="50" cy="130" r="9" fill="#00D4FF"/>
+              <circle cx="160" cy="130" r="9" fill="#00D4FF"/>
+              <circle cx="280" cy="130" r="9" fill="#00D4FF"/>
+              <circle cx="400" cy="130" r="9" fill="#00D4FF"/>
+              <!-- main → develop -->
+              <path d="M 50 70 L 50 120" stroke="#00D4FF" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <!-- feature/login -->
+              <path d="M 160 121 C 160 190, 200 190, 200 190" stroke="#FFB627" stroke-width="2" fill="none"/>
+              <line x1="200" y1="190" x2="260" y2="190" stroke="#FFB627" stroke-width="2"/>
+              <path d="M 260 190 C 260 190, 280 190, 280 139" stroke="#FFB627" stroke-width="2" fill="none"/>
+              <circle cx="220" cy="190" r="7" fill="#FFB627"/>
+              <circle cx="247" cy="190" r="7" fill="#FFB627"/>
+              <text x="220" y="215" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627" text-anchor="middle">feature/login</text>
+              <!-- feature/pagos -->
+              <path d="M 160 121 C 160 260, 200 260, 200 260" stroke="#FFB627" stroke-width="2" fill="none"/>
+              <line x1="200" y1="260" x2="260" y2="260" stroke="#FFB627" stroke-width="2"/>
+              <path d="M 260 260 C 260 260, 280 260, 280 139" stroke="#FFB627" stroke-width="2" fill="none"/>
+              <circle cx="220" cy="260" r="7" fill="#FFB627"/>
+              <circle cx="247" cy="260" r="7" fill="#FFB627"/>
+              <text x="220" y="280" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627" text-anchor="middle">feature/pagos</text>
+              <!-- release -->
+              <path d="M 400 121 C 400 75, 430 75, 430 75" stroke="#C6FF3D" stroke-width="2" fill="none"/>
+              <line x1="430" y1="75" x2="450" y2="75" stroke="#C6FF3D" stroke-width="2"/>
+              <path d="M 450 75 C 450 75, 450 70, 450 70" stroke="#C6FF3D" stroke-width="2" fill="none"/>
+              <circle cx="440" cy="75" r="7" fill="#C6FF3D"/>
+              <text x="440" y="98" font-family="Space Grotesk, sans-serif" font-size="10" fill="#C6FF3D" text-anchor="middle">release/1.0</text>
+              <!-- hotfix desde main -->
+              <path d="M 570 50 C 570 300, 530 300, 530 300" stroke="#FF5B7A" stroke-width="2" fill="none"/>
+              <line x1="530" y1="300" x2="430" y2="300" stroke="#FF5B7A" stroke-width="2"/>
+              <path d="M 430 300 C 430 300, 400 300, 400 139" stroke="#FF5B7A" stroke-width="2" fill="none"/>
+              <circle cx="520" cy="300" r="7" fill="#FF5B7A"/>
+              <circle cx="460" cy="300" r="7" fill="#FF5B7A"/>
+              <text x="490" y="320" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FF5B7A" text-anchor="middle">hotfix/crash</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 — split: Sin Git vs con Git -->
       <section class="slide" data-layout="split">
         <span class="caption"><span class="caption-dot"></span>COMPARATIVA</span>
         <h2 class="h1">Sin Git vs <span class="text-aurora">con Git</span></h2>
@@ -306,7 +442,7 @@
         </div>
       </section>
 
-      <!-- 10 — section: Capítulo 02 -->
+      <!-- 12 — section: Capítulo 02 -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CAPÍTULO 02</span>
         <h2 class="display-l text-aurora">GitHub y el despliegue</h2>
@@ -314,77 +450,84 @@
         <div class="shape shape--circle-sm" style="top: 60%; left: 68%;" data-parallax="0.35"></div>
       </section>
 
-      <!-- 11 — content: De tu ordenador a una URL pública -->
+      <!-- 13 — NEW: content: Conventional Commits -->
       <section class="slide" data-layout="content">
-        <span class="caption"><span class="caption-dot"></span>EL ECOSISTEMA</span>
-        <h2 class="h1">De tu ordenador a una <span class="text-aurora">URL pública</span></h2>
+        <span class="caption"><span class="caption-dot"></span>MENSAJES DE COMMIT</span>
+        <h2 class="h1">Conventional <span class="text-aurora">Commits</span></h2>
         <div class="emphasis-line"></div>
         <div class="content-grid">
           <div class="content-text">
-            <p class="lead">GitHub no es solo donde guardas el código. Es donde las plataformas de despliegue buscan tu código para publicarlo automáticamente.</p>
-            <p>Cada git push dispara un redespliegue automático. Tu URL se actualiza en segundos.</p>
-            <p>Gratis para proyectos personales. Es también tu portfolio técnico visible para cualquier reclutador o colaborador.</p>
+            <p class="lead">Los Conventional Commits son un estándar para escribir mensajes de commit con estructura predecible y significado semántico.</p>
+            <p>El formato es: <code>tipo: descripción</code>. El tipo declara qué clase de cambio es. La descripción explica el qué.</p>
+            <p>La IA puede generar y mantener este estilo automáticamente. Basta con indicarlo en el <code>CLAUDE.md</code>: "usa Conventional Commits en todos los mensajes".</p>
           </div>
           <div class="content-media">
-            <svg viewBox="0 0 540 300" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Pipeline de despliegue continuo: de tu ordenador a una URL pública pasando por GitHub y Railway">
-              <!-- Nodo 1: Tu ordenador -->
-              <rect x="20" y="110" width="90" height="70" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <!-- icono portátil -->
-              <rect x="35" y="122" width="60" height="38" rx="4" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <line x1="30" y1="162" x2="90" y2="162" stroke="#8B8D98" stroke-width="1.5"/>
-              <text x="65" y="192" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">Tu ordenador</text>
-              <!-- flecha 1 -->
-              <line x1="110" y1="145" x2="146" y2="145" stroke="#7B4DFF" stroke-width="2.5" marker-end="url(#arrowF1)"/>
-              <text x="128" y="136" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7B4DFF">git push</text>
-              <!-- Nodo 2: GitHub -->
-              <rect x="146" y="110" width="90" height="70" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <!-- icono hub simplificado -->
-              <circle cx="191" cy="143" r="18" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <circle cx="191" cy="137" r="7" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <path d="M182,155 Q184,148 191,148 Q198,148 200,155" stroke="#8B8D98" stroke-width="1.5" fill="none"/>
-              <text x="191" y="192" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">GitHub</text>
-              <!-- flecha 2 -->
-              <line x1="236" y1="145" x2="272" y2="145" stroke="#FFB627" stroke-width="2.5" marker-end="url(#arrowF2)"/>
-              <!-- rayo -->
-              <path d="M 248,133 L 244,142 L 249,142 L 244,152 L 253,140 L 247,140 Z" fill="#FFB627"/>
-              <text x="254" y="128" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#FFB627">trigger</text>
-              <!-- Nodo 3: Railway/Vercel -->
-              <rect x="272" y="110" width="110" height="70" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
-              <!-- icono servidor -->
-              <rect x="306" y="124" width="42" height="30" rx="4" stroke="#00D4FF" stroke-width="1.5" fill="none"/>
-              <line x1="306" y1="134" x2="348" y2="134" stroke="#00D4FF" stroke-width="1"/>
-              <line x1="306" y1="144" x2="348" y2="144" stroke="#00D4FF" stroke-width="1"/>
-              <circle cx="317" cy="129" r="2" fill="#00D4FF"/>
-              <circle cx="317" cy="139" r="2" fill="#00D4FF"/>
-              <circle cx="317" cy="149" r="2" fill="#00D4FF"/>
-              <text x="327" y="192" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#00D4FF">Railway / Vercel</text>
-              <!-- flecha 3 -->
-              <line x1="382" y1="145" x2="418" y2="145" stroke="#7B4DFF" stroke-width="2.5" marker-end="url(#arrowF1)"/>
-              <text x="400" y="136" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7B4DFF">redeploy</text>
-              <!-- Nodo 4: URL pública -->
-              <rect x="418" y="110" width="100" height="70" rx="10" fill="#131826" stroke="#C6FF3D" stroke-width="1.5"/>
-              <!-- icono globo -->
-              <circle cx="468" cy="145" r="18" stroke="#C6FF3D" stroke-width="1.5" fill="none"/>
-              <ellipse cx="468" cy="145" rx="9" ry="18" stroke="#C6FF3D" stroke-width="1" fill="none"/>
-              <line x1="450" y1="145" x2="486" y2="145" stroke="#C6FF3D" stroke-width="1"/>
-              <text x="468" y="192" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#C6FF3D">mi-app.railway.app</text>
-              <!-- defs marcadores -->
-              <defs>
-                <marker id="arrowF1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
-                  <path d="M0,0 L7,3.5 L0,7 Z" fill="#7B4DFF"/>
-                </marker>
-                <marker id="arrowF2" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
-                  <path d="M0,0 L7,3.5 L0,7 Z" fill="#FFB627"/>
-                </marker>
-              </defs>
-              <!-- título -->
-              <text x="270" y="28" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600" fill="#ECEAE3">Pipeline de despliegue continuo</text>
-            </svg>
+            <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:12px; padding:1.4rem; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:2.2;">
+              <div style="color:#7B4DFF; margin-bottom:0.4rem; font-weight:700; font-family:'Space Grotesk',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:0.5px;">Tipos de commit</div>
+              <div><span style="color:#00D4FF;">feat:</span> <span style="color:#8B8D98;">nueva funcionalidad — sube la versión minor</span></div>
+              <div><span style="color:#FF5B7A;">fix:</span> <span style="color:#8B8D98;">corrección de un bug — sube la versión patch</span></div>
+              <div><span style="color:#FFB627;">docs:</span> <span style="color:#8B8D98;">solo documentación, sin cambios de código</span></div>
+              <div><span style="color:#C6FF3D;">refactor:</span> <span style="color:#8B8D98;">reorganización sin cambiar comportamiento</span></div>
+              <div><span style="color:#7B4DFF;">test:</span> <span style="color:#8B8D98;">añadir o corregir tests</span></div>
+              <div><span style="color:#8B8D98;">chore:</span> <span style="color:#8B8D98;">tareas de mantenimiento sin impacto</span></div>
+              <div style="margin-top:1rem; border-top:1px solid #1F2638; padding-top:1rem;">
+                <span style="color:#8B8D98; font-size:11px;">Ejemplos reales:</span>
+                <div style="color:#ECEAE3; margin-top:0.4rem;">feat: añadir login con Google</div>
+                <div style="color:#ECEAE3;">fix: corregir error en el carrito al vaciar</div>
+                <div style="color:#ECEAE3;">docs: actualizar README con los requisitos</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 12 — timeline: Crear tu primer repositorio -->
+      <!-- 14 — content: De tu ordenador a URL pública — diagrama ancho abajo -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>EL ECOSISTEMA</span>
+        <h2 class="h1">De tu ordenador a una <span class="text-aurora">URL pública</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid" style="grid-template-columns:1fr;">
+          <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:1.4rem; align-items:start; margin-bottom:0.8rem;">
+            <div>
+              <p class="lead" style="font-size:14px;">GitHub no es solo donde guardas el código. Es el disparador del redespliegue automático: cada <code>git push</code> actualiza tu URL pública en segundos.</p>
+              <p style="font-size:12px; color:#8B8D98;">Gratis para proyectos personales y también tu portfolio técnico visible para cualquier reclutador o colaborador.</p>
+            </div>
+            <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:10px; padding:0.8rem;">
+              <div style="font-size:10px; color:#7B4DFF; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">Plataforma del curso</div>
+              <div style="font-size:14px; color:#ECEAE3; font-weight:700; font-family:'Space Grotesk',sans-serif;">Vercel</div>
+              <div style="font-size:11px; color:#8B8D98; margin-top:0.3rem;">Deploy automático desde GitHub. Gratis para proyectos personales.</div>
+            </div>
+          </div>
+          <svg viewBox="0 0 880 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Pipeline de despliegue: tu ordenador a URL pública pasando por GitHub y Vercel">
+            <defs>
+              <marker id="arrowF1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7B4DFF"/></marker>
+              <marker id="arrowF2" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#FFB627"/></marker>
+              <marker id="arrowF3" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#00D4FF"/></marker>
+            </defs>
+            <rect x="10" y="20" width="150" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+            <text x="85" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#ECEAE3">Tu ordenador</text>
+            <text x="85" y="63" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">código + commits</text>
+            <line x1="160" y1="50" x2="198" y2="50" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrowF1)"/>
+            <text x="179" y="40" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#7B4DFF">git push</text>
+            <rect x="198" y="20" width="150" height="60" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+            <text x="273" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ECEAE3">GitHub</text>
+            <text x="273" y="63" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">repositorio remoto</text>
+            <line x1="348" y1="50" x2="386" y2="50" stroke="#FFB627" stroke-width="2" marker-end="url(#arrowF2)"/>
+            <path d="M 358,38 L 354,47 L 359,47 L 354,57 L 363,45 L 357,45 Z" fill="#FFB627"/>
+            <text x="367" y="38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#FFB627">webhook</text>
+            <rect x="386" y="20" width="150" height="60" rx="8" fill="#131826" stroke="#7B4DFF" stroke-width="1.5"/>
+            <text x="461" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#7B4DFF">Vercel</text>
+            <text x="461" y="63" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">build + deploy</text>
+            <line x1="536" y1="50" x2="574" y2="50" stroke="#00D4FF" stroke-width="2" marker-end="url(#arrowF3)"/>
+            <text x="555" y="40" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#00D4FF">redeploy</text>
+            <rect x="574" y="20" width="180" height="60" rx="8" fill="#0B0F1A" stroke="#00D4FF" stroke-width="1.5"/>
+            <text x="664" y="45" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#00D4FF">URL pública</text>
+            <text x="664" y="63" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">mi-app.vercel.app</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- 15 — timeline: Crear tu primer repositorio -->
       <section class="slide" data-layout="timeline">
         <span class="caption"><span class="caption-dot"></span>PASO A PASO</span>
         <h2 class="h1">Crear tu primer <span class="text-aurora">repositorio</span></h2>
@@ -393,32 +536,66 @@
           <li class="timeline-step reveal" data-delay="1">
             <span class="timeline-marker">01</span>
             <h3 class="h3">New Repository</h3>
-            <p>github.com → botón verde "New". Dale un nombre descriptivo en kebab-case.</p>
+            <p>github.com → botón verde "New". Nombre: <code>my-first-repo</code>. Activa README y selecciona el .gitignore según tu tecnología.</p>
           </li>
           <li class="timeline-step reveal" data-delay="2">
             <span class="timeline-marker">02</span>
-            <h3 class="h3">Configurar</h3>
-            <p>Nombre kebab-case, descripción clara, activar README, elegir .gitignore según tecnología.</p>
+            <h3 class="h3">git clone</h3>
+            <p>Copia la URL del repo. En terminal: <code>git clone https://github.com/tu-usuario/my-first-repo.git</code></p>
           </li>
           <li class="timeline-step reveal" data-delay="3">
             <span class="timeline-marker">03</span>
-            <h3 class="h3">git clone</h3>
-            <p>Copia la URL. En terminal: git clone https://github.com/tu-usuario/mi-proyecto.git</p>
+            <h3 class="h3">Abrir en VS Code</h3>
+            <p><code>cd my-first-repo &amp;&amp; code .</code> — abre el repositorio local en VS Code, ya conectado al remoto.</p>
           </li>
           <li class="timeline-step reveal" data-delay="4">
             <span class="timeline-marker">04</span>
-            <h3 class="h3">Abrir en VS Code</h3>
-            <p>cd mi-proyecto &amp;&amp; code . — abre el repo local conectado al remoto en VS Code.</p>
+            <h3 class="h3">Claude o Antigravity, listos</h3>
+            <p>Abre el agente en esa carpeta. Cuéntale para qué es el repositorio: "Este repo va a ser una web Express en Node.js que muestra 'Hola mundo'". El agente creará la estructura adecuada.</p>
           </li>
           <li class="timeline-step reveal" data-delay="5">
             <span class="timeline-marker">05</span>
-            <h3 class="h3">Claude Code listo</h3>
-            <p>Abre Claude Code en la carpeta. Pídele estructura, README y .gitignore.</p>
+            <h3 class="h3">Primer push</h3>
+            <p><code>git add . &amp;&amp; git commit -m "feat: estructura inicial" &amp;&amp; git push</code></p>
           </li>
         </ol>
       </section>
 
-      <!-- 13 — interactive: ¿Has usado Git? -->
+      <!-- 16 — NEW: demo en vivo — crear repo -->
+      <section class="slide slide--demo" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO · PAUSA</span>
+        <h2 class="h1">Crea tu cuenta en GitHub y tu <span class="text-aurora">primer repositorio</span></h2>
+        <div class="emphasis-line"></div>
+        <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:12px; padding:1.4rem; margin-bottom:1.2rem;">
+          <p style="font-size:14px; color:#FFB627; font-family:'Space Grotesk',sans-serif; font-weight:700; margin:0 0 0.6rem;">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
+          <p style="font-size:13px; color:#8B8D98; margin:0; line-height:1.5;">Demostrar cómo crear un repo en GitHub y clonarlo. Dar tiempo a los participantes para crear su cuenta y replicarlo.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:#00D4FF; margin-bottom:0.8rem;">Opción A — GitHub primero</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li>Crear repo en github.com</li>
+              <li><code style="color:#7B4DFF;">git clone &lt;url&gt;</code></li>
+              <li>Abrir en VS Code: <code style="color:#7B4DFF;">code .</code></li>
+              <li>Hacer el primer commit y push</li>
+            </ol>
+          </div>
+          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:#7B4DFF; margin-bottom:0.8rem;">Opción B — Terminal primero</div>
+            <ol style="margin:0; padding-left:1.2rem; font-size:12px; color:#8B8D98; line-height:1.8;">
+              <li><code style="color:#7B4DFF;">git init my-first-repo</code></li>
+              <li>Añadir archivos y hacer commit</li>
+              <li>Crear repo en GitHub (vacío)</li>
+              <li><code style="color:#7B4DFF;">git remote add origin &lt;url&gt;</code></li>
+            </ol>
+          </div>
+        </div>
+        <div style="margin-top:1rem; background:#0B0F1A; border:1px solid #00D4FF33; border-radius:8px; padding:0.8rem 1.2rem;">
+          <p style="font-size:12px; color:#8B8D98; margin:0;">Instalar Git: <code style="color:#7B4DFF;">git-scm.com</code> (Win) · <code style="color:#7B4DFF;">brew install git</code> (Mac) · <code style="color:#7B4DFF;">apt install git</code> (Linux). Verificar: <code style="color:#00D4FF;">git --version</code></p>
+        </div>
+      </section>
+
+      <!-- 17 — interactive: ¿Has usado Git? -->
       <section class="slide slide--interactive" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>PAUSA · PREGUNTA AL GRUPO</span>
         <h2 class="h1">¿Has usado alguna vez <span class="text-aurora">Git</span>?</h2>
@@ -428,13 +605,13 @@
           <li class="reveal" data-delay="2"><span class="opt-key">A</span>Sí, uso Git regularmente en mis proyectos</li>
           <li class="reveal" data-delay="3"><span class="opt-key">B</span>Lo he probado pero no lo domino del todo</li>
           <li class="reveal" data-delay="4"><span class="opt-key">C</span>Nunca lo he usado, es nuevo para mí</li>
-          <li class="reveal" data-delay="5"><span class="opt-key">D</span>He usado otro sistema (SVN, Mercurial, etc.)</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>He usado otro sistema (SVN, etc.)</li>
         </ul>
         <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
         <div class="shape shape--circle-sm" style="top:55%;left:72%;opacity:0.35;" data-parallax="0.3"></div>
       </section>
 
-      <!-- 14 — section: Capítulo 03 -->
+      <!-- 18 — section: Capítulo 03 -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CAPÍTULO 03</span>
         <h2 class="display-l text-aurora">Organización de proyectos</h2>
@@ -442,64 +619,74 @@
         <div class="shape shape--circle-sm" style="top: 63%; left: 71%;" data-parallax="0.38"></div>
       </section>
 
-      <!-- 15 — content: Anatomía de un proyecto bien organizado -->
+      <!-- 19 — content: Anatomía de un proyecto bien organizado — CLAUDE.md + .claude/ + Antigravity -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>ESTRUCTURA ESTÁNDAR</span>
         <h2 class="h1">La anatomía de un proyecto <span class="text-aurora">bien organizado</span></h2>
         <div class="emphasis-line"></div>
         <div class="content-grid">
           <div class="content-text">
-            <p class="lead">Cada archivo tiene una razón de ser. La IA espera encontrar cada pieza en su lugar.</p>
-            <p>Un proyecto bien estructurado no solo es más legible para humanos. Es más eficiente para la IA: sabe dónde buscar el contexto, las reglas y el código.</p>
+            <p class="lead">Cada archivo tiene una razón de ser. La IA espera encontrar cada pieza en su lugar para trabajar con mayor eficiencia.</p>
+            <p>El archivo más importante para la IA es <code style="color:#FFB627;">CLAUDE.md</code> (o su equivalente en Antigravity): le dice quién eres, qué hace el proyecto, qué convenciones seguir y qué nunca debe hacer.</p>
+            <p>Antigravity usa un archivo equivalente (el nombre varía por agente, pero el concepto es el mismo). Cada agente tiene su forma de recibir contexto, pero todos lo necesitan.</p>
+            <p>La carpeta <code style="color:#7B4DFF;">.claude/</code> contiene agentes especializados en <code>agents/</code> y habilidades reutilizables en <code>skills/</code>. El equivalente en Antigravity sigue el mismo principio.</p>
           </div>
           <div class="content-media">
-            <svg viewBox="0 0 440 360" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Estructura estándar de un proyecto con CLAUDE.md destacado como contexto para la IA">
-              <!-- fondo tarjeta terminal -->
-              <rect x="10" y="10" width="420" height="340" rx="12" fill="#0B0F1A" stroke="#1F2638" stroke-width="1"/>
-              <!-- dots de terminal -->
+            <svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Estructura de proyecto con CLAUDE.md y carpeta .claude destacados">
+              <rect x="10" y="10" width="440" height="380" rx="12" fill="#0B0F1A" stroke="#1F2638" stroke-width="1"/>
               <circle cx="30" cy="28" r="5" fill="#FF5B7A"/>
               <circle cx="46" cy="28" r="5" fill="#FFB627"/>
               <circle cx="62" cy="28" r="5" fill="#C6FF3D"/>
-              <!-- contenido árbol -->
-              <text x="28" y="62" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#ECEAE3">mi-proyecto/</text>
+              <text x="28" y="62" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#ECEAE3">my-project/</text>
               <!-- README.md -->
-              <text x="28" y="90" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">├──</text>
-              <text x="68" y="90" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">README.md</text>
-              <text x="220" y="90" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">← descripción, instalación</text>
-              <!-- CLAUDE.md — destacado en amber -->
-              <rect x="22" y="98" width="200" height="22" rx="4" fill="rgba(255,182,39,0.08)"/>
-              <text x="28" y="114" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">├──</text>
-              <text x="68" y="114" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#FFB627">CLAUDE.md</text>
-              <!-- badge IA -->
-              <rect x="172" y="102" width="32" height="16" rx="4" fill="#FFB627"/>
-              <text x="188" y="114" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#0B0F1A">IA</text>
+              <text x="28" y="88" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="88" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">README.md</text>
+              <!-- CLAUDE.md -->
+              <rect x="22" y="96" width="214" height="22" rx="4" fill="rgba(255,182,39,0.08)"/>
+              <text x="28" y="112" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="112" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#FFB627">CLAUDE.md</text>
+              <rect x="186" y="100" width="44" height="16" rx="4" fill="#FFB627"/>
+              <text x="208" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#0B0F1A">IA ctx</text>
+              <line x1="238" y1="111" x2="290" y2="111" stroke="#FFB627" stroke-width="1" stroke-dasharray="3 2"/>
+              <text x="294" y="108" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">contexto para el agente</text>
+              <!-- .claude/ -->
+              <rect x="22" y="120" width="186" height="22" rx="4" fill="rgba(123,77,255,0.08)"/>
+              <text x="28" y="136" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="136" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#7B4DFF">.claude/</text>
+              <text x="88" y="156" font-family="JetBrains Mono, monospace" font-size="12" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="116" y="156" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">agents/</text>
+              <text x="216" y="156" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98">agentes especializados</text>
+              <text x="88" y="174" font-family="JetBrains Mono, monospace" font-size="12" fill="#8B8D98" opacity="0.5">└──</text>
+              <text x="116" y="174" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">skills/</text>
+              <text x="216" y="174" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98">habilidades reutilizables</text>
               <!-- .env.example -->
-              <text x="28" y="138" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">├──</text>
-              <text x="68" y="138" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">.env.example</text>
+              <text x="28" y="198" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="198" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">.env.example</text>
               <!-- .gitignore -->
-              <text x="28" y="162" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">├──</text>
-              <text x="68" y="162" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">.gitignore</text>
+              <text x="28" y="220" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="220" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">.gitignore</text>
               <!-- docker-compose.yml -->
-              <text x="28" y="186" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">├──</text>
-              <text x="68" y="186" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">docker-compose.yml</text>
+              <text x="28" y="242" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="242" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">docker-compose.yml</text>
               <!-- src/ -->
-              <text x="28" y="210" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">├──</text>
-              <text x="68" y="210" font-family="JetBrains Mono, monospace" font-size="13" fill="#00D4FF">src/</text>
-              <!-- tests/ -->
-              <text x="28" y="234" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">├──</text>
-              <text x="68" y="234" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">tests/</text>
-              <!-- docs/ -->
-              <text x="28" y="258" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.55">└──</text>
-              <text x="68" y="258" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">docs/</text>
-              <!-- anotación CLAUDE.md -->
-              <line x1="210" y1="113" x2="280" y2="113" stroke="#FFB627" stroke-width="1" stroke-dasharray="3,2"/>
-              <text x="284" y="110" font-family="Space Grotesk, sans-serif" font-size="11" fill="#FFB627">contexto para la IA</text>
+              <text x="28" y="264" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="264" font-family="JetBrains Mono, monospace" font-size="13" fill="#00D4FF">src/</text>
+              <!-- tests/ y docs/ -->
+              <text x="28" y="286" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">├──</text>
+              <text x="68" y="286" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">tests/</text>
+              <text x="28" y="308" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98" opacity="0.5">└──</text>
+              <text x="68" y="308" font-family="JetBrains Mono, monospace" font-size="13" fill="#8B8D98">docs/</text>
+              <!-- Nota Antigravity -->
+              <rect x="22" y="322" width="416" height="48" rx="6" fill="rgba(0,212,255,0.06)" stroke="#00D4FF33" stroke-width="1"/>
+              <text x="34" y="340" font-family="Space Grotesk, sans-serif" font-size="11" fill="#00D4FF" font-weight="600">Antigravity</text>
+              <text x="100" y="340" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">usa un archivo equivalente a CLAUDE.md.</text>
+              <text x="34" y="358" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98">Cada agente tiene su propio sistema de contexto, pero el principio es idéntico.</text>
             </svg>
           </div>
         </div>
       </section>
 
-      <!-- 16 — bullets: Convenciones -->
+      <!-- 20 — bullets: Convenciones -->
       <section class="slide" data-layout="bullets">
         <span class="caption"><span class="caption-dot"></span>CONVENCIONES</span>
         <h2 class="h1">Las reglas que hacen que todo <span class="text-aurora">encaje</span></h2>
@@ -508,42 +695,35 @@
           <li class="reveal" data-delay="1">
             <span class="bullet-num">01</span>
             <div>
-              <h3 class="h3">kebab-case para archivos y carpetas</h3>
-              <p>mi-proyecto, user-auth, api-client. No MiProyecto ni mi_proyecto. Consistencia absoluta.</p>
+              <h3 class="h3">Nombres en inglés para archivos y carpetas</h3>
+              <p>Los identificadores técnicos en inglés con guiones: <code>user-auth</code>, <code>api-client</code>. La documentación en el idioma que prefieras. La IA trabaja mejor con nombres en inglés.</p>
             </div>
           </li>
           <li class="reveal" data-delay="2">
             <span class="bullet-num">02</span>
             <div>
-              <h3 class="h3">Inglés para nombres técnicos</h3>
-              <p>Los archivos y carpetas en inglés. La documentación en el idioma que prefieras. La IA trabaja mejor en inglés a nivel técnico.</p>
+              <h3 class="h3">README.md siempre en la raíz</h3>
+              <p>Primera cosa que ve cualquier persona (o IA) que entra al proyecto. Sin README, el proyecto no existe para el mundo.</p>
             </div>
           </li>
           <li class="reveal" data-delay="3">
             <span class="bullet-num">03</span>
             <div>
-              <h3 class="h3">README.md siempre en la raíz</h3>
-              <p>Primera cosa que ve cualquier persona (o IA) que entra al proyecto. Sin README, el proyecto no existe para el mundo.</p>
+              <h3 class="h3">.gitignore desde el primer commit</h3>
+              <p><code>node_modules/</code>, <code>.env</code>, <code>__pycache__/</code>, <code>*.log</code> nunca se suben a GitHub. Configúralo antes de hacer el primer commit.</p>
             </div>
           </li>
           <li class="reveal" data-delay="4">
             <span class="bullet-num">04</span>
             <div>
-              <h3 class="h3">.gitignore desde el principio</h3>
-              <p>node_modules/, .env, __pycache__, *.log nunca se suben a GitHub. Configúralo antes del primer commit.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="5">
-            <span class="bullet-num">05</span>
-            <div>
               <h3 class="h3">CHANGELOG.md para decisiones importantes</h3>
-              <p>Registra qué cambiaste y por qué. La IA puede mantenerlo automáticamente con el prompt adecuado.</p>
+              <p>Registra qué cambiaste y por qué. La IA puede mantenerlo automáticamente con el prompt adecuado en el <code>CLAUDE.md</code>.</p>
             </div>
           </li>
         </ul>
       </section>
 
-      <!-- 17 — quote -->
+      <!-- 21 — quote -->
       <section class="slide slide--center" data-layout="quote">
         <div class="quote-block">
           <span class="quote-mark">&ldquo;</span>
@@ -555,7 +735,7 @@
         </div>
       </section>
 
-      <!-- 18 — section: Capítulo 04 -->
+      <!-- 22 — section: Capítulo 04 -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CAPÍTULO 04</span>
         <h2 class="display-l text-aurora">Documentación que funciona</h2>
@@ -563,7 +743,7 @@
         <div class="shape shape--circle-sm" style="top: 64%; left: 70%;" data-parallax="0.4"></div>
       </section>
 
-      <!-- 19 — content: Anatomía de un buen README -->
+      <!-- 23 — content: Anatomía de un buen README — con explicaciones por sección -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>EL README</span>
         <h2 class="h1">Anatomía de un buen <span class="text-aurora">README</span></h2>
@@ -571,140 +751,112 @@
         <div class="content-grid">
           <div class="content-text">
             <p class="lead">El README es el contrato entre tu proyecto y el mundo. En 60 segundos, cualquier persona (o IA) debe entender qué hace y cómo arrancarlo.</p>
-            <p>La IA puede generar el README inicial a partir de tu descripción del proyecto. Tú lo revisas y enriqueces con detalles que solo tú conoces.</p>
-            <p>Un README bien escrito reduce las preguntas al equipo a cero y acelera el onboarding de nuevos colaboradores.</p>
+            <p><strong>Nombre y descripción</strong> — Una línea que define el proyecto. Si no puedes resumirlo en una línea, es que el proyecto hace demasiado.</p>
+            <p><strong>Instalación</strong> — El camino más corto posible para que alguien lo tenga corriendo. Idealmente un solo comando.</p>
+            <p><strong>Uso</strong> — Un ejemplo real. No lo que podría hacer el proyecto; lo que hace ahora mismo con un ejemplo concreto.</p>
+            <p><strong>Tecnologías</strong> — El stack: qué lenguajes, frameworks y servicios usa. La IA necesita esta información para generar código compatible.</p>
+            <p><strong>Contribuir</strong> — Las reglas del juego si alguien quiere colaborar o si tú quieres decirle a la IA cómo debe hacer sus PRs.</p>
           </div>
           <div class="content-media">
-            <svg viewBox="0 0 440 420" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Anatomía de un README: descripción, instalación, uso, tecnologías y contribución, con anotaciones">
-              <!-- fondo documento -->
+            <svg viewBox="0 0 440 420" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Anatomía de un README con secciones anotadas">
               <rect x="20" y="20" width="400" height="380" rx="12" fill="#0B0F1A" stroke="#1F2638" stroke-width="1"/>
-              <!-- encabezado H1 -->
-              <text x="40" y="60" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700" fill="#ECEAE3"># Nombre del Proyecto</text>
-              <!-- anotación -->
-              <text x="296" y="56" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">← qué es</text>
-              <!-- texto placeholder -->
+              <text x="40" y="60" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700" fill="#ECEAE3"># my-first-repo</text>
               <rect x="40" y="70" width="220" height="8" rx="3" fill="#1F2638"/>
               <rect x="40" y="84" width="180" height="8" rx="3" fill="#1F2638"/>
-              <!-- sección Descripción -->
-              <text x="40" y="116" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Descripción</text>
-              <text x="296" y="112" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">← problema que resuelve</text>
-              <rect x="40" y="124" width="200" height="7" rx="3" fill="#1F2638"/>
-              <rect x="40" y="136" width="240" height="7" rx="3" fill="#1F2638"/>
-              <!-- sección Instalación -->
-              <text x="40" y="168" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Instalación</text>
-              <text x="296" y="164" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">← 1 comando para arrancar</text>
-              <rect x="40" y="176" width="200" height="24" rx="6" fill="#131826" stroke="#1F2638"/>
-              <text x="52" y="192" font-family="JetBrains Mono, monospace" font-size="12" fill="#00D4FF">npm install</text>
-              <!-- sección Uso -->
-              <text x="40" y="228" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Uso</text>
-              <text x="296" y="224" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">← ejemplo real</text>
-              <rect x="40" y="236" width="240" height="24" rx="6" fill="#131826" stroke="#1F2638"/>
-              <text x="52" y="252" font-family="JetBrains Mono, monospace" font-size="12" fill="#00D4FF">npm run dev</text>
-              <!-- sección Tecnologías -->
-              <text x="40" y="290" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Tecnologías</text>
-              <text x="296" y="286" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">← stack del proyecto</text>
-              <!-- chips -->
-              <rect x="40" y="298" width="56" height="20" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1"/>
-              <text x="68" y="312" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">Node.js</text>
-              <rect x="104" y="298" width="52" height="20" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1"/>
-              <text x="130" y="312" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">React</text>
-              <rect x="164" y="298" width="70" height="20" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1"/>
-              <text x="199" y="312" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">Postgres</text>
-              <!-- sección Contribuir -->
-              <text x="40" y="352" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Contribuir</text>
-              <rect x="40" y="360" width="160" height="7" rx="3" fill="#1F2638"/>
-              <rect x="40" y="372" width="200" height="7" rx="3" fill="#1F2638"/>
+              <line x1="264" y1="60" x2="300" y2="60" stroke="#FFB627" stroke-width="1" stroke-dasharray="3 2"/>
+              <text x="303" y="63" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">qué es</text>
+              <text x="40" y="116" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Instalación</text>
+              <rect x="40" y="124" width="200" height="24" rx="6" fill="#131826" stroke="#1F2638"/>
+              <text x="52" y="140" font-family="JetBrains Mono, monospace" font-size="12" fill="#00D4FF">npm install &amp;&amp; npm run dev</text>
+              <line x1="242" y1="136" x2="300" y2="136" stroke="#FFB627" stroke-width="1" stroke-dasharray="3 2"/>
+              <text x="303" y="139" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">1 comando</text>
+              <text x="40" y="180" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Uso</text>
+              <rect x="40" y="188" width="220" height="24" rx="6" fill="#131826" stroke="#1F2638"/>
+              <text x="52" y="204" font-family="JetBrains Mono, monospace" font-size="12" fill="#00D4FF">curl http://localhost:3000</text>
+              <line x1="262" y1="200" x2="300" y2="200" stroke="#FFB627" stroke-width="1" stroke-dasharray="3 2"/>
+              <text x="303" y="203" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">ejemplo real</text>
+              <text x="40" y="250" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Tecnologías</text>
+              <line x1="220" y1="250" x2="300" y2="250" stroke="#FFB627" stroke-width="1" stroke-dasharray="3 2"/>
+              <text x="303" y="253" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">stack del proyecto</text>
+              <rect x="40" y="258" width="56" height="20" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1"/>
+              <text x="68" y="272" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">Node.js</text>
+              <rect x="104" y="258" width="68" height="20" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1"/>
+              <text x="138" y="272" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">Express</text>
+              <rect x="180" y="258" width="62" height="20" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1"/>
+              <text x="211" y="272" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">Docker</text>
+              <text x="40" y="318" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600" fill="#7B4DFF">## Contribuir</text>
+              <line x1="210" y1="318" x2="300" y2="318" stroke="#FFB627" stroke-width="1" stroke-dasharray="3 2"/>
+              <text x="303" y="321" font-family="Space Grotesk, sans-serif" font-size="10" fill="#FFB627">reglas del juego</text>
+              <rect x="40" y="326" width="200" height="7" rx="3" fill="#1F2638"/>
+              <rect x="40" y="338" width="160" height="7" rx="3" fill="#1F2638"/>
             </svg>
           </div>
         </div>
       </section>
 
-      <!-- 20 — code: .gitignore -->
+      <!-- 24 — code: .gitignore — más lenguajes, más texto -->
       <section class="slide" data-layout="code">
         <span class="caption"><span class="caption-dot"></span>ARCHIVO ESENCIAL</span>
         <h2 class="h2">Lo que nunca debe llegar a <span class="text-aurora">GitHub</span></h2>
         <div class="code-grid">
-<pre class="code-block"><code><span class="cm-cm"># Dependencias (pueden instalarse con npm install)</span>
-node_modules/
-
-<span class="cm-cm"># Variables de entorno y secretos — NUNCA subir claves</span>
+<pre class="code-block"><code><span class="cm-cm"># === SECRETOS — NUNCA subir claves de API ===</span>
 <span class="cm-str">.env</span>
 <span class="cm-str">.env.local</span>
 <span class="cm-str">.env.production</span>
 
-<span class="cm-cm"># Archivos del sistema operativo</span>
-.DS_Store
-Thumbs.db
+<span class="cm-cm"># === DEPENDENCIAS (todos los lenguajes) ===</span>
+node_modules/       <span class="cm-cm"># Node.js</span>
+__pycache__/        <span class="cm-cm"># Python bytecode</span>
+*.pyc               <span class="cm-cm"># Python compilado</span>
+vendor/             <span class="cm-cm"># PHP Composer</span>
+.gradle/  build/    <span class="cm-cm"># Java/Kotlin</span>
 
-<span class="cm-cm"># Build y distribución generada</span>
-dist/
-build/
-.next/
+<span class="cm-cm"># === BUILD (regenerados en cada deploy) ===</span>
+dist/   .next/   .nuxt/   out/
 
-<span class="cm-cm"># Logs (ruido, no información útil)</span>
-<span class="cm-key">*.log</span>
-npm-debug.log*
+<span class="cm-cm"># === SISTEMA OPERATIVO ===</span>
+.DS_Store   Thumbs.db
 
-<span class="cm-cm"># Instrucciones privadas para la IA (opcional)</span>
-.claude/</code></pre>
+<span class="cm-cm"># === LOGS Y TEMPORALES ===</span>
+<span class="cm-key">*.log</span>   npm-debug.log*</code></pre>
           <aside class="code-notes">
-            <p><strong>node_modules/</strong> Puede pesar cientos de MB. <code>npm install</code> lo recrea en segundos. Subirlo es el error más común de principiantes.</p>
-            <p><strong>.env</strong> Contiene tus claves de API, contraseñas y tokens. Subir este archivo a un repo público expone tus credenciales al mundo.</p>
-            <p><strong>.env.example</strong> Sí debes subir este archivo: lista qué variables se necesitan, sin los valores reales. Guía al equipo sin exponer secretos.</p>
+            <p><strong>La regla es universal.</strong> Cada lenguaje genera carpetas de dependencias que pesan cientos de MB y se pueden regenerar. Nunca se versionan.</p>
+            <p><strong>.env</strong> Si subes este archivo a un repo público, tus claves quedan expuestas. GitHub escanea en busca de claves filtradas y notifica a los proveedores. La llave se revoca automáticamente.</p>
+            <p><strong>.env.example</strong> Este sí se versiona: lista qué variables necesita el proyecto, sin los valores reales. Es la guía para el equipo.</p>
+            <p><strong>gitignore.io</strong> Genera el .gitignore según tu stack en segundos: escribe "node express docker" y lo tienes.</p>
           </aside>
         </div>
       </section>
 
-      <!-- 21 — content: Demo en vivo -->
-      <section class="slide slide--accent-amber" data-layout="content">
+      <!-- 25 — content: Demo en vivo — Node.js Express Hola Mundo con 3 fases -->
+      <section class="slide slide--demo" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO</span>
-        <h2 class="h1">Repositorio + primer commit con <span class="text-aurora">Claude Code</span></h2>
+        <h2 class="h1">Repo + web completa con <span class="text-aurora">Claude Code / Antigravity</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
-          <div class="content-text">
-            <p class="lead">Desde cero hasta proyecto con estructura limpia en GitHub. En 15 minutos.</p>
-            <p><strong>PASO 1</strong> — Crear repo en GitHub: nombre kebab-case, README activado, .gitignore Node.js.</p>
-            <p><strong>PASO 2</strong> — Clonar en local: <code>git clone &lt;url&gt; &amp;&amp; cd mi-proyecto &amp;&amp; code .</code></p>
-            <p><strong>PASO 3</strong> — Prompt a Claude Code: "Inicializa este proyecto con estructura estándar, README descriptivo para una app de gestión de tareas, y .gitignore para Node.js".</p>
-            <p><strong>PASO 4</strong> — Revisar archivos generados: README.md, .gitignore, src/, docs/, CLAUDE.md.</p>
-            <p><strong>PASO 5</strong> — <code>git add . &amp;&amp; git commit -m "feat: estructura inicial" &amp;&amp; git push</code></p>
+        <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:12px; padding:1.2rem; margin-bottom:1.2rem;">
+          <p style="font-size:13px; color:#FFB627; font-family:'Space Grotesk',sans-serif; font-weight:700; margin:0 0 0.4rem;">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
+          <p style="font-size:12px; color:#8B8D98; margin:0;">Proyecto: "Crea una aplicación web simple con Node.js y Express que muestre 'Hola mundo' en el puerto 3000. Incluye un Dockerfile."</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
+          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:10px; padding:1rem;">
+            <div style="font-size:11px; color:#7B4DFF; font-weight:700; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.6rem;">Fase 1</div>
+            <div style="font-size:12px; color:#ECEAE3; font-weight:600; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">Estructura del repo</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.6;">Prompt a Claude: prepara el repo completo con README, .gitignore y estructura. Hacer commit y push a main.</div>
           </div>
-          <div class="content-media">
-            <svg viewBox="0 0 440 380" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card-amber" role="img" aria-label="Tarjeta de demo en vivo: herramientas usadas y resultado esperado en menos de 15 minutos">
-              <!-- badge DEMO EN VIVO -->
-              <rect x="120" y="24" width="200" height="40" rx="20" fill="#FFB627"/>
-              <text x="220" y="50" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#0B0F1A">DEMO EN VIVO</text>
-              <!-- duración -->
-              <text x="220" y="88" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#FFB627">15 minutos</text>
-              <!-- línea separadora -->
-              <line x1="40" y1="100" x2="400" y2="100" stroke="rgba(255,182,39,0.3)" stroke-width="1"/>
-              <!-- herramientas -->
-              <text x="220" y="130" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#8B8D98">HERRAMIENTAS</text>
-              <!-- chips herramientas -->
-              <rect x="50" y="142" width="76" height="26" rx="13" fill="#131826" stroke="#FFB627" stroke-width="1"/>
-              <text x="88" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#FFB627">GitHub</text>
-              <rect x="136" y="142" width="70" height="26" rx="13" fill="#131826" stroke="#FFB627" stroke-width="1"/>
-              <text x="171" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#FFB627">VS Code</text>
-              <rect x="216" y="142" width="98" height="26" rx="13" fill="#131826" stroke="#FFB627" stroke-width="1"/>
-              <text x="265" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#FFB627">Claude Code</text>
-              <rect x="324" y="142" width="76" height="26" rx="13" fill="#131826" stroke="#FFB627" stroke-width="1"/>
-              <text x="362" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#FFB627">Terminal</text>
-              <!-- línea separadora -->
-              <line x1="40" y1="184" x2="400" y2="184" stroke="rgba(255,182,39,0.3)" stroke-width="1"/>
-              <!-- resultado -->
-              <text x="220" y="215" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#8B8D98">RESULTADO ESPERADO</text>
-              <text x="220" y="248" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#ECEAE3">Proyecto con estructura limpia</text>
-              <text x="220" y="270" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="600" fill="#ECEAE3">y documentada en GitHub</text>
-              <!-- icono check -->
-              <circle cx="220" cy="318" r="24" fill="none" stroke="#C6FF3D" stroke-width="2"/>
-              <path d="M208,318 L216,326 L232,310" stroke="#C6FF3D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="220" y="358" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#C6FF3D">menos de 15 min</text>
-            </svg>
+          <div style="background:#131826; border:1px solid #00D4FF33; border-radius:10px; padding:1rem;">
+            <div style="font-size:11px; color:#00D4FF; font-weight:700; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.6rem;">Fase 2</div>
+            <div style="font-size:12px; color:#ECEAE3; font-weight:600; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">La web en feature branch</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.6;">Crear rama feature/hola-mundo. Pedirle que construya la web Express + Dockerfile. Revisar, fusionar y subir.</div>
+          </div>
+          <div style="background:#131826; border:1px solid #FFB62733; border-radius:10px; padding:1rem;">
+            <div style="font-size:11px; color:#FFB627; font-weight:700; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.6rem;">Fase 3</div>
+            <div style="font-size:12px; color:#ECEAE3; font-weight:600; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">El agente gestiona el flujo</div>
+            <div style="font-size:11px; color:#8B8D98; line-height:1.6;">Decirle al agente que cree la rama, añada algo visual, espere nuestra revisión y luego vuelque y suba todo.</div>
           </div>
         </div>
       </section>
 
-      <!-- 22 — bullets: El ritual diario -->
+      <!-- 26 — bullets: El ritual diario — con placeholder del agente -->
       <section class="slide" data-layout="bullets">
         <span class="caption"><span class="caption-dot"></span>FLUJO DIARIO CON GIT + IA</span>
         <h2 class="h1">El ritual que repetirás <span class="text-aurora">cada día</span></h2>
@@ -713,58 +865,54 @@ npm-debug.log*
           <li class="reveal" data-delay="1">
             <span class="bullet-num">01</span>
             <div>
-              <h3 class="h3">git pull</h3>
-              <p>Traer los cambios del remoto antes de empezar. Si trabajas solo, igualmente es buena costumbre.</p>
+              <h3 class="h3">git pull — sincronizar antes de empezar</h3>
+              <p>Traer los cambios del remoto. Si trabajas solo, igualmente es buena costumbre para evitar conflictos.</p>
             </div>
           </li>
           <li class="reveal" data-delay="2">
             <span class="bullet-num">02</span>
             <div>
-              <h3 class="h3">git checkout -b feature/nueva</h3>
-              <p>Crear una rama para el trabajo del día. Nunca trabajes directamente en main.</p>
+              <h3 class="h3">git checkout -b feature/nombre — nueva rama</h3>
+              <p>Nunca trabajes directamente en main. La rama protege el código estable de los experimentos del día.</p>
             </div>
           </li>
           <li class="reveal" data-delay="3">
             <span class="bullet-num">03</span>
             <div>
-              <h3 class="h3">Pedirle a Claude Code la feature</h3>
-              <p>Con README y CLAUDE.md bien documentados, el agente genera código de mayor calidad.</p>
+              <h3 class="h3">Pedirle al agente la feature — Claude o Antigravity</h3>
+              <p>Con README y CLAUDE.md bien documentados, el agente genera código de mayor calidad porque tiene contexto real del proyecto.</p>
             </div>
           </li>
           <li class="reveal" data-delay="4">
             <span class="bullet-num">04</span>
             <div>
-              <h3 class="h3">Probar manualmente que funciona</h3>
-              <p>La IA no tiene tu contexto de negocio completo. La validación final es siempre tuya.</p>
+              <h3 class="h3">Probar manualmente — la validación siempre es tuya</h3>
+              <p>La IA no tiene tu contexto de negocio completo. Revisa que el resultado es lo que querías antes de hacer commit.</p>
             </div>
           </li>
           <li class="reveal" data-delay="5">
             <span class="bullet-num">05</span>
             <div>
-              <h3 class="h3">git add + git commit</h3>
-              <p>Fotografía del estado bueno. Mensaje descriptivo que explique el qué y el por qué.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="6">
-            <span class="bullet-num">06</span>
-            <div>
-              <h3 class="h3">git push (y PR si en equipo)</h3>
-              <p>Subir cambios. En equipo, abrir un Pull Request para revisión antes de fusionar a main.</p>
+              <h3 class="h3">git add + commit + push</h3>
+              <p>Fotografía del estado bueno, mensaje Conventional Commit descriptivo y subida al remoto.</p>
             </div>
           </li>
         </ul>
+        <div style="margin-top:1.2rem; background:#0B0F1A; border:1px solid #7B4DFF33; border-radius:8px; padding:0.8rem 1.2rem;">
+          <p style="font-size:12px; color:#8B8D98; margin:0;">Todo este flujo se lo puedes pedir al agente: crear la rama, hacer el commit, abrir el PR. Es recomendable hacerlo a mano al principio para dominar el control del repositorio. Después decides cuánto delegas.</p>
+        </div>
       </section>
 
-      <!-- 23 — closing -->
+      <!-- 27 — closing -->
       <section class="slide slide--center" data-layout="closing">
-        <span class="caption"><span class="caption-dot"></span>FIN · MÓDULO 03</span>
+        <span class="caption"><span class="caption-dot"></span>FIN DEL MÓDULO 03</span>
         <h2 class="display-l">
           Ya tienes el <span class="text-aurora">sistema</span>.
         </h2>
-        <p class="lead">Git para no perder trabajo. GitHub para desplegarlo. Estructura para que la IA encuentre lo que necesita. Documentación para que todo tenga contexto. Esa es la base.</p>
+        <p class="lead">Git para no perder trabajo. GitHub para desplegarlo. Estructura para que la IA encuentre lo que necesita. Documentación para que todo tenga contexto. Esa es la base del Módulo 04.</p>
         <div class="cta-row">
-          <a class="btn btn--primary" href="../m04-entorno-ia/index.html">Módulo 04 &mdash; Entorno Optimizado para IA &rarr;</a>
-          <a class="btn btn--ghost" href="../../../index.html">Volver al índice</a>
+          <a class="btn btn--primary" href="../m04-entorno-ia/index.html">Módulo 04 — Entorno Optimizado para IA &rarr;</a>
+          <a class="btn btn--ghost" href="../../../index.html">Volver al índice del curso</a>
         </div>
         <div class="shape shape--circle" data-parallax="0.4"></div>
         <div class="shape shape--arc" data-parallax="0.6"></div>

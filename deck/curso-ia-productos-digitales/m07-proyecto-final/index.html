@@ -42,21 +42,21 @@
           <span class="stat-number text-aurora count-up" data-target="7" data-suffix="">0</span>
           <p class="stat-label">módulos completados. Un recorrido de idea a producto desplegado.</p>
         </div>
-        <div class="stat-grid">
+        <div class="stat-grid" style="grid-template-columns: repeat(4,1fr); gap:0.6rem;">
           <div class="mini-stat reveal" data-delay="1">
-            <span class="mini-stat-number count-up" data-target="20" data-suffix="h">0h</span>
+            <span class="mini-stat-number count-up" data-target="20" data-suffix="h" style="font-size:2.2rem">0h</span>
             <span class="mini-stat-label">De formación práctica</span>
           </div>
           <div class="mini-stat reveal" data-delay="2">
-            <span class="mini-stat-number count-up" data-target="7" data-suffix="">0</span>
+            <span class="mini-stat-number count-up" data-target="7" data-suffix="" style="font-size:2.2rem">0</span>
             <span class="mini-stat-label">Demos en vivo</span>
           </div>
           <div class="mini-stat reveal" data-delay="3">
-            <span class="mini-stat-number count-up" data-target="1" data-suffix="">0</span>
+            <span class="mini-stat-number count-up" data-target="1" data-suffix="" style="font-size:2.2rem">0</span>
             <span class="mini-stat-label">Proyecto real desplegado</span>
           </div>
           <div class="mini-stat reveal" data-delay="4">
-            <span class="mini-stat-number count-up" data-target="1" data-suffix="">0</span>
+            <span class="mini-stat-number count-up" data-target="1" data-suffix="" style="font-size:2.2rem">0</span>
             <span class="mini-stat-label">Nuevo rol: AI Product Developer</span>
           </div>
         </div>
@@ -67,183 +67,205 @@
         <span class="caption"><span class="caption-dot"></span>EL PROYECTO FINAL</span>
         <h2 class="h1">No es un examen. Es una <span class="text-aurora">demostración</span>.</h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
-          <div class="content-text">
-            <p class="lead">El proyecto final no es un examen. Es la demostración de que el ciclo completo funciona: de idea a producto desplegado, con IA.</p>
-            <p>Lo que se valora es el proceso, no el resultado perfecto.</p>
-            <p>Un producto simple bien explicado vale más que uno complejo sin contexto.</p>
-          </div>
-          <div class="content-media">
-            <svg viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg" class="diagram" aria-label="El ciclo completo del curso iluminado">
-              <defs>
-                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#7B4DFF"/>
-                  <stop offset="100%" stop-color="#00D4FF"/>
-                </linearGradient>
-                <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#7B4DFF"/>
-                  <stop offset="100%" stop-color="#00D4FF"/>
-                </linearGradient>
-              </defs>
-              <!-- Connecting line -->
-              <line x1="54" y1="120" x2="486" y2="120" stroke="url(#lineGrad)" stroke-width="2" stroke-opacity="0.6"/>
-              <!-- Node 1: IDEA -->
-              <circle cx="54" cy="120" r="28" fill="#131826" stroke="url(#nodeGrad)" stroke-width="2"/>
-              <circle cx="54" cy="115" r="9" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
-              <line x1="50" y1="126" x2="58" y2="126" stroke="#ECEAE3" stroke-width="1.5"/>
-              <line x1="52" y1="130" x2="56" y2="130" stroke="#ECEAE3" stroke-width="1"/>
-              <text x="54" y="168" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="12" letter-spacing="0.1em">IDEA</text>
-              <!-- Node 2: DISEÑO -->
-              <circle cx="162" cy="120" r="28" fill="#131826" stroke="url(#nodeGrad)" stroke-width="2"/>
-              <rect x="150" y="111" width="24" height="18" rx="2" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
-              <line x1="150" y1="117" x2="174" y2="117" stroke="#ECEAE3" stroke-width="1"/>
-              <line x1="159" y1="117" x2="159" y2="129" stroke="#ECEAE3" stroke-width="1"/>
-              <text x="162" y="168" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="12" letter-spacing="0.1em">DISEÑO</text>
-              <!-- Node 3: CONSTRUCCIÓN -->
-              <circle cx="270" cy="120" r="28" fill="#131826" stroke="url(#nodeGrad)" stroke-width="2"/>
-              <text x="270" y="125" text-anchor="middle" fill="#ECEAE3" font-family="JetBrains Mono, monospace" font-size="13">&lt;/&gt;</text>
-              <text x="270" y="168" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="12" letter-spacing="0.1em">CONSTRUCCIÓN</text>
-              <!-- Node 4: VALIDACIÓN -->
-              <circle cx="378" cy="120" r="28" fill="#131826" stroke="url(#nodeGrad)" stroke-width="2"/>
-              <path d="M366 120 L375 129 L392 110" fill="none" stroke="#ECEAE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="378" y="168" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="12" letter-spacing="0.1em">VALIDACIÓN</text>
-              <!-- Node 5: DESPLIEGUE — amber halo -->
-              <circle cx="486" cy="120" r="32" fill="rgba(255,182,39,0.08)" stroke="#FFB627" stroke-width="2"/>
-              <circle cx="486" cy="120" r="28" fill="#131826" stroke="#FFB627" stroke-width="2"/>
-              <path d="M486 133 L482 128 L482 117 Q486 108 490 117 L490 128 Z" fill="none" stroke="#FFB627" stroke-width="1.5"/>
-              <circle cx="486" cy="120" r="3" fill="none" stroke="#FFB627" stroke-width="1.5"/>
-              <text x="486" y="168" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="0.1em">DESPLIEGUE</text>
-              <!-- Completed badge -->
-              <rect x="378" y="200" width="108" height="28" rx="14" fill="rgba(255,182,39,0.15)" stroke="#FFB627" stroke-width="1"/>
-              <text x="432" y="218" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="0.08em">COMPLETADO</text>
-            </svg>
-          </div>
+        <div class="content-text">
+          <p class="lead">El proyecto final no es un examen. Es la demostración de que el ciclo completo funciona: de idea a producto desplegado, con IA.</p>
+          <p>Lo que se valora es el proceso, no el resultado perfecto.</p>
+          <p>Un producto simple bien explicado vale más que uno complejo sin contexto.</p>
+        </div>
+        <div class="content-media" style="margin-top: 2rem;">
+          <svg viewBox="0 0 640 160" xmlns="http://www.w3.org/2000/svg" class="diagram" style="width:100%;max-width:100%;" aria-label="El ciclo completo del curso: IDEA, DISEÑO, CONSTRUCCIÓN, VALIDACIÓN, DESPLIEGUE">
+            <defs>
+              <linearGradient id="m07-lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#7B4DFF"/>
+                <stop offset="100%" stop-color="#00D4FF"/>
+              </linearGradient>
+              <linearGradient id="m07-nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7B4DFF"/>
+                <stop offset="100%" stop-color="#00D4FF"/>
+              </linearGradient>
+              <marker id="m07-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="url(#m07-lineGrad)" opacity="0.8"/>
+              </marker>
+            </defs>
+            <!-- Connecting arrows between nodes -->
+            <line x1="82" y1="70" x2="138" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <line x1="196" y1="70" x2="252" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <line x1="310" y1="70" x2="366" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <line x1="424" y1="70" x2="480" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <!-- Node 1: IDEA -->
+            <circle cx="60" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <circle cx="60" cy="65" r="9" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+            <line x1="56" y1="76" x2="64" y2="76" stroke="#ECEAE3" stroke-width="1.5"/>
+            <line x1="58" y1="80" x2="62" y2="80" stroke="#ECEAE3" stroke-width="1"/>
+            <text x="60" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.1em">IDEA</text>
+            <!-- Node 2: DISEÑO -->
+            <circle cx="168" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <rect x="156" y="61" width="24" height="18" rx="2" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+            <line x1="156" y1="67" x2="180" y2="67" stroke="#ECEAE3" stroke-width="1"/>
+            <line x1="165" y1="67" x2="165" y2="79" stroke="#ECEAE3" stroke-width="1"/>
+            <text x="168" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.1em">DISEÑO</text>
+            <!-- Node 3: CONSTRUCCIÓN -->
+            <circle cx="282" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <text x="282" y="75" text-anchor="middle" fill="#ECEAE3" font-family="JetBrains Mono, monospace" font-size="13">&lt;/&gt;</text>
+            <text x="282" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="10" letter-spacing="0.08em">CONSTRUCCIÓN</text>
+            <!-- Node 4: VALIDACIÓN -->
+            <circle cx="396" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <path d="M384 70 L393 79 L410 60" fill="none" stroke="#ECEAE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="396" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.1em">VALIDACIÓN</text>
+            <!-- Node 5: DESPLIEGUE — amber halo -->
+            <circle cx="512" cy="70" r="32" fill="rgba(255,182,39,0.08)" stroke="#FFB627" stroke-width="2"/>
+            <circle cx="512" cy="70" r="28" fill="#131826" stroke="#FFB627" stroke-width="2"/>
+            <path d="M512 83 L508 78 L508 67 Q512 58 516 67 L516 78 Z" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+            <circle cx="512" cy="70" r="3" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+            <text x="512" y="118" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="0.1em">DESPLIEGUE</text>
+            <!-- Completed badge -->
+            <rect x="460" y="138" width="108" height="22" rx="11" fill="rgba(255,182,39,0.15)" stroke="#FFB627" stroke-width="1"/>
+            <text x="514" y="153" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em">COMPLETADO</text>
+          </svg>
         </div>
       </section>
 
-      <!-- 04 — bullets: criterios de evaluación -->
+      <!-- 04 — bullets: el entregable: la Memoria del Proyecto -->
       <section class="slide" data-layout="bullets">
-        <span class="caption"><span class="caption-dot"></span>CRITERIOS DE EVALUACIÓN</span>
-        <h2 class="h1">Lo que <span class="text-aurora">importa</span> al evaluar</h2>
+        <span class="caption"><span class="caption-dot"></span>EL ENTREGABLE</span>
+        <h2 class="h1">El entregable: la <span class="text-aurora">Memoria del Proyecto</span></h2>
         <div class="emphasis-line"></div>
         <ul class="bullet-list">
           <li class="reveal" data-delay="1">
             <span class="bullet-num">01</span>
             <div>
-              <h3 class="h3">Producto desplegado y accesible</h3>
-              <p>URL pública que funciona. Criterio más importante. Sin URL, no hay proyecto.</p>
+              <h3 class="h3">La idea</h3>
+              <p>El problema que resuelve, el usuario objetivo y el momento mínimo de valor. En 1-2 párrafos.</p>
             </div>
           </li>
           <li class="reveal" data-delay="2">
             <span class="bullet-num">02</span>
             <div>
-              <h3 class="h3">Problema real resuelto</h3>
-              <p>El estudiante puede explicar en 30 segundos qué problema resuelve y para quién.</p>
+              <h3 class="h3">Los requisitos</h3>
+              <p>3-4 user stories escritas en formato "Como [usuario], quiero [funcionalidad], para [beneficio]". Cuáles son MVP y cuáles son backlog.</p>
             </div>
           </li>
           <li class="reveal" data-delay="3">
             <span class="bullet-num">03</span>
             <div>
-              <h3 class="h3">Ciclo iterativo visible</h3>
-              <p>Varios commits en GitHub que muestran el proceso de construcción, no solo el resultado final.</p>
+              <h3 class="h3">Lo que construiste</h3>
+              <p>Screenshot o URL de la app desplegada. Qué features implementaste con IA.</p>
             </div>
           </li>
           <li class="reveal" data-delay="4">
             <span class="bullet-num">04</span>
             <div>
-              <h3 class="h3">CLAUDE.md y estructura</h3>
-              <p>Proyecto bien organizado con CLAUDE.md que refleja lo aprendido en el Módulo 04.</p>
+              <h3 class="h3">El proceso</h3>
+              <p>El prompt más interesante que usaste. Qué fue difícil. Qué aprendiste.</p>
             </div>
           </li>
           <li class="reveal" data-delay="5">
             <span class="bullet-num">05</span>
             <div>
-              <h3 class="h3">Presentación honesta</h3>
-              <p>Qué fue difícil, qué no pudo terminar, qué haría diferente. No se puntúa la perfección técnica.</p>
+              <h3 class="h3">Hasta dónde llegaste</h3>
+              <p>No hace falta terminar. Lo importante es que expliques qué funciona, qué no, y qué harías diferente si empezaras hoy.</p>
             </div>
           </li>
         </ul>
+        <p class="footnote reveal" data-delay="6" style="color: var(--text-muted);">La IA puede ayudarte a redactar la memoria. El entregable es un PDF de 1-2 páginas, sin formato especial.</p>
       </section>
 
       <!-- 05 — section: capítulo 01 -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CAPÍTULO 01</span>
-        <h2 class="display-l text-aurora">La presentación</h2>
-        <p class="lead">Ocho minutos. Cinco bloques. Relajado, práctico, honesto.</p>
+        <h2 class="display-l text-aurora">La Memoria del Proyecto</h2>
+        <p class="lead">Un documento que cuenta el viaje: de la idea al producto desplegado.</p>
         <div class="shape shape--circle-sm" style="top: 62%; left: 72%;" data-parallax="0.4"></div>
       </section>
 
-      <!-- 06 — timeline: estructura de la presentación -->
+      <!-- 06 — timeline: estructura de la memoria -->
       <section class="slide" data-layout="timeline">
-        <span class="caption"><span class="caption-dot"></span>ESTRUCTURA DE LA PRESENTACIÓN</span>
-        <h2 class="h1">8 minutos, <span class="text-aurora">5 bloques</span></h2>
+        <span class="caption"><span class="caption-dot"></span>ESTRUCTURA DE LA MEMORIA</span>
+        <h2 class="h1">Estructura de la memoria — <span class="text-aurora">5 secciones</span></h2>
         <div class="emphasis-line"></div>
         <ol class="timeline timeline--5">
           <li class="timeline-step reveal" data-delay="1">
-            <span class="timeline-marker">1 MIN</span>
-            <h3 class="h3">El problema</h3>
-            <p>¿Qué problema resuelve? ¿Para quién? Historia concreta, no abstracciones.</p>
+            <span class="timeline-marker">1</span>
+            <h3 class="h3">La Idea</h3>
+            <p>El problema y el usuario. Una frase clara que cualquier persona entienda.</p>
           </li>
           <li class="timeline-step reveal" data-delay="2">
-            <span class="timeline-marker">2 MIN</span>
-            <h3 class="h3">La solución</h3>
-            <p>Demo en vivo de las funcionalidades principales. Flujo de usuario completo.</p>
+            <span class="timeline-marker">2</span>
+            <h3 class="h3">Los Requisitos</h3>
+            <p>3-4 user stories. El MVP que decidiste construir vs lo que dejaste para el backlog.</p>
           </li>
           <li class="timeline-step reveal" data-delay="3">
-            <span class="timeline-marker">2 MIN</span>
-            <h3 class="h3">El proceso</h3>
-            <p>Muestra el CLAUDE.md, un prompt interesante, el repositorio. ¿Cómo lo construiste?</p>
+            <span class="timeline-marker">3</span>
+            <h3 class="h3">Lo que Construiste</h3>
+            <p>URL + screenshot. Cada feature implementada con una línea de descripción.</p>
           </li>
           <li class="timeline-step reveal" data-delay="4">
-            <span class="timeline-marker">1 MIN</span>
-            <h3 class="h3">Los aprendizajes</h3>
-            <p>¿Qué fue más difícil? ¿Qué harías diferente? ¿Qué viene después?</p>
+            <span class="timeline-marker">4</span>
+            <h3 class="h3">El Proceso con IA</h3>
+            <p>El ciclo iterativo en tu proyecto real: un prompt interesante, qué fue bien, qué fue difícil.</p>
           </li>
           <li class="timeline-step reveal" data-delay="5">
-            <span class="timeline-marker">2 MIN</span>
-            <h3 class="h3">Preguntas</h3>
-            <p>El grupo sugiere mejoras y hace preguntas. Conversación abierta.</p>
+            <span class="timeline-marker">5</span>
+            <h3 class="h3">Reflexión</h3>
+            <p>Hasta dónde llegaste, qué cambiarías y cuál es el siguiente paso natural.</p>
           </li>
         </ol>
-        <p class="footnote reveal" data-delay="6">Total: 8 minutos. Relajado, práctico, honesto. El objetivo es compartir, no impresionar.</p>
+        <p class="footnote reveal" data-delay="6">Total: 1-2 páginas PDF. Sin plantilla específica. Escríbela con la IA si quieres — el contenido importa, no el formato.</p>
       </section>
 
-      <!-- 07 — split: perfecto vs honesto -->
+      <!-- 07 — split: una memoria vacía vs documentar el proceso real -->
       <section class="slide" data-layout="split">
-        <span class="caption"><span class="caption-dot"></span>CÓMO PRESENTAR</span>
-        <h2 class="h1">Perfecto vs <span class="text-aurora">honesto</span></h2>
+        <span class="caption"><span class="caption-dot"></span>CÓMO ESCRIBIR LA MEMORIA</span>
+        <h2 class="h1">Vacía vs <span class="text-aurora">honesta</span></h2>
         <div class="emphasis-line"></div>
         <div class="split-grid">
           <div class="split-col split-col--muted reveal" data-delay="1">
-            <span class="col-label">EL ENFOQUE EQUIVOCADO</span>
-            <h3 class="h2">Intentar impresionar</h3>
+            <span class="col-label">ENFOQUE EQUIVOCADO</span>
+            <h3 class="h2">Una memoria vacía de contenido</h3>
             <ul class="check-list check-list--minus">
-              <li>Esconder lo que no funcionó</li>
-              <li>Presentar solo el resultado final pulido</li>
-              <li>Evitar hablar de las dificultades</li>
-              <li>Prometer features que no existen</li>
-              <li>Compararte con productos comerciales</li>
+              <li>Solo copiar el código sin explicar qué hace</li>
+              <li>Presentar como completado algo que no funciona</li>
+              <li>Omitir las dificultades (son la parte más valiosa)</li>
+              <li>No mencionar qué rol tuvo la IA en cada parte</li>
+              <li>Esconder que no llegaste a terminar</li>
             </ul>
           </div>
           <div class="split-col split-col--accent reveal" data-delay="2">
-            <span class="col-label">EL ENFOQUE CORRECTO</span>
-            <h3 class="h2">Compartir el proceso</h3>
+            <span class="col-label">ENFOQUE CORRECTO</span>
+            <h3 class="h2">Documentar el proceso real</h3>
             <ul class="check-list check-list--plus">
-              <li>Mostrar qué fue difícil y por qué</li>
-              <li>Enseñar el repositorio y los commits reales</li>
-              <li>Explicar qué cambiarías si empezaras hoy</li>
-              <li>Ser específico sobre el problema que resuelve</li>
-              <li>Contextualizar lo que es un MVP y lo que viene</li>
+              <li>Explicar qué decisiones tomaste y por qué</li>
+              <li>Mostrar un prompt real que usaste con Claude</li>
+              <li>Ser honesto sobre qué no funcionó como esperabas</li>
+              <li>Decir explícitamente hasta dónde llegaste</li>
+              <li>Contextualizar el MVP: qué es y qué queda para después</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- 08 — section: presentaciones -->
+      <!-- 08 — section: trabajo en clase -->
       <section class="slide slide--center" data-layout="section">
-        <span class="caption"><span class="caption-dot"></span>PRESENTACIONES DE PROYECTOS</span>
-        <h2 class="display-l text-aurora">Ahora os toca a vosotros</h2>
-        <p class="lead">El profesor modera. Cada estudiante tiene 8 minutos. Escuchamos, preguntamos y aprendemos de cada proyecto.</p>
+        <span class="caption"><span class="caption-dot"></span>TRABAJO EN CLASE</span>
+        <h2 class="display-l text-aurora">Ahora <span class="text-aurora">os toca a vosotros</span></h2>
+        <p class="lead">Tiempo para escribir la memoria con ayuda de Claude. El profesor está disponible para dudas.</p>
+        <ol class="timeline timeline--3 reveal" data-delay="1" style="margin-top:2.5rem; text-align:left; max-width:680px;">
+          <li class="timeline-step">
+            <span class="timeline-marker">1</span>
+            <h3 class="h3">Abre tu proyecto</h3>
+            <p>Repasa qué construiste y qué tienes desplegado.</p>
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-marker">2</span>
+            <h3 class="h3">Pide ayuda a Claude</h3>
+            <p>"Ayúdame a redactar la memoria del proyecto siguiendo estas secciones: [pega las 5 secciones]"</p>
+          </li>
+          <li class="timeline-step">
+            <span class="timeline-marker">3</span>
+            <h3 class="h3">Revisa y exporta</h3>
+            <p>Personaliza el resultado, añade tu voz y exporta a PDF.</p>
+          </li>
+        </ol>
         <div class="shape shape--circle-sm" style="top: 68%; left: 76%; opacity: 0.15;" data-parallax="0.35"></div>
       </section>
 
@@ -252,10 +274,10 @@
         <span class="caption"><span class="caption-dot"></span>REFLEXIÓN</span>
         <div class="quote-block">
           <span class="quote-mark">&ldquo;</span>
-          <p class="quote-text">No aprendiste a programar. Aprendiste algo más difícil: a convertir <span class="text-aurora">ideas en productos</span>. El código es un detalle de implementación.</p>
+          <p class="quote-text">No aprendiste a programar. Aprendiste algo más difícil y más valioso: cómo definir qué construir, para quién, y por qué. El código es un detalle de implementación. <span class="text-aurora">El nexo entre negocio y software es la habilidad diferencial</span> de los próximos años.</p>
           <div class="quote-attribution">
             <strong>Marcos Cobo</strong>
-            <span>Profesor del curso &mdash; CIC 2026</span>
+            <span>Profesor del curso &middot; CIC 2026</span>
           </div>
         </div>
       </section>
@@ -317,73 +339,71 @@
         <span class="caption"><span class="caption-dot"></span>OPORTUNIDADES PROFESIONALES</span>
         <h2 class="h1">Cuatro caminos para el <span class="text-aurora">AI Product Developer</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
-          <div class="content-text">
-            <p class="lead">El perfil que has construido tiene aplicación inmediata en cuatro contextos distintos.</p>
-          </div>
-          <div class="content-media">
-            <svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" class="diagram" aria-label="Grid 2x2 de oportunidades profesionales para el AI Product Developer">
-              <!-- Card 1: Emprendimiento -->
-              <rect x="8" y="8" width="210" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
-              <!-- Rocket icon -->
-              <g transform="translate(32, 30)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
-                <path d="M16 2C16 2 24 10 24 18C24 24 20 28 16 28C12 28 8 24 8 18C8 10 16 2 16 2Z"/>
-                <circle cx="16" cy="18" r="4"/>
-                <path d="M8 24L4 28"/>
-                <path d="M24 24L28 28"/>
-              </g>
-              <text x="32" y="82" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">EMPRENDIMIENTO</text>
-              <foreignObject x="32" y="94" width="170" height="72">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
-                  Valida ideas en días. Lanza MVPs antes de invertir en infraestructura.
-                </div>
-              </foreignObject>
-              <!-- Card 2: Carrera -->
-              <rect x="242" y="8" width="210" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
-              <!-- Briefcase icon -->
-              <g transform="translate(266, 30)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
-                <rect x="4" y="10" width="24" height="18" rx="2"/>
-                <path d="M10 10V7C10 5.9 10.9 5 12 5H20C21.1 5 22 5.9 22 7V10"/>
-                <line x1="4" y1="19" x2="28" y2="19"/>
-              </g>
-              <text x="266" y="82" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">CARRERA</text>
-              <foreignObject x="266" y="94" width="170" height="72">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
-                  Uno de los perfiles más demandados en 2026. Complementa cualquier rol con capacidad técnica diferencial.
-                </div>
-              </foreignObject>
-              <!-- Card 3: Empresa -->
-              <rect x="8" y="204" width="210" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
-              <!-- Building icon -->
-              <g transform="translate(32, 226)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
-                <rect x="4" y="2" width="24" height="28" rx="1"/>
-                <line x1="4" y1="30" x2="28" y2="30"/>
-                <rect x="10" y="8" width="5" height="5"/>
-                <rect x="17" y="8" width="5" height="5"/>
-                <rect x="10" y="16" width="5" height="5"/>
-                <rect x="17" y="16" width="5" height="5"/>
-                <rect x="13" y="24" width="6" height="6"/>
-              </g>
-              <text x="32" y="278" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">EMPRESA</text>
-              <foreignObject x="32" y="290" width="170" height="72">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
-                  Automatiza procesos internos. Propón proyectos antes bloqueados por falta de ingeniería.
-                </div>
-              </foreignObject>
-              <!-- Card 4: Freelance -->
-              <rect x="242" y="204" width="210" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
-              <!-- Star icon -->
-              <g transform="translate(266, 226)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
-                <polygon points="16,2 20,11 30,12 22,20 24,30 16,25 8,30 10,20 2,12 12,11"/>
-              </g>
-              <text x="266" y="278" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">FREELANCE / CONSULTORÍA</text>
-              <foreignObject x="266" y="290" width="170" height="72">
-                <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
-                  Ayuda a organizaciones a construir sus primeros productos digitales con IA.
-                </div>
-              </foreignObject>
-            </svg>
-          </div>
+        <div class="content-text">
+          <p class="lead">El perfil que has construido tiene aplicación inmediata en cuatro contextos distintos.</p>
+        </div>
+        <div class="content-media" style="margin-top:1.5rem;">
+          <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" class="diagram" style="width:100%;max-width:100%;" aria-label="Grid 2x2 de oportunidades profesionales para el AI Product Developer">
+            <!-- Card 1: Emprendimiento -->
+            <rect x="8" y="8" width="300" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+            <!-- Rocket icon -->
+            <g transform="translate(32, 30)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
+              <path d="M16 2C16 2 24 10 24 18C24 24 20 28 16 28C12 28 8 24 8 18C8 10 16 2 16 2Z"/>
+              <circle cx="16" cy="18" r="4"/>
+              <path d="M8 24L4 28"/>
+              <path d="M24 24L28 28"/>
+            </g>
+            <text x="32" y="82" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">EMPRENDIMIENTO</text>
+            <foreignObject x="32" y="94" width="260" height="72">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
+                Valida ideas en días. Lanza MVPs antes de invertir en infraestructura.
+              </div>
+            </foreignObject>
+            <!-- Card 2: Carrera -->
+            <rect x="332" y="8" width="300" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+            <!-- Briefcase icon -->
+            <g transform="translate(356, 30)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
+              <rect x="4" y="10" width="24" height="18" rx="2"/>
+              <path d="M10 10V7C10 5.9 10.9 5 12 5H20C21.1 5 22 5.9 22 7V10"/>
+              <line x1="4" y1="19" x2="28" y2="19"/>
+            </g>
+            <text x="356" y="82" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">CARRERA</text>
+            <foreignObject x="356" y="94" width="260" height="72">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
+                Uno de los perfiles más demandados en 2026. Complementa cualquier rol con capacidad técnica diferencial.
+              </div>
+            </foreignObject>
+            <!-- Card 3: Empresa -->
+            <rect x="8" y="204" width="300" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+            <!-- Building icon -->
+            <g transform="translate(32, 226)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
+              <rect x="4" y="2" width="24" height="28" rx="1"/>
+              <line x1="4" y1="30" x2="28" y2="30"/>
+              <rect x="10" y="8" width="5" height="5"/>
+              <rect x="17" y="8" width="5" height="5"/>
+              <rect x="10" y="16" width="5" height="5"/>
+              <rect x="17" y="16" width="5" height="5"/>
+              <rect x="13" y="24" width="6" height="6"/>
+            </g>
+            <text x="32" y="278" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">EMPRESA</text>
+            <foreignObject x="32" y="290" width="260" height="72">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
+                Automatiza procesos internos. Propón proyectos antes bloqueados por falta de ingeniería.
+              </div>
+            </foreignObject>
+            <!-- Card 4: Freelance -->
+            <rect x="332" y="204" width="300" height="168" rx="16" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+            <!-- Star icon -->
+            <g transform="translate(356, 226)" stroke="#7B4DFF" stroke-width="1.5" fill="none">
+              <polygon points="16,2 20,11 30,12 22,20 24,30 16,25 8,30 10,20 2,12 12,11"/>
+            </g>
+            <text x="356" y="278" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.12em">FREELANCE / CONSULTORÍA</text>
+            <foreignObject x="356" y="290" width="260" height="72">
+              <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 13px; color: #8B8D98; line-height: 1.5;">
+                Ayuda a organizaciones a construir sus primeros productos digitales con IA.
+              </div>
+            </foreignObject>
+          </svg>
         </div>
       </section>
 
@@ -433,7 +453,7 @@
             <span class="bullet-num">05</span>
             <div>
               <h3 class="h3">La mejor práctica</h3>
-              <p>Construye un proyecto pequeño cada mes. Usa la IA para aprender haciendo, no solo para hacer.</p>
+              <p>Construye un nuevo proyecto cada 3-6 meses con las herramientas más actuales de ese momento. Usa la IA para aprender haciendo, no solo para hacer.</p>
             </div>
           </li>
         </ul>
@@ -444,46 +464,43 @@
         <span class="caption"><span class="caption-dot"></span>HOJA DE RUTA</span>
         <h2 class="h1">El mapa de <span class="text-aurora">progresión</span></h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
-          <div class="content-text">
-            <p class="lead">El mapa natural de crecimiento después de este curso. La IA te acompaña en cada nivel.</p>
-            <p>Lo que cambia es la complejidad de lo que le pides.</p>
-          </div>
-          <div class="content-media">
-            <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" class="diagram" aria-label="Mapa de progresión de 5 niveles para el AI Product Developer">
-              <defs>
-                <linearGradient id="auroraGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#7B4DFF" stop-opacity="0.4"/>
-                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.4"/>
-                </linearGradient>
-              </defs>
-              <!-- Level 1: COMPLETADO -->
-              <rect x="8" y="8" width="444" height="54" rx="10" fill="rgba(255,182,39,0.06)" stroke="#FFB627" stroke-width="1"/>
-              <text x="24" y="28" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 1</text>
-              <text x="24" y="46" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Un MVP con stack básico — Node.js + SQLite</text>
-              <!-- Check badge -->
-              <circle cx="424" cy="35" r="14" fill="rgba(255,182,39,0.15)" stroke="#FFB627" stroke-width="1"/>
-              <text x="424" y="40" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="14">&#x2713;</text>
-              <rect x="88" y="16" width="88" height="18" rx="9" fill="rgba(255,182,39,0.2)"/>
-              <text x="132" y="28" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em">COMPLETADO</text>
-              <!-- Level 2 -->
-              <rect x="8" y="74" width="444" height="54" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
-              <text x="24" y="94" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 2</text>
-              <text x="24" y="112" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Autenticación robusta, pagos con Stripe, notificaciones</text>
-              <!-- Level 3 -->
-              <rect x="8" y="140" width="444" height="54" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
-              <text x="24" y="160" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 3</text>
-              <text x="24" y="178" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">APIs externas, integraciones, webhooks, queues</text>
-              <!-- Level 4 -->
-              <rect x="8" y="206" width="444" height="54" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
-              <text x="24" y="226" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 4</text>
-              <text x="24" y="244" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Escalar: múltiples instancias, caché, CDN, optimización BD</text>
-              <!-- Level 5 -->
-              <rect x="8" y="272" width="444" height="54" rx="10" fill="#131826" stroke="url(#auroraGrad2)" stroke-width="1.5"/>
-              <text x="24" y="292" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 5</text>
-              <text x="24" y="310" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Construir para otros: equipo, contratos, SLAs</text>
-            </svg>
-          </div>
+        <div class="content-text">
+          <p class="lead">El mapa natural de crecimiento después de este curso. La IA te acompaña en cada nivel.</p>
+        </div>
+        <div class="content-media" style="margin-top:1.5rem;">
+          <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" class="diagram" style="width:100%;max-width:100%;" aria-label="Mapa de progresión de 5 niveles para el AI Product Developer">
+            <defs>
+              <linearGradient id="m07-auroraGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#7B4DFF" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.4"/>
+              </linearGradient>
+            </defs>
+            <!-- Level 1: COMPLETADO -->
+            <rect x="8" y="8" width="624" height="54" rx="10" fill="rgba(255,182,39,0.06)" stroke="#FFB627" stroke-width="1"/>
+            <text x="24" y="28" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 1</text>
+            <text x="24" y="46" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Un MVP con stack básico — Node.js + SQLite</text>
+            <!-- Check badge -->
+            <circle cx="604" cy="35" r="14" fill="rgba(255,182,39,0.15)" stroke="#FFB627" stroke-width="1"/>
+            <text x="604" y="40" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="14">&#x2713;</text>
+            <rect x="88" y="16" width="88" height="18" rx="9" fill="rgba(255,182,39,0.2)"/>
+            <text x="132" y="28" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em">COMPLETADO</text>
+            <!-- Level 2 -->
+            <rect x="8" y="74" width="624" height="54" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+            <text x="24" y="94" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 2</text>
+            <text x="24" y="112" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Autenticación robusta, pagos con Stripe, notificaciones</text>
+            <!-- Level 3 -->
+            <rect x="8" y="140" width="624" height="54" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+            <text x="24" y="160" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 3</text>
+            <text x="24" y="178" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">APIs externas, integraciones, webhooks, queues</text>
+            <!-- Level 4 -->
+            <rect x="8" y="206" width="624" height="54" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+            <text x="24" y="226" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 4</text>
+            <text x="24" y="244" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Escalar: múltiples instancias, caché, CDN, optimización BD</text>
+            <!-- Level 5 -->
+            <rect x="8" y="272" width="624" height="54" rx="10" fill="#131826" stroke="url(#m07-auroraGrad2)" stroke-width="1.5"/>
+            <text x="24" y="292" fill="#FFB627" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500">NIVEL 5</text>
+            <text x="24" y="310" fill="#ECEAE3" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="500">Construir para otros: equipo, contratos, SLAs</text>
+          </svg>
         </div>
       </section>
 
@@ -527,10 +544,11 @@
         <p class="lead">Tienes las herramientas, el entorno y el proceso. Lo único que queda es elegir qué quieres construir.</p>
         <div class="cta-row">
           <a class="btn btn--primary" href="../../../index.html">Volver al inicio</a>
-          <a class="btn btn--ghost" href="mailto:mcobo@cic.es">mcobo@cic.es</a>
-          <a class="btn btn--ghost" href="https://cic.es">cic.es</a>
+          <a class="btn btn--ghost" href="mailto:contact@marcoscobo.com">contact@marcoscobo.com</a>
+          <a class="btn btn--ghost" href="https://marcoscobo.com">marcoscobo.com</a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/marcoscobo">LinkedIn</a>
         </div>
-        <p class="footnote">¿Preguntas después del curso? El mejor lugar para preguntar es construyendo y encontrando el obstáculo real. Luego, mcobo@cic.es.</p>
+        <p class="footnote">¿Preguntas después del curso? Encuéntrame en contact@marcoscobo.com o marcoscobo.com. El mejor lugar para seguir aprendiendo es construyendo el siguiente proyecto.</p>
         <div class="shape shape--circle" data-parallax="0.4"></div>
         <div class="shape shape--arc" data-parallax="0.6"></div>
       </section>
