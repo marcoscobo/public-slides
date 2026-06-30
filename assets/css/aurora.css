@@ -677,6 +677,10 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
   color: var(--text);
 }
 .mini-stat-number.text-aurora { color: transparent; }
+.mini-stat-number--violet { color: var(--violet); }
+.mini-stat-number--amber  { color: var(--amber); }
+/* Unidad de mini-stat (días, €/mes, min) a escala reducida */
+.mini-stat-unit { font-size: 48px; font-weight: 500; opacity: 0.8; }
 .mini-stat-label {
   font-family: var(--ff-body);
   font-size: 16px;
@@ -1210,7 +1214,29 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 }
 
 /* --------------------------------------------------------------------------
-   25. Navegación en pantalla (táctil / sin teclado)
+   25. Modificadores de slide adicionales
+   -------------------------------------------------------------------------- */
+
+/* Demo en vivo: ámbar→cian para señalizar actividad demostrativa del profesor */
+.slide--demo .caption-dot {
+  background: var(--amber);
+  box-shadow: 0 0 12px rgba(255, 182, 39, 0.5);
+}
+.slide--demo .emphasis-line {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--cyan) 100%);
+}
+
+/* Acento ámbar: aviso editorial o énfasis de riesgo */
+.slide--accent-amber .caption-dot {
+  background: var(--amber);
+  box-shadow: 0 0 12px rgba(255, 182, 39, 0.5);
+}
+.slide--accent-amber .emphasis-line {
+  background: linear-gradient(135deg, var(--amber) 0%, var(--rose) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   26. Navegación en pantalla (táctil / sin teclado)
    deck.js inyecta estos botones y los activa en dispositivos con puntero
    grueso. En desktop con teclado permanecen ocultos.
    -------------------------------------------------------------------------- */
@@ -1248,7 +1274,7 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 }
 
 /* --------------------------------------------------------------------------
-   26. Responsive — móvil en vertical (modo flujo)
+   27. Responsive — móvil en vertical (modo flujo)
    El deck se diseña sobre un canvas fijo 1920x1080 que deck.js escala al
    viewport (modo "canvas": ideal en desktop y tablet/móvil en horizontal).
    En pantallas estrechas ese escalado dejaría el contenido diminuto, así que
