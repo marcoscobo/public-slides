@@ -268,6 +268,8 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 /* Línea de énfasis aurora */
@@ -1284,7 +1286,7 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
    Las slides altas hacen scroll vertical interno; el cambio de slide es swipe
    horizontal o flechas en pantalla.
    -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   /* Tokens tipográficos reducidos — cascada a todo lo que usa las variables */
   :root {
     --fs-display-xl: 44px;
@@ -1367,4 +1369,111 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
   /* Reducir formas decorativas para que no saturen el ancho */
   .shape--circle { width: 240px; height: 240px; }
   .shape--arc    { width: 320px; height: 320px; }
+}
+
+/* --------------------------------------------------------------------------
+   28. Modo exportación (PDF vía decktape, tools/generate-pdfs.sh)
+   decktape captura cada slide con page.pdf() emulando media "screen" (nunca
+   "print"), así que ninguna regla @media print de más abajo llega a aplicar
+   en ese pipeline. Estas reglas van sin media query, activadas por la clase
+   .is-exporting que deck.js añade cuando la URL trae ?export=1.
+
+   El fallback de .text-aurora a color sólido no es un capricho: Chromium/Skia
+   no compone bien el degradado de background-clip:text al exportar a PDF
+   cuando el texto es grande y cruza un límite interno de tile (~512px desde
+   el borde) — el clip falla a partir de ahí y deja un rectángulo sólido del
+   gradiente sin recortar tapando el resto del texto. Verificado con "IA
+   generativa" (144px) y "El momento histórico" (104px): ambos rompen en la
+   misma coordenada horizontal absoluta. Un color sólido evita el bug del
+   todo, al precio de perder el degradado violeta→cian en el PDF.
+   -------------------------------------------------------------------------- */
+.is-exporting .text-aurora {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: var(--violet);
+  -webkit-text-fill-color: var(--violet);
+}
+.is-exporting .progress-bar,
+.is-exporting .deck-nav,
+.is-exporting .overview {
+  display: none !important;
+}
+/* El box-shadow con blur sobre un círculo de 8px se rasteriza como un
+   cuadrado sólido en el mismo pipeline de PDF; sin blur, el border-radius
+   se compone correctamente. */
+.is-exporting .caption-dot {
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   29. Impresión / exportación a PDF
+   El deck está pensado para presentarse en vivo: deck.js escala el canvas fijo
+   1920x1080 al viewport con un transform calculado en JS, y solo la slide
+   .is-active es visible. Sin reglas de impresión, "Imprimir a PDF" captura esa
+   vista de pantalla tal cual —una sola slide, con el transform de escala de
+   pantalla— y las formas decorativas (position:absolute + blur calibradas
+   para ese canvas) quedan descuadradas y tapan el texto. Aquí se sustituye el
+   canvas escalado por flujo de documento normal: cada slide ocupa una página
+   física de tamaño idéntico al canvas (1920x1080px = 20in x 11.25in a 96dpi),
+   sin transform ni JS de por medio.
+   -------------------------------------------------------------------------- */
+@media print {
+  @page {
+    size: 20in 11.25in;
+    margin: 0;
+  }
+
+  html, body {
+    height: auto;
+    width: auto;
+    overflow: visible;
+    background: var(--ink);
+  }
+
+  .deck {
+    position: static;
+    overflow: visible;
+  }
+
+  .deck-stage {
+    position: static;
+    width: auto !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .slide {
+    position: relative;
+    inset: auto;
+    width: var(--canvas-w);
+    height: var(--canvas-h);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+
+  /* Las formas flotantes dependen de blur y drift calibrados para pantalla;
+     en una página estática no aportan y desalinean sobre el texto. */
+  .shape { display: none !important; }
+
+  /* Controles de presentación en vivo, sin sentido en un documento estático */
+  .deck-nav, .progress-bar, .overview { display: none !important; }
+
+  /* El contenido debe imprimirse ya resuelto, no a medio animar */
+  .reveal, .slide > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }

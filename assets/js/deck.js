@@ -6,6 +6,17 @@
 (function () {
   'use strict';
 
+  // ---------- Modo exportación (PDF vía decktape) ------------------------
+  // decktape captura cada slide con page.pdf() emulando media "screen", así
+  // que @media print nunca se activa aquí. tools/generate-pdfs.sh añade
+  // ?export=1 a la URL para que podamos desactivar por CSS lo que solo tiene
+  // sentido en una presentación en vivo (barra de progreso, controles táctiles)
+  // y el gradiente de .text-aurora, que Chromium no compone bien en PDF para
+  // textos grandes (el clip falla al cruzar un límite interno de tile).
+  if (/[?&]export=1\b/.test(window.location.search)) {
+    document.documentElement.classList.add('is-exporting');
+  }
+
   const deck = document.querySelector('.deck');
   if (!deck) return;
 
@@ -247,6 +258,27 @@
       }
       requestAnimationFrame(step);
     });
+  }
+
+  // ---------- Impresión / exportación a PDF -------------------------------
+  // triggerSlideAnimations solo corre para la slide activa al navegar, así
+  // que el resto de .count-up del documento se queda en su valor inicial
+  // ("0%", "0x"...) cuando se imprimen todas las slides de golpe. Al detectar
+  // impresión, resolvemos cada contador a su valor final sin animación.
+  function finalizeCountUps() {
+    document.querySelectorAll('.count-up').forEach((el) => {
+      const target = parseFloat(el.dataset.target || '0');
+      const suffix = el.dataset.suffix || '';
+      const decimals = parseInt(el.dataset.decimals || '0', 10);
+      el.textContent = target.toFixed(decimals) + suffix;
+    });
+  }
+  window.addEventListener('beforeprint', finalizeCountUps);
+  if (window.matchMedia) {
+    const printQuery = window.matchMedia('print');
+    const onPrintChange = (e) => { if (e.matches) finalizeCountUps(); };
+    if (printQuery.addEventListener) printQuery.addEventListener('change', onPrintChange);
+    else if (printQuery.addListener) printQuery.addListener(onPrintChange);
   }
 
   // ---------- Parallax suave en formas decorativas ----------------------
