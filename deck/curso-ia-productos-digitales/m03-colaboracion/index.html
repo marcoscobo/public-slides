@@ -51,22 +51,22 @@
             <p class="lead">Git guarda una fotografía del proyecto en cada momento importante. Si algo falla, vuelves a cualquier punto anterior en segundos.</p>
             <p>Con la IA esto es todavía más valioso: el agente hace cambios grandes sin preguntar. Un commit previo te permite deshacer todo con un solo comando.</p>
             <div style="margin-top:1.2rem;">
-              <div style="font-size:14px; font-weight:700; color:#7B4DFF; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.8rem; font-family:'Space Grotesk',sans-serif;">Instalar Git</div>
-              <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem;">
-                <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.6rem;">
-                  <div style="font-size:16px; color:#ECEAE3; font-weight:600; margin-bottom:0.3rem; font-family:'Space Grotesk',sans-serif;">🪟 Windows</div>
-                  <div style="font-size:13px; color:#8B8D98; font-family:'JetBrains Mono',monospace; line-height:1.5;">git-scm.com<br>→ instalar</div>
+              <span class="col-label col-label--violet">Instalar Git</span>
+              <div class="info-grid info-grid--3">
+                <div class="info-card info-card--sm">
+                  <p class="info-card-title">🪟 Windows</p>
+                  <p class="info-card-text"><code>git-scm.com</code><br>→ instalar</p>
                 </div>
-                <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.6rem;">
-                  <div style="font-size:16px; color:#ECEAE3; font-weight:600; margin-bottom:0.3rem; font-family:'Space Grotesk',sans-serif;">🍎 Mac</div>
-                  <div style="font-size:13px; color:#FFB627; font-family:'JetBrains Mono',monospace; line-height:1.5;">brew install<br>git</div>
+                <div class="info-card info-card--sm">
+                  <p class="info-card-title">🍎 Mac</p>
+                  <p class="info-card-text"><code>brew install git</code></p>
                 </div>
-                <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.6rem;">
-                  <div style="font-size:16px; color:#ECEAE3; font-weight:600; margin-bottom:0.3rem; font-family:'Space Grotesk',sans-serif;">🐧 Linux</div>
-                  <div style="font-size:13px; color:#FFB627; font-family:'JetBrains Mono',monospace; line-height:1.5;">apt install<br>git</div>
+                <div class="info-card info-card--sm">
+                  <p class="info-card-title">🐧 Linux</p>
+                  <p class="info-card-text"><code>apt install git</code></p>
                 </div>
               </div>
-              <div style="margin-top:0.5rem; font-size:13px; color:#8B8D98; font-family:'JetBrains Mono',monospace;">Verificar: git --version</div>
+              <div class="tip-box tip-box--violet"><p>Verificar: <code>git --version</code></p></div>
             </div>
           </div>
           <div class="content-media" style="overflow:visible;">
@@ -118,23 +118,23 @@
         <span class="caption"><span class="caption-dot"></span>CÓMO FUNCIONA</span>
         <h2 class="h1">De tu ordenador a <span class="text-aurora">GitHub</span></h2>
         <div class="emphasis-line"></div>
-        <p style="font-size:18px; color:#8B8D98; margin-bottom:0.8rem;">Git tiene cuatro zonas. Cada comando mueve los cambios de una zona a la siguiente. <a href="https://github.com" style="color:#7B4DFF; text-decoration:none;">github.com</a> — crea tu cuenta si aún no tienes.</p>
-        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.7rem; margin-bottom:1.2rem;">
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Working Directory</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.5;">Donde editas los archivos. Los cambios aún no están registrados por Git.</div>
+        <p class="note-muted">Git tiene cuatro zonas. Cada comando mueve los cambios de una zona a la siguiente. <a href="https://github.com" class="link-aurora">github.com</a> — crea tu cuenta si aún no tienes.</p>
+        <div class="info-grid info-grid--4" style="margin-top:0; margin-bottom:1.2rem;">
+          <div class="info-card info-card--sm">
+            <p class="info-card-title">Working Directory</p>
+            <p class="info-card-text">Donde editas los archivos. Los cambios aún no están registrados por Git.</p>
           </div>
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Staging Area</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.5;">La sala de espera. Preparas qué va en el próximo commit con <code style="color:#7B4DFF;">git add</code>.</div>
+          <div class="info-card info-card--sm">
+            <p class="info-card-title">Staging Area</p>
+            <p class="info-card-text">La sala de espera. Preparas qué va en el próximo commit con <code>git add</code>.</p>
           </div>
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Repositorio Local</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.5;">El historial en tu máquina. Commits guardados con <code style="color:#7B4DFF;">git commit</code>.</div>
+          <div class="info-card info-card--sm">
+            <p class="info-card-title">Repositorio Local</p>
+            <p class="info-card-text">El historial en tu máquina. Commits guardados con <code>git commit</code>.</p>
           </div>
-          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:8px; padding:0.8rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#7B4DFF; margin-bottom:0.4rem;">GitHub (Remoto)</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.5;">La nube. Copia de seguridad y punto de despliegue. Se sube con <code style="color:#7B4DFF;">git push</code>.</div>
+          <div class="info-card info-card--sm info-card--violet">
+            <p class="info-card-title">GitHub (Remoto)</p>
+            <p class="info-card-text">La nube. Copia de seguridad y punto de despliegue. Se sube con <code>git push</code>.</p>
           </div>
         </div>
         <svg viewBox="0 0 880 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Flujo de Git en cuatro zonas con git add, git commit, git push y git pull">
@@ -249,8 +249,8 @@
             <p class="lead"><code>.gitignore</code> es una lista de archivos y carpetas que Git debe ignorar completamente. Nunca los incluirá en ningún commit.</p>
             <p>Sin este archivo, podrías subir accidentalmente a GitHub tus claves de API, tokens de acceso, contraseñas de bases de datos o carpetas de cientos de megabytes de dependencias.</p>
             <p>Se crea en la raíz del proyecto y Git lo lee automáticamente. Lo primero que hace la IA cuando inicializa un proyecto es generar este archivo.</p>
-            <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:8px; padding:0.8rem; margin-top:1rem;">
-              <p style="font-size:16px; color:#FFB627; margin:0;"><strong>Regla de oro:</strong> si no quieres que el mundo lo vea, está en <code>.gitignore</code>. Si necesita viajar con el proyecto, está en el repo.</p>
+            <div class="tip-box tip-box--amber">
+              <p><strong>Regla de oro:</strong> si no quieres que el mundo lo vea, está en <code>.gitignore</code>. Si necesita viajar con el proyecto, está en el repo.</p>
             </div>
           </div>
           <div class="content-media">
@@ -305,7 +305,7 @@
             <p class="lead">La rama <code>main</code> es la versión estable de tu proyecto. Las ramas de feature permiten probar cambios sin afectar a main.</p>
             <p>Con IA, usa ramas para experimentar: si Claude Code o Antigravity sugiere una refactorización grande, hazlo en una rama nueva. Si funciona, la fusionas. Si no, la borras sin consecuencias.</p>
             <p><code>git checkout -b feature/mi-experimento</code></p>
-            <p style="font-size:16px; color:#8B8D98;">Este es el flujo básico. En el siguiente slide vemos cómo escalar esto al estándar completo de equipos.</p>
+            <p class="note-muted">Este es el flujo básico. En el siguiente slide vemos cómo escalar esto al estándar completo de equipos.</p>
           </div>
           <div class="content-media" style="overflow:visible;">
             <svg viewBox="0 0 580 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Árbol de ramas Git: main estable y dos ramas feature que se fusionan de vuelta">
@@ -349,12 +349,12 @@
         <div class="content-grid" style="grid-template-columns:1fr 1.8fr;">
           <div class="content-text">
             <p class="lead">Gitflow es el estándar que usan la mayoría de equipos profesionales. Añade dos ramas permanentes y reglas claras de cuándo hacer cada cosa.</p>
-            <ul style="list-style:none; padding:0; margin:0; font-size:18px; color:#8B8D98; line-height:2;">
-              <li><span style="color:#7B4DFF; font-weight:700;">main</span> — código en producción. Solo recibe de release o hotfix.</li>
-              <li><span style="color:#00D4FF; font-weight:700;">develop</span> — integración continua. Features van aquí.</li>
-              <li><span style="color:#FFB627; font-weight:700;">feature/*</span> — nuevas funcionalidades desde develop.</li>
-              <li><span style="color:#C6FF3D; font-weight:700;">release/*</span> — preparar una versión. Va de develop a main.</li>
-              <li><span style="color:#FF5B7A; font-weight:700;">hotfix/*</span> — parches urgentes desde main, vuelven a develop.</li>
+            <ul class="plain-list">
+              <li><strong class="text-violet">main</strong> — código en producción. Solo recibe de release o hotfix.</li>
+              <li><strong class="text-cyan">develop</strong> — integración continua. Features van aquí.</li>
+              <li><strong class="text-amber">feature/*</strong> — nuevas funcionalidades desde develop.</li>
+              <li><strong class="text-lime">release/*</strong> — preparar una versión. Va de develop a main.</li>
+              <li><strong class="text-rose">hotfix/*</strong> — parches urgentes desde main, vuelven a develop.</li>
             </ul>
           </div>
           <div class="content-media" style="overflow:visible;">
@@ -462,19 +462,19 @@
             <p>La IA puede generar y mantener este estilo automáticamente. Basta con indicarlo en el <code>CLAUDE.md</code>: "usa Conventional Commits en todos los mensajes".</p>
           </div>
           <div class="content-media">
-            <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:12px; padding:1.4rem; font-family:'JetBrains Mono',monospace; font-size:18px; line-height:2.2;">
-              <div style="color:#7B4DFF; margin-bottom:0.4rem; font-weight:700; font-family:'Space Grotesk',sans-serif; font-size:14px; text-transform:uppercase; letter-spacing:0.5px;">Tipos de commit</div>
-              <div><span style="color:#00D4FF;">feat:</span> <span style="color:#8B8D98;">nueva funcionalidad — sube la versión minor</span></div>
-              <div><span style="color:#FF5B7A;">fix:</span> <span style="color:#8B8D98;">corrección de un bug — sube la versión patch</span></div>
-              <div><span style="color:#FFB627;">docs:</span> <span style="color:#8B8D98;">solo documentación, sin cambios de código</span></div>
-              <div><span style="color:#C6FF3D;">refactor:</span> <span style="color:#8B8D98;">reorganización sin cambiar comportamiento</span></div>
-              <div><span style="color:#7B4DFF;">test:</span> <span style="color:#8B8D98;">añadir o corregir tests</span></div>
-              <div><span style="color:#8B8D98;">chore:</span> <span style="color:#8B8D98;">tareas de mantenimiento sin impacto</span></div>
-              <div style="margin-top:1rem; border-top:1px solid #1F2638; padding-top:1rem;">
-                <span style="color:#8B8D98; font-size:16px;">Ejemplos reales:</span>
-                <div style="color:#ECEAE3; margin-top:0.4rem;">feat: añadir login con Google</div>
-                <div style="color:#ECEAE3;">fix: corregir error en el carrito al vaciar</div>
-                <div style="color:#ECEAE3;">docs: actualizar README con los requisitos</div>
+            <div class="info-card info-card--nested info-card--mono">
+              <span class="col-label col-label--violet">Tipos de commit</span>
+              <div><span class="text-cyan">feat:</span> <span class="text-muted">nueva funcionalidad — sube la versión minor</span></div>
+              <div><span class="text-rose">fix:</span> <span class="text-muted">corrección de un bug — sube la versión patch</span></div>
+              <div><span class="text-amber">docs:</span> <span class="text-muted">solo documentación, sin cambios de código</span></div>
+              <div><span class="text-lime">refactor:</span> <span class="text-muted">reorganización sin cambiar comportamiento</span></div>
+              <div><span class="text-violet">test:</span> <span class="text-muted">añadir o corregir tests</span></div>
+              <div><span class="text-muted">chore:</span> <span class="text-muted">tareas de mantenimiento sin impacto</span></div>
+              <div class="card-divider">
+                <span class="text-muted">Ejemplos reales:</span>
+                <div style="margin-top:0.4rem;">feat: añadir login con Google</div>
+                <div>fix: corregir error en el carrito al vaciar</div>
+                <div>docs: actualizar README con los requisitos</div>
               </div>
             </div>
           </div>
@@ -489,13 +489,13 @@
         <div class="content-grid" style="grid-template-columns:1fr;">
           <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:1.4rem; align-items:start; margin-bottom:0.8rem;">
             <div>
-              <p class="lead" style="font-size:18px;">GitHub no es solo donde guardas el código. Es el disparador del redespliegue automático: cada <code>git push</code> actualiza tu URL pública en segundos.</p>
-              <p style="font-size:18px; color:#8B8D98;">Gratis para proyectos personales y también tu portfolio técnico visible para cualquier reclutador o colaborador.</p>
+              <p class="lead">GitHub no es solo donde guardas el código. Es el disparador del redespliegue automático: cada <code>git push</code> actualiza tu URL pública en segundos.</p>
+              <p class="note-muted">Gratis para proyectos personales y también tu portfolio técnico visible para cualquier reclutador o colaborador.</p>
             </div>
-            <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:10px; padding:0.8rem;">
-              <div style="font-size:14px; color:#7B4DFF; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">Plataforma del curso</div>
-              <div style="font-size:22px; color:#ECEAE3; font-weight:700; font-family:'Space Grotesk',sans-serif;">Vercel</div>
-              <div style="font-size:16px; color:#8B8D98; margin-top:0.3rem;">Deploy automático desde GitHub. Gratis para proyectos personales.</div>
+            <div class="info-card info-card--sm info-card--violet">
+              <span class="col-label col-label--violet">Plataforma del curso</span>
+              <p class="info-card-title">Vercel</p>
+              <p class="info-card-text">Deploy automático desde GitHub. Gratis para proyectos personales.</p>
             </div>
           </div>
           <svg viewBox="0 0 880 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Pipeline de despliegue: tu ordenador a URL pública pasando por GitHub y Vercel">
@@ -566,32 +566,32 @@
         <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO · PAUSA</span>
         <h2 class="h1">Crea tu cuenta en GitHub y tu <span class="text-aurora">primer repositorio</span></h2>
         <div class="emphasis-line"></div>
-        <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:12px; padding:1.4rem; margin-bottom:1.2rem;">
-          <p style="font-size:18px; color:#FFB627; font-family:'Space Grotesk',sans-serif; font-weight:700; margin:0 0 0.6rem;">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
-          <p style="font-size:18px; color:#8B8D98; margin:0; line-height:1.5;">Demostrar cómo crear un repo en GitHub y clonarlo. Dar tiempo a los participantes para crear su cuenta y replicarlo.</p>
+        <div class="notice-box">
+          <p class="notice-box-title">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
+          <p class="notice-box-text">Demostrar cómo crear un repo en GitHub y clonarlo. Dar tiempo a los participantes para crear su cuenta y replicarlo.</p>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem;">
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#00D4FF; margin-bottom:0.8rem;">Opción A — GitHub primero</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
+        <div class="info-grid info-grid--2">
+          <div class="info-card info-card--cyan">
+            <p class="info-card-title">Opción A — GitHub primero</p>
+            <ol class="info-card-list">
               <li>Crear repo en github.com</li>
-              <li><code style="color:#7B4DFF;">git clone &lt;url&gt;</code></li>
-              <li>Abrir en VS Code: <code style="color:#7B4DFF;">code .</code></li>
+              <li><code>git clone &lt;url&gt;</code></li>
+              <li>Abrir en VS Code: <code>code .</code></li>
               <li>Hacer el primer commit y push</li>
             </ol>
           </div>
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#7B4DFF; margin-bottom:0.8rem;">Opción B — Terminal primero</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
-              <li><code style="color:#7B4DFF;">git init my-first-repo</code></li>
+          <div class="info-card info-card--violet">
+            <p class="info-card-title">Opción B — Terminal primero</p>
+            <ol class="info-card-list">
+              <li><code>git init my-first-repo</code></li>
               <li>Añadir archivos y hacer commit</li>
               <li>Crear repo en GitHub (vacío)</li>
-              <li><code style="color:#7B4DFF;">git remote add origin &lt;url&gt;</code></li>
+              <li><code>git remote add origin &lt;url&gt;</code></li>
             </ol>
           </div>
         </div>
-        <div style="margin-top:1rem; background:#0B0F1A; border:1px solid #00D4FF33; border-radius:8px; padding:0.8rem 1.2rem;">
-          <p style="font-size:16px; color:#8B8D98; margin:0;">Instalar Git: <code style="color:#7B4DFF;">git-scm.com</code> (Win) · <code style="color:#7B4DFF;">brew install git</code> (Mac) · <code style="color:#7B4DFF;">apt install git</code> (Linux). Verificar: <code style="color:#00D4FF;">git --version</code></p>
+        <div class="tip-box tip-box--cyan">
+          <p>Instalar Git: <code class="link-aurora">git-scm.com</code> (Win) · <code class="link-aurora">brew install git</code> (Mac) · <code class="link-aurora">apt install git</code> (Linux). Verificar: <code class="text-cyan">git --version</code></p>
         </div>
       </section>
 
@@ -627,9 +627,9 @@
         <div class="content-grid">
           <div class="content-text">
             <p class="lead">Cada archivo tiene una razón de ser. La IA espera encontrar cada pieza en su lugar para trabajar con mayor eficiencia.</p>
-            <p>El archivo más importante para la IA es <code style="color:#FFB627;">CLAUDE.md</code> (o su equivalente en Antigravity): le dice quién eres, qué hace el proyecto, qué convenciones seguir y qué nunca debe hacer.</p>
+            <p>El archivo más importante para la IA es <code class="text-amber">CLAUDE.md</code> (o su equivalente en Antigravity): le dice quién eres, qué hace el proyecto, qué convenciones seguir y qué nunca debe hacer.</p>
             <p>Antigravity usa un archivo equivalente (el nombre varía por agente, pero el concepto es el mismo). Cada agente tiene su forma de recibir contexto, pero todos lo necesitan.</p>
-            <p>La carpeta <code style="color:#7B4DFF;">.claude/</code> contiene agentes especializados en <code>agents/</code> y habilidades reutilizables en <code>skills/</code>. El equivalente en Antigravity sigue el mismo principio.</p>
+            <p>La carpeta <code class="link-aurora">.claude/</code> contiene agentes especializados en <code>agents/</code> y habilidades reutilizables en <code>skills/</code>. El equivalente en Antigravity sigue el mismo principio.</p>
           </div>
           <div class="content-media">
             <svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg" class="diagram diagram--card" role="img" aria-label="Estructura de proyecto con CLAUDE.md y carpeta .claude destacados">
@@ -833,25 +833,25 @@ dist/   .next/   .nuxt/   out/
         <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO</span>
         <h2 class="h1">Repo + web completa con <span class="text-aurora">Claude Code / Antigravity</span></h2>
         <div class="emphasis-line"></div>
-        <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:12px; padding:1.2rem; margin-bottom:1.2rem;">
-          <p style="font-size:18px; color:#FFB627; font-family:'Space Grotesk',sans-serif; font-weight:700; margin:0 0 0.4rem;">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
-          <p style="font-size:16px; color:#8B8D98; margin:0;">Proyecto: "Crea una aplicación web simple con Node.js y Express que muestre 'Hola mundo' en el puerto 3000. Incluye un Dockerfile."</p>
+        <div class="notice-box">
+          <p class="notice-box-title">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
+          <p class="notice-box-text">Proyecto: "Crea una aplicación web simple con Node.js y Express que muestre 'Hola mundo' en el puerto 3000. Incluye un Dockerfile."</p>
         </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
-          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:10px; padding:1rem;">
-            <div style="font-size:14px; color:#7B4DFF; font-weight:700; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.6rem;">Fase 1</div>
-            <div style="font-size:18px; color:#ECEAE3; font-weight:600; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">Estructura del repo</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.6;">Prompt a Claude: prepara el repo completo con README, .gitignore y estructura. Hacer commit y push a main.</div>
+        <div class="info-grid info-grid--3">
+          <div class="info-card info-card--violet">
+            <span class="col-label col-label--violet">Fase 1</span>
+            <p class="info-card-title">Estructura del repo</p>
+            <p class="info-card-text">Prompt a Claude: prepara el repo completo con README, .gitignore y estructura. Hacer commit y push a main.</p>
           </div>
-          <div style="background:#131826; border:1px solid #00D4FF33; border-radius:10px; padding:1rem;">
-            <div style="font-size:14px; color:#00D4FF; font-weight:700; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.6rem;">Fase 2</div>
-            <div style="font-size:18px; color:#ECEAE3; font-weight:600; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">La web en feature branch</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.6;">Crear rama feature/hola-mundo. Pedirle que construya la web Express + Dockerfile. Revisar, fusionar y subir.</div>
+          <div class="info-card info-card--cyan">
+            <span class="col-label col-label--cyan">Fase 2</span>
+            <p class="info-card-title">La web en feature branch</p>
+            <p class="info-card-text">Crear rama feature/hola-mundo. Pedirle que construya la web Express + Dockerfile. Revisar, fusionar y subir.</p>
           </div>
-          <div style="background:#131826; border:1px solid #FFB62733; border-radius:10px; padding:1rem;">
-            <div style="font-size:14px; color:#FFB627; font-weight:700; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.6rem;">Fase 3</div>
-            <div style="font-size:18px; color:#ECEAE3; font-weight:600; font-family:'Space Grotesk',sans-serif; margin-bottom:0.5rem;">El agente gestiona el flujo</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.6;">Decirle al agente que cree la rama, añada algo visual, espere nuestra revisión y luego vuelque y suba todo.</div>
+          <div class="info-card info-card--amber">
+            <span class="col-label col-label--amber">Fase 3</span>
+            <p class="info-card-title">El agente gestiona el flujo</p>
+            <p class="info-card-text">Decirle al agente que cree la rama, añada algo visual, espere nuestra revisión y luego vuelque y suba todo.</p>
           </div>
         </div>
       </section>
@@ -898,8 +898,8 @@ dist/   .next/   .nuxt/   out/
             </div>
           </li>
         </ul>
-        <div style="margin-top:1.2rem; background:#0B0F1A; border:1px solid #7B4DFF33; border-radius:8px; padding:0.8rem 1.2rem;">
-          <p style="font-size:16px; color:#8B8D98; margin:0;">Todo este flujo se lo puedes pedir al agente: crear la rama, hacer el commit, abrir el PR. Es recomendable hacerlo a mano al principio para dominar el control del repositorio. Después decides cuánto delegas.</p>
+        <div class="tip-box tip-box--violet">
+          <p>Todo este flujo se lo puedes pedir al agente: crear la rama, hacer el commit, abrir el PR. Es recomendable hacerlo a mano al principio para dominar el control del repositorio. Después decides cuánto delegas.</p>
         </div>
       </section>
 

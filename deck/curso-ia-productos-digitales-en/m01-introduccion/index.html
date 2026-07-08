@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 01 — Introduction to AI-Assisted Development</title>
+  <meta name="description" content="What generative AI applied to digital product development is, key tools, capabilities and limitations, the digital product lifecycle, and the new role of the AI Product Developer." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+  <script defer src="../../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MODULE 01 · AI FOR DIGITAL PRODUCTS COURSE · 2026</span>
+        <h1 class="display-xl">
+          Building digital products with <span class="text-aurora">generative AI</span>.
+        </h1>
+        <p class="lead">From what generative AI is to why you're in the right place at the right time.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Marcos Cobo</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">Module 01 · 2 hours · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — section: El momento histórico -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 01</span>
+        <h2 class="display-l text-aurora">The historical moment</h2>
+        <p class="lead">Why this course exists now, and not five years ago.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 03 — content: Por qué ahora — timeline ancho abajo del texto -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>HISTORICAL CONTEXT</span>
+        <h2 class="h1">For the first time, the barrier between idea and product has <span class="text-aurora">fallen</span>.</h2>
+        <div class="emphasis-line"></div>
+        <div style="max-width:860px; margin-bottom:2.5rem;">
+          <p class="lead">Access to software development has been democratized in three historic leaps.</p>
+          <p>Until now you needed years of technical training or limited no-code platforms. Today, describing what you want — with judgment — is enough. This isn't an incremental improvement. It's a change of order of magnitude.</p>
+        </div>
+        <div style="width:100%;">
+          <svg viewBox="0 0 1100 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" aria-label="Historical timeline of the democratization of software development">
+            <defs>
+              <linearGradient id="aurora-grad-03" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#7B4DFF"/>
+                <stop offset="100%" stop-color="#00D4FF"/>
+              </linearGradient>
+              <marker id="arrow-03" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                <path d="M0,0 L0,8 L9,4 z" fill="#8B8D98"/>
+              </marker>
+            </defs>
+            <!-- Timeline line -->
+            <line x1="60" y1="120" x2="1060" y2="120" stroke="#1F2638" stroke-width="2" marker-end="url(#arrow-03)"/>
+            <!-- Era 1: 1970-2000 -->
+            <circle cx="220" cy="120" r="46" fill="#131826" stroke="#1F2638" stroke-width="2"/>
+            <text x="220" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#8B8D98" font-weight="500">1970</text>
+            <text x="220" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#8B8D98" font-weight="500">2000</text>
+            <text x="220" y="52" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#FFB627" font-weight="600" letter-spacing="0.5">Developers only</text>
+            <text x="220" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8B8D98">Years of technical training</text>
+            <text x="220" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8B8D98">or large teams</text>
+            <!-- Era 2: 2000-2020 -->
+            <circle cx="560" cy="120" r="46" fill="#131826" stroke="#1F2638" stroke-width="2"/>
+            <text x="560" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#ECEAE3" font-weight="500">2000</text>
+            <text x="560" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#ECEAE3" font-weight="500">2020</text>
+            <text x="560" y="52" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#FFB627" font-weight="600" letter-spacing="0.5">No-code / Low-code</text>
+            <text x="560" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#ECEAE3">Partial democratization</text>
+            <text x="560" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8B8D98">with clear limits</text>
+            <!-- Era 3: 2023-2026 (highlighted) -->
+            <circle cx="900" cy="120" r="54" fill="url(#aurora-grad-03)" opacity="0.18"/>
+            <circle cx="900" cy="120" r="54" fill="none" stroke="url(#aurora-grad-03)" stroke-width="2.5"/>
+            <text x="900" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#ECEAE3" font-weight="500">2023</text>
+            <text x="900" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#ECEAE3" font-weight="500">2026</text>
+            <text x="900" y="44" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#7B4DFF" font-weight="700" letter-spacing="0.5">Generative AI</text>
+            <text x="900" y="194" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#ECEAE3">Anyone with good judgment</text>
+            <text x="900" y="211" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#7B4DFF" font-weight="600">can build products</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- 04 — content: Adopción histórica de ChatGPT -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ADOPTION · IMPACT ON SOFTWARE DEVELOPMENT</span>
+        <h2 class="h1">We either evolve, or we <span class="text-aurora">die</span>.</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">No tool in the history of software has ever been adopted by developers as fast as generative AI.</p>
+            <p>It wasn't a trend. It was a rupture. In months, it went from a curious experiment to everyday practice for most of the industry.</p>
+            <p>Those who ignored it lost ground. Those who adopted it multiplied their delivery capacity. The question is no longer whether to use AI — it's knowing how to do it well.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" aria-label="Days needed to reach 1 million users, by platform">
+              <defs>
+                <linearGradient id="aurora-grad-04" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+              <!-- Title -->
+              <text x="16" y="22" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" font-weight="600" letter-spacing="0.5">DAYS TO REACH 1 MILLION USERS</text>
+              <!-- Axis -->
+              <line x1="160" y1="40" x2="160" y2="300" stroke="#1F2638" stroke-width="1.5"/>
+              <line x1="160" y1="300" x2="510" y2="300" stroke="#1F2638" stroke-width="1.5"/>
+              <!-- Bar: ChatGPT — 5 days -->
+              <text x="154" y="70" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="600">ChatGPT</text>
+              <rect x="163" y="56" width="4" height="22" rx="2" fill="url(#aurora-grad-04)"/>
+              <text x="172" y="71" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF" font-weight="600">5 days</text>
+              <!-- Bar: Instagram — 75 days -->
+              <text x="154" y="116" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="600">Instagram</text>
+              <rect x="163" y="102" width="55" height="22" rx="2" fill="#2A1F5C"/>
+              <text x="223" y="117" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">75 days</text>
+              <!-- Bar: Spotify — 150 days -->
+              <text x="154" y="162" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="600">Spotify</text>
+              <rect x="163" y="148" width="110" height="22" rx="2" fill="#1F2638"/>
+              <text x="278" y="163" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">150 days</text>
+              <!-- Bar: Facebook — 310 days -->
+              <text x="154" y="208" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="600">Facebook</text>
+              <rect x="163" y="194" width="226" height="22" rx="2" fill="#1A1D2E"/>
+              <text x="394" y="209" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">310 days</text>
+              <!-- Bar: Twitter — 780+ days (capped at axis end, label to the right) -->
+              <text x="154" y="254" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="600">Twitter</text>
+              <rect x="163" y="240" width="327" height="22" rx="2" fill="#151826"/>
+              <text x="495" y="255" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">780+ days</text>
+              <!-- Highlight label -->
+              <text x="290" y="344" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">ChatGPT reached 1M users in 5 days. Instagram took 75.</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — section: Qué es la IA generativa -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 02</span>
+        <h2 class="display-l text-aurora">What generative AI is</h2>
+        <p class="lead">No magic. No science fiction. Real mechanics.</p>
+        <div class="shape shape--circle-sm" style="top: 63%; left: 71%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 06 — content: Cómo funciona realmente -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>DEFINITION · GENERATIVE AI</span>
+        <h2 class="h1">A collaborator that has read more code than any human could read in <span class="text-aurora">ten lifetimes</span>.</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid" style="--media-min:0;grid-template-columns:1fr 1.4fr;">
+          <div class="content-text">
+            <p class="lead">A language model has been trained on billions of lines of code. When you describe what you want, it can write it for you, explain it, fix it, and improve it.</p>
+            <p>It's not magic. It's a very fast collaborator that doesn't sleep, doesn't get tired, and has read more code than any human could read in ten lifetimes.</p>
+            <p>But it needs direction: you are the director, the AI is the implementer.</p>
+          </div>
+          <div class="content-media" style="overflow:visible;">
+            <svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;overflow:visible;" aria-label="Diagram of the translation cycle: natural-language idea, LLM model, and executable code, with an iteration loop back to the idea">
+              <defs>
+                <linearGradient id="aurora-grad-06" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-06" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#7B4DFF"/>
+                </marker>
+                <marker id="arrow-06-cyan" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#00D4FF"/>
+                </marker>
+              </defs>
+              <!-- Node 1: Tu Idea -->
+              <circle cx="80" cy="180" r="52" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="165" width="40" height="28" rx="4" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="67" y1="175" x2="93" y2="175" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="67" y1="182" x2="85" y2="182" stroke="#8B8D98" stroke-width="1.5"/>
+              <text x="80" y="250" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" font-weight="600" letter-spacing="1">YOUR IDEA</text>
+              <text x="80" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Natural language</text>
+              <!-- Arrow 1→2 -->
+              <path d="M129,163 L218,132" fill="none" stroke="#7B4DFF" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-06)"/>
+              <text x="162" y="132" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">prompt</text>
+              <!-- Node 2: Modelo LLM -->
+              <circle cx="280" cy="110" r="64" fill="url(#aurora-grad-06)" opacity="0.15"/>
+              <circle cx="280" cy="110" r="64" fill="none" stroke="url(#aurora-grad-06)" stroke-width="2.5"/>
+              <ellipse cx="280" cy="104" rx="22" ry="18" fill="none" stroke="#7B4DFF" stroke-width="1.5"/>
+              <line x1="258" y1="104" x2="302" y2="104" stroke="#7B4DFF" stroke-width="1"/>
+              <line x1="280" y1="86" x2="280" y2="122" stroke="#7B4DFF" stroke-width="1"/>
+              <circle cx="272" cy="98" r="3" fill="#00D4FF"/>
+              <circle cx="288" cy="98" r="3" fill="#00D4FF"/>
+              <circle cx="272" cy="110" r="3" fill="#7B4DFF"/>
+              <circle cx="288" cy="110" r="3" fill="#7B4DFF"/>
+              <circle cx="280" cy="118" r="3" fill="#00D4FF"/>
+              <text x="280" y="18" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="600" letter-spacing="1">LLM MODEL</text>
+              <text x="280" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Translates intent into code</text>
+              <!-- Arrow 2→3 -->
+              <path d="M340,134 L406,160" fill="none" stroke="#7B4DFF" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow-06)"/>
+              <text x="382" y="132" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">generates</text>
+              <!-- Node 3: Código -->
+              <circle cx="456" cy="180" r="52" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="435" y="165" width="42" height="30" rx="4" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <text x="440" y="180" font-family="JetBrains Mono, monospace" font-size="9" fill="#7B4DFF">&gt;_</text>
+              <line x1="450" y1="180" x2="472" y2="180" stroke="#ECEAE3" stroke-width="1.5"/>
+              <line x1="440" y1="188" x2="466" y2="188" stroke="#8B8D98" stroke-width="1"/>
+              <text x="456" y="250" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#ECEAE3" font-weight="600" letter-spacing="1">CODE</text>
+              <text x="456" y="264" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">Executable output</text>
+              <!-- Iteration loop -->
+              <path d="M419,217 Q268,310 124,210" fill="none" stroke="#00D4FF" stroke-width="2" stroke-dasharray="6,5" opacity="0.7" marker-end="url(#arrow-06-cyan)"/>
+              <text x="268" y="295" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#00D4FF" letter-spacing="0.5">YOU ITERATE: test, tweak the prompt, ask again</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 — section: Las herramientas -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 03</span>
+        <h2 class="display-l text-aurora">The tools</h2>
+        <p class="lead">The ecosystem you'll use during the course and beyond.</p>
+        <div class="shape shape--circle-sm" style="top: 64%; left: 69%;" data-parallax="0.38"></div>
+      </section>
+
+      <!-- 08 — content: Ecosistema de herramientas en 3 cajones -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ECOSYSTEM · 2026</span>
+        <h2 class="h1">Three categories, <span class="text-aurora">one ecosystem</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="info-grid info-grid--3">
+          <!-- Asistentes -->
+          <div class="info-card reveal" data-delay="1">
+            <span class="col-label">CONVERSATIONAL ASSISTANTS</span>
+            <p class="info-card-text">They answer questions and explore ideas. They don't act on their own without your input.</p>
+            <div class="info-grid info-grid--2">
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">OPENAI</span>
+                <p class="info-card-title">ChatGPT</p>
+              </div>
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">ANTHROPIC</span>
+                <p class="info-card-title">Claude.ai</p>
+              </div>
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">GOOGLE</span>
+                <p class="info-card-title">Gemini</p>
+              </div>
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">GITHUB</span>
+                <p class="info-card-title">Copilot Chat</p>
+              </div>
+            </div>
+          </div>
+          <!-- Agentes -->
+          <div class="info-card info-card--violet reveal" data-delay="2">
+            <span class="col-label col-label--violet">AUTONOMOUS AGENTS</span>
+            <p class="info-card-text">They work on their own after a prompt. They iterate until they find the solution without constant intervention.</p>
+            <div class="info-grid info-grid--2">
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">OPENAI</span>
+                <p class="info-card-title">Codex / o3</p>
+              </div>
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">ANTHROPIC</span>
+                <p class="info-card-title">Claude Code</p>
+              </div>
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">GOOGLE</span>
+                <p class="info-card-title">Antigravity</p>
+              </div>
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label col-label--violet">GITHUB</span>
+                <p class="info-card-title">Copilot Workspace</p>
+              </div>
+            </div>
+          </div>
+          <!-- IDEs -->
+          <div class="info-card info-card--amber reveal" data-delay="3">
+            <span class="col-label col-label--amber">CODE IDEs — Where you see and control what agents do</span>
+            <div class="chip-row">
+              <span class="chip">VS Code</span>
+              <span class="chip">JetBrains (IntelliJ, PyCharm…)</span>
+              <span class="chip">Cursor</span>
+              <span class="chip">Antigravity</span>
+            </div>
+            <p class="info-card-text">From the IDE we control agents through extensions. The trend: IDEs will disappear as models need less human supervision.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08b — demo: Demo en vivo — asistente vs agente -->
+      <section class="slide slide--demo" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>LIVE DEMO</span>
+        <h2 class="h1">From <span class="text-aurora">assistant to agent</span>: the difference in real time</h2>
+        <div class="emphasis-line"></div>
+        <div class="info-grid info-grid--2">
+          <div class="info-card reveal" data-delay="1">
+            <span class="col-label">STEP 1 — ASSISTANT</span>
+            <p class="info-card-title">Open Claude.ai (or Gemini)</p>
+            <p class="info-card-text">Ask a specific question: <span class="link-aurora" style="font-style:italic;">"How do you build a REST API with Node.js?"</span>. Notice that it answers but doesn't execute anything.</p>
+          </div>
+          <div class="info-card info-card--violet reveal" data-delay="2">
+            <span class="col-label col-label--violet">STEP 2 — AGENT</span>
+            <p class="info-card-title">Open Claude Code (or Antigravity)</p>
+            <p class="info-card-text">Give an instruction: <span class="link-aurora" style="font-style:italic;">"Create a README.md file describing this project"</span>. Notice that it acts directly on the file system.</p>
+          </div>
+        </div>
+        <div class="notice-box reveal" data-delay="3">
+          <p class="notice-box-title">&#9888; Pause — Stop screen sharing and switch to desktop for the demo</p>
+          <p class="notice-box-text">Demo with Claude + Claude Code first, then the same demonstration with Gemini + Antigravity for those without a paid license.</p>
+        </div>
+      </section>
+
+      <!-- 09 — split: Capacidades reales -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>REAL CAPABILITIES · 2026</span>
+        <h2 class="h1">What it <span class="text-aurora">can do</span> — and what it still can't</h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--accent reveal" data-delay="1">
+            <span class="col-label">WHAT IT CAN DO</span>
+            <h3 class="h2">Proven capabilities</h3>
+            <ul class="check-list check-list--plus">
+              <li>Write functional code from a natural-language description</li>
+              <li>Explain existing code line by line</li>
+              <li>Refactor and fix bugs</li>
+              <li>Generate tests, documentation, and configuration</li>
+              <li>Iterate quickly on prototypes</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--muted reveal" data-delay="2">
+            <span class="col-label">WHAT IT STILL CAN'T DO</span>
+            <h3 class="h2">Current limitations</h3>
+            <ul class="check-list check-list--minus">
+              <li>Guarantee correct code without human review (hallucinations)</li>
+              <li>Maintain unlimited context in large projects</li>
+              <li>Make business or design decisions for you</li>
+              <li>Know whether what you build makes sense to your users</li>
+              <li>Manage technical debt without explicit guidance</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 — split: La trampa oculta — deuda técnica -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>THE HIDDEN TRAP · TECHNICAL DEBT</span>
+        <h2 class="h1">AI optimizes for <span class="text-aurora">now</span>, not forever</h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid" style="margin-bottom:3rem;">
+          <div class="split-col split-col--muted reveal" data-delay="1" style="display:flex;flex-direction:column;gap:0.6rem;align-self:start;">
+            <div class="info-card">
+              <span class="col-label">WHAT IT IS</span>
+              <h3 class="h3" style="margin-bottom:0.4rem;">The silent problem</h3>
+              <ul class="check-list check-list--minus">
+                <li>AI optimizes to solve the immediate problem</li>
+                <li>Duplicated code for no apparent reason</li>
+                <li>Functions with unclear names</li>
+                <li>No tests or documentation</li>
+              </ul>
+            </div>
+            <div class="info-card info-card--violet">
+              <span class="col-label col-label--violet">HOW TO MANAGE IT</span>
+              <h3 class="h3" style="margin-bottom:0.4rem;">Habits that work</h3>
+              <ul class="check-list check-list--plus">
+                <li>Include in CLAUDE.md: "Prioritize clean code"</li>
+                <li>Ask the agent for periodic reviews</li>
+                <li>Keep tests up to date from the start</li>
+                <li>Document decisions in the repository</li>
+              </ul>
+            </div>
+          </div>
+          <div class="split-col split-col--muted reveal" data-delay="2" style="display:flex;flex-direction:column;align-self:start;">
+            <span class="col-label">THE COST OF NEGLECT</span>
+            <h3 class="h2">Without control, the project collapses</h3>
+            <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:480px;margin-top:0.5rem;overflow:visible;" aria-label="Chart of accumulated technical debt versus time">
+              <defs>
+                <linearGradient id="aurora-grad-10" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+              <!-- Ejes -->
+              <line x1="50" y1="20" x2="50" y2="230" stroke="#1F2638" stroke-width="1.5"/>
+              <line x1="50" y1="230" x2="320" y2="230" stroke="#1F2638" stroke-width="1.5"/>
+              <!-- Eje Y label -->
+              <text x="14" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#8B8D98" transform="rotate(-90,14,130)">Maintenance difficulty</text>
+              <!-- Eje X label -->
+              <text x="185" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#8B8D98">Time →</text>
+              <!-- Curva sin gestión (roja/mala) — exponencial -->
+              <path d="M50,220 Q100,215 150,200 Q200,180 240,140 Q280,90 310,30" fill="none" stroke="#FF5B7A" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Curva con gestión (aurora) — lineal suave -->
+              <path d="M50,220 Q100,218 150,213 Q200,207 250,200 Q290,195 310,190" fill="none" stroke="url(#aurora-grad-10)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+              <!-- Etiquetas -->
+              <rect x="56" y="24" width="130" height="18" rx="4" fill="#FF5B7A22"/>
+              <text x="62" y="36" font-family="Space Grotesk,sans-serif" font-size="11" fill="#FF5B7A" font-weight="600">Unmanaged → collapse</text>
+              <rect x="220" y="182" width="90" height="18" rx="4" fill="#7B4DFF22"/>
+              <text x="226" y="194" font-family="Space Grotesk,sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">Managed ✓</text>
+              <!-- Punto de crisis -->
+              <circle cx="255" cy="128" r="5" fill="#FF5B7A" opacity="0.8"/>
+              <text x="262" y="124" font-family="Inter,sans-serif" font-size="10" fill="#FF5B7A">Breaking point</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 — quote: Karpathy -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">Code is the medium, not the end. AI removes the barrier between having an <span class="text-aurora">idea</span> and having a product.</p>
+          <div class="quote-attribution">
+            <strong>Andrej Karpathy</strong>
+            <span>Former Director of AI at Tesla, founder of Eureka Labs</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 — section: El ciclo de vida del producto digital -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 04</span>
+        <h2 class="display-l text-aurora">The digital product lifecycle</h2>
+        <p class="lead">From idea to deployment. AI as a copilot at every stage.</p>
+        <div class="shape shape--circle-sm" style="top: 65%; left: 72%;" data-parallax="0.42"></div>
+      </section>
+
+      <!-- 13 — content: El ciclo completo -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>LIFECYCLE · DIGITAL PRODUCT</span>
+        <h2 class="h1">The complete cycle, once, with a <span class="text-aurora">real</span> project.</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid" style="grid-template-columns:1fr 1.6fr;">
+          <div class="content-text">
+            <p class="lead">In this course, we walk through every stage of the cycle from start to finish, with a real project.</p>
+            <p>By the end of the course you'll have a digital product deployed and running. AI doesn't replace the process: it accelerates it and reduces the friction between each stage.</p>
+            <p>Each module covers one stage of the cycle and leaves something concrete built.</p>
+          </div>
+          <div class="content-media" style="overflow:visible;">
+            <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:610px;overflow:visible;display:block;margin:0 auto;" aria-label="Circular diagram of the stages of a digital product's lifecycle with AI as copilot at the center">
+              <defs>
+                <linearGradient id="aurora-grad-13" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-13" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#8B8D98"/>
+                </marker>
+              </defs>
+              <!-- Center circle -->
+              <circle cx="240" cy="200" r="60" fill="url(#aurora-grad-13)" opacity="0.2"/>
+              <circle cx="240" cy="200" r="60" fill="none" stroke="url(#aurora-grad-13)" stroke-width="2"/>
+              <text x="240" y="194" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="700">AI</text>
+              <text x="240" y="211" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="700">COPILOT</text>
+              <!-- Orbit ring -->
+              <circle cx="240" cy="200" r="145" fill="none" stroke="#1F2638" stroke-width="1" stroke-dasharray="4,6"/>
+              <!-- Flow arcs (clockwise) -->
+              <path d="M272,60 A145,145 0 0 1 372,137" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M385,190 A145,145 0 0 1 345,295" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M295,335 A145,145 0 0 1 185,335" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M136,294 A145,145 0 0 1 96,190" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M109,137 A145,145 0 0 1 210,60" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <!-- Node 1: IDEA — top -->
+              <circle cx="240" cy="55" r="34" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <circle cx="240" cy="47" r="11" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="236" y1="58" x2="244" y2="58" stroke="#8B8D98" stroke-width="1.5"/>
+              <line x1="238" y1="62" x2="242" y2="62" stroke="#8B8D98" stroke-width="1"/>
+              <text x="240" y="14" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" font-weight="600" letter-spacing="0.8">IDEA</text>
+              <!-- Node 2: DISEÑO -->
+              <circle cx="382" cy="157" r="34" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="370" y="148" width="24" height="18" rx="2" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <line x1="370" y1="154" x2="394" y2="154" stroke="#ECEAE3" stroke-width="1"/>
+              <line x1="379" y1="154" x2="379" y2="166" stroke="#ECEAE3" stroke-width="1"/>
+              <text x="424" y="161" text-anchor="start" font-family="Space Grotesk, sans-serif" font-size="11" fill="#8B8D98" font-weight="600" letter-spacing="0.8">DESIGN</text>
+              <!-- Node 3: CONSTRUCCIÓN (highlighted) -->
+              <circle cx="335" cy="312" r="34" fill="#131826" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="335" y="318" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#7B4DFF">&lt;/&gt;</text>
+              <text x="335" y="362" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#7B4DFF" font-weight="600" letter-spacing="0.8">BUILD</text>
+              <!-- Node 4: VALIDACIÓN -->
+              <circle cx="145" cy="312" r="34" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <path d="M132 312 L141 322 L160 301" fill="none" stroke="#ECEAE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="145" y="362" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" fill="#8B8D98" font-weight="600" letter-spacing="0.8">VALIDATION</text>
+              <!-- Node 5: DESPLIEGUE -->
+              <circle cx="98" cy="157" r="34" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <path d="M98 170 L94 165 L94 155 Q98 147 102 155 L102 165 Z" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+              <circle cx="98" cy="159" r="3" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+              <text x="54" y="161" text-anchor="end" font-family="Space Grotesk, sans-serif" font-size="11" fill="#FFB627" font-weight="600" letter-spacing="0.8">DEPLOYMENT</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 — section: El AI Product Developer -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 05</span>
+        <h2 class="display-l text-aurora">The AI Product Developer</h2>
+        <p class="lead">A new profile that didn't exist three years ago.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 73%;" data-parallax="0.41"></div>
+      </section>
+
+      <!-- 15 — bullets: Qué hace un AI Product Developer + equipo completo -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>NEW PROFESSIONAL ROLE · 2026</span>
+        <h2 class="h1">Five roles in <span class="text-aurora">one person</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Product director + implementer</h3>
+              <p>Defines what gets built AND builds it. Doesn't wait for a technical team to validate their ideas.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Prompt master</h3>
+              <p>Knows how to talk to AI to get precise, reproducible, high-quality results.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Quality arbiter</h3>
+              <p>Reviews generated code, spots hallucinations, and decides what's worth keeping and what gets redone.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Communicator between business and AI</h3>
+              <p>Translates business needs into instructions the AI can execute successfully.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Autonomous deployer</h3>
+              <p>Takes the product from idea to server without depending on anyone. Controls the entire cycle.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="info-card info-card--violet reveal" data-delay="6" style="display:flex; align-items:center; gap:1.4rem;">
+          <div style="text-align:center; min-width:120px;">
+            <div class="mini-stat-number mini-stat-number--violet">1</div>
+            <div class="info-card-label">PERSON</div>
+          </div>
+          <div class="info-card-label" style="font-size:36px;">=</div>
+          <div style="text-align:center; min-width:120px;">
+            <div class="mini-stat-number" style="text-decoration:line-through; opacity:0.5;">4–5</div>
+            <div class="info-card-label">FULL TEAM</div>
+          </div>
+          <p class="info-card-text" style="flex:1;">Ideating, developing, testing, deploying, and validating used to require an entire team. Today, one person with AI can handle the full cycle.</p>
+        </div>
+      </section>
+
+      <!-- 16 — interactive: ¿Cuál es la habilidad más importante? -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>INTERACTIVE PAUSE</span>
+        <h2 class="h1">What do you think is the most important skill for an <span class="text-aurora">AI Product Developer</span>?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">There's no wrong answer. Let's discuss.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Knowing how to code before using AI</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>Mastering the art of the prompt</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>Understanding the business and the user</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>Being able to deploy autonomously</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Answer in the Teams chat</p>
+        <div class="shape shape--circle-sm" style="top:55%;left:72%;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 17 — bullets: Casos reales con enlaces -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>REAL CASES · 2024–2026</span>
+        <h2 class="h1">Real people, real <span class="text-aurora">products</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list bullet-list--single">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Pieter Levels — $3M/year solo, with AI</h3>
+              <p>Built Photo AI, Nomad List, and Remote OK as an indie hacker. Publicly documented how he uses AI to build and maintain his products without a technical team. <a href="https://x.com/levelsio" class="link-aurora">@levelsio on X</a></p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">GitHub Copilot: quantified impact on productivity</h3>
+              <p>A Microsoft/GitHub study of 95 developers shows that those who used Copilot completed tasks 55% faster. <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" class="link-aurora">github.blog</a></p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Cursor — the editor that went all-in on AI</h3>
+              <p>From 0 to $100M ARR in under two years. Proof that developers adopt, without friction, tools that multiply their speed. <a href="https://cursor.com" class="link-aurora">cursor.com</a></p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 17b — content: Torvalds y la señal definitiva -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>THE DEFINITIVE SIGNAL · 2025</span>
+        <h2 class="h1">When the world's best programmer <span class="text-aurora">starts using it</span>.</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Linus Torvalds created Linux and Git — two of the most influential pieces of software in history. He's widely considered the best living developer.</p>
+            <p>For years he was openly skeptical of AI applied to development. He dismissed ChatGPT's early breakthroughs. He argued that AI produced low-quality code without understanding context.</p>
+            <p>In 2025 he started using <strong class="link-aurora">Antigravity</strong> on personal projects. When someone like that changes their position, something has genuinely changed.</p>
+            <p class="info-card-text" style="color:var(--amber); font-style:italic;">"If Torvalds uses it, it's no longer a fad. It's the new standard."</p>
+          </div>
+          <div class="content-media">
+            <div class="info-card info-card--lg info-card--center">
+              <div class="info-card-icon" style="font-size:64px;">🐧</div>
+              <p class="info-card-title">Linus Torvalds</p>
+              <p class="info-card-text" style="margin-bottom:1.4rem;">Creator of Linux and Git</p>
+              <div class="info-card info-card--sm info-card--nested">
+                <span class="col-label">Evolution</span>
+                <div style="display:flex; align-items:center; justify-content:center; gap:3rem;">
+                  <div style="text-align:center;">
+                    <div class="h2" style="color:var(--rose);">2023</div>
+                    <div class="info-card-label">Skeptical</div>
+                  </div>
+                  <div style="font-size:32px; color:var(--text-muted);">→</div>
+                  <div style="text-align:center;">
+                    <div class="h2" style="color:var(--violet);">2025</div>
+                    <div class="info-card-label" style="color:var(--violet);">Uses Antigravity</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 — timeline: Estructura del curso módulo a módulo -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>COURSE STRUCTURE · 7 MODULES</span>
+        <h2 class="h1">What you'll learn in the upcoming <span class="text-aurora">modules</span></h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline timeline--6" style="margin:0 auto; width:100%;">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">M02</span>
+            <h3 class="h3">Development environment</h3>
+            <p>Docker, VS Code, and Claude Code / Antigravity installed, configured, and verified.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">M03</span>
+            <h3 class="h3">Git and organization</h3>
+            <p>Version control, repository structure, and documentation AI can understand.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">M04</span>
+            <h3 class="h3">Optimized environment</h3>
+            <p>CLAUDE.md, specialized agents, and skills to get the most out of AI.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="4">
+            <span class="timeline-marker">M05</span>
+            <h3 class="h3">Design and MVP</h3>
+            <p>From idea to a working minimum viable product built together with AI.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="5">
+            <span class="timeline-marker">M06</span>
+            <h3 class="h3">Deployment and evolution</h3>
+            <p>Your product on Vercel: publishing, monitoring, and continuous improvement.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="6">
+            <span class="timeline-marker">M07</span>
+            <h3 class="h3">Final project</h3>
+            <p>You build and present your own digital product from start to finish.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 19 — closing -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>END · MODULE 01</span>
+        <h2 class="display-l">
+          You already have the <span class="text-aurora">map</span>.
+        </h2>
+        <p class="lead">Now let's set up the environment so you can start building from the very first minute of the next module.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../m02-entorno/index.html">Next: Module 02 — Development Environment Setup &rarr;</a>
+          <a class="btn btn--ghost" href="../../../index.html">Back to course index</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.4"></div>
+        <div class="shape shape--arc" data-parallax="0.6"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

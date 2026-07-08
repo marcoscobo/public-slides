@@ -239,12 +239,12 @@
           </li>
           <li class="timeline-step reveal" data-delay="2">
             <span class="timeline-marker">02</span>
-            <h3 class="h3">VS Code <span style="font-weight:400;color:#8B8D98;font-size:0.85em;">(o el IDE que prefieras)</span></h3>
+            <h3 class="h3">VS Code</h3>
             <p>El editor. Tu ventana al proyecto. Donde escribes, navegas y hablas con la terminal. También funciona con JetBrains, Cursor o cualquier IDE moderno.</p>
           </li>
           <li class="timeline-step reveal" data-delay="3">
             <span class="timeline-marker">03</span>
-            <h3 class="h3">Claude CLI / Antigravity <span style="font-weight:400;color:#8B8D98;font-size:0.85em;">(o cualquier agente)</span></h3>
+            <h3 class="h3">Claude CLI / Antigravity</h3>
             <p>La IA que actúa. Convierte instrucciones en código, archivos y comandos. Claude CLI si tienes licencia, Antigravity si prefieres la capa gratuita.</p>
           </li>
         </ol>
@@ -362,46 +362,46 @@
         <span class="caption"><span class="caption-dot"></span>INSTALACIÓN · DOCKER DESKTOP</span>
         <h2 class="h1">Instalar Docker en tu <span class="text-aurora">sistema</span></h2>
         <div class="emphasis-line"></div>
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.4rem; margin-top:0.5rem;">
+        <div class="info-grid info-grid--3">
           <!-- Windows -->
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
-            <div style="font-size:28px; margin-bottom:0.8rem;">🪟</div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Windows</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
+          <div class="info-card reveal" data-delay="1">
+            <span class="info-card-icon">🪟</span>
+            <p class="info-card-title">Windows</p>
+            <ol class="info-card-list">
               <li>Activar WSL2 en <em>Características de Windows</em></li>
-              <li>Descargar Docker Desktop desde <code style="color:#7B4DFF;">docker.com</code></li>
+              <li>Descargar Docker Desktop desde <code>docker.com</code></li>
               <li>Instalar y reiniciar</li>
-              <li>Verificar: <code style="color:#00D4FF;">docker --version</code></li>
+              <li>Verificar: <code>docker --version</code></li>
             </ol>
-            <div style="margin-top:1rem; background:#0B0F1A; border-radius:6px; padding:0.6rem; font-size:16px; color:#FFB627; font-family:'JetBrains Mono',monospace;">wsl --install</div>
+            <div class="prompt-box prompt-box--amber">wsl --install</div>
           </div>
           <!-- Mac -->
-          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:12px; padding:1.4rem;">
-            <div style="font-size:28px; margin-bottom:0.8rem;">🍎</div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">macOS</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
+          <div class="info-card info-card--violet reveal" data-delay="2">
+            <span class="info-card-icon">🍎</span>
+            <p class="info-card-title">macOS</p>
+            <ol class="info-card-list">
               <li>Descargar Docker Desktop para Mac (elige Intel o Apple Silicon)</li>
               <li>Abrir el .dmg y arrastrar a Aplicaciones</li>
               <li>Iniciar Docker desde Launchpad</li>
-              <li>Verificar: <code style="color:#00D4FF;">docker --version</code></li>
+              <li>Verificar: <code>docker --version</code></li>
             </ol>
-            <div style="margin-top:1rem; background:#0B0F1A; border-radius:6px; padding:0.6rem; font-size:16px; color:#FFB627; font-family:'JetBrains Mono',monospace;">brew install --cask docker</div>
+            <div class="prompt-box prompt-box--amber">brew install --cask docker</div>
           </div>
           <!-- Linux -->
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
-            <div style="font-size:28px; margin-bottom:0.8rem;">🐧</div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Linux (Ubuntu/Debian)</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
+          <div class="info-card reveal" data-delay="3">
+            <span class="info-card-icon">🐧</span>
+            <p class="info-card-title">Linux (Ubuntu/Debian)</p>
+            <ol class="info-card-list">
               <li>Actualizar paquetes</li>
               <li>Instalar Docker Engine</li>
               <li>Añadir usuario al grupo docker</li>
-              <li>Verificar: <code style="color:#00D4FF;">docker run hello-world</code></li>
+              <li>Verificar: <code>docker run hello-world</code></li>
             </ol>
-            <div style="margin-top:1rem; background:#0B0F1A; border-radius:6px; padding:0.6rem; font-size:16px; color:#FFB627; font-family:'JetBrains Mono',monospace;">sudo apt install docker.io</div>
+            <div class="prompt-box prompt-box--amber">sudo apt install docker.io</div>
           </div>
         </div>
-        <div style="margin-top:1.4rem; background:#0B0F1A; border:1px solid #00D4FF33; border-radius:8px; padding:1rem 1.4rem;">
-          <p style="font-size:16px; color:#8B8D98; margin:0;">✓ Prueba que funciona: <code style="color:#00D4FF;">docker run hello-world</code> — deberías ver "Hello from Docker!"</p>
+        <div class="tip-box tip-box--cyan">
+          <p>✓ Prueba que funciona: <code>docker run hello-world</code> — deberías ver "Hello from Docker!"</p>
         </div>
       </section>
 
@@ -428,7 +428,7 @@
               <li>Terminal integrado — donde vive y actúa el agente IA</li>
               <li>Panel de extensiones — el ecosistema que lo amplía todo</li>
             </ul>
-            <p style="margin-top:1rem; font-size:18px; color:#8B8D98;">Cualquier IDE moderno (JetBrains, Cursor, Antigravity) cumple el mismo papel — lo importante es tener acceso a la terminal y a las extensiones.</p>
+            <p class="note-muted">Cualquier IDE moderno (JetBrains, Cursor, Antigravity) cumple el mismo papel — lo importante es tener acceso a la terminal y a las extensiones.</p>
           </div>
           <div class="split-col split-col--accent reveal" data-delay="2">
             <span class="col-label">EXTENSIONES CLAVE</span>
@@ -448,38 +448,38 @@
         <span class="caption"><span class="caption-dot"></span>INSTALACIÓN · VS CODE</span>
         <h2 class="h1">Instalar VS Code en tu <span class="text-aurora">sistema</span></h2>
         <div class="emphasis-line"></div>
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.4rem; margin-top:0.5rem;">
+        <div class="info-grid info-grid--3">
           <!-- Windows -->
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
-            <div style="font-size:28px; margin-bottom:0.8rem;">🪟</div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Windows</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
-              <li>Ir a <code style="color:#7B4DFF;">code.visualstudio.com</code></li>
+          <div class="info-card reveal" data-delay="1">
+            <span class="info-card-icon">🪟</span>
+            <p class="info-card-title">Windows</p>
+            <ol class="info-card-list">
+              <li>Ir a <code>code.visualstudio.com</code></li>
               <li>Descargar instalador para Windows</li>
               <li>Ejecutar y marcar <em>"Añadir al PATH"</em></li>
-              <li>Verificar: <code style="color:#00D4FF;">code --version</code></li>
+              <li>Verificar: <code>code --version</code></li>
             </ol>
           </div>
           <!-- Mac -->
-          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:12px; padding:1.4rem;">
-            <div style="font-size:28px; margin-bottom:0.8rem;">🍎</div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">macOS</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
-              <li>Ir a <code style="color:#7B4DFF;">code.visualstudio.com</code></li>
+          <div class="info-card info-card--violet reveal" data-delay="2">
+            <span class="info-card-icon">🍎</span>
+            <p class="info-card-title">macOS</p>
+            <ol class="info-card-list">
+              <li>Ir a <code>code.visualstudio.com</code></li>
               <li>Descargar la versión para Mac</li>
               <li>Arrastrar a Aplicaciones</li>
               <li>Desde VS Code: Cmd+Shift+P → <em>Shell Command: Install 'code'</em></li>
             </ol>
           </div>
           <!-- Linux -->
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.4rem;">
-            <div style="font-size:28px; margin-bottom:0.8rem;">🐧</div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:700; color:#ECEAE3; margin-bottom:0.8rem;">Linux</div>
-            <ol style="margin:0; padding-left:1.2rem; font-size:18px; color:#8B8D98; line-height:1.8;">
-              <li>Ubuntu/Debian: <code style="color:#7B4DFF;">snap install code</code></li>
-              <li>Fedora/RHEL: <code style="color:#7B4DFF;">rpm --import</code> + repositorio</li>
+          <div class="info-card reveal" data-delay="3">
+            <span class="info-card-icon">🐧</span>
+            <p class="info-card-title">Linux</p>
+            <ol class="info-card-list">
+              <li>Ubuntu/Debian: <code>snap install code</code></li>
+              <li>Fedora/RHEL: <code>rpm --import</code> + repositorio</li>
               <li>O descargar .deb/.rpm desde la web</li>
-              <li>Verificar: <code style="color:#00D4FF;">code --version</code></li>
+              <li>Verificar: <code>code --version</code></li>
             </ol>
           </div>
         </div>
@@ -503,7 +503,7 @@
             <p class="lead">Claude Code (CLI) convierte tu terminal en un agente de desarrollo que puede leer, escribir, ejecutar y razonar sobre todo tu proyecto.</p>
             <p>No es un chatbot. Es un agente que actúa: crea archivos, modifica código, ejecuta comandos y razona sobre el contexto completo del repositorio.</p>
             <p>Requiere cuenta en <strong>Anthropic Console</strong> con créditos de API (de pago). Es la herramienta principal del curso para quien tenga licencia.</p>
-            <p style="margin-top:0.8rem; font-size:16px; color:#FFB627;">Contexto de ventana: 200k tokens. Multiarchivo. Soporte para CLAUDE.md y agentes personalizados.</p>
+            <div class="tip-box tip-box--amber"><p>Contexto de ventana: 200k tokens. Multiarchivo. Soporte para CLAUDE.md y agentes personalizados.</p></div>
           </div>
           <div class="content-media">
             <svg viewBox="0 0 480 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Terminal con Claude CLI">
@@ -539,28 +539,28 @@
             <p class="lead">Antigravity es el agente de desarrollo de Google. Equivalente funcional a Claude Code, también opera desde la terminal y actúa sobre el repositorio completo.</p>
             <p>La diferencia clave: tiene <strong>capa gratuita</strong>. Para quien no disponga de licencia de Claude, Antigravity es la alternativa recomendada en este curso.</p>
             <p>Mismos conceptos, misma mecánica. Los ejemplos del curso se mostrarán primero con Claude y después con Antigravity para que puedas seguir con cualquiera de los dos.</p>
-            <p style="margin-top:0.8rem; font-size:16px; color:#FFB627;">Requiere cuenta de Google. Integración con Google Cloud y Workspace. Compatible con el mismo flujo de trabajo.</p>
+            <div class="tip-box tip-box--amber"><p>Requiere cuenta de Google. Integración con Google Cloud y Workspace. Compatible con el mismo flujo de trabajo.</p></div>
           </div>
           <div class="content-media">
-            <div style="background:#131826; border:1px solid #1F2638; border-radius:16px; padding:2rem; text-align:center;">
-              <div style="font-size:48px; margin-bottom:1rem;">🪐</div>
-              <div style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; color:#ECEAE3; margin-bottom:1.4rem;">Antigravity</div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; text-align:left;">
-                <div style="background:#0B0F1A; border:1px solid #7B4DFF33; border-radius:8px; padding:0.8rem;">
-                  <div style="font-size:14px; color:#7B4DFF; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Ventaja</div>
-                  <div style="font-size:18px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Capa gratuita disponible</div>
+            <div class="info-card info-card--lg info-card--center">
+              <span class="info-card-icon">🪐</span>
+              <p class="info-card-title">Antigravity</p>
+              <div class="info-grid info-grid--2">
+                <div class="info-card info-card--sm info-card--nested info-card--violet">
+                  <span class="col-label col-label--violet">Ventaja</span>
+                  <p class="info-card-text">Capa gratuita disponible</p>
                 </div>
-                <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
-                  <div style="font-size:14px; color:#8B8D98; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Integración</div>
-                  <div style="font-size:18px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Google Cloud &amp; Workspace</div>
+                <div class="info-card info-card--sm info-card--nested">
+                  <span class="col-label">Integración</span>
+                  <p class="info-card-text">Google Cloud &amp; Workspace</p>
                 </div>
-                <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
-                  <div style="font-size:14px; color:#8B8D98; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Modelo</div>
-                  <div style="font-size:18px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Gemini (Google)</div>
+                <div class="info-card info-card--sm info-card--nested">
+                  <span class="col-label">Modelo</span>
+                  <p class="info-card-text">Gemini (Google)</p>
                 </div>
-                <div style="background:#0B0F1A; border:1px solid #1F2638; border-radius:8px; padding:0.8rem;">
-                  <div style="font-size:14px; color:#8B8D98; font-weight:600; margin-bottom:0.4rem; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.5px;">Acceso</div>
-                  <div style="font-size:18px; color:#ECEAE3; font-family:'Inter',sans-serif; line-height:1.4;">Cuenta Google</div>
+                <div class="info-card info-card--sm info-card--nested">
+                  <span class="col-label">Acceso</span>
+                  <p class="info-card-text">Cuenta Google</p>
                 </div>
               </div>
             </div>
@@ -573,25 +573,25 @@
         <span class="caption"><span class="caption-dot"></span>OTRAS ALTERNATIVAS</span>
         <h2 class="h1">El ecosistema de agentes <span class="text-aurora">completo</span></h2>
         <div class="emphasis-line"></div>
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1.2rem; margin-top:0.5rem;">
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Codex (OpenAI)</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.5; margin-bottom:0.8rem;">Agente de OpenAI. Ejecuta tareas de código en entornos aislados. Basado en los modelos o3/o4.</div>
-            <div style="font-size:13px; color:#FFB627; font-family:'JetBrains Mono',monospace;">openai.com/codex</div>
+        <div class="info-grid info-grid--3">
+          <div class="info-card reveal" data-delay="1">
+            <p class="info-card-title">Codex (OpenAI)</p>
+            <p class="info-card-text">Agente de OpenAI. Ejecuta tareas de código en entornos aislados. Basado en los modelos o3/o4.</p>
+            <code>openai.com/codex</code>
           </div>
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">Cursor</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.5; margin-bottom:0.8rem;">IDE con IA integrada al 100%. Puede usar modelos de varios proveedores. Popular entre desarrolladores que prefieren una UI visual.</div>
-            <div style="font-size:13px; color:#FFB627; font-family:'JetBrains Mono',monospace;">cursor.com</div>
+          <div class="info-card reveal" data-delay="2">
+            <p class="info-card-title">Cursor</p>
+            <p class="info-card-text">IDE con IA integrada al 100%. Puede usar modelos de varios proveedores. Popular entre desarrolladores que prefieren una UI visual.</p>
+            <code>cursor.com</code>
           </div>
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:12px; padding:1.2rem;">
-            <div style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:#ECEAE3; margin-bottom:0.4rem;">GitHub Copilot</div>
-            <div style="font-size:16px; color:#8B8D98; line-height:1.5; margin-bottom:0.8rem;">De Microsoft/GitHub. Integrado en VS Code, JetBrains, etc. Autocompletado y Copilot Workspace para tareas más largas.</div>
-            <div style="font-size:13px; color:#FFB627; font-family:'JetBrains Mono',monospace;">github.com/features/copilot</div>
+          <div class="info-card reveal" data-delay="3">
+            <p class="info-card-title">GitHub Copilot</p>
+            <p class="info-card-text">De Microsoft/GitHub. Integrado en VS Code, JetBrains, etc. Autocompletado y Copilot Workspace para tareas más largas.</p>
+            <code>github.com/features/copilot</code>
           </div>
         </div>
-        <div style="margin-top:1.2rem; background:#0B0F1A; border:1px solid #7B4DFF33; border-radius:8px; padding:1rem 1.4rem;">
-          <p style="font-size:16px; color:#8B8D98; margin:0;">El curso usa <strong style="color:#7B4DFF;">Claude Code</strong> como referencia principal y <strong style="color:#00D4FF;">Antigravity</strong> como alternativa gratuita. Los conceptos son iguales en todos — si dominas uno, puedes cambiar al otro con facilidad.</p>
+        <div class="tip-box tip-box--violet">
+          <p>El curso usa <strong class="link-aurora">Claude Code</strong> como referencia principal y <strong class="text-cyan">Antigravity</strong> como alternativa gratuita. Los conceptos son iguales en todos — si dominas uno, puedes cambiar al otro con facilidad.</p>
         </div>
       </section>
 
@@ -728,26 +728,26 @@
         <span class="caption"><span class="caption-dot"></span>DEMO EN VIVO</span>
         <h2 class="h1">Stack completo: de cero a <span class="text-aurora">producción</span></h2>
         <div class="emphasis-line"></div>
-        <div style="background:#0B0F1A; border:1px solid #FFB62744; border-radius:12px; padding:1.8rem; margin-bottom:1.4rem;">
-          <p style="font-size:24px; color:#FFB627; font-family:'Space Grotesk',sans-serif; font-weight:700; margin:0 0 0.6rem;">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
-          <p style="font-size:18px; color:#8B8D98; margin:0; line-height:1.5;">Instalar VS Code + Docker + Claude Code en tiempo real, crear la primera web "Hola mundo" con Node.js y levantar el contenedor Docker. Repetir el mismo flujo con Antigravity.</p>
+        <div class="notice-box">
+          <p class="notice-box-title">&#9888; Pausa — Cambiar a escritorio para demo en vivo</p>
+          <p class="notice-box-text">Instalar VS Code + Docker + Claude Code en tiempo real, crear la primera web "Hola mundo" con Node.js y levantar el contenedor Docker. Repetir el mismo flujo con Antigravity.</p>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem;">
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:10px; padding:1rem; text-align:center;">
-            <div style="font-size:20px; margin-bottom:0.4rem;">🐳</div>
-            <div style="font-size:16px; color:#8B8D98; font-family:'Space Grotesk',sans-serif;">Instalar Docker</div>
+        <div class="info-grid info-grid--4">
+          <div class="info-card info-card--sm info-card--center reveal" data-delay="1">
+            <span class="info-card-icon">🐳</span>
+            <span class="info-card-label">Instalar Docker</span>
           </div>
-          <div style="background:#131826; border:1px solid #1F2638; border-radius:10px; padding:1rem; text-align:center;">
-            <div style="font-size:20px; margin-bottom:0.4rem;">💻</div>
-            <div style="font-size:16px; color:#8B8D98; font-family:'Space Grotesk',sans-serif;">Instalar VS Code</div>
+          <div class="info-card info-card--sm info-card--center reveal" data-delay="2">
+            <span class="info-card-icon">💻</span>
+            <span class="info-card-label">Instalar VS Code</span>
           </div>
-          <div style="background:#131826; border:1px solid #7B4DFF33; border-radius:10px; padding:1rem; text-align:center;">
-            <div style="font-size:20px; margin-bottom:0.4rem;">🤖</div>
-            <div style="font-size:16px; color:#7B4DFF; font-family:'Space Grotesk',sans-serif;">Instalar Claude/Antigravity</div>
+          <div class="info-card info-card--sm info-card--center info-card--violet reveal" data-delay="3">
+            <span class="info-card-icon">🤖</span>
+            <span class="info-card-label col-label--violet">Instalar Claude/Antigravity</span>
           </div>
-          <div style="background:#131826; border:1px solid #00D4FF33; border-radius:10px; padding:1rem; text-align:center;">
-            <div style="font-size:20px; margin-bottom:0.4rem;">🌐</div>
-            <div style="font-size:16px; color:#00D4FF; font-family:'Space Grotesk',sans-serif;">Primera web en Docker</div>
+          <div class="info-card info-card--sm info-card--center info-card--cyan reveal" data-delay="4">
+            <span class="info-card-icon">🌐</span>
+            <span class="info-card-label col-label--cyan">Primera web en Docker</span>
           </div>
         </div>
       </section>

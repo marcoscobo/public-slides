@@ -280,6 +280,30 @@ Grid 3 o 4 columnas. Mostrar trabajo, screenshots, capturas.
 
 ---
 
+## interactive — Pausa interactiva
+
+Pregunta al grupo, encuesta o chat en directo. Rompe el ritmo de la clase; el punto de la caption y la línea de énfasis cambian a ámbar→rose para señalarlo.
+
+```html
+<section class="slide slide--interactive" data-layout="interactive">
+  <span class="caption"><span class="caption-dot"></span>PAUSA INTERACTIVA</span>
+  <h2 class="h1">¿Cuál crees que es la habilidad más importante del <span class="text-aurora">AI Product Developer</span>?</h2>
+  <div class="emphasis-line"></div>
+  <p class="lead reveal" data-delay="1">No hay respuesta incorrecta. Discutamos.</p>
+  <ul class="interactive-options">
+    <li class="reveal" data-delay="2"><span class="opt-key">A</span>Saber programar antes de usar IA</li>
+    <li class="reveal" data-delay="3"><span class="opt-key">B</span>Dominar el arte del prompt</li>
+    <li class="reveal" data-delay="4"><span class="opt-key">C</span>Entender el negocio y al usuario</li>
+    <li class="reveal" data-delay="5"><span class="opt-key">D</span>Ser capaz de desplegar de forma autónoma</li>
+  </ul>
+  <p class="interactive-cta reveal" data-delay="6">Responde en el chat de Teams</p>
+</section>
+```
+
+`.interactive-options` admite entre 2 y 5 `<li>`. `.interactive-cta` es opcional (canal donde recoger las respuestas); si no hay canal, omítelo.
+
+---
+
 ## closing — Cierre
 
 Última slide. Gracias / CTA / contacto.

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 05 — Designing and Building an MVP</title>
+  <meta name="description" content="What an MVP is, how to define minimum scope, the iterative cycle with generative AI, validation without coding, minimal architecture for a web app, and AI-assisted testing." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../../../assets/css/aurora.css" />
+  <script defer src="../../../assets/js/deck.js"></script>
+</head>
+<body>
+  <main class="deck">
+    <div class="deck-stage">
+
+      <!-- 01 — cover -->
+      <section class="slide slide--center" data-layout="cover">
+        <span class="caption"><span class="caption-dot"></span>MODULE 05 · 4 HOURS</span>
+        <h1 class="display-xl">
+          Designing and Building an <span class="text-aurora">MVP</span>
+        </h1>
+        <p class="lead">Everything you've learned so far was preparation for this moment. Let's build something real.</p>
+        <div class="meta-row">
+          <span class="meta-item"><strong>Marcos Cobo</strong></span>
+          <span class="meta-divider"></span>
+          <span class="meta-item">CIC · Building Digital Products with Generative AI · 2026</span>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+      <!-- 02 — content: What an MVP is (proper Venn diagram) -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>FUNDAMENTALS</span>
+        <h2 class="h1">What an <span class="text-aurora">MVP</span> Is</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Minimum Viable Product: the smallest version of your product that delivers real value to a real user.</p>
+            <p>An MVP isn't an incomplete product. It's a complete product for a very specific problem. The difference is huge.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" aria-label="Venn diagram: Desirable, Viable, Feasible — the MVP lives at the intersection of all three">
+              <defs>
+                <linearGradient id="venn-aurora-02" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Circle 1: DESIRABLE (violet, top-center) -->
+              <circle cx="260" cy="148" r="130" fill="rgba(123,77,255,0.12)" stroke="#7B4DFF" stroke-width="2"/>
+              <!-- Circle 2: VIABLE (text/cream, bottom-left) -->
+              <circle cx="180" cy="292" r="130" fill="rgba(236,234,227,0.08)" stroke="#ECEAE3" stroke-width="2"/>
+              <!-- Circle 3: FEASIBLE (cyan, bottom-right) -->
+              <circle cx="340" cy="292" r="130" fill="rgba(0,212,255,0.10)" stroke="#00D4FF" stroke-width="2"/>
+
+              <!-- Labels -->
+              <text x="260" y="52" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#7B4DFF">DESIRABLE</text>
+              <text x="260" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Do your users want it?</text>
+
+              <text x="82" y="408" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#ECEAE3">VIABLE</text>
+              <text x="82" y="424" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Does it make business sense?</text>
+
+              <text x="438" y="408" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#00D4FF">FEASIBLE</text>
+              <text x="438" y="424" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Can we build it?</text>
+
+              <!-- MVP badge at intersection of all three -->
+              <rect x="218" y="244" width="84" height="36" rx="8" fill="url(#venn-aurora-02)"/>
+              <text x="260" y="267" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">MVP</text>
+
+              <!-- Amber annotation near FEASIBLE area -->
+              <rect x="346" y="156" width="162" height="64" rx="6" fill="#131826"/>
+              <rect x="346" y="156" width="3" height="64" rx="1" fill="#FFB627"/>
+              <text x="358" y="177" font-family="Inter, sans-serif" font-size="11" fill="#FFB627">Generative AI vastly</text>
+              <text x="358" y="193" font-family="Inter, sans-serif" font-size="11" fill="#FFB627">expands the</text>
+              <text x="358" y="209" font-family="Inter, sans-serif" font-size="11" fill="#FFB627" font-weight="700">FEASIBLE area.</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 — content: The most common mistake -->
+      <section class="slide slide--accent-amber" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>THE REAL RISK</span>
+        <h2 class="h1">The Most <span class="text-aurora">Common</span> Mistake</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <h2 class="h2" style="color: var(--amber);">Building too much.</h2>
+            <p class="lead">The biggest risk when you have such a powerful tool is falling into feature creep. AI can build anything you ask for. You have to decide what NOT to ask for.</p>
+            <p>An MVP is defined more by what it excludes than by what it includes.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" aria-label="Diagram: the MVP is a fraction of the possible space">
+              <defs>
+                <linearGradient id="aurora-grad-03" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-rose-03" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#FF5B7A"/>
+                </marker>
+              </defs>
+              <!-- Outer circle: everything you can ask for -->
+              <circle cx="190" cy="190" r="160" fill="none" stroke="#7B4DFF" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="190" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">EVERYTHING YOU</text>
+              <text x="190" y="82" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">CAN ASK FOR</text>
+              <!-- Inner MVP circle -->
+              <circle cx="190" cy="210" r="52" fill="url(#aurora-grad-03)" fill-opacity="0.2" stroke="url(#aurora-grad-03)" stroke-width="2"/>
+              <text x="190" y="215" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">MVP</text>
+              <!-- Feature creep arrow -->
+              <line x1="310" y1="120" x2="232" y2="179" stroke="#FF5B7A" stroke-width="1.5" marker-end="url(#arrow-rose-03)"/>
+              <text x="308" y="106" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#FF5B7A">Feature creep</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 — section: Chapter 01 -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 01</span>
+        <h2 class="display-l text-aurora">Defining the Product</h2>
+        <p class="lead">From a vague idea to a concrete requirement AI can execute.</p>
+        <div class="shape shape--circle-sm" style="top: 62%; left: 74%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 05 — content: How to define scope (fixed tree, unified text, example context) -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>SCOPE</span>
+        <h2 class="h1">How to Define <span class="text-aurora">Scope</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">For every potential feature, ask yourself one question.</p>
+            <p>For example, for a team task manager MVP:</p>
+            <span class="col-label col-label--lime">IN THE MVP</span>
+            <ul class="check-list check-list--plus">
+              <li>Create task</li>
+              <li>Mark as complete</li>
+              <li>View list</li>
+            </ul>
+            <span class="col-label">BACKLOG</span>
+            <ul class="info-card-list">
+              <li>Notifications</li>
+              <li>Priorities</li>
+              <li>Categories / Filters</li>
+              <li>Calendar integration</li>
+            </ul>
+            <p><em>You can build the whole backlog later. With AI, every feature is a matter of hours, not weeks.</em></p>
+          </div>
+          <div class="content-media">
+            <!-- Decision tree: root → "Without this feature...?" → YES → MVP node, NO → BACKLOG node
+                 Arrow polygons point DOWN as arrowheads at the bottom of the branch lines -->
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Decision tree for filtering features">
+              <defs>
+                <marker id="arrow-tree-05a" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#C6FF3D"/>
+                </marker>
+                <marker id="arrow-tree-05b" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#1F2638"/>
+                </marker>
+              </defs>
+
+              <!-- Root node -->
+              <rect x="60" y="20" width="280" height="56" rx="8" fill="#131826" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="200" y="44" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ECEAE3">Without this feature, can the user</text>
+              <text x="200" y="59" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ECEAE3">NOT get the core value?</text>
+
+              <!-- Branch line LEFT (YES) from root bottom-left to MVP node -->
+              <line x1="140" y1="76" x2="100" y2="174" stroke="#C6FF3D" stroke-width="1.5" marker-end="url(#arrow-tree-05a)"/>
+              <!-- YES label along left branch -->
+              <text x="102" y="120" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#C6FF3D">YES</text>
+
+              <!-- Branch line RIGHT (NO) from root bottom-right to BACKLOG node -->
+              <line x1="260" y1="76" x2="300" y2="174" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-tree-05b)"/>
+              <!-- NO label along right branch -->
+              <text x="276" y="120" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#8B8D98">NO</text>
+
+              <!-- MVP node -->
+              <rect x="28" y="174" width="144" height="50" rx="8" fill="rgba(198,255,61,0.12)" stroke="#C6FF3D" stroke-width="2"/>
+              <text x="100" y="197" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#C6FF3D">IN THE MVP</text>
+              <text x="100" y="214" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ECEAE3">Product core</text>
+
+              <!-- BACKLOG node -->
+              <rect x="228" y="174" width="144" height="50" rx="8" fill="#131826" stroke="#1F2638" stroke-width="2"/>
+              <text x="300" y="197" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#8B8D98">BACKLOG</text>
+              <text x="300" y="214" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">later</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — timeline: Three questions to clarify -->
+      <section class="slide" data-layout="timeline">
+        <span class="caption"><span class="caption-dot"></span>IDEA CLARITY</span>
+        <h2 class="h1">Three Questions to <span class="text-aurora">Clarify</span> Your Idea</h2>
+        <div class="emphasis-line"></div>
+        <ol class="timeline timeline--3">
+          <li class="timeline-step reveal" data-delay="1">
+            <span class="timeline-marker">01</span>
+            <h3 class="h3">What specific problem does it solve?</h3>
+            <p>Not: I want a social network. Yes: I want an app so my 5-person team can see who's working on what without having to ask.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="2">
+            <span class="timeline-marker">02</span>
+            <h3 class="h3">For whom, exactly?</h3>
+            <p>The more specific, the better. Specificity is an advantage, not a limitation.</p>
+          </li>
+          <li class="timeline-step reveal" data-delay="3">
+            <span class="timeline-marker">03</span>
+            <h3 class="h3">What's the minimum moment of value?</h3>
+            <p>The first instant the user experiences the benefit. Everything else can wait.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- 07 — content: Requirements in natural language (unified 14px body) -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>REQUIREMENTS</span>
+        <h2 class="h1">Requirements in <span class="text-aurora">Natural Language</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Requirements are the translation of an idea into concrete instructions AI can execute.</p>
+            <div class="info-grid">
+              <div class="info-card info-card--violet reveal" data-delay="1">
+                <span class="col-label col-label--violet">FORMAT</span>
+                <p class="info-card-text"><code>As a [user type],<br>I want [feature],<br>so that [benefit].</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--violet reveal" data-delay="2">
+                <span class="col-label col-label--violet">EXAMPLE 01</span>
+                <p class="info-card-text">As a team member, I want to create a new task with a name and an assignee, so that everyone knows who's doing what.</p>
+              </div>
+              <div class="info-card info-card--sm info-card--cyan reveal" data-delay="3">
+                <span class="col-label col-label--cyan">EXAMPLE 02</span>
+                <p class="info-card-text">As a manager, I want to see all active tasks and their status on a dashboard, so that I don't have to ask what everyone is working on.</p>
+              </div>
+            </div>
+            <p><em>User stories are the language that connects your vision to the AI's instructions.</em></p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" aria-label="Structure of a user story: as a user type, I want a feature, so that benefit; together they become a requirement the AI can execute">
+              <defs>
+                <linearGradient id="aurora-grad-07" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+                <marker id="arrow-07" markerWidth="9" markerHeight="8" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L8,3 L0,6 z" fill="#7B4DFF"/>
+                </marker>
+              </defs>
+              <!-- Block 1: who -->
+              <rect x="60" y="24" width="360" height="72" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="24" width="4" height="72" rx="2" fill="#7B4DFF"/>
+              <text x="84" y="55" font-family="JetBrains Mono, monospace" font-size="15" fill="#ECEAE3">As a <tspan fill="#7B4DFF">[user type]</tspan>,</text>
+              <text x="84" y="78" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">WHO — the person's context</text>
+              <!-- Block 2: what -->
+              <rect x="60" y="112" width="360" height="72" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="112" width="4" height="72" rx="2" fill="#00D4FF"/>
+              <text x="84" y="143" font-family="JetBrains Mono, monospace" font-size="15" fill="#ECEAE3">I want <tspan fill="#00D4FF">[feature]</tspan>,</text>
+              <text x="84" y="166" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">WHAT — the concrete, verifiable action</text>
+              <!-- Block 3: why -->
+              <rect x="60" y="200" width="360" height="72" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="200" width="4" height="72" rx="2" fill="#FFB627"/>
+              <text x="84" y="231" font-family="JetBrains Mono, monospace" font-size="15" fill="#ECEAE3">so that <tspan fill="#FFB627">[benefit]</tspan>.</text>
+              <text x="84" y="254" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">WHY — the value it delivers</text>
+              <!-- Synthesis arrow -->
+              <line x1="240" y1="280" x2="240" y2="322" stroke="#7B4DFF" stroke-width="2" marker-end="url(#arrow-07)"/>
+              <!-- Result -->
+              <rect x="60" y="330" width="360" height="58" rx="10" fill="#131826" stroke="url(#aurora-grad-07)" stroke-width="1.5"/>
+              <text x="240" y="355" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#ECEAE3">Requirement ready for AI</text>
+              <text x="240" y="374" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">specific, verifiable, and unambiguous</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 — content: PAUSE — Define the MVP requirements (NEW SLIDE) -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSE · ACTIVITY</span>
+        <h2 class="h1">Pause — Define the <span class="text-aurora">MVP Requirements</span></h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Before the demo, each of you defines your idea. We'll use these requirements in the second part.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">1</span>Pick a problem you know well (1 sentence)</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">2</span>Write 3–4 user stories in the format "As a [user], I want [feature], so that [benefit]"</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">3</span>Identify which ones are MVP and which are backlog</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">4</span>Prepare the initial prompt for Claude</li>
+        </ul>
+        <div class="notice-box reveal" data-delay="6" style="max-width: 760px;">
+          <p class="notice-box-text">⚠ 10 minutes — Afterward, we'll do a live demo building one of these MVPs together.</p>
+        </div>
+        <div class="shape shape--circle-sm" style="top: 55%; left: 72%; opacity: 0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 09 — section: Chapter 02 (was 08) -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 02</span>
+        <h2 class="display-l text-aurora">The Iterative Cycle</h2>
+        <p class="lead">The unit of work with generative AI: from requirement to commit in 15–45 minutes.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 70%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 10 — bullets: Five steps (was 09) -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>THE PROCESS</span>
+        <h2 class="h1">Five Steps That <span class="text-aurora">Repeat</span></h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Define the requirement</h3>
+              <p>Write the user story in natural language before opening Claude Code.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Add context to the prompt</h3>
+              <p>Apply the 5-part structure learned in Module 04: role, context, constraints, format, task.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Review the plan</h3>
+              <p>Ask the AI to explain what it's going to do before running it. Never run it blindly.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Execute and inspect</h3>
+              <p>Test it manually as a real user would. Don't trust it without verifying.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Commit or iterate</h3>
+              <p>If it works: git commit. If not: describe the problem precisely and repeat from step 01.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 11 — content: The loop in practice (was 10) — clean cyclic flowchart -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>CYCLE DIAGRAM</span>
+        <h2 class="h1">The <span class="text-aurora">Loop</span> in Practice</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid" style="grid-template-columns: 30% 65%; gap: 32px;">
+          <div class="content-text">
+            <p class="lead">This cycle can be completed in <strong>15–45 minutes</strong> per feature.</p>
+            <p>A productive day means <strong>6–10 complete cycles</strong>.</p>
+          </div>
+          <div class="content-media">
+            <!-- Clean cyclic flowchart:
+                 REQUIREMENT (top-center, cream) → PROMPT (right, violet) → CODE (bottom-right, violet) → MANUAL TEST (bottom-center, cream) → COMMIT (left, lime) → loop back to REQUIREMENT
+                 Bug/error: red dashed loop from MANUAL TEST → back to PROMPT -->
+            <svg viewBox="0 0 560 460" xmlns="http://www.w3.org/2000/svg" aria-label="Cyclic diagram of the iterative cycle with AI">
+              <defs>
+                <marker id="arrow-m05-11a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#1F2638"/>
+                </marker>
+                <marker id="arrow-m05-11b" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#C6FF3D"/>
+                </marker>
+                <marker id="arrow-m05-11c" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                  <polygon points="0 0, 8 3, 0 6" fill="#FF5B7A"/>
+                </marker>
+                <linearGradient id="grad-m05-11" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF"/>
+                  <stop offset="100%" stop-color="#00D4FF"/>
+                </linearGradient>
+              </defs>
+
+              <!-- REQUIREMENT — top-center (cream fill = human action) -->
+              <rect x="192" y="20" width="160" height="56" rx="8" fill="#F5EFE3" stroke="#E5DFD0" stroke-width="2"/>
+              <text x="272" y="44" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#0B0F1A">REQUIREMENT</text>
+              <text x="272" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5C5F6B">user story</text>
+
+              <!-- REQUIREMENT → PROMPT (arrow going right-down) -->
+              <line x1="352" y1="48" x2="434" y2="132" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-11a)"/>
+              <text x="410" y="96" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98" text-anchor="middle">send</text>
+
+              <!-- PROMPT — right (violet fill = AI action) -->
+              <rect x="430" y="136" width="116" height="56" rx="8" fill="rgba(123,77,255,0.20)" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="488" y="160" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ECEAE3">PROMPT</text>
+              <text x="488" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Claude Code</text>
+
+              <!-- PROMPT → CODE (arrow going down) -->
+              <line x1="488" y1="192" x2="488" y2="280" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-11a)"/>
+              <text x="502" y="240" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">generates</text>
+
+              <!-- CODE — bottom-right (violet fill = AI action) -->
+              <rect x="420" y="284" width="136" height="56" rx="8" fill="rgba(123,77,255,0.20)" stroke="#7B4DFF" stroke-width="2"/>
+              <text x="488" y="308" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ECEAE3">CODE</text>
+              <text x="488" y="326" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">generated</text>
+
+              <!-- CODE → MANUAL TEST (arrow going left) -->
+              <line x1="420" y1="318" x2="358" y2="368" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-11a)"/>
+              <text x="396" y="358" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">test</text>
+
+              <!-- MANUAL TEST — bottom-center (cream fill = human action) -->
+              <rect x="178" y="372" width="164" height="56" rx="8" fill="#F5EFE3" stroke="#E5DFD0" stroke-width="2"/>
+              <text x="260" y="396" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#0B0F1A">MANUAL TEST</text>
+              <text x="260" y="414" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#5C5F6B">as a real user</text>
+
+              <!-- MANUAL TEST → COMMIT (arrow going left, success path) -->
+              <line x1="178" y1="400" x2="122" y2="368" stroke="#C6FF3D" stroke-width="1.5" marker-end="url(#arrow-m05-11b)"/>
+              <text x="138" y="394" font-family="Inter, sans-serif" font-size="10" fill="#C6FF3D">OK</text>
+
+              <!-- COMMIT — left (lime fill = success) -->
+              <rect x="14" y="312" width="110" height="56" rx="8" fill="rgba(198,255,61,0.15)" stroke="#C6FF3D" stroke-width="2"/>
+              <text x="69" y="336" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#C6FF3D">COMMIT</text>
+              <text x="69" y="354" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#ECEAE3">git commit</text>
+
+              <!-- COMMIT → REQUIREMENT (loop back, dashed) -->
+              <path d="M 14,330 Q 14,48 192,48" fill="none" stroke="#1F2638" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow-m05-11a)"/>
+              <text x="52" y="188" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98" transform="rotate(-90,52,188)">next feature</text>
+
+              <!-- Bug path: MANUAL TEST → red dashed loop back to PROMPT -->
+              <path d="M 260,372 Q 260,230 430,164" fill="none" stroke="#FF5B7A" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-m05-11c)"/>
+              <text x="296" y="290" font-family="Inter, sans-serif" font-size="10" fill="#FF5B7A">fails → new prompt</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 — stat: 15–45 min (was 11) -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>ITERATION SPEED</span>
+        <div class="stat-block">
+          <span class="stat-number text-aurora">15–45</span>
+          <p class="stat-label">min is what a complete cycle takes: from requirement to tested commit.</p>
+        </div>
+        <p class="stat-context">In a productive day you can complete 6–10 cycles: that's 6–10 validated features. Without AI, a single feature involved several people and could take days.</p>
+      </section>
+
+      <!-- 13 — section: Chapter 03 (was 12) -->
+      <section class="slide slide--center" data-layout="section">
+        <span class="caption"><span class="caption-dot"></span>CHAPTER 03</span>
+        <h2 class="display-l text-aurora">Validating Without Knowing Code</h2>
+        <p class="lead">How to know whether what the AI built is correct, secure, and solid.</p>
+        <div class="shape shape--circle-sm" style="top: 60%; left: 68%;" data-parallax="0.4"></div>
+      </section>
+
+      <!-- 14 — bullets: Validation (was 13) -->
+      <section class="slide" data-layout="bullets">
+        <span class="caption"><span class="caption-dot"></span>VALIDATION</span>
+        <h2 class="h1">Five <span class="text-aurora">Validation</span> Strategies</h2>
+        <div class="emphasis-line"></div>
+        <ul class="bullet-list">
+          <li class="reveal" data-delay="1">
+            <span class="bullet-num">01</span>
+            <div>
+              <h3 class="h3">Functional test</h3>
+              <p>Does it do exactly what you asked for? Test it as a real user would, no shortcuts.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="bullet-num">02</span>
+            <div>
+              <h3 class="h3">Ask the AI</h3>
+              <p>Explain in simple terms what this code does and what could go wrong.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="3">
+            <span class="bullet-num">03</span>
+            <div>
+              <h3 class="h3">Check constraints</h3>
+              <p>Did it follow every constraint you set? Did it change something it shouldn't have?</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="4">
+            <span class="bullet-num">04</span>
+            <div>
+              <h3 class="h3">Regression</h3>
+              <p>Does everything that worked before still work after the latest change?</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="5">
+            <span class="bullet-num">05</span>
+            <div>
+              <h3 class="h3">Debt review</h3>
+              <p>If a professional developer saw this code, what would they criticize? Ask the AI.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 15 — content: Minimal architecture (was 14) — Next.js on Vercel, wider diagram -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>ARCHITECTURE</span>
+        <h2 class="h1">The <span class="text-aurora">Minimal</span> Architecture</h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid" style="grid-template-columns: 25% 70%; gap: 32px;">
+          <div class="content-text">
+            <p class="lead">You don't need to know how to implement every layer. You need to know how to describe it to the AI.</p>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" aria-label="Next.js on Vercel architecture diagram: Frontend, API Routes, and Database">
+              <defs>
+                <marker id="arrow-m05-15" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+                  <polygon points="0 0, 7 3, 0 6" fill="#1F2638"/>
+                </marker>
+              </defs>
+
+              <!-- User -->
+              <text x="260" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8B8D98">user (browser)</text>
+              <line x1="260" y1="22" x2="260" y2="60" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-15)"/>
+
+              <!-- FRONTEND layer -->
+              <rect x="40" y="64" width="440" height="80" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="40" y="64" width="3" height="80" rx="1" fill="#00D4FF"/>
+              <text x="62" y="90" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#00D4FF" letter-spacing="0.1em">FRONTEND (browser)</text>
+              <text x="62" y="112" font-family="JetBrains Mono, monospace" font-size="13" fill="#ECEAE3">Next.js (React + App Router)</text>
+              <text x="62" y="132" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Pages and components — what the user sees</text>
+
+              <!-- Arrow FE ↔ Backend -->
+              <line x1="260" y1="144" x2="260" y2="172" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-15)"/>
+              <line x1="254" y1="172" x2="254" y2="144" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-15)"/>
+              <text x="272" y="162" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">HTTP / API REST</text>
+
+              <!-- BACKEND layer -->
+              <rect x="40" y="176" width="440" height="80" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="40" y="176" width="3" height="80" rx="1" fill="#7B4DFF"/>
+              <text x="62" y="202" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#7B4DFF" letter-spacing="0.1em">BACKEND (server)</text>
+              <text x="62" y="224" font-family="JetBrains Mono, monospace" font-size="13" fill="#ECEAE3">Next.js API routes (serverless)</text>
+              <text x="62" y="244" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Business logic, processes requests — no dedicated server</text>
+
+              <!-- Arrow Backend ↔ DB -->
+              <line x1="260" y1="256" x2="260" y2="284" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-15)"/>
+              <line x1="254" y1="284" x2="254" y2="256" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-15)"/>
+              <text x="272" y="274" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">SQL queries</text>
+
+              <!-- DATABASE layer -->
+              <rect x="40" y="288" width="440" height="72" rx="8" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="40" y="288" width="3" height="72" rx="1" fill="#FFB627"/>
+              <text x="62" y="312" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#FFB627" letter-spacing="0.1em">DATABASE</text>
+              <text x="62" y="334" font-family="JetBrains Mono, monospace" font-size="13" fill="#ECEAE3">Vercel Postgres / Supabase</text>
+              <text x="62" y="352" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Stores information persistently</text>
+
+              <!-- Vercel hosting label -->
+              <text x="260" y="390" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">Vercel</text>
+              <line x1="260" y1="382" x2="260" y2="364" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-15)"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 16 — content: Testing without coding (was 15) — unified 14px body text -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>TESTING</span>
+        <h2 class="h1">Testing Without <span class="text-aurora">Coding</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">Tests are your product's life insurance. AI writes them for you, but you need to understand what they cover.</p>
+            <div class="info-grid">
+              <div class="info-card info-card--sm info-card--violet reveal" data-delay="1">
+                <span class="col-label col-label--violet">UNIT TESTS</span>
+                <p class="info-card-text"><code>Write tests for the function that calculates the cart total.</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--cyan reveal" data-delay="2">
+                <span class="col-label col-label--cyan">INTEGRATION TESTS</span>
+                <p class="info-card-text"><code>Write tests that verify sign-up works end to end.</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--amber reveal" data-delay="3">
+                <span class="col-label col-label--amber">GUIDED MANUAL TESTS</span>
+                <p class="info-card-text"><code>Give me a list of cases I should test manually to validate login.</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--amber reveal" data-delay="4">
+                <span class="col-label col-label--amber">KEY HABIT</span>
+                <p class="info-card-text">In the prompt for every new feature, always include: <em>and write the corresponding tests.</em></p>
+              </div>
+            </div>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg" aria-label="Test pyramid: many unit tests at the base, integration tests in the middle, and few manual tests at the top">
+              <defs>
+                <marker id="arrow-m05-16" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#8B8D98"/>
+                </marker>
+              </defs>
+              <text x="230" y="28" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" fill="#8B8D98" letter-spacing="2">TEST PYRAMID</text>
+              <!-- Top: manual -->
+              <polygon points="175,162 285,162 230,80" fill="rgba(255,182,39,0.16)" stroke="#FFB627" stroke-width="1.5"/>
+              <text x="230" y="148" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600" fill="#FFB627">MANUAL</text>
+              <!-- Middle: integration -->
+              <polygon points="130,242 330,242 285,170 175,170" fill="rgba(0,212,255,0.14)" stroke="#00D4FF" stroke-width="1.5"/>
+              <text x="230" y="204" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" fill="#00D4FF">INTEGRATION</text>
+              <text x="230" y="222" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#8B8D98">complete flows, end to end</text>
+              <!-- Base: unit -->
+              <polygon points="70,330 390,330 330,250 130,250" fill="rgba(123,77,255,0.16)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="230" y="288" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600" fill="#7B4DFF">UNIT</text>
+              <text x="230" y="308" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#8B8D98">isolated functions · AI generates them in seconds</text>
+              <!-- Left axis: quantity -->
+              <line x1="40" y1="100" x2="40" y2="320" stroke="#8B8D98" stroke-width="1.5" opacity="0.6" marker-end="url(#arrow-m05-16)"/>
+              <text x="28" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98" transform="rotate(-90,28,210)">+ number of tests</text>
+              <!-- Right axis: cost -->
+              <line x1="420" y1="320" x2="420" y2="100" stroke="#8B8D98" stroke-width="1.5" opacity="0.6" marker-end="url(#arrow-m05-16)"/>
+              <text x="434" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98" transform="rotate(90,434,210)">+ cost to maintain</text>
+              <!-- Bottom note -->
+              <text x="230" y="372" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">AI writes all three levels. You decide what deserves coverage.</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- 17 — split: Strategies for when things break (was 16) -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>ERROR MANAGEMENT</span>
+        <h2 class="h1">When Something <span class="text-aurora">Doesn't Work</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">WHEN THE AI GETS STUCK</span>
+            <h3 class="h2">What You Should Do</h3>
+            <ul class="check-list check-list--plus">
+              <li>Copy the full error and paste it in: "Here's the error I'm seeing: [error]. What's happening and how do I fix it?"</li>
+              <li>Ask for options: "Give me 3 different ways to solve this problem."</li>
+              <li>Simplify: "Let's do this in smaller steps. First just [part A]."</li>
+              <li>Search for the exact error online (StackOverflow, GitHub Issues).</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">WHEN TO ASK FOR HUMAN HELP</span>
+            <h3 class="h2">The Real Limits</h3>
+            <ul class="check-list check-list--plus">
+              <li>You've been stuck on the same error for over an hour.</li>
+              <li>The AI proposes solutions that contradict the project's CLAUDE.md.</li>
+              <li>The problem seems to be infrastructure- or platform-related, not your code.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 18 — quote: Reid Hoffman (was 17) -->
+      <section class="slide slide--center" data-layout="quote">
+        <div class="quote-block">
+          <span class="quote-mark">&ldquo;</span>
+          <p class="quote-text">If you're not embarrassed by <span class="text-aurora">the first version</span> of your product, you launched too late.</p>
+          <div class="quote-attribution">
+            <strong>Reid Hoffman</strong>
+            <span>Co-founder of LinkedIn</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 19 — content: Interactive pause (was 18) — updated author line -->
+      <section class="slide slide--interactive" data-layout="interactive">
+        <span class="caption"><span class="caption-dot"></span>PAUSE · CHAT</span>
+        <h2 class="h1">Do You Already Have an Idea of What Product You'd <span class="text-aurora">Build</span>?</h2>
+        <div class="emphasis-line"></div>
+        <p class="lead reveal" data-delay="1">Before the live demo, tell us where you stand. There's no wrong answer.</p>
+        <ul class="interactive-options">
+          <li class="reveal" data-delay="2"><span class="opt-key">A</span>Yes, I have a clear idea and I know who it's for.</li>
+          <li class="reveal" data-delay="3"><span class="opt-key">B</span>I have several ideas but can't settle on one.</li>
+          <li class="reveal" data-delay="4"><span class="opt-key">C</span>I have a sketch but I'm not sure it's viable.</li>
+          <li class="reveal" data-delay="5"><span class="opt-key">D</span>I still don't know what I want to build.</li>
+        </ul>
+        <p class="interactive-cta reveal" data-delay="6">Marcos Cobo · CIC · Building Digital Products with Generative AI · 2026</p>
+        <div class="shape shape--circle-sm" style="top: 55%; left: 72%; opacity: 0.35;" data-parallax="0.3"></div>
+      </section>
+
+      <!-- 20 — content: Live demo — SECOND PART (was 19) -->
+      <section class="slide" data-layout="content">
+        <span class="caption"><span class="caption-dot"></span>LIVE DEMO</span>
+        <h2 class="h1">Live Demo — Building the <span class="text-aurora">MVP with Claude</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="content-grid">
+          <div class="content-text">
+            <p class="lead">We take one of the MVPs defined in the previous pause and build it from scratch using the iterative cycle. Framework: Next.js (compatible with Vercel).</p>
+            <span class="col-label">STACK</span>
+            <div class="chip-row" style="margin-bottom: 20px;">
+              <span class="chip">Next.js</span>
+              <span class="chip">Vercel Postgres</span>
+              <span class="chip">Vercel</span>
+            </div>
+            <span class="col-label">FEATURES TO BUILD</span>
+            <ul class="check-list check-list--plus">
+              <li>Create task (title + status)</li>
+              <li>View task board</li>
+              <li>Mark task complete / pending</li>
+              <li>Delete task</li>
+            </ul>
+          </div>
+          <div class="content-media">
+            <svg viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" aria-label="Live cycles: 4 repeating cycles">
+              <defs>
+                <linearGradient id="aurora-demo-20" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#7B4DFF" stop-opacity="0.06"/>
+                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.06"/>
+                </linearGradient>
+                <marker id="arrow-m05-20" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+                  <polygon points="0 0, 7 3, 0 6" fill="#1F2638"/>
+                </marker>
+              </defs>
+              <!-- Background glow -->
+              <rect x="0" y="0" width="460" height="380" rx="16" fill="url(#aurora-demo-20)"/>
+
+              <!-- LIVE DEMO badge -->
+              <rect x="140" y="18" width="180" height="36" rx="8" fill="#FFB627"/>
+              <text x="230" y="41" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700" fill="#0B0F1A">● LIVE DEMO</text>
+
+              <!-- Cycle steps horizontal mini-timeline -->
+              <text x="230" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98" letter-spacing="0.1em">LIVE CYCLES · REPEATS 4 TIMES</text>
+
+              <!-- Step nodes -->
+              <!-- REQUIREMENT -->
+              <rect x="18" y="110" width="74" height="40" rx="6" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
+              <text x="55" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">REQUIREMENT</text>
+              <text x="55" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">user story</text>
+
+              <!-- Arrow -->
+              <line x1="92" y1="130" x2="108" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-20)"/>
+
+              <!-- PROMPT -->
+              <rect x="108" y="110" width="74" height="40" rx="6" fill="rgba(123,77,255,0.15)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="145" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">PROMPT</text>
+              <text x="145" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">Claude Code</text>
+
+              <!-- Arrow -->
+              <line x1="182" y1="130" x2="198" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-20)"/>
+
+              <!-- REVIEW -->
+              <rect x="198" y="110" width="74" height="40" rx="6" fill="rgba(123,77,255,0.15)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="235" y="126" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">REVIEW</text>
+              <text x="235" y="138" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">the plan</text>
+              <text x="235" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">first</text>
+
+              <!-- Arrow -->
+              <line x1="272" y1="130" x2="288" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-20)"/>
+
+              <!-- EXECUTION -->
+              <rect x="288" y="110" width="74" height="40" rx="6" fill="rgba(123,77,255,0.15)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="325" y="128" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#ECEAE3" font-weight="600">EXECUTION</text>
+              <text x="325" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">& inspection</text>
+
+              <!-- Arrow -->
+              <line x1="362" y1="130" x2="378" y2="130" stroke="#1F2638" stroke-width="1.5" marker-end="url(#arrow-m05-20)"/>
+
+              <!-- COMMIT -->
+              <rect x="378" y="110" width="68" height="40" rx="6" fill="rgba(198,255,61,0.15)" stroke="#C6FF3D" stroke-width="1.5"/>
+              <text x="412" y="128" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="700" fill="#C6FF3D">COMMIT</text>
+              <text x="412" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#ECEAE3">& repeat</text>
+
+              <!-- Return arrow loop -->
+              <path d="M 412,150 Q 412,180 230,190 Q 55,200 55,150" fill="none" stroke="#1F2638" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrow-m05-20)"/>
+              <text x="230" y="208" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#8B8D98">next cycle</text>
+
+              <!-- 4 cycle indicators -->
+              <text x="230" y="240" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B8D98">×4 cycles in this session</text>
+              <circle cx="170" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="170" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">1</text>
+              <circle cx="210" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="210" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">2</text>
+              <circle cx="250" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="250" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">3</text>
+              <circle cx="290" cy="264" r="14" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="290" y="269" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7B4DFF">4</text>
+
+              <!-- Terminal decorative element -->
+              <rect x="60" y="300" width="340" height="62" rx="8" fill="#0B0F1A" stroke="#1F2638" stroke-width="1.5"/>
+              <rect x="60" y="300" width="340" height="20" rx="8" fill="#131826"/>
+              <circle cx="80" cy="310" r="4" fill="#FF5B7A"/>
+              <circle cx="96" cy="310" r="4" fill="#FFB627"/>
+              <circle cx="112" cy="310" r="4" fill="#C6FF3D"/>
+              <text x="80" y="335" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">$</text>
+              <text x="96" y="335" font-family="JetBrains Mono, monospace" font-size="11" fill="#ECEAE3">git commit -m "feat: add kanban board"</text>
+              <text x="80" y="352" font-family="JetBrains Mono, monospace" font-size="11" fill="#C6FF3D">[main] 1 file changed, 42 insertions(+)</text>
+            </svg>
+          </div>
+        </div>
+        <div class="shape shape--circle" style="bottom: 8%; right: 6%; opacity: 0.06;" data-parallax="0.2"></div>
+      </section>
+
+      <!-- 21 — split: With AI vs without AI (was 20) — highlight cost line -->
+      <section class="slide" data-layout="split">
+        <span class="caption"><span class="caption-dot"></span>REAL IMPACT</span>
+        <h2 class="h1">With AI vs <span class="text-aurora">Without AI</span></h2>
+        <div class="emphasis-line"></div>
+        <div class="split-grid">
+          <div class="split-col split-col--muted reveal" data-delay="1">
+            <span class="col-label">WITHOUT GENERATIVE AI</span>
+            <h3 class="h2">Traditional Development</h3>
+            <ul class="check-list check-list--minus">
+              <li>Basic MVP: 2–4 weeks.</li>
+              <li>Full dependency on a technical team.</li>
+              <li>Outsourced cost: €5,000–20,000.</li>
+              <li>Slow iterations: days per feature.</li>
+            </ul>
+          </div>
+          <div class="split-col split-col--accent reveal" data-delay="2">
+            <span class="col-label">WITH GENERATIVE AI</span>
+            <h3 class="h2">Your New Superpower</h3>
+            <ul class="check-list check-list--plus">
+              <li>Basic MVP: 2–5 days.</li>
+              <li>Full autonomy. You decide when and what.</li>
+              <li style="font-weight: 700; color: var(--text);"><strong style="color: var(--lime);">Tool cost: ~€100/month</strong></li>
+              <li>Fast iterations: hours per feature.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 22 — stat: What changes (was 21) — update 15-45 min -->
+      <section class="slide slide--center" data-layout="stat">
+        <span class="caption"><span class="caption-dot"></span>BY THE NUMBERS</span>
+        <h2 class="h1">What Changes</h2>
+        <div class="stat-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="mini-stat reveal" data-delay="1">
+            <span class="mini-stat-number mini-stat-number--violet">2–5 <span class="mini-stat-unit">days</span></span>
+            <span class="mini-stat-label">to build a functional basic MVP from scratch</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="2">
+            <span class="mini-stat-number mini-stat-number--amber">~€100 <span class="mini-stat-unit">/month</span></span>
+            <span class="mini-stat-label">cost of all the tools used in the course</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="3">
+            <span class="mini-stat-number mini-stat-number--amber">15–45 <span class="mini-stat-unit">min</span></span>
+            <span class="mini-stat-label">per complete iterative cycle: from requirement to commit</span>
+          </div>
+          <div class="mini-stat reveal" data-delay="4">
+            <span class="mini-stat-number text-aurora count-up" data-target="10" data-suffix="x">0x</span>
+            <span class="mini-stat-label">iteration speed with AI vs traditional development</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 23 — closing (was 22) -->
+      <section class="slide slide--center" data-layout="closing">
+        <span class="caption"><span class="caption-dot"></span>END OF MODULE 05</span>
+        <h2 class="display-l">
+          Let's <span class="text-aurora">build.</span>
+        </h2>
+        <p class="lead">You now have the cycle, the scope, and the tools. The next module teaches you how to deploy it and help it evolve.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="../m06-despliegue/index.html">Module 06 — Deployment, Evolution, and Maintenance &rarr;</a>
+          <a class="btn btn--ghost" href="../../../index.html">Back to course index</a>
+        </div>
+        <div class="shape shape--circle" data-parallax="0.3"></div>
+        <div class="shape shape--arc" data-parallax="0.5"></div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>

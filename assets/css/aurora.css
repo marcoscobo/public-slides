@@ -65,6 +65,7 @@
 
   /* Radius */
   --radius-sm: 8px;
+  --radius-card: 12px;
   --radius-md: 16px;
   --radius-lg: 24px;
 
@@ -445,6 +446,17 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 .content-text > * { margin-bottom: var(--space-3); }
 .content-text .lead { color: var(--text); }
 .content-text p:not(.lead) { color: var(--text-muted); max-width: 56ch; }
+
+/* Variante "stacked": .content-text usado fuera de .content-grid (texto a
+   ancho completo, con un .diagram a ancho completo debajo en vez de al
+   lado). Sin la columna de grid que lo acota, el texto necesita un límite
+   de ancho propio para no perder legibilidad. */
+.content-text--narrow { max-width: 820px; }
+
+/* Espacio superior cuando un .diagram sigue directamente a .content-text
+   fuera de .content-grid (layout "stacked", ver .content-text--narrow). */
+.diagram--top-spaced { margin-top: var(--space-4); }
+
 .content-media img {
   width: 100%;
   border-radius: var(--radius-lg);
@@ -1238,7 +1250,179 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 }
 
 /* --------------------------------------------------------------------------
-   26. Navegación en pantalla (táctil / sin teclado)
+   26. Componentes reutilizables — cards, avisos, badges
+   Piezas que en las decks del curso se repetían como estilos inline ad-hoc
+   (cajas de pausa, tarjetas oscuras de paso/opción, grids de mini-iconos,
+   prompts en mono) con un valor de padding/radius/font-size distinto cada
+   vez que se escribían. Se centralizan aquí para que el mismo tipo de
+   elemento mida y luzca idéntico en todos los módulos.
+   -------------------------------------------------------------------------- */
+
+/* Aviso de pausa — "cambia a escritorio para la demo en vivo". Único uso:
+   preceder el bloque de instrucciones de una demo en directo. */
+.notice-box {
+  background: var(--ink);
+  border: 1px solid rgba(255, 182, 39, 0.27);
+  border-radius: var(--radius-card);
+  padding: var(--space-4) var(--space-5);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.notice-box-title {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--amber);
+  margin: 0 0 6px;
+}
+.notice-box-text {
+  font-family: var(--ff-body);
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Nota breve al pie (verificación, tip, recordatorio) — una sola línea,
+   más discreta que .notice-box. Modificador de color según intención. */
+.tip-box {
+  margin-top: var(--space-4);
+  background: var(--ink);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-sm);
+  padding: 12px var(--space-4);
+}
+.tip-box p { font-size: 16px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+.tip-box--violet { border-color: rgba(123, 77, 255, 0.27); }
+.tip-box--cyan   { border-color: rgba(0, 212, 255, 0.27); }
+.tip-box--amber  { border-color: rgba(255, 182, 39, 0.27); }
+
+/* Tarjeta oscura genérica: pasos numerados, opciones A/B, fichas de
+   comparación, mini-cards de instalación. Reemplaza las >5 combinaciones
+   ad-hoc de background/border-radius/padding usadas antes por módulo. */
+.info-card {
+  background: var(--ink-soft);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+.info-card--violet { border-color: rgba(123, 77, 255, 0.27); }
+.info-card--cyan   { border-color: rgba(0, 212, 255, 0.27); }
+.info-card--amber  { border-color: rgba(255, 182, 39, 0.27); }
+.info-card--lime   { border-color: rgba(198, 255, 61, 0.27); }
+.info-card--sm { padding: var(--space-3); border-radius: var(--radius-sm); }
+.info-card--lg { padding: var(--space-5); border-radius: var(--radius-md); }
+.info-card--center { text-align: center; }
+.info-card--nested { background: var(--ink); text-align: left; }
+.info-card-title {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+.info-card-text {
+  font-family: var(--ff-body);
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+.info-card-icon { display: block; font-size: 22px; margin-bottom: 6px; }
+.info-card-label {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.info-card-list { margin: 0; padding-left: 1.2rem; font-size: 17px; color: var(--text-muted); line-height: 1.8; }
+.info-card-text code, .info-card-list code {
+  font-family: var(--ff-mono);
+  font-size: 0.85em;
+  color: var(--violet);
+  background: transparent;
+}
+/* <code> suelto como chip de enlace, hijo directo de .info-card (sin envolver
+   en .info-card-text/-list). Mismo tratamiento de color/tamaño que arriba. */
+.info-card > code {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-family: var(--ff-mono);
+  font-size: 0.85em;
+  color: var(--violet);
+  background: transparent;
+}
+
+/* Grid que aloja .info-card — variantes de nº de columnas. */
+.info-grid { display: grid; gap: var(--space-4); margin-top: var(--space-4); }
+.info-grid--2 { grid-template-columns: 1fr 1fr; }
+.info-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.info-grid--4 { grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+
+/* Bloque mono para un prompt/comando literal dentro de una card. */
+.prompt-box {
+  background: var(--ink);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  font-family: var(--ff-mono);
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.prompt-box--amber { color: var(--amber); }
+/* Separación cuando .prompt-box sigue a una lista de pasos dentro de la misma card. */
+.info-card-list + .prompt-box { margin-top: var(--space-4); }
+
+/* Variantes de color sobre .col-label (etiqueta pequeña en mayúsculas) para
+   marcar pasos/columnas sin duplicar tamaño ni letter-spacing. */
+.col-label--violet { color: var(--violet); }
+.col-label--cyan   { color: var(--cyan); }
+.col-label--amber  { color: var(--amber); }
+.col-label--lime   { color: var(--lime); }
+
+/* Enlace con acento de marca dentro de texto de párrafo. */
+.link-aurora { color: var(--violet); }
+
+/* Nota secundaria de una línea (p. ej. tras un check-list en .split-col),
+   sin inventar un tono nuevo: reutiliza --text-muted. */
+.note-muted { margin-top: var(--space-3); font-size: 18px; color: var(--text-muted); }
+
+/* Utilidades de acento de color para <strong>/<span> sueltos en prosa (p. ej.
+   leyenda de ramas Gitflow, tipos de commit) — sustituyen a style="color:#HEX"
+   ad-hoc por el token equivalente. Usar con moderación (máx. 2 acentos/slide,
+   ver STYLE_GUIDE §14). */
+.text-violet { color: var(--violet); }
+.text-cyan   { color: var(--cyan); }
+.text-amber  { color: var(--amber); }
+.text-lime   { color: var(--lime); }
+.text-rose   { color: var(--rose); }
+.text-muted  { color: var(--text-muted); }
+
+/* Lista sin viñeta para leyendas cortas de 2-6 ítems (p. ej. ramas Gitflow,
+   tipos de commit). Mismo tono/tamaño que .note-muted. */
+.plain-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 2;
+}
+
+/* Separador sutil entre bloques dentro de una card (p. ej. leyenda + ejemplos). */
+.card-divider {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--ink-line);
+}
+
+/* Variante mono de .info-card para leyendas tipo código (p. ej. tipos de
+   commit): tamaño --fs-mono, interlineado más suelto para listas cortas. */
+.info-card--mono { font-family: var(--ff-mono); font-size: 18px; line-height: 2.2; }
+
+/* --------------------------------------------------------------------------
+   27. Navegación en pantalla (táctil / sin teclado)
    deck.js inyecta estos botones y los activa en dispositivos con puntero
    grueso. En desktop con teclado permanecen ocultos.
    -------------------------------------------------------------------------- */
@@ -1276,7 +1460,7 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 }
 
 /* --------------------------------------------------------------------------
-   27. Responsive — móvil en vertical (modo flujo)
+   28. Responsive — móvil en vertical (modo flujo)
    El deck se diseña sobre un canvas fijo 1920x1080 que deck.js escala al
    viewport (modo "canvas": ideal en desktop y tablet/móvil en horizontal).
    En pantallas estrechas ese escalado dejaría el contenido diminuto, así que
@@ -1339,6 +1523,15 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
   .stat-grid,
   .team-grid,
   .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+  /* Grids de componentes reutilizables → una sola columna, texto compacto */
+  .info-grid--2,
+  .info-grid--3,
+  .info-grid--4 { grid-template-columns: 1fr !important; gap: var(--space-3); }
+  .notice-box-title { font-size: 19px; }
+  .notice-box-text,
+  .info-card-text,
+  .info-card-list { font-size: 15px; }
+  .info-card-title { font-size: 19px; }
 
   /* Timeline: la barra horizontal no aplica en vertical */
   .timeline::before { display: none; }
@@ -1372,7 +1565,7 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 }
 
 /* --------------------------------------------------------------------------
-   28. Modo exportación (PDF vía decktape, tools/generate-pdfs.sh)
+   29. Modo exportación (PDF vía decktape, tools/generate-pdfs.sh)
    decktape captura cada slide con page.pdf() emulando media "screen" (nunca
    "print"), así que ninguna regla @media print de más abajo llega a aplicar
    en ese pipeline. Estas reglas van sin media query, activadas por la clase
@@ -1407,7 +1600,7 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 }
 
 /* --------------------------------------------------------------------------
-   29. Impresión / exportación a PDF
+   30. Impresión / exportación a PDF
    El deck está pensado para presentarse en vivo: deck.js escala el canvas fijo
    1920x1080 al viewport con un transform calculado en JS, y solo la slide
    .is-active es visible. Sin reglas de impresión, "Imprimir a PDF" captura esa

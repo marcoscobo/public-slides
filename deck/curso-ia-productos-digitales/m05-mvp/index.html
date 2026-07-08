@@ -91,9 +91,9 @@
         <div class="emphasis-line"></div>
         <div class="content-grid">
           <div class="content-text">
-            <h2 class="h2" style="color: var(--amber); margin-bottom: 24px;">Construir demasiado.</h2>
+            <h2 class="h2" style="color: var(--amber);">Construir demasiado.</h2>
             <p class="lead">El mayor riesgo cuando tienes una herramienta tan poderosa es caer en el feature creep. La IA puede construir todo lo que se le pida. Tú debes decidir qué NO pedir.</p>
-            <p style="color: var(--text-muted);">El MVP se define más por lo que excluye que por lo que incluye.</p>
+            <p>El MVP se define más por lo que excluye que por lo que incluye.</p>
           </div>
           <div class="content-media">
             <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" aria-label="Diagrama: MVP es una fracción del espacio posible">
@@ -137,21 +137,21 @@
         <div class="content-grid">
           <div class="content-text">
             <p class="lead">Para cada feature potencial, hazte una sola pregunta.</p>
-            <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 12px;">Por ejemplo, para un MVP de gestor de tareas de equipo:</p>
-            <p style="color: var(--text); font-weight: 600; margin-bottom: 8px; font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase;">DENTRO DEL MVP</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
-              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: var(--text); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Crear tarea</li>
-              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: var(--text); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Marcar completada</li>
-              <li style="display: flex; align-items: center; gap: 8px; color: var(--text); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Ver lista</li>
+            <p>Por ejemplo, para un MVP de gestor de tareas de equipo:</p>
+            <span class="col-label col-label--lime">DENTRO DEL MVP</span>
+            <ul class="check-list check-list--plus">
+              <li>Crear tarea</li>
+              <li>Marcar completada</li>
+              <li>Ver lista</li>
             </ul>
-            <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 8px; font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase;">BACKLOG</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
-              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: var(--text-muted); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Notificaciones</li>
-              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: var(--text-muted); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Prioridades</li>
-              <li style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: var(--text-muted); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Categorías / Filtros</li>
-              <li style="display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--text-muted); flex-shrink: 0;"></span>Integración calendario</li>
+            <span class="col-label">BACKLOG</span>
+            <ul class="info-card-list">
+              <li>Notificaciones</li>
+              <li>Prioridades</li>
+              <li>Categorías / Filtros</li>
+              <li>Integración calendario</li>
             </ul>
-            <p style="color: var(--text-muted); font-style: italic; font-size: 18px;">Puedes construir todo el backlog después. Con IA, cada feature es cuestión de horas, no semanas.</p>
+            <p><em>Puedes construir todo el backlog después. Con IA, cada feature es cuestión de horas, no semanas.</em></p>
           </div>
           <div class="content-media">
             <!-- Decision tree: root → "¿Sin esta feature...?" → SÍ → MVP node, NO → BACKLOG node
@@ -227,19 +227,21 @@
         <div class="content-grid">
           <div class="content-text">
             <p class="lead">Los requisitos son la traducción de la idea en instrucciones concretas que la IA puede ejecutar.</p>
-            <div style="border-left: 4px solid var(--violet); background: var(--ink-soft); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 20px;">
-              <span style="font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 8px;">FORMATO</span>
-              <code style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text); line-height: 1.6;">Como [tipo de usuario],<br>quiero [funcionalidad],<br>para [beneficio].</code>
+            <div class="info-grid">
+              <div class="info-card info-card--violet reveal" data-delay="1">
+                <span class="col-label col-label--violet">FORMATO</span>
+                <p class="info-card-text"><code>Como [tipo de usuario],<br>quiero [funcionalidad],<br>para [beneficio].</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--violet reveal" data-delay="2">
+                <span class="col-label col-label--violet">EJEMPLO 01</span>
+                <p class="info-card-text">Como miembro del equipo, quiero poder crear una tarea nueva indicando nombre y responsable, para que todo el mundo sepa quién está haciendo qué.</p>
+              </div>
+              <div class="info-card info-card--sm info-card--cyan reveal" data-delay="3">
+                <span class="col-label col-label--cyan">EJEMPLO 02</span>
+                <p class="info-card-text">Como gestor, quiero ver en un panel todas las tareas activas con su estado, para no tener que preguntar en qué está cada persona.</p>
+              </div>
             </div>
-            <div class="reveal" data-delay="2" style="border-left: 3px solid var(--violet); background: var(--ink-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 12px;">
-              <span style="font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 6px;">EJEMPLO 01</span>
-              <p style="margin: 0; color: var(--text); font-size: 18px; line-height: 1.5;">Como miembro del equipo, quiero poder crear una tarea nueva indicando nombre y responsable, para que todo el mundo sepa quién está haciendo qué.</p>
-            </div>
-            <div class="reveal" data-delay="3" style="border-left: 3px solid var(--cyan); background: var(--ink-soft); padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 16px;">
-              <span style="font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 6px;">EJEMPLO 02</span>
-              <p style="margin: 0; color: var(--text); font-size: 18px; line-height: 1.5;">Como gestor, quiero ver en un panel todas las tareas activas con su estado, para no tener que preguntar en qué está cada persona.</p>
-            </div>
-            <p style="color: var(--text-muted); font-style: italic; font-size: 18px;">Los user stories son el lenguaje que conecta tu visión con las instrucciones de la IA.</p>
+            <p><em>Los user stories son el lenguaje que conecta tu visión con las instrucciones de la IA.</em></p>
           </div>
           <div class="content-media">
             <svg viewBox="0 0 480 400" xmlns="http://www.w3.org/2000/svg" aria-label="Estructura de una user story: como tipo de usuario, quiero funcionalidad, para beneficio; el conjunto se convierte en un requisito ejecutable por la IA">
@@ -290,8 +292,8 @@
           <li class="reveal" data-delay="4"><span class="opt-key">3</span>Identifica cuáles son MVP y cuáles son backlog</li>
           <li class="reveal" data-delay="5"><span class="opt-key">4</span>Prepara el prompt inicial para Claude</li>
         </ul>
-        <div class="reveal" data-delay="6" style="border: 2px solid var(--amber); background: rgba(255,182,39,0.08); padding: 16px 20px; border-radius: 8px; margin-top: 24px; max-width: 760px;">
-          <p style="margin: 0; color: var(--amber); font-size: 18px; line-height: 1.6;">⚠ 10 minutos — Después hacemos la demo en vivo construyendo uno de estos MVPs juntos.</p>
+        <div class="notice-box reveal" data-delay="6" style="max-width: 760px;">
+          <p class="notice-box-text">⚠ 10 minutos — Después hacemos la demo en vivo construyendo uno de estos MVPs juntos.</p>
         </div>
         <div class="shape shape--circle-sm" style="top: 55%; left: 72%; opacity: 0.35;" data-parallax="0.3"></div>
       </section>
@@ -355,8 +357,8 @@
         <div class="emphasis-line"></div>
         <div class="content-grid" style="grid-template-columns: 30% 65%; gap: 32px;">
           <div class="content-text">
-            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 17px; line-height: 1.5;">Este ciclo puede completarse en <strong style="color: var(--text);">15–45 minutos</strong> por feature.</p>
-            <p style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--text); font-size: 19px; line-height: 1.4;">Un día productivo son 6–10 ciclos completos.</p>
+            <p class="lead">Este ciclo puede completarse en <strong>15–45 minutos</strong> por feature.</p>
+            <p>Un día productivo son <strong>6–10 ciclos</strong> completos.</p>
           </div>
           <div class="content-media">
             <!-- Clean cyclic flowchart:
@@ -562,21 +564,23 @@
         <div class="content-grid">
           <div class="content-text">
             <p class="lead">Los tests son el seguro de vida de tu producto. La IA los escribe por ti, pero necesitas entender qué cubren.</p>
-            <div class="reveal" data-delay="1" style="border-left: 3px solid var(--violet); background: var(--ink-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 12px;">
-              <span style="font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 600; display: block; margin-bottom: 8px;">TESTS UNITARIOS</span>
-              <code style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-muted); line-height: 1.5;">Escribe tests para la función que calcula el total del carrito.</code>
-            </div>
-            <div class="reveal" data-delay="2" style="border-left: 3px solid var(--cyan); background: var(--ink-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 12px;">
-              <span style="font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); font-weight: 600; display: block; margin-bottom: 8px;">TESTS DE INTEGRACIÓN</span>
-              <code style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-muted); line-height: 1.5;">Escribe tests que comprueben que el registro funciona de principio a fin.</code>
-            </div>
-            <div class="reveal" data-delay="3" style="border-left: 3px solid var(--amber); background: var(--ink-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 16px;">
-              <span style="font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 600; display: block; margin-bottom: 8px;">TESTS MANUALES GUIADOS</span>
-              <code style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--text-muted); line-height: 1.5;">Dame una lista de casos que debería probar manualmente para validar el login.</code>
-            </div>
-            <div class="reveal" data-delay="4" style="border: 2px solid var(--amber); background: rgba(255,182,39,0.08); padding: 14px 18px; border-radius: 8px;">
-              <span style="font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 600; display: block; margin-bottom: 6px;">HÁBITO CLAVE</span>
-              <p style="margin: 0; color: var(--text); font-size: 18px; line-height: 1.5;">En el prompt de cada nueva feature, incluye siempre: <em>y escribe los tests correspondientes.</em></p>
+            <div class="info-grid">
+              <div class="info-card info-card--sm info-card--violet reveal" data-delay="1">
+                <span class="col-label col-label--violet">TESTS UNITARIOS</span>
+                <p class="info-card-text"><code>Escribe tests para la función que calcula el total del carrito.</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--cyan reveal" data-delay="2">
+                <span class="col-label col-label--cyan">TESTS DE INTEGRACIÓN</span>
+                <p class="info-card-text"><code>Escribe tests que comprueben que el registro funciona de principio a fin.</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--amber reveal" data-delay="3">
+                <span class="col-label col-label--amber">TESTS MANUALES GUIADOS</span>
+                <p class="info-card-text"><code>Dame una lista de casos que debería probar manualmente para validar el login.</code></p>
+              </div>
+              <div class="info-card info-card--sm info-card--amber reveal" data-delay="4">
+                <span class="col-label col-label--amber">HÁBITO CLAVE</span>
+                <p class="info-card-text">En el prompt de cada nueva feature, incluye siempre: <em>y escribe los tests correspondientes.</em></p>
+              </div>
             </div>
           </div>
           <div class="content-media">
@@ -675,18 +679,18 @@
         <div class="content-grid">
           <div class="content-text">
             <p class="lead">Tomamos uno de los MVPs definidos en la pausa anterior y lo construimos desde cero usando el ciclo iterativo. Framework: Next.js (compatible con Vercel).</p>
-            <p style="font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 10px;">STACK</p>
+            <span class="col-label">STACK</span>
             <div class="chip-row" style="margin-bottom: 20px;">
               <span class="chip">Next.js</span>
               <span class="chip">Vercel Postgres</span>
               <span class="chip">Vercel</span>
             </div>
-            <p style="font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 10px;">FEATURES A CONSTRUIR</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 20px;">
-              <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--text); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Crear tarea (título + estado)</li>
-              <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--text); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Ver tablero de tareas</li>
-              <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; color: var(--text); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Marcar tarea completada / pendiente</li>
-              <li style="display: flex; align-items: center; gap: 10px; color: var(--text); font-size: 18px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--lime); flex-shrink: 0;"></span>Eliminar tarea</li>
+            <span class="col-label">FEATURES A CONSTRUIR</span>
+            <ul class="check-list check-list--plus">
+              <li>Crear tarea (título + estado)</li>
+              <li>Ver tablero de tareas</li>
+              <li>Marcar tarea completada / pendiente</li>
+              <li>Eliminar tarea</li>
             </ul>
           </div>
           <div class="content-media">
@@ -811,7 +815,7 @@
       <!-- 22 — stat: Lo que cambia (was 21) — update 15-45 min -->
       <section class="slide slide--center" data-layout="stat">
         <span class="caption"><span class="caption-dot"></span>EN NÚMEROS</span>
-        <h2 class="h1">Lo que <span class="text-aurora">cambia</span></h2>
+        <h2 class="h1">Lo que cambia</h2>
         <div class="stat-grid" style="grid-template-columns: 1fr 1fr;">
           <div class="mini-stat reveal" data-delay="1">
             <span class="mini-stat-number mini-stat-number--violet">2–5 <span class="mini-stat-unit">días</span></span>

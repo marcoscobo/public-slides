@@ -151,6 +151,45 @@
       font-size: clamp(10px, 0.75vw, 13px);
       color: var(--text-muted);
     }
+    .ix-header-right-group {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 1.2vw, 20px);
+    }
+
+    /* ── Language toggle ── */
+    .ix-lang-toggle {
+      display: inline-flex;
+      border: 1px solid var(--ink-line);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 2px;
+      background: var(--ink-soft);
+      flex-shrink: 0;
+    }
+    .ix-lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--ff-mono);
+      font-size: clamp(10px, 0.72vw, 12px);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .ix-lang-btn:hover { color: var(--text); }
+    .ix-lang-btn.is-active {
+      background: var(--aurora);
+      color: #fff;
+    }
+    .ix-course-sub-lang {
+      color: var(--text-muted);
+      opacity: 0.7;
+      font-style: italic;
+    }
 
     /* ── Body ── */
     .ix-body {
@@ -458,6 +497,7 @@
       /* Header: dejar respirar y ocultar el rótulo central */
       .ix-header { flex-wrap: wrap; gap: 6px 16px; padding-bottom: 16px; }
       .ix-header-center { display: none; }
+      .ix-header-right-group { gap: 12px; margin-left: auto; }
 
       /* Cuerpo en vertical */
       .ix-body { flex-direction: column; margin-top: 20px; gap: 22px; }
@@ -506,14 +546,20 @@
       <div class="ix-brand-mark" aria-hidden="true">MC</div>
       <span class="ix-brand-name"><strong>Marcos Cobo</strong> Slides</span>
     </div>
-    <span class="ix-header-center">Biblioteca de presentaciones</span>
-    <span class="ix-header-right">2026</span>
+    <span class="ix-header-center" id="header-tagline">Biblioteca de presentaciones</span>
+    <div class="ix-header-right-group">
+      <div class="ix-lang-toggle" role="group" aria-label="Idioma / Language">
+        <button type="button" class="ix-lang-btn" data-lang="es">ES</button>
+        <button type="button" class="ix-lang-btn" data-lang="en">EN</button>
+      </div>
+      <span class="ix-header-right" id="header-year">2026</span>
+    </div>
   </header>
 
   <!-- Body -->
   <div class="ix-body">
     <aside class="ix-sidebar" aria-label="Cursos">
-      <p class="ix-sidebar-label">Grupos</p>
+      <p class="ix-sidebar-label" id="sidebar-label">Grupos</p>
       <div id="course-list"></div>
     </aside>
 
@@ -531,21 +577,22 @@
       title: 'Personal',
       year: '2026',
       modules: [
-        { num: '01', title: 'About Me — Marcos Cobo Carrillo', slides: 5, href: 'deck/personal/about-me-marcos-cobo/index.html' },
+        { num: '01', title: 'About Me — Marcos Cobo Carrillo', slides: 5, href: 'deck/personal/about-me-marcos-cobo/index.html', href_en: 'deck/personal/about-me-marcos-cobo-en/index.html' },
       ]
     },
     {
       id: 'ia-productos-digitales',
       title: 'Productos Digitales con IA',
+      title_en: 'AI for Digital Products',
       year: '2026',
       modules: [
-        { num: '01', title: 'Introducción al Desarrollo Asistido por IA',    slides: 19, href: 'deck/curso-ia-productos-digitales/m01-introduccion/index.html' },
-        { num: '02', title: 'Configuración del Entorno de Desarrollo',        slides: 22, href: 'deck/curso-ia-productos-digitales/m02-entorno/index.html' },
-        { num: '03', title: 'Fundamentos de Colaboración con IA',            slides: 23, href: 'deck/curso-ia-productos-digitales/m03-colaboracion/index.html' },
-        { num: '04', title: 'Construyendo un Entorno Optimizado para IA',    slides: 24, href: 'deck/curso-ia-productos-digitales/m04-entorno-ia/index.html' },
-        { num: '05', title: 'Diseño y Construcción de un MVP',               slides: 22, href: 'deck/curso-ia-productos-digitales/m05-mvp/index.html' },
-        { num: '06', title: 'Despliegue, Evolución y Mantenimiento',         slides: 22, href: 'deck/curso-ia-productos-digitales/m06-despliegue/index.html' },
-        { num: '07', title: 'Proyecto Final y Cierre del Curso',             slides: 18, href: 'deck/curso-ia-productos-digitales/m07-proyecto-final/index.html' },
+        { num: '01', title: 'Introducción al Desarrollo Asistido por IA',    title_en: 'Introduction to AI-Assisted Development',   slides: 19, href: 'deck/curso-ia-productos-digitales/m01-introduccion/index.html', href_en: 'deck/curso-ia-productos-digitales-en/m01-introduccion/index.html' },
+        { num: '02', title: 'Configuración del Entorno de Desarrollo',        title_en: 'Development Environment Setup',              slides: 22, href: 'deck/curso-ia-productos-digitales/m02-entorno/index.html', href_en: 'deck/curso-ia-productos-digitales-en/m02-entorno/index.html' },
+        { num: '03', title: 'Fundamentos de Colaboración con IA',            title_en: 'Foundations of AI Collaboration',            slides: 23, href: 'deck/curso-ia-productos-digitales/m03-colaboracion/index.html', href_en: 'deck/curso-ia-productos-digitales-en/m03-colaboracion/index.html' },
+        { num: '04', title: 'Construyendo un Entorno Optimizado para IA',    title_en: 'Building an AI-Optimized Environment',       slides: 24, href: 'deck/curso-ia-productos-digitales/m04-entorno-ia/index.html', href_en: 'deck/curso-ia-productos-digitales-en/m04-entorno-ia/index.html' },
+        { num: '05', title: 'Diseño y Construcción de un MVP',               title_en: 'Designing and Building an MVP',              slides: 22, href: 'deck/curso-ia-productos-digitales/m05-mvp/index.html', href_en: 'deck/curso-ia-productos-digitales-en/m05-mvp/index.html' },
+        { num: '06', title: 'Despliegue, Evolución y Mantenimiento',         title_en: 'Deployment, Evolution, and Maintenance',     slides: 22, href: 'deck/curso-ia-productos-digitales/m06-despliegue/index.html', href_en: 'deck/curso-ia-productos-digitales-en/m06-despliegue/index.html' },
+        { num: '07', title: 'Proyecto Final y Cierre del Curso',             title_en: 'Final Project and Course Closing',           slides: 18, href: 'deck/curso-ia-productos-digitales/m07-proyecto-final/index.html', href_en: 'deck/curso-ia-productos-digitales-en/m07-proyecto-final/index.html' },
       ]
     },
     {
@@ -565,20 +612,71 @@
     },
   ];
 
+  const UI = {
+    es: {
+      tagline: 'Biblioteca de presentaciones',
+      sidebarLabel: 'Grupos',
+      modules: 'módulos',
+      slides: 'slides',
+      slAbbr: 'sl.',
+      completeCourse: 'Curso completo',
+      spanishOnly: 'Solo disponible en español',
+      ariaModules: (title) => `Módulos de ${title}`,
+      ariaCard: (m) => `Módulo ${m.num}: ${t(m, 'title')} · ${m.slides} slides`,
+    },
+    en: {
+      tagline: 'Presentation library',
+      sidebarLabel: 'Groups',
+      modules: 'modules',
+      slides: 'slides',
+      slAbbr: 'sl.',
+      completeCourse: 'Complete course',
+      spanishOnly: 'Spanish only — no English version yet',
+      ariaModules: (title) => `Modules for ${title}`,
+      ariaCard: (m) => `Module ${m.num}: ${t(m, 'title')} · ${m.slides} slides`,
+    },
+  };
+
   let active = 'personal';
+  let lang = localStorage.getItem('slidesLang') || 'es';
   const arrow = `<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+
+  // Devuelve el campo en el idioma activo si existe traducción, si no cae al español.
+  function t(obj, field) {
+    if (lang === 'en' && obj[field + '_en']) return obj[field + '_en'];
+    return obj[field];
+  }
+  function hrefOf(m) {
+    return (lang === 'en' && m.href_en) ? m.href_en : m.href;
+  }
+  function courseHasEn(c) {
+    return c.modules.some(m => m.href_en);
+  }
+
+  function renderLangToggle() {
+    document.querySelectorAll('.ix-lang-btn').forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.lang === lang);
+      btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
+    });
+    document.documentElement.lang = lang;
+    document.getElementById('header-tagline').textContent = UI[lang].tagline;
+    document.getElementById('sidebar-label').textContent = UI[lang].sidebarLabel;
+  }
 
   function renderSidebar() {
     const el = document.getElementById('course-list');
     el.innerHTML = COURSES.map(c => {
       const total = c.modules.reduce((s, m) => s + m.slides, 0);
+      const title = t(c, 'title');
+      const showSpanishNote = lang === 'en' && !courseHasEn(c) && UI[lang].spanishOnly;
       return `<button class="ix-course-card${c.id === active ? ' is-active' : ''}"
         data-id="${c.id}" aria-pressed="${c.id === active}">
-        <span class="ix-course-title">${c.title}</span>
+        <span class="ix-course-title">${title}</span>
         <span class="ix-course-meta">
-          <span class="ix-course-sub">${c.modules.length} módulos · ${total} slides</span>
+          <span class="ix-course-sub">${c.modules.length} ${UI[lang].modules} · ${total} ${UI[lang].slides}</span>
           <span class="ix-course-badge">${c.year}</span>
         </span>
+        ${showSpanishNote ? `<span class="ix-course-sub ix-course-sub-lang">${showSpanishNote}</span>` : ''}
       </button>`;
     }).join('');
     el.querySelectorAll('.ix-course-card').forEach(btn => {
@@ -597,33 +695,46 @@
   function renderContent() {
     const c     = COURSES.find(x => x.id === active);
     const total = c.modules.reduce((s, m) => s + m.slides, 0);
+    const title = t(c, 'title');
     document.getElementById('content').innerHTML = `
       <div class="ix-content-header">
         <div>
-          <h2 class="ix-content-title"><span>${c.title}</span></h2>
-          <p class="ix-content-subtitle">${c.year} · Curso completo</p>
+          <h2 class="ix-content-title"><span>${title}</span></h2>
+          <p class="ix-content-subtitle">${c.year} · ${UI[lang].completeCourse}</p>
         </div>
         <div class="ix-content-stats">
-          <div class="ix-stat"><strong>${c.modules.length}</strong>módulos</div>
-          <div class="ix-stat"><strong>${total}</strong>slides</div>
+          <div class="ix-stat"><strong>${c.modules.length}</strong>${UI[lang].modules}</div>
+          <div class="ix-stat"><strong>${total}</strong>${UI[lang].slides}</div>
         </div>
       </div>
-      <nav class="ix-module-grid" aria-label="Módulos de ${c.title}">
+      <nav class="ix-module-grid" aria-label="${UI[lang].ariaModules(title)}">
         ${c.modules.map((m, i) => `
-          <a class="ix-module-card" href="${m.href}" style="--i:${i}"
-            aria-label="Módulo ${m.num}: ${m.title} · ${m.slides} slides">
+          <a class="ix-module-card" href="${hrefOf(m)}" style="--i:${i}"
+            aria-label="${UI[lang].ariaCard(m)}">
             <div class="ix-mod-num-wrap" aria-hidden="true">
               <span class="ix-mod-num">${m.num}</span>
             </div>
-            <span class="ix-mod-title">${m.title}</span>
+            <span class="ix-mod-title">${t(m, 'title')}</span>
             <div class="ix-mod-right">
-              <span class="ix-mod-count"><strong>${m.slides}</strong> sl.</span>
+              <span class="ix-mod-count"><strong>${m.slides}</strong> ${UI[lang].slAbbr}</span>
               <span class="ix-mod-arrow" aria-hidden="true">${arrow}</span>
             </div>
           </a>`).join('')}
       </nav>`;
   }
 
+  document.querySelectorAll('.ix-lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.lang === lang) return;
+      lang = btn.dataset.lang;
+      localStorage.setItem('slidesLang', lang);
+      renderLangToggle();
+      renderSidebar();
+      renderContent();
+    });
+  });
+
+  renderLangToggle();
   renderSidebar();
   renderContent();
 })();

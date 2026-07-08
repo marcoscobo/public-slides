@@ -227,6 +227,7 @@ Si una slide muestra datos:
 | `team`      | Tarjetas de personas                              |
 | `gallery`   | Mosaico de imágenes                               |
 | `closing`   | Cierre, CTA o contacto                            |
+| `interactive` | Pausa interactiva: pregunta al grupo, chat o encuesta en directo |
 
 Detalles HTML de cada layout: ver `LAYOUTS.md`.
 
