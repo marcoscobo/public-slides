@@ -28,43 +28,29 @@ Cambia a compartir pantalla completa del escritorio (o la ventana del navegador 
 ### Paso 1 — Asistente (Claude.ai o Gemini)
 
 **Qué decir:**
+
 > "Esto es un asistente: converso con él, me responde, pero no toca nada de mi ordenador."
 
 **Qué hacer:**
+
 1. Ve a la pestaña de Claude.ai.
-2. Escribe literalmente: `¿Cómo se crea una API REST con Node.js?`
+2. Escribe literalmente: `¿Cómo se crea una API REST con Node.js para un gestor de tareas?`
 3. Deja que responda. Señala en voz alta: *"Fijaos: me da una explicación y ejemplos de código, pero no ha creado ningún archivo, no ha tocado mi proyecto. Yo tendría que copiar y pegar."*
 
 ### Paso 2 — Agente (Claude Code o Antigravity)
 
 **Qué decir:**
+
 > "Ahora, lo mismo pero dándole una instrucción a un agente."
 
 **Qué hacer:**
+
 1. Cambia a la terminal con Claude Code abierto en `~/demo-m01/`.
-2. Escribe literalmente: `Crea un archivo README.md con una descripción de este proyecto`
+2. Escribe literalmente: `Crea una API REST con Node.js para un gestor de tareas`
 3. Deja que ejecute. Cuando termine, haz `ls` y abre el `README.md` generado.
 4. Señala en voz alta: *"Ha decidido solo qué escribir, ha creado el archivo de verdad en mi disco. Esto es actuar, no solo responder."*
 
-### Paso 3 — Repetir con la alternativa gratuita (si da tiempo / versión completa)
-
-**Qué decir:**
-> "Para quien no tenga licencia de pago, exactamente lo mismo se puede hacer con Gemini como asistente y Antigravity como agente."
-
-**Qué hacer:** repite el paso 1 en Gemini y el paso 2 en Antigravity, con las mismas dos frases exactas para que la comparación sea limpia.
-
 ---
-
-## Versión corta (10 min) vs versión completa (15 min)
-
-| Bloque | Corta | Completa |
-|---|---|---|
-| Paso 1 (asistente Claude/Gemini) | 2 min | 3 min |
-| Paso 2 (agente Claude Code) | 3 min | 4 min |
-| Paso 3 (repetir con Gemini + Antigravity) | ❌ se omite, solo se menciona de palabra | 6 min |
-| Cierre y vuelta a slides | 1 min | 2 min |
-
-Si vas corto de tiempo, haz **solo Claude → Claude Code** (pasos 1 y 2) y di en voz alta: *"Con Gemini y Antigravity el resultado es exactamente el mismo, os lo enseño con detalle en el Módulo 2."* Esto es honesto y no rompe la promesa del pie de la slide (M02 sí trae una demo de instalación completa con ambos).
 
 ## Qué hacer si algo falla
 

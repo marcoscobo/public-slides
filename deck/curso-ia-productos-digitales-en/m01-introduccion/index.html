@@ -77,7 +77,8 @@
             <text x="560" y="52" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="13" fill="#FFB627" font-weight="600" letter-spacing="0.5">No-code / Low-code</text>
             <text x="560" y="185" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#ECEAE3">Partial democratization</text>
             <text x="560" y="202" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8B8D98">with clear limits</text>
-            <!-- Era 3: 2023-2026 (highlighted) -->
+            <!-- Era 3: 2023-2026 (highlighted) — solid base first so the timeline line behind it doesn't show through -->
+            <circle cx="900" cy="120" r="54" fill="#131826"/>
             <circle cx="900" cy="120" r="54" fill="url(#aurora-grad-03)" opacity="0.18"/>
             <circle cx="900" cy="120" r="54" fill="none" stroke="url(#aurora-grad-03)" stroke-width="2.5"/>
             <text x="900" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#ECEAE3" font-weight="500">2023</text>
@@ -94,7 +95,7 @@
         <span class="caption"><span class="caption-dot"></span>ADOPTION · IMPACT ON SOFTWARE DEVELOPMENT</span>
         <h2 class="h1">We either evolve, or we <span class="text-aurora">die</span>.</h2>
         <div class="emphasis-line"></div>
-        <div class="content-grid">
+        <div class="content-grid" style="grid-template-columns:6fr 5fr;">
           <div class="content-text">
             <p class="lead">No tool in the history of software has ever been adopted by developers as fast as generative AI.</p>
             <p>It wasn't a trend. It was a rupture. In months, it went from a curious experiment to everyday practice for most of the industry.</p>
@@ -349,8 +350,8 @@
         <h2 class="h1">AI optimizes for <span class="text-aurora">now</span>, not forever</h2>
         <div class="emphasis-line"></div>
         <div class="split-grid" style="margin-bottom:3rem;">
-          <div class="split-col split-col--muted reveal" data-delay="1" style="display:flex;flex-direction:column;gap:0.6rem;align-self:start;">
-            <div class="info-card">
+          <div class="split-col split-col--muted reveal" data-delay="1" style="display:flex;flex-direction:column;gap:1.6rem;align-self:start;">
+            <div>
               <span class="col-label">WHAT IT IS</span>
               <h3 class="h3" style="margin-bottom:0.4rem;">The silent problem</h3>
               <ul class="check-list check-list--minus">
@@ -360,7 +361,7 @@
                 <li>No tests or documentation</li>
               </ul>
             </div>
-            <div class="info-card info-card--violet">
+            <div>
               <span class="col-label col-label--violet">HOW TO MANAGE IT</span>
               <h3 class="h3" style="margin-bottom:0.4rem;">Habits that work</h3>
               <ul class="check-list check-list--plus">
@@ -374,7 +375,7 @@
           <div class="split-col split-col--muted reveal" data-delay="2" style="display:flex;flex-direction:column;align-self:start;">
             <span class="col-label">THE COST OF NEGLECT</span>
             <h3 class="h2">Without control, the project collapses</h3>
-            <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:480px;margin-top:0.5rem;overflow:visible;" aria-label="Chart of accumulated technical debt versus time">
+            <svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:500px;margin-top:0.5rem;overflow:visible;" aria-label="Chart of accumulated technical debt versus time">
               <defs>
                 <linearGradient id="aurora-grad-10" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stop-color="#7B4DFF"/>
@@ -393,13 +394,14 @@
               <!-- Curva con gestión (aurora) — lineal suave -->
               <path d="M50,220 Q100,218 150,213 Q200,207 250,200 Q290,195 310,190" fill="none" stroke="url(#aurora-grad-10)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
               <!-- Etiquetas -->
-              <rect x="56" y="24" width="130" height="18" rx="4" fill="#FF5B7A22"/>
-              <text x="62" y="36" font-family="Space Grotesk,sans-serif" font-size="11" fill="#FF5B7A" font-weight="600">Unmanaged → collapse</text>
-              <rect x="220" y="182" width="90" height="18" rx="4" fill="#7B4DFF22"/>
-              <text x="226" y="194" font-family="Space Grotesk,sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">Managed ✓</text>
-              <!-- Punto de crisis -->
-              <circle cx="255" cy="128" r="5" fill="#FF5B7A" opacity="0.8"/>
-              <text x="262" y="124" font-family="Inter,sans-serif" font-size="10" fill="#FF5B7A">Breaking point</text>
+              <rect x="60" y="24" width="150" height="18" rx="4" fill="#2A1620" stroke="#FF5B7A" stroke-opacity="0.3" stroke-width="1"/>
+              <text x="66" y="36" font-family="Space Grotesk,sans-serif" font-size="11" fill="#FF5B7A" font-weight="600">Unmanaged → collapse</text>
+              <!-- Caja "Managed" bajo la propia línea (hueco libre hasta el eje), no encima -->
+              <rect x="220" y="210" width="76" height="16" rx="4" fill="#1A1633" stroke="#7B4DFF" stroke-opacity="0.3" stroke-width="1"/>
+              <text x="226" y="222" font-family="Space Grotesk,sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">Managed ✓</text>
+              <!-- Punto de crisis — centrado exactamente sobre la curva en x=255 -->
+              <circle cx="255" cy="120" r="5" fill="#FF5B7A" opacity="0.8"/>
+              <text x="268" y="124" font-family="Inter,sans-serif" font-size="10" fill="#FF5B7A">Breaking point</text>
             </svg>
           </div>
         </div>
@@ -452,14 +454,12 @@
               <circle cx="240" cy="200" r="60" fill="none" stroke="url(#aurora-grad-13)" stroke-width="2"/>
               <text x="240" y="194" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="700">AI</text>
               <text x="240" y="211" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" fill="#ECEAE3" font-weight="700">COPILOT</text>
-              <!-- Orbit ring -->
-              <circle cx="240" cy="200" r="145" fill="none" stroke="#1F2638" stroke-width="1" stroke-dasharray="4,6"/>
-              <!-- Flow arcs (clockwise) -->
-              <path d="M272,60 A145,145 0 0 1 372,137" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
-              <path d="M385,190 A145,145 0 0 1 345,295" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
-              <path d="M295,335 A145,145 0 0 1 185,335" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
-              <path d="M136,294 A145,145 0 0 1 96,190" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
-              <path d="M109,137 A145,145 0 0 1 210,60" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <!-- Flow arcs (clockwise) — endpoints land exactly on each node's edge (r34) so the arrowhead is always visible, never hidden inside the node or falling short -->
+              <path d="M273,59 A145,145 0 0 1 366,127" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M385,191 A145,145 0 0 1 357,286" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M306,329 A145,145 0 0 1 174,329" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M123,286 A145,145 0 0 1 95,191" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
+              <path d="M115,127 A145,145 0 0 1 206,59" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" opacity="0.8" marker-end="url(#arrow-13)"/>
               <!-- Node 1: IDEA — top -->
               <circle cx="240" cy="55" r="34" fill="#131826" stroke="#1F2638" stroke-width="1.5"/>
               <circle cx="240" cy="47" r="11" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
@@ -540,14 +540,14 @@
             </div>
           </li>
         </ul>
-        <div class="info-card info-card--violet reveal" data-delay="6" style="display:flex; align-items:center; gap:1.4rem;">
+        <div class="info-card info-card--violet reveal" data-delay="6" style="display:flex; align-items:center; gap:1.4rem; margin-top:1.6rem;">
           <div style="text-align:center; min-width:120px;">
             <div class="mini-stat-number mini-stat-number--violet">1</div>
             <div class="info-card-label">PERSON</div>
           </div>
           <div class="info-card-label" style="font-size:36px;">=</div>
           <div style="text-align:center; min-width:120px;">
-            <div class="mini-stat-number" style="text-decoration:line-through; opacity:0.5;">4–5</div>
+            <div class="mini-stat-number mini-stat-number--struck">4–5</div>
             <div class="info-card-label">FULL TEAM</div>
           </div>
           <p class="info-card-text" style="flex:1;">Ideating, developing, testing, deploying, and validating used to require an entire team. Today, one person with AI can handle the full cycle.</p>
@@ -579,8 +579,8 @@
           <li class="reveal" data-delay="1">
             <span class="bullet-num">01</span>
             <div>
-              <h3 class="h3">Pieter Levels — $3M/year solo, with AI</h3>
-              <p>Built Photo AI, Nomad List, and Remote OK as an indie hacker. Publicly documented how he uses AI to build and maintain his products without a technical team. <a href="https://x.com/levelsio" class="link-aurora">@levelsio on X</a></p>
+              <h3 class="h3">Midjourney — a lean team, hundreds of millions in revenue</h3>
+              <p>About 40 people, no outside funding, generating hundreds of millions in annual revenue with AI-made images. Proof that a tiny team can outcompete organizations ten times its size. <a href="https://midjourney.com" class="link-aurora">midjourney.com</a></p>
             </div>
           </li>
           <li class="reveal" data-delay="2">

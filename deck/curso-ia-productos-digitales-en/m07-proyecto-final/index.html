@@ -83,40 +83,50 @@
                 <stop offset="0%" stop-color="#7B4DFF"/>
                 <stop offset="100%" stop-color="#00D4FF"/>
               </linearGradient>
-              <marker id="m07-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L8,3 z" fill="url(#m07-lineGrad)" opacity="0.8"/>
+              <marker id="m07-arrow" markerWidth="13" markerHeight="13" refX="9" refY="6" orient="auto">
+                <path d="M0,0 L0,10 L13,5 z" fill="url(#m07-lineGrad)" opacity="0.8"/>
               </marker>
             </defs>
             <!-- Connecting arrows between nodes -->
-            <line x1="82" y1="70" x2="138" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
-            <line x1="196" y1="70" x2="252" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
-            <line x1="310" y1="70" x2="366" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
-            <line x1="424" y1="70" x2="480" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <line x1="86" y1="70" x2="134" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2.5" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <line x1="194" y1="70" x2="248" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2.5" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <line x1="308" y1="70" x2="362" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2.5" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
+            <line x1="422" y1="70" x2="474" y2="70" stroke="url(#m07-lineGrad)" stroke-width="2.5" stroke-opacity="0.6" marker-end="url(#m07-arrow)"/>
             <!-- Node 1: IDEA -->
-            <circle cx="60" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
-            <circle cx="60" cy="65" r="9" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
-            <line x1="56" y1="76" x2="64" y2="76" stroke="#ECEAE3" stroke-width="1.5"/>
-            <line x1="58" y1="80" x2="62" y2="80" stroke="#ECEAE3" stroke-width="1"/>
+            <circle cx="60" cy="70" r="32" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <g transform="translate(60,70) scale(1.15) translate(-60,-70)">
+              <circle cx="60" cy="65" r="9" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <line x1="56" y1="76" x2="64" y2="76" stroke="#ECEAE3" stroke-width="1.5"/>
+              <line x1="58" y1="80" x2="62" y2="80" stroke="#ECEAE3" stroke-width="1"/>
+            </g>
             <text x="60" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.1em">IDEA</text>
             <!-- Node 2: DESIGN -->
-            <circle cx="168" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
-            <rect x="156" y="61" width="24" height="18" rx="2" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
-            <line x1="156" y1="67" x2="180" y2="67" stroke="#ECEAE3" stroke-width="1"/>
-            <line x1="165" y1="67" x2="165" y2="79" stroke="#ECEAE3" stroke-width="1"/>
+            <circle cx="168" cy="70" r="32" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <g transform="translate(168,70) scale(1.15) translate(-168,-70)">
+              <rect x="156" y="61" width="24" height="18" rx="2" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+              <line x1="156" y1="67" x2="180" y2="67" stroke="#ECEAE3" stroke-width="1"/>
+              <line x1="165" y1="67" x2="165" y2="79" stroke="#ECEAE3" stroke-width="1"/>
+            </g>
             <text x="168" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.1em">DESIGN</text>
             <!-- Node 3: BUILD -->
-            <circle cx="282" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
-            <text x="282" y="75" text-anchor="middle" fill="#ECEAE3" font-family="JetBrains Mono, monospace" font-size="13">&lt;/&gt;</text>
+            <circle cx="282" cy="70" r="32" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <g transform="translate(282,70) scale(1.15) translate(-282,-70)">
+              <text x="282" y="75" text-anchor="middle" fill="#ECEAE3" font-family="JetBrains Mono, monospace" font-size="13">&lt;/&gt;</text>
+            </g>
             <text x="282" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.1em">BUILD</text>
             <!-- Node 4: VALIDATION -->
-            <circle cx="396" cy="70" r="28" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
-            <path d="M384 70 L393 79 L410 60" fill="none" stroke="#ECEAE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="396" cy="70" r="32" fill="#131826" stroke="url(#m07-nodeGrad)" stroke-width="2"/>
+            <g transform="translate(396,70) scale(1.15) translate(-396,-70)">
+              <path d="M384 70 L393 79 L410 60" fill="none" stroke="#ECEAE3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
             <text x="396" y="118" text-anchor="middle" fill="#8B8D98" font-family="Inter, sans-serif" font-size="11" letter-spacing="0.1em">VALIDATION</text>
             <!-- Node 5: DEPLOYMENT — amber halo -->
-            <circle cx="512" cy="70" r="32" fill="rgba(255,182,39,0.08)" stroke="#FFB627" stroke-width="2"/>
-            <circle cx="512" cy="70" r="28" fill="#131826" stroke="#FFB627" stroke-width="2"/>
-            <path d="M512 83 L508 78 L508 67 Q512 58 516 67 L516 78 Z" fill="none" stroke="#FFB627" stroke-width="1.5"/>
-            <circle cx="512" cy="70" r="3" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+            <circle cx="512" cy="70" r="36" fill="rgba(255,182,39,0.08)" stroke="#FFB627" stroke-width="2"/>
+            <circle cx="512" cy="70" r="32" fill="#131826" stroke="#FFB627" stroke-width="2"/>
+            <g transform="translate(512,70) scale(1.15) translate(-512,-70)">
+              <path d="M512 83 L508 78 L508 67 Q512 58 516 67 L516 78 Z" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+              <circle cx="512" cy="70" r="3" fill="none" stroke="#FFB627" stroke-width="1.5"/>
+            </g>
             <text x="512" y="118" text-anchor="middle" fill="#FFB627" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="0.1em">DEPLOYMENT</text>
             <!-- Completed badge -->
             <rect x="460" y="138" width="108" height="22" rx="11" fill="rgba(255,182,39,0.15)" stroke="#FFB627" stroke-width="1"/>
@@ -249,7 +259,7 @@
         <span class="caption"><span class="caption-dot"></span>CLASSWORK</span>
         <h2 class="display-l">Now it's <span class="text-aurora">your turn</span></h2>
         <p class="lead">Time to write your report with Claude's help. The instructor is available for questions.</p>
-        <ol class="timeline timeline--3" style="margin-top:2.5rem; text-align:left; max-width:680px;">
+        <ol class="timeline timeline--3" style="margin-top:2.5rem; text-align:left;">
           <li class="timeline-step reveal" data-delay="1">
             <span class="timeline-marker">1</span>
             <h3 class="h3">Open your project</h3>
@@ -277,7 +287,7 @@
           <p class="quote-text">You didn't learn to code. You learned something harder and more valuable: how to define what to build, for whom, and why. Code is an implementation detail. <span class="text-aurora">The bridge between business and software is the differentiating skill</span> of the years ahead.</p>
           <div class="quote-attribution">
             <strong>Marcos Cobo</strong>
-            <span>Course instructor &middot; CIC 2026</span>
+            <span>Course instructor &middot; 2026</span>
           </div>
         </div>
       </section>
@@ -334,47 +344,7 @@
         <p class="stat-context">This isn't the future. It's the present. And most of those postings don't ask for coding skills: they ask for product judgment paired with AI fluency.</p>
       </section>
 
-      <!-- 13 — content: cuatro caminos -->
-      <section class="slide" data-layout="content">
-        <span class="caption"><span class="caption-dot"></span>PROFESSIONAL OPPORTUNITIES</span>
-        <h2 class="h1">Four paths for the <span class="text-aurora">AI Product Developer</span></h2>
-        <div class="emphasis-line"></div>
-        <div class="content-text">
-          <p class="lead">The profile you've built has immediate application in four distinct contexts.</p>
-        </div>
-        <div class="diagram-grid" style="margin-top: 1.5rem;">
-          <div class="diagram-block reveal" data-delay="1">
-            <span class="col-label col-label--amber">
-              <svg width="16" height="16" viewBox="0 0 32 32" stroke="var(--violet)" stroke-width="1.5" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M16 2C16 2 24 10 24 18C24 24 20 28 16 28C12 28 8 24 8 18C8 10 16 2 16 2Z"/><circle cx="16" cy="18" r="4"/><path d="M8 24L4 28"/><path d="M24 24L28 28"/></svg>
-              ENTREPRENEURSHIP
-            </span>
-            <p>Validate ideas in days. Launch MVPs before investing in infrastructure.</p>
-          </div>
-          <div class="diagram-block reveal" data-delay="2">
-            <span class="col-label col-label--amber">
-              <svg width="16" height="16" viewBox="0 0 32 32" stroke="var(--violet)" stroke-width="1.5" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="4" y="10" width="24" height="18" rx="2"/><path d="M10 10V7C10 5.9 10.9 5 12 5H20C21.1 5 22 5.9 22 7V10"/><line x1="4" y1="19" x2="28" y2="19"/></svg>
-              CAREER
-            </span>
-            <p>One of the most in-demand profiles in 2026. Complements any role with a differentiating technical edge.</p>
-          </div>
-          <div class="diagram-block reveal" data-delay="3">
-            <span class="col-label col-label--amber">
-              <svg width="16" height="16" viewBox="0 0 32 32" stroke="var(--violet)" stroke-width="1.5" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="4" y="2" width="24" height="28" rx="1"/><line x1="4" y1="30" x2="28" y2="30"/><rect x="10" y="8" width="5" height="5"/><rect x="17" y="8" width="5" height="5"/><rect x="10" y="16" width="5" height="5"/><rect x="17" y="16" width="5" height="5"/><rect x="13" y="24" width="6" height="6"/></svg>
-              ENTERPRISE
-            </span>
-            <p>Automate internal processes. Propose projects that were previously blocked by a lack of engineering resources.</p>
-          </div>
-          <div class="diagram-block reveal" data-delay="4">
-            <span class="col-label col-label--amber">
-              <svg width="16" height="16" viewBox="0 0 32 32" stroke="var(--violet)" stroke-width="1.5" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:middle;margin-right:6px;"><polygon points="16,2 20,11 30,12 22,20 24,30 16,25 8,30 10,20 2,12 12,11"/></svg>
-              FREELANCE / CONSULTING
-            </span>
-            <p>Help organizations build their first digital products with AI.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 14 — section: capítulo 03 -->
+      <!-- 13 — section: capítulo 03 -->
       <section class="slide slide--center" data-layout="section">
         <span class="caption"><span class="caption-dot"></span>CHAPTER 03</span>
         <h2 class="display-l text-aurora">Keep learning</h2>
@@ -382,51 +352,7 @@
         <div class="shape shape--circle-sm" style="top: 64%; left: 71%;" data-parallax="0.36"></div>
       </section>
 
-      <!-- 15 — bullets: recursos para seguir -->
-      <section class="slide" data-layout="bullets">
-        <span class="caption"><span class="caption-dot"></span>RESOURCES TO KEEP GOING</span>
-        <h2 class="h1">Five <span class="text-aurora">reference</span> categories</h2>
-        <div class="emphasis-line"></div>
-        <ul class="bullet-list">
-          <li class="reveal" data-delay="1">
-            <span class="bullet-num">01</span>
-            <div>
-              <h3 class="h3">Official documentation</h3>
-              <p>Claude Code Docs (docs.anthropic.com/claude-code), Docker Getting Started, Railway Docs. Always up to date.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="2">
-            <span class="bullet-num">02</span>
-            <div>
-              <h3 class="h3">Communities</h3>
-              <p>Anthropic Discord, r/ClaudeAI, AI Builder Slack communities. Where to ask questions and share real projects.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="3">
-            <span class="bullet-num">03</span>
-            <div>
-              <h3 class="h3">Newsletters</h3>
-              <p>The Rundown AI, TLDR AI, Ben's Bites. Industry updates without spending hours on it.</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="4">
-            <span class="bullet-num">04</span>
-            <div>
-              <h3 class="h3">Key books</h3>
-              <p>The Lean Startup (Eric Ries), Shape Up (Basecamp), Prompt Engineering Guide (dair-ai.github.io).</p>
-            </div>
-          </li>
-          <li class="reveal" data-delay="5">
-            <span class="bullet-num">05</span>
-            <div>
-              <h3 class="h3">The best practice</h3>
-              <p>Build a new project every 3-6 months with whatever tools are current at the time. Use AI to learn by doing, not just to get things done.</p>
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <!-- 16 — content: hoja de ruta / progresión -->
+      <!-- 14 — content: hoja de ruta / progresión -->
       <section class="slide" data-layout="content">
         <span class="caption"><span class="caption-dot"></span>ROADMAP</span>
         <h2 class="h1">The <span class="text-aurora">progression</span> map</h2>
@@ -471,7 +397,7 @@
         </div>
       </section>
 
-      <!-- 17 — split: antes y después del curso -->
+      <!-- 15 — split: antes y después del curso -->
       <section class="slide" data-layout="split">
         <span class="caption"><span class="caption-dot"></span>BEFORE AND AFTER THE COURSE</span>
         <h2 class="h1">What changed in <span class="text-aurora">you</span></h2>
@@ -502,7 +428,7 @@
         </div>
       </section>
 
-      <!-- 18 — closing -->
+      <!-- 16 — closing -->
       <section class="slide slide--center" data-layout="closing">
         <span class="caption"><span class="caption-dot"></span>END OF THE COURSE</span>
         <h2 class="display-l">

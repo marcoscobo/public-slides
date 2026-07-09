@@ -25,40 +25,55 @@ Esta es la demo más "operativa" del curso: no es solo mirar, es que la clase in
 ## Guion paso a paso (versión completa, 45 min)
 
 ### Paso 1 — Docker (10 min)
+
 **Decir:** "Empezamos por la base: sin Docker no hay entorno reproducible."
 **Hacer:** abre Docker Desktop ya instalado, muestra el icono en la barra de tareas/menú, ejecuta en terminal:
+
 ```bash
 docker --version
 docker run hello-world
 ```
+
 Señala la salida "Hello from Docker!" como prueba de que el motor funciona.
 
 ### Paso 2 — VS Code (5 min)
+
 **Decir:** "Aquí podéis usar el editor que queráis, yo uso VS Code porque tiene la mejor integración con extensiones de IA."
 **Hacer:** abre VS Code, muestra brevemente la extensión de Claude Code o Antigravity ya instalada en la barra lateral.
 
 ### Paso 3 — Agente de IA (5 min)
+
 **Decir:** "Ahora el agente. Os lo enseño con Claude Code; si no tenéis licencia de pago, el mismo flujo es idéntico con Antigravity."
 **Hacer:** abre una terminal integrada en VS Code dentro de una carpeta nueva `demo-hola-mundo/` y ejecuta:
+
 ```bash
 claude
 ```
+
 Confirma que arranca la sesión interactiva.
 
 ### Paso 4 — Primera web en Docker (15 min)
+
 **Decir:** "Ahora le vamos a pedir que monte un 'Hola mundo' con Node.js y lo meta en un contenedor."
 **Hacer:** escribe literalmente en Claude Code:
+
 ```
-Crea una aplicación web simple con Node.js y Express que muestre "Hola mundo" en el puerto 3000. Incluye un Dockerfile para poder ejecutarla en un contenedor.
+Crea una aplicación web simple con Node.js y Express que muestre "Hola mundo" en el puerto 3000.
+Incluye un Dockerfile para poder ejecutarla en un contenedor.
+Ademas dime los comandos necesarios para desplegar el contenedor cuando este listo.
 ```
+
 Cuando termine:
+
 ```bash
 docker build -t demo-hola-mundo .
 docker run -p 3000:3000 demo-hola-mundo
 ```
+
 Abre `localhost:3000` en el navegador y muestra el "Hola mundo" en vivo. Este es el momento "wow" de la demo — dale un segundo de silencio para que se note.
 
 ### Paso 5 — Repetir con Antigravity (10 min, solo versión completa)
+
 **Decir:** "Y ahora, exactamente el mismo resultado, para quien use la capa gratuita de Google."
 **Hacer:** repite el paso 4 con Antigravity sobre una carpeta distinta (`demo-hola-mundo-antigravity/`) usando el mismo prompt literal, para que la comparación sea limpia.
 
@@ -66,14 +81,14 @@ Abre `localhost:3000` en el navegador y muestra el "Hola mundo" en vivo. Este es
 
 ## Versión corta (25 min) — recorta aquí si vas justo de tiempo
 
-| Bloque | Minutos |
-|---|---|
-| Docker (`hello-world`) | 3 min |
-| VS Code (solo mostrar, sin detenerte) | 2 min |
-| Agente de IA + prompt de la web | 12 min |
-| Ver el resultado en `localhost:3000` | 3 min |
-| Antigravity | ❌ se omite — di: "el mismo flujo, letra por letra, funciona con Antigravity, lo veréis en las instrucciones escritas" | — |
-| Cierre | 5 min |
+| Bloque                                | Minutos                                                                                                                  |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Docker (`hello-world`)              | 3 min                                                                                                                    |
+| VS Code (solo mostrar, sin detenerte) | 2 min                                                                                                                    |
+| Agente de IA + prompt de la web       | 12 min                                                                                                                   |
+| Ver el resultado en`localhost:3000` | 3 min                                                                                                                    |
+| Antigravity                           | ❌ se omite — di: "el mismo flujo, letra por letra, funciona con Antigravity, lo veréis en las instrucciones escritas" |
+| Cierre                                | 5 min                                                                                                                    |
 
 La clave de la versión corta es **no repetir el flujo completo dos veces**: haces todo con Claude Code y solo mencionas que Antigravity sigue exactamente los mismos pasos (ya lo tienen por escrito en las slides de instalación 20-22).
 
