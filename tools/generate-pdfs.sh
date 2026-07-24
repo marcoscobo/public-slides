@@ -110,6 +110,23 @@ fi
 cleanup() { [[ -n "${server_pid:-}" ]] && kill "$server_pid" 2>/dev/null || true; }
 trap cleanup EXIT
 
+# ── nombre de salida en inglés para decks "-en" ────────────────────────────────
+# Las carpetas de módulo se comparten entre ES/EN (mismo nombre de carpeta, ver
+# deck/CLAUDE.md), así que el PDF de un curso "-en" saldría con el slug en
+# español si se usa tal cual. Esto solo traduce el nombre del archivo de
+# salida; la carpeta real y la URL servida no cambian.
+translate_module_name() {
+  case "$1" in
+    m01-introduccion)   echo "m01-introduction" ;;
+    m02-entorno)        echo "m02-environment" ;;
+    m03-colaboracion)   echo "m03-collaboration" ;;
+    m04-entorno-ia)     echo "m04-ai-environment" ;;
+    m06-despliegue)     echo "m06-deployment" ;;
+    m07-proyecto-final) echo "m07-final-project" ;;
+    *)                  echo "$1" ;;
+  esac
+}
+
 # ── generar PDFs ───────────────────────────────────────────────────────────────
 out_dir="$PDF_DIR/$selected"
 mkdir -p "$out_dir"
@@ -122,12 +139,17 @@ echo ""
 for module_path in "${module_paths[@]}"; do
   module=$(basename "$module_path")
   url="http://localhost:$PORT/deck/$selected/$module/?export=1"
-  out="$out_dir/$module.pdf"
+
+  out_name="$module"
+  if [[ "$selected" == *-en ]]; then
+    out_name=$(translate_module_name "$module")
+  fi
+  out="$out_dir/$out_name.pdf"
 
   # Contar slides reales para que decktape no cicle indefinidamente
   slide_count=$(grep -c '<section class="slide' "$module_path/index.html" 2>/dev/null || echo 60)
 
-  printf "   %-44s" "$module"
+  printf "   %-44s" "$out_name"
 
   if PUPPETEER_EXECUTABLE_PATH="$chrome" \
      npx --yes decktape@3 generic \

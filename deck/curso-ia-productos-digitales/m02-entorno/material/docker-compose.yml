@@ -1,0 +1,12 @@
+# Spins up the same Node.js + Express "Hello world" built in the Module 02
+# demo, ready for development with volume-mounted live reload.
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+      - /app/node_modules

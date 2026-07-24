@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- ============================================================
+     EDITABLE SOURCE — Course session plan (slide identity)
+     · Change any text / date directly in the <tbody> below.
+     · Colours & fonts live in the :root block.
+     · Regenerate the PDF with:  python3 -m weasyprint sesiones_curso.html sesiones_curso.pdf
+     ============================================================ -->
+<style>
+:root{
+  /* --- Slide palette (from assets/css/aurora.css) --- */
+  --ink:#0B0F1A; --ink-soft:#131826; --ink-line:#1F2638;
+  --text:#ECEAE3; --text-muted:#8B8D98;
+  --violet:#7B4DFF; --cyan:#00D4FF;
+  --ff-display:'DejaVu Sans','Liberation Sans',sans-serif;
+  --ff-body:'DejaVu Sans','Liberation Sans',sans-serif;
+  --ff-mono:'DejaVu Sans Mono','Liberation Mono',monospace;
+}
+@page{ size:A4 landscape; margin:0; }
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ background:var(--ink); color:var(--text); font-family:var(--ff-body); }
+.slide{
+  position:relative; width:297mm; height:210mm; padding:10mm 16mm 10mm;
+  background:
+    radial-gradient(60% 90% at 88% 6%, rgba(0,212,255,0.10) 0%, rgba(0,212,255,0) 60%),
+    radial-gradient(70% 100% at 3% 100%, rgba(123,77,255,0.14) 0%, rgba(123,77,255,0) 55%),
+    var(--ink);
+  overflow:hidden;
+}
+.arc{ position:absolute; border:1px solid rgba(123,77,255,0.22); border-radius:50%; }
+.a1{ width:520px;height:520px; top:-250px; left:-170px; }
+.a2{ width:760px;height:760px; top:-370px; left:-290px; }
+.eyebrow{
+  font-family:var(--ff-mono); font-size:12px; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--text-muted); display:flex; align-items:center; gap:12px; margin-bottom:12px;
+}
+.eyebrow .dot{ width:9px;height:9px;border-radius:50%; background:var(--violet); }
+h1{ font-family:var(--ff-display); font-weight:700; font-size:40px; letter-spacing:-1.5px; line-height:1.02; }
+h1 .grad{ color:var(--cyan); }
+.rule{ height:3px; width:104px; margin:11px 0 7px; background:linear-gradient(135deg,#7B4DFF 0%,#00D4FF 100%); border-radius:3px; }
+.lead{ color:var(--text-muted); font-size:14px; max-width:90ch; margin-bottom:11px; }
+
+table{ width:100%; border-collapse:collapse; }
+thead th{
+  font-family:var(--ff-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--text-muted); text-align:left; padding:8px 12px; border-bottom:1px solid var(--ink-line);
+}
+tbody td{ padding:4.5px 12px; border-bottom:1px solid var(--ink-line); vertical-align:middle; }
+tbody tr:nth-child(even){ background:rgba(255,255,255,0.018); }
+.num{ font-family:var(--ff-mono); font-weight:500; font-size:17px; color:var(--cyan); width:52px; }
+.date{ font-family:var(--ff-mono); font-size:12.5px; color:var(--text); white-space:nowrap; width:120px; }
+.date .dur{ display:block; color:var(--text-muted); font-size:10.5px; letter-spacing:.06em; margin-top:2px; }
+.mod{ font-family:var(--ff-display); font-weight:600; font-size:14px; color:var(--text); width:300px; white-space:nowrap; }
+.mod .tag{ display:block; font-family:var(--ff-mono); font-weight:400; font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--violet); margin-top:2px; }
+.focus{ color:var(--text-muted); font-size:13px; line-height:1.38; }
+
+/* Preparation-week divider */
+.divider td{ padding:7px 12px; border-bottom:1px solid var(--ink-line);
+  border-top:1px dashed rgba(123,77,255,.45); background:rgba(123,77,255,.05); }
+.divider .lbl{ font-family:var(--ff-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#B9A6FF; }
+.divider .sub{ color:var(--text-muted); font-size:12px; }
+
+/* Detached final session (defense) */
+tr.defense td{ background:rgba(123,77,255,.10); border-bottom:1px solid rgba(123,77,255,.35); }
+tr.defense .num{ color:var(--violet); }
+.pill{ display:inline-block; padding:2px 10px; border:1px solid rgba(123,77,255,.6); border-radius:999px;
+  color:#B9A6FF; font-family:var(--ff-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; }
+
+.footer{ position:absolute; bottom:5mm; left:16mm; right:16mm; display:flex; justify-content:space-between;
+  font-family:var(--ff-mono); font-size:11px; color:var(--text-muted); letter-spacing:.1em; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="arc a2"></div><div class="arc a1"></div>
+  <div class="eyebrow"><span class="dot"></span>Course schedule · 2026</div>
+  <h1>Session <span class="grad">plan</span>.</h1>
+  <div class="rule"></div>
+  <p class="lead">Ten 2-hour sessions, 26 Oct – 13 Nov 2026. The final defense runs a week later, after a preparation week to build the projects.</p>
+
+  <!-- ============ EDIT SESSIONS BELOW ============ -->
+  <table>
+    <thead>
+      <tr>
+        <th style="width:52px">Session</th>
+        <th style="width:120px">Date</th>
+        <th style="width:300px">Module</th>
+        <th>Focus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num">01</td>
+        <td class="date">Mon 26 Oct<span class="dur">2 hours</span></td>
+        <td class="mod">Introduction<span class="tag">Module 1</span></td>
+        <td class="focus">Why now, what generative AI really is, the digital-product lifecycle and the AI Product Developer mindset.</td>
+      </tr>
+      <tr>
+        <td class="num">02</td>
+        <td class="date">Tue 27 Oct<span class="dur">2 hours</span></td>
+        <td class="mod">Development Environment I<span class="tag">Module 2</span></td>
+        <td class="focus">The environment as code: Docker and VS Code — installing and understanding the base stack.</td>
+      </tr>
+      <tr>
+        <td class="num">03</td>
+        <td class="date">Wed 28 Oct<span class="dur">2 hours</span></td>
+        <td class="mod">Development Environment II<span class="tag">Module 2</span></td>
+        <td class="focus">AI CLIs (Claude / Antigravity), environment variables and secrets, and your first running web app.</td>
+      </tr>
+      <tr>
+        <td class="num">04</td>
+        <td class="date">Thu 29 Oct<span class="dur">2 hours</span></td>
+        <td class="mod">Git &amp; GitHub<span class="tag">Module 3</span></td>
+        <td class="focus">Version control as your safety net: the core commands, the daily workflow and pushing to GitHub.</td>
+      </tr>
+      <tr>
+        <td class="num">05</td>
+        <td class="date">Fri 30 Oct<span class="dur">2 hours</span></td>
+        <td class="mod">Project Organization<span class="tag">Module 3</span></td>
+        <td class="focus">Structuring a project that scales: README, .gitignore, conventions and what never reaches GitHub.</td>
+      </tr>
+      <tr>
+        <td class="num">06</td>
+        <td class="date">Mon 2 Nov<span class="dur">2 hours</span></td>
+        <td class="mod">Optimized AI Environment I<span class="tag">Module 4</span></td>
+        <td class="focus">Making the project reproducible and AI-ready: DevContainers and a strong CLAUDE.md.</td>
+      </tr>
+      <tr>
+        <td class="num">07</td>
+        <td class="date">Tue 3 Nov<span class="dur">2 hours</span></td>
+        <td class="mod">Optimized AI Environment II<span class="tag">Module 4</span></td>
+        <td class="focus">Specialized agents, skills as one-command workflows and writing prompts that actually work.</td>
+      </tr>
+      <tr>
+        <td class="num">08</td>
+        <td class="date">Wed 4 Nov<span class="dur">2 hours</span></td>
+        <td class="mod">Design &amp; MVP<span class="tag">Module 5</span></td>
+        <td class="focus">Defining scope, the iterative cycle and building a real MVP with AI — with a live build.</td>
+      </tr>
+      <tr>
+        <td class="num">09</td>
+        <td class="date">Thu 5 Nov<span class="dur">2 hours</span></td>
+        <td class="mod">Deployment &amp; Project Kickoff<span class="tag">Module 6 + 7</span></td>
+        <td class="focus">Ship to a public URL: platforms, CI/CD, monitoring and security. Final project briefed at the end.</td>
+      </tr>
+
+      <tr class="divider">
+        <td></td>
+        <td class="lbl">9 – 12 Nov</td>
+        <td class="lbl">Preparation week</td>
+        <td class="sub">No sessions — students build their final projects.</td>
+      </tr>
+
+      <tr class="defense">
+        <td class="num">10</td>
+        <td class="date">Fri 13 Nov<span class="dur">2 hours</span></td>
+        <td class="mod">Final Project Defense <span class="pill">Defense</span><span class="tag">Module 7</span></td>
+        <td class="focus">Students present and defend their product and the process followed with AI.</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- ============ END SESSIONS ============ -->
+
+  <div class="footer"><span>Building Digital Products with Generative AI</span><span>EUNICE</span></div>
+</div>
+</body>
+</html>

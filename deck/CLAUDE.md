@@ -121,6 +121,10 @@ Si se traduce un curso nuevo:
 
 Cada módulo con una o más slides `DEMO EN VIVO` tiene un guion en markdown para el profesor en `<modulo>/guiones/<slug>.md` (qué decir, qué hacer, tiempos por bloque, versión corta/completa, plan si algo falla). Índice completo en `curso-ia-productos-digitales/GUIONES.md`. Si añades o cambias una demo, actualiza también su guion — no dejes que la slide y el guion diverjan.
 
+## Material para Moodle
+
+Los módulos que tienen una plantilla descargable para el alumnado (además del PDF de las slides) la guardan en `<modulo>/material/` junto a `guiones/`, con los archivos listos para copiar tal cual (README.md, .gitignore, CLAUDE.md, devcontainer.json, agentes/skills de ejemplo, plantillas de MVP y de memoria de proyecto). Índice completo en `curso-ia-productos-digitales/MATERIAL.md`. Es contenido solo en español (como `guiones/`, no se traduce a `-en`) y debe mantenerse alineado con el proyecto de ejemplo de las demos en vivo (`hola-mundo-express`, el MVP del Módulo 05) — si cambia el proyecto de ejemplo en un guion, revisa si la plantilla correspondiente sigue siendo coherente.
+
 ## Reglas duras (no negociables)
 
 1. **NUNCA inventar un estilo nuevo.** Si AURORA no cubre algo, extender los tokens en `aurora.css` en lugar de inline styles ad-hoc.

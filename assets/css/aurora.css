@@ -1617,8 +1617,16 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 /* El box-shadow con blur sobre un círculo de 8px se rasteriza como un
    cuadrado sólido en el mismo pipeline de PDF; sin blur, el border-radius
    se compone correctamente. */
-.is-exporting .caption-dot {
+.is-exporting .caption-dot,
+.is-exporting .interactive-cta::before {
   box-shadow: none;
+}
+
+/* La slide de cierre enlaza al siguiente módulo o al índice del curso; cada
+   PDF se exporta como documento independiente, así que esos enlaces no
+   tienen destino y no deben aparecer en el documento final. */
+.is-exporting [data-layout="closing"] .cta-row {
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -1679,6 +1687,11 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 
   /* Controles de presentación en vivo, sin sentido en un documento estático */
   .deck-nav, .progress-bar, .overview { display: none !important; }
+
+  /* Cada módulo se imprime como documento independiente: los enlaces de la
+     slide de cierre a "siguiente módulo" o "volver al índice" no tienen
+     destino en un PDF suelto. */
+  [data-layout="closing"] .cta-row { display: none !important; }
 
   /* El contenido debe imprimirse ya resuelto, no a medio animar */
   .reveal, .slide > * {
