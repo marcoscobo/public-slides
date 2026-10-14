@@ -1395,6 +1395,9 @@ p { margin: 0 0 var(--space-3); max-width: 64ch; }
 .prompt-box--amber { color: var(--amber); }
 /* Separación cuando .prompt-box sigue a una lista de pasos dentro de la misma card. */
 .info-card-list + .prompt-box { margin-top: var(--space-4); }
+/* Nota de cierre de una card tras su lista de pasos o su comando. */
+.info-card-list + .info-card-text,
+.prompt-box + .info-card-text { margin-top: var(--space-3); }
 
 /* Variantes de color sobre .col-label (etiqueta pequeña en mayúsculas) para
    marcar pasos/columnas sin duplicar tamaño ni letter-spacing. */

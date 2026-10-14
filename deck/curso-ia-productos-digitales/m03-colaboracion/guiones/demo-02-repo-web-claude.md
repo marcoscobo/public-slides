@@ -27,8 +27,8 @@
 ```bash
 mkdir hola-mundo-express && cd hola-mundo-express
 git init
-claude
 ```
+Abre la carpeta `hola-mundo-express/` en la pestaña **Code** de la app de Claude (o en el IDE de Antigravity).
 Prompt literal a Claude:
 ```
 Prepara el repo completo para un proyecto llamado "hola-mundo-express". Necesito: README.md describiendo el proyecto, .gitignore para Node.js, y la estructura de carpetas inicial. El proyecto será: "Crea una aplicación web simple con Node.js y Express que muestre 'Hola mundo' en el puerto 3000. Incluye un Dockerfile."

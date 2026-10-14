@@ -243,19 +243,19 @@
               <text x="238" y="152" font-family="JetBrains Mono, monospace" font-size="11" fill="#C6FF3D">.env.local</text>
 
               <!-- .env.example label -->
-              <rect x="4" y="176" width="432" height="60" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
+              <rect x="4" y="176" width="432" height="72" rx="10" fill="#131826" stroke="#1F2638" stroke-width="1"/>
               <text x="20" y="198" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98"># .env.example — commit this (without real values)</text>
-              <text x="20" y="218" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">OPENAI_KEY=</text>
-              <text x="126" y="218" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">your_key_here</text>
-              <text x="20" y="230" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">DATABASE_URL=</text>
-              <text x="140" y="230" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">postgresql://...</text>
+              <text x="20" y="221" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">OPENAI_KEY=</text>
+              <text x="140" y="221" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">your_key_here</text>
+              <text x="20" y="239" font-family="JetBrains Mono, monospace" font-size="11" fill="#7B4DFF">DATABASE_URL=</text>
+              <text x="140" y="239" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B8D98">postgresql://...</text>
 
               <!-- Vercel Dashboard note -->
-              <rect x="4" y="252" width="432" height="80" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1.5"/>
-              <text x="20" y="274" font-family="Space Grotesk, sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">Vercel Dashboard</text>
-              <text x="20" y="294" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">Settings → Environment Variables → Add Variable</text>
-              <text x="20" y="314" font-family="JetBrains Mono, monospace" font-size="10" fill="#ECEAE3">OPENAI_KEY  →  sk-real-secret-value</text>
-              <text x="330" y="314" font-family="JetBrains Mono, monospace" font-size="9" fill="#C6FF3D">encrypted ✓</text>
+              <rect x="4" y="262" width="432" height="74" rx="10" fill="#131826" stroke="#7B4DFF" stroke-width="1.5"/>
+              <text x="20" y="282" font-family="Space Grotesk, sans-serif" font-size="11" fill="#7B4DFF" font-weight="600">Vercel Dashboard</text>
+              <text x="20" y="302" font-family="JetBrains Mono, monospace" font-size="10" fill="#8B8D98">Settings → Environment Variables → Add Variable</text>
+              <text x="20" y="322" font-family="JetBrains Mono, monospace" font-size="10" fill="#ECEAE3">OPENAI_KEY  →  sk-real-secret-value</text>
+              <text x="330" y="322" font-family="JetBrains Mono, monospace" font-size="9" fill="#C6FF3D">encrypted ✓</text>
             </svg>
           </div>
         </div>
@@ -755,41 +755,49 @@
 
               <!-- Nodo 1: FEEDBACK (top, 200,80) — speech-bubble icon (compact, clears the label below) -->
               <circle cx="200" cy="80" r="46" fill="rgba(123,77,255,0.2)" stroke="#7B4DFF" stroke-width="2"/>
-              <rect x="182" y="56" width="36" height="22" rx="6" fill="none" stroke="#7B4DFF" stroke-width="2"/>
-              <path d="M193 78 L189 87 L201 78" fill="none" stroke="#7B4DFF" stroke-width="2" stroke-linejoin="round"/>
-              <circle cx="193" cy="67" r="1.8" fill="#7B4DFF"/>
-              <circle cx="200" cy="67" r="1.8" fill="#7B4DFF"/>
-              <circle cx="207" cy="67" r="1.8" fill="#7B4DFF"/>
-              <text x="200" y="104" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">FEEDBACK</text>
-              <text x="200" y="113" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">real users</text>
+              <g transform="translate(0 -6)">
+                <rect x="182" y="56" width="36" height="22" rx="6" fill="none" stroke="#7B4DFF" stroke-width="2"/>
+                <path d="M193 78 L189 87 L201 78" fill="none" stroke="#7B4DFF" stroke-width="2" stroke-linejoin="round"/>
+                <circle cx="193" cy="67" r="1.8" fill="#7B4DFF"/>
+                <circle cx="200" cy="67" r="1.8" fill="#7B4DFF"/>
+                <circle cx="207" cy="67" r="1.8" fill="#7B4DFF"/>
+              </g>
+              <text x="200" y="98" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">FEEDBACK</text>
+              <text x="200" y="110" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">real users</text>
 
               <!-- Nodo 2: PROMPT (right, 320,200) -->
               <circle cx="320" cy="200" r="46" fill="#131826" stroke="#1F2638" stroke-width="2"/>
-              <rect x="308" y="188" width="24" height="24" rx="4" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
-              <rect x="313" y="193" width="14" height="14" rx="2" fill="none" stroke="#8B8D98" stroke-width="1"/>
-              <line x1="311" y1="192" x2="311" y2="186" stroke="#8B8D98" stroke-width="1.5"/>
-              <line x1="320" y1="192" x2="320" y2="186" stroke="#8B8D98" stroke-width="1.5"/>
-              <line x1="329" y1="192" x2="329" y2="186" stroke="#8B8D98" stroke-width="1.5"/>
-              <text x="320" y="224" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">PROMPT</text>
-              <text x="320" y="233" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">req. for AI</text>
+              <g transform="translate(0 -6)">
+                <rect x="308" y="188" width="24" height="24" rx="4" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+                <rect x="313" y="193" width="14" height="14" rx="2" fill="none" stroke="#8B8D98" stroke-width="1"/>
+                <line x1="311" y1="192" x2="311" y2="186" stroke="#8B8D98" stroke-width="1.5"/>
+                <line x1="320" y1="192" x2="320" y2="186" stroke="#8B8D98" stroke-width="1.5"/>
+                <line x1="329" y1="192" x2="329" y2="186" stroke="#8B8D98" stroke-width="1.5"/>
+              </g>
+              <text x="320" y="218" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">PROMPT</text>
+              <text x="320" y="230" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">req. for AI</text>
 
               <!-- Nodo 3: TEST (bottom, 200,320) -->
               <circle cx="200" cy="320" r="46" fill="#131826" stroke="#1F2638" stroke-width="2"/>
-              <path d="M194 296 L194 312 L186 326 L214 326 L206 312 L206 296" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
-              <line x1="194" y1="296" x2="206" y2="296" stroke="#8B8D98" stroke-width="1.5"/>
-              <circle cx="192" cy="320" r="2" fill="#00D4FF"/>
-              <circle cx="198" cy="322" r="2" fill="#00D4FF"/>
-              <text x="200" y="344" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">TEST</text>
-              <text x="200" y="353" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">test locally</text>
+              <g transform="translate(0 -6)">
+                <path d="M194 296 L194 312 L186 326 L214 326 L206 312 L206 296" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+                <line x1="194" y1="296" x2="206" y2="296" stroke="#8B8D98" stroke-width="1.5"/>
+                <circle cx="192" cy="320" r="2" fill="#00D4FF"/>
+                <circle cx="198" cy="322" r="2" fill="#00D4FF"/>
+              </g>
+              <text x="200" y="338" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">TEST</text>
+              <text x="200" y="350" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">test locally</text>
 
               <!-- Nodo 4: DEPLOY (left, 80,200) — compact rocket, clears the label below -->
               <circle cx="80" cy="200" r="46" fill="#131826" stroke="#1F2638" stroke-width="2"/>
-              <path d="M80 188 Q87 196 85 206 L75 206 Q73 196 80 188 Z" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linejoin="round"/>
-              <circle cx="80" cy="197" r="4" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
-              <path d="M75 204 L70 210 L76 208" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linejoin="round"/>
-              <path d="M85 204 L90 210 L84 208" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linejoin="round"/>
-              <text x="80" y="224" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">DEPLOY</text>
-              <text x="80" y="233" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#8B8D98">auto publish</text>
+              <g transform="translate(0 -6)">
+                <path d="M80 188 Q87 196 85 206 L75 206 Q73 196 80 188 Z" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="80" cy="197" r="4" fill="none" stroke="#8B8D98" stroke-width="1.5"/>
+                <path d="M75 204 L70 210 L76 208" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M85 204 L90 210 L84 208" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linejoin="round"/>
+              </g>
+              <text x="80" y="218" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" fill="#ECEAE3" font-weight="700">DEPLOY</text>
+              <text x="80" y="230" text-anchor="middle" font-family="Inter, sans-serif" font-size="8" fill="#8B8D98">auto publish</text>
             </svg>
           </div>
         </div>
@@ -849,7 +857,10 @@
 
               <!-- URL note -->
               <rect x="4" y="266" width="470" height="28" rx="6" fill="rgba(255,182,39,0.15)" stroke="rgba(255,182,39,0.3)" stroke-width="1"/>
-              <text x="239" y="284" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#FFB627">myapp.vercel.app</text>
+              <!-- Lock icon + URL, styled as a browser address bar -->
+              <rect x="18" y="279" width="10" height="8" rx="1.5" fill="none" stroke="#FFB627" stroke-width="1.4"/>
+              <path d="M20 279 v-3 a3 3 0 0 1 6 0 v3" fill="none" stroke="#FFB627" stroke-width="1.4"/>
+              <text x="36" y="285" font-family="JetBrains Mono, monospace" font-size="11" fill="#FFB627">https://myapp.vercel.app</text>
             </svg>
           </div>
         </div>
